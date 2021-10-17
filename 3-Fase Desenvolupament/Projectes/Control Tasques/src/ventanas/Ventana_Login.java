@@ -7,7 +7,10 @@ package ventanas;
 
 import java.sql.*;
 import clases.Conexio;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -23,7 +26,23 @@ public class Ventana_Login extends javax.swing.JFrame {
      */
     public Ventana_Login() {
         initComponents();        
-        this.setLocationRelativeTo(null);
+        
+        
+        ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");        
+        Close.setIcon(delete_logo);
+        this.repaint();
+        
+        ImageIcon max_logo = new ImageIcon("src/images/full_screen_32px.png");        
+        Max.setIcon(max_logo);
+        this.repaint();
+        
+        ImageIcon min_logo = new ImageIcon("src/images/icons8-compress-30.png");        
+        Min.setIcon(min_logo);
+        this.repaint();
+        
+        ImageIcon logo_logo = new ImageIcon("src/images/ezgif.com-gif-maker.png");        
+        Logo.setIcon(logo_logo);
+        this.repaint();
     }
 
     /**
@@ -35,52 +54,146 @@ public class Ventana_Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jpIngresar = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        Header = new javax.swing.JPanel();
+        IconMinMaxClose = new javax.swing.JPanel();
+        ButtonClose = new javax.swing.JPanel();
+        Close = new javax.swing.JLabel();
+        ButtonMax = new javax.swing.JPanel();
+        Max = new javax.swing.JLabel();
+        ButtonMin = new javax.swing.JPanel();
+        Min = new javax.swing.JLabel();
+        jpIngresar = new javax.swing.JPanel();
+        Logo = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txt_usuari = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         txt_contraseña = new javax.swing.JPasswordField();
+        jSeparator1 = new javax.swing.JSeparator();
         jButton_Entrar = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jButton_Entrar1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jpIngresar.setBackground(new java.awt.Color(255, 255, 255));
-        jpIngresar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        jpIngresar.setForeground(new java.awt.Color(255, 255, 255));
-        jpIngresar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jpIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 580));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setBackground(new java.awt.Color(238, 112, 82));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(238, 112, 82));
+        Header.setBackground(new java.awt.Color(255, 153, 51));
+        Header.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Header.setPreferredSize(new java.awt.Dimension(800, 50));
+        Header.setLayout(new java.awt.BorderLayout());
+
+        IconMinMaxClose.setBackground(new java.awt.Color(255, 153, 0));
+        IconMinMaxClose.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonClose.setBackground(new java.awt.Color(255, 153, 0));
+        ButtonClose.setLayout(new java.awt.BorderLayout());
+
+        Close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CloseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CloseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CloseMouseExited(evt);
+            }
+        });
+        ButtonClose.add(Close, java.awt.BorderLayout.CENTER);
+
+        IconMinMaxClose.add(ButtonClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 50, 50));
+
+        ButtonMax.setBackground(new java.awt.Color(255, 153, 0));
+        ButtonMax.setLayout(new java.awt.BorderLayout());
+
+        Max.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Max.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MaxMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MaxMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MaxMouseExited(evt);
+            }
+        });
+        ButtonMax.add(Max, java.awt.BorderLayout.CENTER);
+
+        IconMinMaxClose.add(ButtonMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 50, 50));
+
+        ButtonMin.setBackground(new java.awt.Color(255, 153, 0));
+        ButtonMin.setLayout(new java.awt.BorderLayout());
+
+        Min.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Min.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MinMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MinMouseExited(evt);
+            }
+        });
+        ButtonMin.add(Min, java.awt.BorderLayout.CENTER);
+
+        IconMinMaxClose.add(ButtonMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+
+        Header.add(IconMinMaxClose, java.awt.BorderLayout.LINE_END);
+
+        jPanel1.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, -1));
+
+        jpIngresar.setBackground(new java.awt.Color(255, 153, 51));
+        jpIngresar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpIngresar.setForeground(new java.awt.Color(255, 255, 255));
+        jpIngresar.setLayout(new java.awt.BorderLayout());
+
+        Logo.setBackground(new java.awt.Color(255, 255, 255));
+        Logo.setForeground(new java.awt.Color(255, 255, 255));
+        Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Logo.setAlignmentX(50.0F);
+        Logo.setAlignmentY(50.0F);
+        Logo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Logo.setPreferredSize(new java.awt.Dimension(300, 300));
+        jpIngresar.add(Logo, java.awt.BorderLayout.CENTER);
+        Logo.getAccessibleContext().setAccessibleName("");
+
+        jPanel1.add(jpIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 400, 530));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 153, 51));
         jLabel3.setText("Iniciar Sessió");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 230, 60));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 230, 60));
 
         txt_usuari.setBackground(new java.awt.Color(255, 255, 255));
         txt_usuari.setForeground(new java.awt.Color(153, 153, 153));
         txt_usuari.setBorder(null);
-        jPanel1.add(txt_usuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 310, 30));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 310, 10));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 310, 10));
+        jPanel2.add(txt_usuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 310, 30));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 310, 10));
 
         txt_contraseña.setBackground(new java.awt.Color(255, 255, 255));
         txt_contraseña.setForeground(new java.awt.Color(153, 153, 153));
-        txt_contraseña.setText("jPasswordField1");
         txt_contraseña.setBorder(null);
-        jPanel1.add(txt_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 310, -1));
+        jPanel2.add(txt_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 310, -1));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 310, 10));
 
         jButton_Entrar.setBackground(new java.awt.Color(255, 255, 255));
-        jButton_Entrar.setForeground(new java.awt.Color(238, 112, 82));
+        jButton_Entrar.setForeground(new java.awt.Color(255, 153, 51));
         jButton_Entrar.setText("No teniu un compte? Registra't aquí ");
         jButton_Entrar.setBorder(null);
         jButton_Entrar.setBorderPainted(false);
@@ -89,19 +202,9 @@ public class Ventana_Login extends javax.swing.JFrame {
                 jButton_EntrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton_Entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 230, 30));
+        jPanel2.add(jButton_Entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 230, 30));
 
-        jLabel5.setBackground(new java.awt.Color(238, 112, 82));
-        jLabel5.setForeground(new java.awt.Color(238, 112, 82));
-        jLabel5.setText("Usuari");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 150, 30));
-
-        jLabel2.setBackground(new java.awt.Color(238, 112, 82));
-        jLabel2.setForeground(new java.awt.Color(238, 112, 82));
-        jLabel2.setText("Contrasenya");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 150, 30));
-
-        jButton_Entrar1.setBackground(new java.awt.Color(238, 112, 82));
+        jButton_Entrar1.setBackground(new java.awt.Color(255, 153, 51));
         jButton_Entrar1.setForeground(new java.awt.Color(255, 255, 255));
         jButton_Entrar1.setText("Entrar");
         jButton_Entrar1.setBorder(null);
@@ -111,11 +214,26 @@ public class Ventana_Login extends javax.swing.JFrame {
                 jButton_Entrar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton_Entrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 440, 130, 30));
+        jPanel2.add(jButton_Entrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 440, 130, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 680, 580));
+        jLabel2.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel2.setText("Contrasenya");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 150, 30));
 
-        pack();
+        jLabel5.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel5.setText("Usuari");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 150, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 650, 530));
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        setSize(new java.awt.Dimension(1050, 575));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EntrarActionPerformed
@@ -176,6 +294,65 @@ public class Ventana_Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton_Entrar1ActionPerformed
 
+        //Canviar el color de les icones
+    public void changecolor(JPanel hover, Color rand){
+        
+        hover.setBackground(rand);
+    
+    }
+    
+    private void CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_CloseMouseClicked
+
+    private void CloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseEntered
+        // TODO add your handling code here:
+        changecolor(ButtonClose, new Color (255,204,102));
+    }//GEN-LAST:event_CloseMouseEntered
+
+    private void CloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseExited
+        // TODO add your handling code here:
+        changecolor(ButtonClose, new Color (255,153,0));
+    }//GEN-LAST:event_CloseMouseExited
+
+    private void MaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseClicked
+        // TODO add your handling code here:
+        if(this.getExtendedState()!= Ventana_Login.MAXIMIZED_BOTH){
+            this.setExtendedState(Ventana_Login.MAXIMIZED_BOTH);
+
+        }else{
+            this.setExtendedState(Ventana_Login.NORMAL);
+
+        }
+
+    }//GEN-LAST:event_MaxMouseClicked
+
+    private void MaxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseEntered
+        // TODO add your handling code here:
+        changecolor(ButtonMax, new Color (255,204,102));
+    }//GEN-LAST:event_MaxMouseEntered
+
+    private void MaxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseExited
+        // TODO add your handling code here:
+        changecolor(ButtonMax, new Color (255,153,0));
+    }//GEN-LAST:event_MaxMouseExited
+
+    private void MinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseEntered
+        // TODO add your handling code here:
+        changecolor(ButtonMin, new Color (255,204,102));
+    }//GEN-LAST:event_MinMouseEntered
+
+    private void MinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseExited
+        // TODO add your handling code here:
+        changecolor(ButtonMin, new Color (255,153,0));
+    }//GEN-LAST:event_MinMouseExited
+
+    private void MinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseClicked
+        // TODO add your handling code here:
+         this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_MinMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -212,12 +389,22 @@ public class Ventana_Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ButtonClose;
+    private javax.swing.JPanel ButtonMax;
+    private javax.swing.JPanel ButtonMin;
+    private javax.swing.JLabel Close;
+    private javax.swing.JPanel Header;
+    private javax.swing.JPanel IconMinMaxClose;
+    private javax.swing.JLabel Logo;
+    private javax.swing.JLabel Max;
+    private javax.swing.JLabel Min;
     private javax.swing.JButton jButton_Entrar;
     private javax.swing.JButton jButton_Entrar1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel jpIngresar;

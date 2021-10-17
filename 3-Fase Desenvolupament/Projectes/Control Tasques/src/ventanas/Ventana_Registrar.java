@@ -7,7 +7,9 @@ package ventanas;
 import clases.Conexio;
 import java.awt.Color;
 import java.sql.*;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -24,8 +26,31 @@ public class Ventana_Registrar extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setTitle("Registrar");
-        setSize(1050,575);
-        setResizable(false);
+      
+        
+        
+        
+        ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");        
+        Close.setIcon(delete_logo);
+        this.repaint();
+        
+        ImageIcon max_logo = new ImageIcon("src/images/full_screen_32px.png");        
+        Max.setIcon(max_logo);
+        this.repaint();
+        
+        ImageIcon min_logo = new ImageIcon("src/images/icons8-compress-30.png");        
+        Min.setIcon(min_logo);
+        this.repaint();
+        
+        ImageIcon logo_logo = new ImageIcon("src/images/ezgif.com-gif-maker.png");        
+        Logo.setIcon(logo_logo);
+        this.repaint();
+        
+        ImageIcon back_logo = new ImageIcon("src/images/icons8-left-40.png");        
+        Back.setIcon(back_logo);
+        this.repaint();
+        
+        
     }
 
     /**
@@ -50,7 +75,6 @@ public class Ventana_Registrar extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txt_mail = new javax.swing.JTextField();
-        jSeparator4 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton_Registar = new javax.swing.JButton();
@@ -69,6 +93,18 @@ public class Ventana_Registrar extends javax.swing.JFrame {
         txt_contrassenya = new javax.swing.JPasswordField();
         jLabel11 = new javax.swing.JLabel();
         txt_usuari2 = new javax.swing.JTextField();
+        Header = new javax.swing.JPanel();
+        IconMinMaxClose = new javax.swing.JPanel();
+        ButtonClose = new javax.swing.JPanel();
+        Close = new javax.swing.JLabel();
+        ButtonMax = new javax.swing.JPanel();
+        Max = new javax.swing.JLabel();
+        ButtonMin = new javax.swing.JPanel();
+        Min = new javax.swing.JLabel();
+        ButtonBack = new javax.swing.JPanel();
+        Back = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        Logo = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,15 +164,16 @@ public class Ventana_Registrar extends javax.swing.JFrame {
         jPanel1.add(jButton_Entrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 440, 130, 30));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1050, 575));
+        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setBackground(new java.awt.Color(238, 112, 82));
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(238, 112, 82));
+        jLabel4.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 153, 51));
         jLabel4.setText("Registrar-se");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 230, 60));
 
@@ -145,20 +182,19 @@ public class Ventana_Registrar extends javax.swing.JFrame {
         txt_mail.setBorder(null);
         jPanel2.add(txt_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 200, 180, 30));
 
-        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 55, 10, 450));
-
-        jLabel6.setBackground(new java.awt.Color(238, 112, 82));
-        jLabel6.setForeground(new java.awt.Color(238, 112, 82));
+        jLabel6.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 153, 51));
         jLabel6.setText("Cognom");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 150, 30));
 
-        jLabel7.setBackground(new java.awt.Color(238, 112, 82));
-        jLabel7.setForeground(new java.awt.Color(238, 112, 82));
+        jLabel7.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 153, 51));
         jLabel7.setText("Email");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, 150, 30));
 
-        jButton_Registar.setBackground(new java.awt.Color(238, 112, 82));
+        jButton_Registar.setBackground(new java.awt.Color(255, 153, 51));
         jButton_Registar.setForeground(new java.awt.Color(255, 255, 255));
         jButton_Registar.setText("Registar");
         jButton_Registar.setBorder(null);
@@ -171,13 +207,15 @@ public class Ventana_Registrar extends javax.swing.JFrame {
         jPanel2.add(jButton_Registar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 470, 130, 30));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 230, 170, 10));
 
-        jLabel8.setBackground(new java.awt.Color(238, 112, 82));
-        jLabel8.setForeground(new java.awt.Color(238, 112, 82));
+        jLabel8.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 153, 51));
         jLabel8.setText("Usuari");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 260, 150, 30));
 
-        jLabel9.setBackground(new java.awt.Color(238, 112, 82));
-        jLabel9.setForeground(new java.awt.Color(238, 112, 82));
+        jLabel9.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 153, 51));
         jLabel9.setText("Nom");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 150, 30));
 
@@ -194,8 +232,9 @@ public class Ventana_Registrar extends javax.swing.JFrame {
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 170, 10));
         jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 320, 170, 10));
 
-        jLabel10.setBackground(new java.awt.Color(238, 112, 82));
-        jLabel10.setForeground(new java.awt.Color(238, 112, 82));
+        jLabel10.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 153, 51));
         jLabel10.setText("Telèfon");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 150, 30));
 
@@ -208,12 +247,12 @@ public class Ventana_Registrar extends javax.swing.JFrame {
 
         txt_contrassenya.setBackground(new java.awt.Color(255, 255, 255));
         txt_contrassenya.setForeground(new java.awt.Color(153, 153, 153));
-        txt_contrassenya.setText("jPasswordField1");
         txt_contrassenya.setBorder(null);
         jPanel2.add(txt_contrassenya, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 170, -1));
 
-        jLabel11.setBackground(new java.awt.Color(238, 112, 82));
-        jLabel11.setForeground(new java.awt.Color(238, 112, 82));
+        jLabel11.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 153, 51));
         jLabel11.setText("Contrasenya");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 340, 150, 30));
 
@@ -222,18 +261,101 @@ public class Ventana_Registrar extends javax.swing.JFrame {
         txt_usuari2.setBorder(null);
         jPanel2.add(txt_usuari2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 290, 180, 30));
 
+        Header.setBackground(new java.awt.Color(255, 153, 51));
+        Header.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Header.setPreferredSize(new java.awt.Dimension(800, 50));
+        Header.setLayout(new java.awt.BorderLayout());
+
+        IconMinMaxClose.setBackground(new java.awt.Color(255, 153, 0));
+        IconMinMaxClose.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonClose.setBackground(new java.awt.Color(255, 153, 0));
+        ButtonClose.setLayout(new java.awt.BorderLayout());
+
+        Close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CloseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CloseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CloseMouseExited(evt);
+            }
+        });
+        ButtonClose.add(Close, java.awt.BorderLayout.CENTER);
+
+        IconMinMaxClose.add(ButtonClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 50, 50));
+
+        ButtonMax.setBackground(new java.awt.Color(255, 153, 0));
+        ButtonMax.setLayout(new java.awt.BorderLayout());
+
+        Max.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Max.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MaxMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MaxMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MaxMouseExited(evt);
+            }
+        });
+        ButtonMax.add(Max, java.awt.BorderLayout.CENTER);
+
+        IconMinMaxClose.add(ButtonMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 50, 50));
+
+        ButtonMin.setBackground(new java.awt.Color(255, 153, 0));
+        ButtonMin.setLayout(new java.awt.BorderLayout());
+
+        Min.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ButtonMin.add(Min, java.awt.BorderLayout.CENTER);
+
+        IconMinMaxClose.add(ButtonMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+
+        Header.add(IconMinMaxClose, java.awt.BorderLayout.LINE_END);
+
+        ButtonBack.setBackground(new java.awt.Color(255, 153, 51));
+        ButtonBack.setPreferredSize(new java.awt.Dimension(50, 50));
+        ButtonBack.setLayout(new java.awt.BorderLayout());
+
+        Back.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ButtonBack.add(Back, java.awt.BorderLayout.CENTER);
+
+        Header.add(ButtonBack, java.awt.BorderLayout.LINE_START);
+
+        jPanel2.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, -1));
+
+        jPanel3.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Logo.setBackground(new java.awt.Color(255, 255, 255));
+        Logo.setForeground(new java.awt.Color(255, 255, 255));
+        Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Logo.setAlignmentX(50.0F);
+        Logo.setAlignmentY(50.0F);
+        Logo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Logo.setPreferredSize(new java.awt.Dimension(300, 300));
+        jPanel3.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 370, 530));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1050, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1050, 580));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EntrarActionPerformed
@@ -357,6 +479,49 @@ public class Ventana_Registrar extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton_RegistarActionPerformed
 
+     public void changecolor(JPanel hover, Color rand){
+        
+        hover.setBackground(rand);
+    
+    }
+    
+    
+    private void CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_CloseMouseClicked
+
+    private void CloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseEntered
+        // TODO add your handling code here:
+        changecolor(ButtonClose, new Color (255,204,102));
+    }//GEN-LAST:event_CloseMouseEntered
+
+    private void CloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseExited
+        // TODO add your handling code here:
+        changecolor(ButtonClose, new Color (255,153,0));
+    }//GEN-LAST:event_CloseMouseExited
+
+    private void MaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseClicked
+        // TODO add your handling code here:
+        if(this.getExtendedState()!= Ventana_Registrar.MAXIMIZED_BOTH){
+            this.setExtendedState(Ventana_Registrar.MAXIMIZED_BOTH);
+
+        }else{
+            this.setExtendedState(Ventana_Registrar.NORMAL);
+
+        }
+    }//GEN-LAST:event_MaxMouseClicked
+
+    private void MaxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseEntered
+        // TODO add your handling code here:
+        changecolor(ButtonMax, new Color (255,204,102));
+    }//GEN-LAST:event_MaxMouseEntered
+
+    private void MaxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseExited
+        // TODO add your handling code here:
+        changecolor(ButtonMax, new Color (255,153,0));
+    }//GEN-LAST:event_MaxMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -393,6 +558,17 @@ public class Ventana_Registrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Back;
+    private javax.swing.JPanel ButtonBack;
+    private javax.swing.JPanel ButtonClose;
+    private javax.swing.JPanel ButtonMax;
+    private javax.swing.JPanel ButtonMin;
+    private javax.swing.JLabel Close;
+    private javax.swing.JPanel Header;
+    private javax.swing.JPanel IconMinMaxClose;
+    private javax.swing.JLabel Logo;
+    private javax.swing.JLabel Max;
+    private javax.swing.JLabel Min;
     private javax.swing.JButton jButton_Entrar;
     private javax.swing.JButton jButton_Entrar1;
     private javax.swing.JButton jButton_Registar;
@@ -408,10 +584,10 @@ public class Ventana_Registrar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
