@@ -5,68 +5,82 @@
  */
 package ventanas;
 
+import clases.Conexio;
+import java.sql.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Victor
  */
-public class Ventana_Tasques2 extends javax.swing.JFrame {
+public class Principal extends javax.swing.JFrame  {
 
     boolean a = true;
+   
+    private int xMouse, yMouse;
     
+    public static String user_update="";
+   
+
     /**
      * Creates new form Ventana_Tasques2
      */
-    public Ventana_Tasques2() {
+    public Principal() {
         initComponents();
-        ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");        
+        ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");
         Close.setIcon(delete_logo);
         this.repaint();
-        
-        ImageIcon max_logo = new ImageIcon("src/images/full_screen_32px.png");        
+
+        ImageIcon max_logo = new ImageIcon("src/images/full_screen_32px.png");
         Max.setIcon(max_logo);
         this.repaint();
-        
-        ImageIcon min_logo = new ImageIcon("src/images/icons8-compress-30.png");        
+
+        ImageIcon min_logo = new ImageIcon("src/images/icons8-compress-30.png");
         Min.setIcon(min_logo);
         this.repaint();
-        
-        ImageIcon menu_logo = new ImageIcon("src/images/back_32px.png");        
+
+        ImageIcon menu_logo = new ImageIcon("src/images/back_32px.png");
         MenuDes.setIcon(menu_logo);
         this.repaint();
-        
-        ImageIcon config_logo = new ImageIcon("src/images/settings_32px.png");        
+
+        ImageIcon config_logo = new ImageIcon("src/images/settings_32px.png");
         Conf.setIcon(config_logo);
         this.repaint();
-        
-        ImageIcon tasques_logo = new ImageIcon("src/images/clock-6-32.png");        
+
+        ImageIcon tasques_logo = new ImageIcon("src/images/clock-6-32.png");
         Tasq.setIcon(tasques_logo);
         this.repaint();
-        
-        ImageIcon elements_logo = new ImageIcon("src/images/icons8-workstation-30.png");        
+
+        ImageIcon elements_logo = new ImageIcon("src/images/icons8-workstation-30.png");
         Elem.setIcon(elements_logo);
         this.repaint();
-        
-        ImageIcon elements_usuaris = new ImageIcon("src/images/icons8-user-account-30.png");        
+
+        ImageIcon elements_usuaris = new ImageIcon("src/images/icons8-user-account-30.png");
         Usu.setIcon(elements_usuaris);
         this.repaint();
-        
-        ImageIcon elements_grups = new ImageIcon("src/images/icons8-dog-tag-30.png");        
+
+        ImageIcon elements_grups = new ImageIcon("src/images/icons8-dog-tag-30.png");
         Gru.setIcon(elements_grups);
         this.repaint();
-       
         
-        
-      
+     
+
     }
+    
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -118,14 +132,41 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
         N_Configuracio = new javax.swing.JPanel();
         N_Conf = new javax.swing.JLabel();
         DashBoardView = new javax.swing.JPanel();
-        DashTasques = new javax.swing.JPanel();
+        DashUsuaris = new javax.swing.JPanel();
+        Contador1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        txt_camp = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane_Usuaris = new javax.swing.JScrollPane();
+        jTable_Usuaris = new javax.swing.JTable();
         DashConfiguracio = new javax.swing.JPanel();
+        DashTasques = new javax.swing.JPanel();
+        Contador = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         Header.setBackground(new java.awt.Color(255, 153, 51));
         Header.setPreferredSize(new java.awt.Dimension(800, 50));
+        Header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                HeaderMouseDragged(evt);
+            }
+        });
+        Header.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                HeaderMousePressed(evt);
+            }
+        });
         Header.setLayout(new java.awt.BorderLayout());
 
         IconMinMaxClose.setBackground(new java.awt.Color(255, 153, 0));
@@ -174,6 +215,17 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
         ButtonMin.setLayout(new java.awt.BorderLayout());
 
         Min.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Min.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MinMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MinMouseExited(evt);
+            }
+        });
         ButtonMin.add(Min, java.awt.BorderLayout.CENTER);
 
         IconMinMaxClose.add(ButtonMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
@@ -342,6 +394,9 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 UsuMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                UsuMouseReleased(evt);
             }
         });
         Usuaris.add(Usu, java.awt.BorderLayout.CENTER);
@@ -565,18 +620,89 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
 
         DashBoardView.setBackground(new java.awt.Color(255, 255, 255));
 
-        DashTasques.setBackground(new java.awt.Color(51, 51, 255));
-        DashTasques.setForeground(new java.awt.Color(51, 51, 255));
+        DashUsuaris.setBackground(new java.awt.Color(255, 255, 255));
+        DashUsuaris.setForeground(new java.awt.Color(51, 51, 255));
 
-        javax.swing.GroupLayout DashTasquesLayout = new javax.swing.GroupLayout(DashTasques);
-        DashTasques.setLayout(DashTasquesLayout);
-        DashTasquesLayout.setHorizontalGroup(
-            DashTasquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
+        Contador1.setForeground(new java.awt.Color(60, 63, 65));
+
+        jLabel4.setText("Tasques Gestionades");
+
+        jLabel5.setText("Tasques Totals");
+
+        jLabel6.setText("Tasques Asignades");
+
+        jPanel2.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        txt_camp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_campActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_camp, java.awt.BorderLayout.CENTER);
+
+        jLabel7.setText("Buscar");
+        jPanel2.add(jLabel7, java.awt.BorderLayout.PAGE_START);
+
+        javax.swing.GroupLayout Contador1Layout = new javax.swing.GroupLayout(Contador1);
+        Contador1.setLayout(Contador1Layout);
+        Contador1Layout.setHorizontalGroup(
+            Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Contador1Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
         );
-        DashTasquesLayout.setVerticalGroup(
-            DashTasquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
+        Contador1Layout.setVerticalGroup(
+            Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Contador1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jTable_Usuaris.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nom", "Cognom", "Usuari", "Nivell", "Estat", "Title 6"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane_Usuaris.setViewportView(jTable_Usuaris);
+
+        javax.swing.GroupLayout DashUsuarisLayout = new javax.swing.GroupLayout(DashUsuaris);
+        DashUsuaris.setLayout(DashUsuarisLayout);
+        DashUsuarisLayout.setHorizontalGroup(
+            DashUsuarisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Contador1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane_Usuaris)
+        );
+        DashUsuarisLayout.setVerticalGroup(
+            DashUsuarisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashUsuarisLayout.createSequentialGroup()
+                .addComponent(Contador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane_Usuaris, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
         );
 
         DashConfiguracio.setBackground(new java.awt.Color(51, 255, 51));
@@ -589,7 +715,76 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
         );
         DashConfiguracioLayout.setVerticalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
+            .addGap(0, 526, Short.MAX_VALUE)
+        );
+
+        DashTasques.setBackground(new java.awt.Color(255, 255, 255));
+        DashTasques.setForeground(new java.awt.Color(51, 51, 255));
+
+        Contador.setForeground(new java.awt.Color(60, 63, 65));
+
+        jLabel1.setText("Tasques Gestionades");
+
+        jLabel2.setText("Tasques Totals");
+
+        jLabel3.setText("Tasques Asignades");
+
+        jPanel1.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel1.setForeground(new java.awt.Color(204, 0, 51));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        javax.swing.GroupLayout ContadorLayout = new javax.swing.GroupLayout(Contador);
+        Contador.setLayout(ContadorLayout);
+        ContadorLayout.setHorizontalGroup(
+            ContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContadorLayout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        ContadorLayout.setVerticalGroup(
+            ContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContadorLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(ContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout DashTasquesLayout = new javax.swing.GroupLayout(DashTasques);
+        DashTasques.setLayout(DashTasquesLayout);
+        DashTasquesLayout.setHorizontalGroup(
+            DashTasquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Contador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
+        );
+        DashTasquesLayout.setVerticalGroup(
+            DashTasquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashTasquesLayout.createSequentialGroup()
+                .addComponent(Contador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DashBoardViewLayout = new javax.swing.GroupLayout(DashBoardView);
@@ -599,12 +794,20 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
             .addComponent(DashConfiguracio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(DashTasques, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(DashUsuaris, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DashBoardViewLayout.setVerticalGroup(
             DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(DashConfiguracio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(DashTasques, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addComponent(DashTasques, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 2, Short.MAX_VALUE)))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addComponent(DashUsuaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         getContentPane().add(DashBoardView, java.awt.BorderLayout.CENTER);
@@ -612,44 +815,23 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1050, 575));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
+
     //Canviar el color de les icones
-    public void changecolor(JPanel hover, Color rand){
-        
+    public void changecolor(JPanel hover, Color rand) {
+
         hover.setBackground(rand);
-    
+
     }
-    
-    /*public void clickmenu(JPanel h1, JPanel h2, int numberbool){
-    
-        if(numberbool == 1){
-        
-          h1.setBackground(new Color(255,204,102));
-          h2.setBackground(new Color(255,153,0));
-       
-          
-        
-        }else{
-        
-          h1.setBackground(new Color(255,204,102));
-          h2.setBackground(new Color(255,153,0));         
-         
-          
-        
-        }
-    
-    
-    }*/
-    
+
     //Establir el color al passar amb el ratolí
     private void CloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseEntered
         // TODO add your handling code here:
-        changecolor(ButtonClose, new Color (255,204,102));
+        changecolor(ButtonClose, new Color(255, 204, 102));
     }//GEN-LAST:event_CloseMouseEntered
     //Establir el color per defecte
     private void CloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseExited
         // TODO add your handling code here:
-        changecolor(ButtonClose, new Color (255,153,0));
+        changecolor(ButtonClose, new Color(255, 153, 0));
     }//GEN-LAST:event_CloseMouseExited
     //Establir l'accio al clickar el boto
     private void CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseClicked
@@ -659,131 +841,128 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
 
     private void MaxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseEntered
         // TODO add your handling code here:
-        changecolor(ButtonMax, new Color (255,204,102));
+        changecolor(ButtonMax, new Color(255, 204, 102));
     }//GEN-LAST:event_MaxMouseEntered
 
     private void MaxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseExited
         // TODO add your handling code here:
-        changecolor(ButtonMax, new Color (255,153,0));
+        changecolor(ButtonMax, new Color(255, 153, 0));
     }//GEN-LAST:event_MaxMouseExited
 
     private void MaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseClicked
         // TODO add your handling code here:
-        if(this.getExtendedState()!= Ventana_Tasques2.MAXIMIZED_BOTH){
-           this.setExtendedState(Ventana_Tasques2.MAXIMIZED_BOTH); 
-        
-        }else{
-            this.setExtendedState(Ventana_Tasques2.NORMAL);
-        
+        if (this.getExtendedState() != Principal.MAXIMIZED_BOTH) {
+            this.setExtendedState(Principal.MAXIMIZED_BOTH);
+
+        } else {
+            this.setExtendedState(Principal.NORMAL);
+
         }
-        
+
     }//GEN-LAST:event_MaxMouseClicked
 
-    public void changeimage(JLabel button, String resourceimg){
-           
+    public void changeimage(JLabel button, String resourceimg) {
+
         ImageIcon aimg = new ImageIcon(getClass().getResource(resourceimg));
-        button.setIcon(aimg);    
-        
-         
-    
+        button.setIcon(aimg);
+
     }
-    
-    public void hideshow(JPanel menushowhide, boolean dashboard, JLabel button){
-    
-        if(dashboard == true){
-        
-            menushowhide.setPreferredSize(new Dimension(50,menushowhide.getHeight()));
+
+    public void hideshow(JPanel menushowhide, boolean dashboard, JLabel button) {
+
+        if (dashboard == true) {
+
+            menushowhide.setPreferredSize(new Dimension(50, menushowhide.getHeight()));
             //changeimage(button, "src/images/menu_32px.png");
-            ImageIcon config_logo = new ImageIcon("src/images/menu_32px.png");        
+            ImageIcon config_logo = new ImageIcon("src/images/menu_32px.png");
             MenuDes.setIcon(config_logo);
             this.repaint();
-        }else{
-            
-            menushowhide.setPreferredSize(new Dimension(270,menushowhide.getHeight()));
-             //changeimage(button, "src/images/back_32px.png");
-             ImageIcon config_logo = new ImageIcon("src/images/back_32px.png");        
+        } else {
+
+            menushowhide.setPreferredSize(new Dimension(270, menushowhide.getHeight()));
+            //changeimage(button, "src/images/back_32px.png");
+            ImageIcon config_logo = new ImageIcon("src/images/back_32px.png");
             MenuDes.setIcon(config_logo);
             this.repaint();
-    
-    
+
         }
-    
-    
-    
+
     }
-    
+
     private void MenuDesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuDesMouseEntered
         // TODO add your handling code here:
-       changecolor(LiniaHideMenu, new Color (51,51,51));
-       changecolor(HideMenu, new Color (255,204,102));
+        changecolor(LiniaHideMenu, new Color(51, 51, 51));
+        changecolor(HideMenu, new Color(255, 204, 102));
     }//GEN-LAST:event_MenuDesMouseEntered
 
     private void MenuDesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuDesMouseExited
         // TODO add your handling code here:
-        changecolor(LiniaHideMenu, new Color (255,153,0));
-        changecolor(HideMenu, new Color (255,153,0));
+        changecolor(LiniaHideMenu, new Color(255, 153, 0));
+        changecolor(HideMenu, new Color(255, 153, 0));
     }//GEN-LAST:event_MenuDesMouseExited
 
     private void MenuDesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuDesMouseClicked
         // TODO add your handling code here:
         //clickmenu(HideMenu,Configuracio, 1);
-        if (a ==true){         
-            hideshow(Menu,a,MenuDes);
+        if (a == true) {
+            hideshow(Menu, a, MenuDes);
             SwingUtilities.updateComponentTreeUI(this);
             a = false;
-        }else{            
-            hideshow(Menu,a,MenuDes);
+        } else {
+            hideshow(Menu, a, MenuDes);
             SwingUtilities.updateComponentTreeUI(this);
-            a =true;
+            a = true;
         }
-        
-        //DashBoardView.setVisible(false);
-        DashTasques.setVisible(true);
-        DashConfiguracio.setVisible(false);
-        
+
+
     }//GEN-LAST:event_MenuDesMouseClicked
 
     private void ConfMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfMouseEntered
         // TODO add your handling code here:
-         changecolor(Configuracio, new Color (255,204,102));
-          changecolor(N_Configuracio, new Color (255,204,102));
-         
+        changecolor(Configuracio, new Color(255, 204, 102));
+        changecolor(N_Configuracio, new Color(255, 204, 102));
+
     }//GEN-LAST:event_ConfMouseEntered
 
     private void ConfMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfMouseExited
         // TODO add your handling code here:
-        changecolor(Configuracio, new Color (255,153,0));
-        changecolor(N_Configuracio, new Color (255,153,0));
-         
+        changecolor(Configuracio, new Color(255, 153, 0));
+        changecolor(N_Configuracio, new Color(255, 153, 0));
+
     }//GEN-LAST:event_ConfMouseExited
 
     private void ConfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfMouseClicked
         // TODO add your handling code here:
-        
+
         //clickmenu(Configuracio,HideMenu,1);
-       // DashBoardView.setVisible(false);
-        
+        // DashBoardView.setVisible(false);
         DashTasques.setVisible(false);
         DashConfiguracio.setVisible(true);
-        
+
     }//GEN-LAST:event_ConfMouseClicked
 
     private void TasqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TasqMouseClicked
         // TODO add your handling code here:
+        
+    
+            DashConfiguracio.setVisible(false);
+            DashTasques.setVisible(true);
+        
+       
     }//GEN-LAST:event_TasqMouseClicked
 
     private void TasqMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TasqMouseEntered
         // TODO add your handling code here:
-        changecolor(Tasques, new Color (255,204,102));
-        changecolor(N_Tasques, new Color (255,204,102));
-        
+        changecolor(Tasques, new Color(255, 204, 102));
+        changecolor(N_Tasques, new Color(255, 204, 102));
+
     }//GEN-LAST:event_TasqMouseEntered
 
     private void TasqMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TasqMouseExited
         // TODO add your handling code here:
-        changecolor(Tasques, new Color (255,153,0));
-        changecolor(N_Tasques, new Color (255,153,0));
-        
+        changecolor(Tasques, new Color(255, 153, 0));
+        changecolor(N_Tasques, new Color(255, 153, 0));
+
     }//GEN-LAST:event_TasqMouseExited
 
     private void ElemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElemMouseClicked
@@ -792,32 +971,112 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
 
     private void ElemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElemMouseEntered
         // TODO add your handling code here:
-        changecolor(Elements, new Color (255,204,102));
-        changecolor(N_Elements, new Color (255,204,102));
-       
+        changecolor(Elements, new Color(255, 204, 102));
+        changecolor(N_Elements, new Color(255, 204, 102));
+
     }//GEN-LAST:event_ElemMouseEntered
 
     private void ElemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElemMouseExited
         // TODO add your handling code here:
-        changecolor(Elements, new Color (255,153,0));
-        changecolor(N_Elements, new Color (255,153,0));
-        
+        changecolor(Elements, new Color(255, 153, 0));
+        changecolor(N_Elements, new Color(255, 153, 0));
+
     }//GEN-LAST:event_ElemMouseExited
 
     private void UsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseClicked
         // TODO add your handling code here:
+        
+        
+        
+        
+                DashConfiguracio.setVisible(false);
+                DashTasques.setVisible(false);
+                DashUsuaris.setVisible(true);
+
+                DefaultTableModel model = new DefaultTableModel();
+                   
+
+                try {
+                    
+                    
+                    jTable_Usuaris.setModel(model);
+                    
+                                   
+                    Connection cn = Conexio.conectar();                   
+                    PreparedStatement pst = cn.prepareStatement("select id_usuari, nom, cognom, usuari, nivell, estat from Usuaris");
+                    ResultSet rs = pst.executeQuery();
+                    
+                    ResultSetMetaData rsMd = rs.getMetaData();
+                    int cantitatColumnas = rsMd.getColumnCount();
+                    
+                    model.addColumn("");
+                    model.addColumn("Nom");
+                     model.addColumn("Cognom");
+                     model.addColumn("Usuari");
+                        model.addColumn("Nivell"); 
+                    model.addColumn("Estat");
+                        
+                        
+
+                    
+                    while(rs.next()){
+                    
+                        Object[] fila = new Object[cantitatColumnas];
+                        
+                        for (int i = 0; i < cantitatColumnas; i++) {
+
+                            fila[i] = rs.getObject(i + 1);
+
+                        }
+
+                        model.addRow(fila);
+                    
+                    
+                    }                   
+                  
+
+                    cn.close();
+
+                } catch (SQLException e) {
+
+                    System.err.println("Error al omplir la taula");
+                    JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+                }
+                
+                jTable_Usuaris.addMouseListener(new MouseAdapter(){
+                    @Override
+                    
+                    public void mouseClicked(MouseEvent e){
+                    
+                        int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
+                        int columna_point = 2;
+                        
+                        if (fila_point > -1){
+                            
+                            user_update = (String)model.getValueAt(fila_point, columna_point);
+                            //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
+                            DashConfiguracio.setVisible(true);
+                        }
+                    
+                    }
+                
+                
+                });
+                
+     
     }//GEN-LAST:event_UsuMouseClicked
 
     private void UsuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseEntered
         // TODO add your handling code here:
-        changecolor(Usuaris, new Color (255,204,102));
-        changecolor(N_Usuaris, new Color (255,204,102));
+        changecolor(Usuaris, new Color(255, 204, 102));
+        changecolor(N_Usuaris, new Color(255, 204, 102));
     }//GEN-LAST:event_UsuMouseEntered
 
     private void UsuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseExited
         // TODO add your handling code here:
-        changecolor(Usuaris, new Color (255,153,0));
-        changecolor(N_Usuaris, new Color (255,153,0));
+        changecolor(Usuaris, new Color(255, 153, 0));
+        changecolor(N_Usuaris, new Color(255, 153, 0));
     }//GEN-LAST:event_UsuMouseExited
 
     private void GruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GruMouseClicked
@@ -826,59 +1085,62 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
 
     private void GruMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GruMouseEntered
         // TODO add your handling code here:
-        changecolor(Grups, new Color (255,204,102));
-         changecolor(N_Grups, new Color (255,204,102));
+        changecolor(Grups, new Color(255, 204, 102));
+        changecolor(N_Grups, new Color(255, 204, 102));
     }//GEN-LAST:event_GruMouseEntered
 
     private void GruMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GruMouseExited
         // TODO add your handling code here:
-        changecolor(Grups, new Color (255,153,0));
-        changecolor(N_Grups, new Color (255,153,0));
+        changecolor(Grups, new Color(255, 153, 0));
+        changecolor(N_Grups, new Color(255, 153, 0));
     }//GEN-LAST:event_GruMouseExited
 
     private void N_TasquesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_TasquesMouseEntered
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_N_TasquesMouseEntered
 
     private void N_TasquesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_TasquesMouseExited
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_N_TasquesMouseExited
 
     private void N_TasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_TasMouseEntered
         // TODO add your handling code here:
-         changecolor(N_Tasques, new Color (255,204,102));
-         changecolor(Tasques, new Color (255,204,102));
-        
+        changecolor(N_Tasques, new Color(255, 204, 102));
+        changecolor(Tasques, new Color(255, 204, 102));
+
     }//GEN-LAST:event_N_TasMouseEntered
 
     private void N_TasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_TasMouseExited
         // TODO add your handling code here:
-        changecolor(N_Tasques, new Color (255,153,0));
-        changecolor(Tasques, new Color (255,153,0));
-         
+        changecolor(N_Tasques, new Color(255, 153, 0));
+        changecolor(Tasques, new Color(255, 153, 0));
+
     }//GEN-LAST:event_N_TasMouseExited
 
     private void N_TasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_TasMouseClicked
         // TODO add your handling code here:
+        DashConfiguracio.setVisible(false);
+        DashTasques.setVisible(true);
+
     }//GEN-LAST:event_N_TasMouseClicked
 
     private void N_ElemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ElemMouseEntered
         // TODO add your handling code here:
-        changecolor(N_Elements, new Color (255,204,102));
-        changecolor(Elements, new Color (255,204,102));
+        changecolor(N_Elements, new Color(255, 204, 102));
+        changecolor(Elements, new Color(255, 204, 102));
     }//GEN-LAST:event_N_ElemMouseEntered
 
     private void N_ElemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ElemMouseExited
         // TODO add your handling code here:
-        changecolor(N_Elements, new Color (255,153,0));
-        changecolor(Elements, new Color (255,153,0));
+        changecolor(N_Elements, new Color(255, 153, 0));
+        changecolor(Elements, new Color(255, 153, 0));
     }//GEN-LAST:event_N_ElemMouseExited
 
     private void N_ElemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ElemMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_N_ElemMouseClicked
 
     private void N_UsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuMouseClicked
@@ -887,25 +1149,25 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
 
     private void N_UsuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuMouseEntered
         // TODO add your handling code here:
-         changecolor(N_Usuaris, new Color (255,204,102));
-        changecolor(Usuaris, new Color (255,204,102));
-        
+        changecolor(N_Usuaris, new Color(255, 204, 102));
+        changecolor(Usuaris, new Color(255, 204, 102));
+
     }//GEN-LAST:event_N_UsuMouseEntered
 
     private void N_UsuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuMouseExited
         // TODO add your handling code here:
-        changecolor(Usuaris, new Color (255,153,0));
-        changecolor(N_Usuaris, new Color (255,153,0));
+        changecolor(Usuaris, new Color(255, 153, 0));
+        changecolor(N_Usuaris, new Color(255, 153, 0));
     }//GEN-LAST:event_N_UsuMouseExited
 
     private void N_UsuarisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuarisMouseEntered
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_N_UsuarisMouseEntered
 
     private void N_UsuarisMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuarisMouseExited
         // TODO add your handling code here:
-    
+
     }//GEN-LAST:event_N_UsuarisMouseExited
 
     private void N_GruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_GruMouseClicked
@@ -914,14 +1176,14 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
 
     private void N_GruMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_GruMouseEntered
         // TODO add your handling code here:
-          changecolor(N_Grups, new Color (255,204,102));
-        changecolor(Grups, new Color (255,204,102));
+        changecolor(N_Grups, new Color(255, 204, 102));
+        changecolor(Grups, new Color(255, 204, 102));
     }//GEN-LAST:event_N_GruMouseEntered
 
     private void N_GruMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_GruMouseExited
         // TODO add your handling code here:
-        changecolor(Grups, new Color (255,153,0));
-        changecolor(N_Grups, new Color (255,153,0));
+        changecolor(Grups, new Color(255, 153, 0));
+        changecolor(N_Grups, new Color(255, 153, 0));
     }//GEN-LAST:event_N_GruMouseExited
 
     private void N_GrupsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_GrupsMouseEntered
@@ -930,24 +1192,66 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
 
     private void N_GrupsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_GrupsMouseExited
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_N_GrupsMouseExited
 
     private void N_ConfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ConfMouseClicked
         // TODO add your handling code here:
+        DashTasques.setVisible(false);
+        DashConfiguracio.setVisible(true);
+
     }//GEN-LAST:event_N_ConfMouseClicked
 
     private void N_ConfMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ConfMouseEntered
         // TODO add your handling code here:
-        changecolor(N_Configuracio, new Color (255,204,102));
-        changecolor(Configuracio, new Color (255,204,102));
+        changecolor(N_Configuracio, new Color(255, 204, 102));
+        changecolor(Configuracio, new Color(255, 204, 102));
     }//GEN-LAST:event_N_ConfMouseEntered
 
     private void N_ConfMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ConfMouseExited
         // TODO add your handling code here:
-         changecolor(Configuracio, new Color (255,153,0));
-        changecolor(N_Configuracio, new Color (255,153,0));
+        changecolor(Configuracio, new Color(255, 153, 0));
+        changecolor(N_Configuracio, new Color(255, 153, 0));
     }//GEN-LAST:event_N_ConfMouseExited
+
+    private void MinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseEntered
+        // TODO add your handling code here:
+        changecolor(ButtonMin, new Color(255, 204, 102));
+    }//GEN-LAST:event_MinMouseEntered
+
+    private void MinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseExited
+        // TODO add your handling code here:
+        changecolor(ButtonMin, new Color(255, 153, 0));
+    }//GEN-LAST:event_MinMouseExited
+
+    private void MinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseClicked
+        // TODO add your handling code here:
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_MinMouseClicked
+
+    private void HeaderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_HeaderMouseDragged
+
+    private void HeaderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMousePressed
+        // TODO add your handling code here:
+
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_HeaderMousePressed
+
+    private void UsuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseReleased
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_UsuMouseReleased
+
+    private void txt_campActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_campActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_campActionPerformed
 
     /**
      * @param args the command line arguments
@@ -966,20 +1270,23 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Tasques2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Tasques2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Tasques2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Tasques2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana_Tasques2().setVisible(true);
+                new Principal().setVisible(true);
             }
         });
     }
@@ -991,9 +1298,12 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
     private javax.swing.JLabel Close;
     private javax.swing.JLabel Conf;
     private javax.swing.JPanel Configuracio;
+    private javax.swing.JPanel Contador;
+    private javax.swing.JPanel Contador1;
     private javax.swing.JPanel DashBoardView;
     private javax.swing.JPanel DashConfiguracio;
     private javax.swing.JPanel DashTasques;
+    private javax.swing.JPanel DashUsuaris;
     private javax.swing.JLabel Elem;
     private javax.swing.JPanel Elements;
     private javax.swing.JLabel Gru;
@@ -1028,5 +1338,19 @@ public class Ventana_Tasques2 extends javax.swing.JFrame {
     private javax.swing.JPanel Tasques;
     private javax.swing.JLabel Usu;
     private javax.swing.JPanel Usuaris;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane_Usuaris;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable_Usuaris;
+    private javax.swing.JTextField txt_camp;
     // End of variables declaration//GEN-END:variables
 }

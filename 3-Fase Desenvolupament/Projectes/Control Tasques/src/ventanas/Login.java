@@ -29,7 +29,7 @@ public class Login extends javax.swing.JFrame {
     private int xMouse,yMouse;
     
     /**
-     * Creates new form Ventana_Tasques2
+     * Creates new form Principal
      */
     public Login() {
         initComponents();
@@ -149,6 +149,17 @@ public class Login extends javax.swing.JFrame {
         ButtonMin.setLayout(new java.awt.BorderLayout());
 
         Min.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Min.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MinMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MinMouseExited(evt);
+            }
+        });
         ButtonMin.add(Min, java.awt.BorderLayout.CENTER);
 
         IconMinMaxClose.add(ButtonMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
@@ -228,7 +239,6 @@ public class Login extends javax.swing.JFrame {
 
         txt_usuari.setBackground(new java.awt.Color(255, 255, 255));
         txt_usuari.setForeground(new java.awt.Color(153, 153, 153));
-        txt_usuari.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_usuari.setBorder(null);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -343,7 +353,7 @@ public class Login extends javax.swing.JFrame {
                     String nivell = rs.getString("nivell");
                     if (nivell.equalsIgnoreCase("Administrador")){
                         dispose();
-                        new Ventana_Tasques().setVisible(true);
+                        new Principal().setVisible(true);
                     }else{
                         JOptionPane.showMessageDialog(null, "Dades d'inici de sessió incorrectes");
                         txt_usuari.setText("");
@@ -395,11 +405,11 @@ public class Login extends javax.swing.JFrame {
 
     private void MaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseClicked
         // TODO add your handling code here:
-        if(this.getExtendedState()!= Ventana_Tasques2.MAXIMIZED_BOTH){
-            this.setExtendedState(Ventana_Tasques2.MAXIMIZED_BOTH);
+        if(this.getExtendedState()!= Principal.MAXIMIZED_BOTH){
+            this.setExtendedState(Principal.MAXIMIZED_BOTH);
 
         }else{
-            this.setExtendedState(Ventana_Tasques2.NORMAL);
+            this.setExtendedState(Principal.NORMAL);
 
         }
     }//GEN-LAST:event_MaxMouseClicked
@@ -418,6 +428,23 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_CloseMouseClicked
+
+    private void MinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseEntered
+        // TODO add your handling code here:
+        
+         changecolor(ButtonMin, new Color (255,204,102));
+    }//GEN-LAST:event_MinMouseEntered
+
+    private void MinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseExited
+        // TODO add your handling code here:
+        changecolor(ButtonMin, new Color (255,153,0));
+        
+    }//GEN-LAST:event_MinMouseExited
+
+    private void MinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseClicked
+        // TODO add your handling code here:
+       this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_MinMouseClicked
     
     //Canviar el color de les icones
     public void changecolor(JPanel hover, Color rand){
