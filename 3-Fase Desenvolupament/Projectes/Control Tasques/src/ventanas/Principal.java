@@ -32,6 +32,8 @@ public class Principal extends javax.swing.JFrame  {
    
     private int xMouse, yMouse;
     
+    public int id;
+    
     public static String user_update="";
    
 
@@ -74,6 +76,11 @@ public class Principal extends javax.swing.JFrame  {
 
         ImageIcon elements_grups = new ImageIcon("src/images/icons8-dog-tag-30.png");
         Gru.setIcon(elements_grups);
+        this.repaint();
+        
+        
+        ImageIcon enrera_logo = new ImageIcon("src/images/icons8-left-35.png");
+        Enrera.setIcon(enrera_logo);
         this.repaint();
         
      
@@ -151,6 +158,25 @@ public class Principal extends javax.swing.JFrame  {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        DashInfoUsuari = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        txt_telefon = new javax.swing.JTextField();
+        txt_nom = new javax.swing.JTextField();
+        txt_cognom = new javax.swing.JTextField();
+        txt_email = new javax.swing.JTextField();
+        txt_usuari = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        ComboEstat = new javax.swing.JComboBox<>();
+        ComboNivell = new javax.swing.JComboBox<>();
+        Guardar = new javax.swing.JButton();
+        Enrera = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -715,7 +741,7 @@ public class Principal extends javax.swing.JFrame  {
         );
         DashConfiguracioLayout.setVerticalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addGap(0, 536, Short.MAX_VALUE)
         );
 
         DashTasques.setBackground(new java.awt.Color(255, 255, 255));
@@ -787,6 +813,184 @@ public class Principal extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        DashInfoUsuari.setBackground(new java.awt.Color(255, 255, 255));
+        DashInfoUsuari.setForeground(new java.awt.Color(51, 51, 255));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Informació Usuari");
+
+        txt_telefon.setBackground(new java.awt.Color(255, 153, 51));
+        txt_telefon.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_nom.setBackground(new java.awt.Color(255, 153, 51));
+        txt_nom.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_cognom.setBackground(new java.awt.Color(255, 153, 51));
+        txt_cognom.setForeground(new java.awt.Color(255, 255, 255));
+        txt_cognom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_cognomActionPerformed(evt);
+            }
+        });
+
+        txt_email.setBackground(new java.awt.Color(255, 153, 51));
+        txt_email.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_usuari.setBackground(new java.awt.Color(255, 153, 51));
+        txt_usuari.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Nom:");
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Telefon:");
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Cognom:");
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Email:");
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Usuari:");
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("Nivell:");
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("Estat:");
+
+        ComboEstat.setBackground(new java.awt.Color(255, 153, 51));
+        ComboEstat.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
+
+        ComboNivell.setBackground(new java.awt.Color(255, 153, 51));
+        ComboNivell.setForeground(new java.awt.Color(255, 255, 255));
+        ComboNivell.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
+        ComboNivell.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboNivellActionPerformed(evt);
+            }
+        });
+
+        Guardar.setBackground(new java.awt.Color(255, 153, 51));
+        Guardar.setForeground(new java.awt.Color(255, 255, 255));
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarActionPerformed(evt);
+            }
+        });
+
+        Enrera.setBackground(new java.awt.Color(0, 0, 0));
+        Enrera.setForeground(new java.awt.Color(0, 0, 0));
+
+        jButton2.setBackground(new java.awt.Color(255, 153, 51));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Actualitzar Contrasseña");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout DashInfoUsuariLayout = new javax.swing.GroupLayout(DashInfoUsuari);
+        DashInfoUsuari.setLayout(DashInfoUsuariLayout);
+        DashInfoUsuariLayout.setHorizontalGroup(
+            DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(Enrera, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192)
+                        .addComponent(jLabel8))
+                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                        .addGap(311, 311, 311)
+                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_nom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txt_cognom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txt_email, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txt_telefon))
+                        .addGap(135, 135, 135)
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_usuari, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(ComboNivell, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                                    .addComponent(jLabel16)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(ComboEstat, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton2)))))
+                .addGap(35, 162, Short.MAX_VALUE))
+        );
+        DashInfoUsuariLayout.setVerticalGroup(
+            DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(Enrera, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9))
+                    .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_usuari, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel13)))
+                .addGap(44, 44, 44)
+                .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_cognom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addGap(48, 48, 48)
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_telefon, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))
+                        .addGap(54, 54, 54)
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(ComboNivell))
+                        .addGap(65, 65, 65)
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(ComboEstat))
+                        .addGap(130, 130, 130)
+                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57))))
+        );
+
         javax.swing.GroupLayout DashBoardViewLayout = new javax.swing.GroupLayout(DashBoardView);
         DashBoardView.setLayout(DashBoardViewLayout);
         DashBoardViewLayout.setHorizontalGroup(
@@ -796,6 +1000,11 @@ public class Principal extends javax.swing.JFrame  {
                 .addComponent(DashTasques, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(DashUsuaris, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(DashInfoUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         DashBoardViewLayout.setVerticalGroup(
             DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -803,11 +1012,16 @@ public class Principal extends javax.swing.JFrame  {
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashTasques, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 2, Short.MAX_VALUE)))
+                    .addGap(0, 12, Short.MAX_VALUE)))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashUsuaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashBoardViewLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DashInfoUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         getContentPane().add(DashBoardView, java.awt.BorderLayout.CENTER);
@@ -937,6 +1151,7 @@ public class Principal extends javax.swing.JFrame  {
         //clickmenu(Configuracio,HideMenu,1);
         // DashBoardView.setVisible(false);
         DashTasques.setVisible(false);
+        DashUsuaris.setVisible(false);
         DashConfiguracio.setVisible(true);
 
     }//GEN-LAST:event_ConfMouseClicked
@@ -1011,11 +1226,10 @@ public class Principal extends javax.swing.JFrame  {
                     
                     model.addColumn("");
                     model.addColumn("Nom");
-                     model.addColumn("Cognom");
-                     model.addColumn("Usuari");
-                        model.addColumn("Nivell"); 
-                    model.addColumn("Estat");
-                        
+                    model.addColumn("Cognom");
+                    model.addColumn("Usuari");
+                    model.addColumn("Nivell"); 
+                    model.addColumn("Estat");                   
                         
 
                     
@@ -1050,13 +1264,15 @@ public class Principal extends javax.swing.JFrame  {
                     public void mouseClicked(MouseEvent e){
                     
                         int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
-                        int columna_point = 2;
+                        int columna_point = 3;
                         
                         if (fila_point > -1){
                             
                             user_update = (String)model.getValueAt(fila_point, columna_point);
                             //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
-                            DashConfiguracio.setVisible(true);
+                            DashUsuaris.setVisible(false);
+                            DashInfoUsuari.setVisible(true);
+                            informacioUsuari(user_update);
                         }
                     
                     }
@@ -1067,6 +1283,43 @@ public class Principal extends javax.swing.JFrame  {
      
     }//GEN-LAST:event_UsuMouseClicked
 
+    public void informacioUsuari(String user){
+        
+        System.out.print(user);
+        jLabel8.setText(user);
+        try{
+            Connection cn = Conexio.conectar();                   
+            PreparedStatement pst = cn.prepareStatement("select * from Usuaris where usuari = '" + user + "'");
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+            
+                id = rs.getInt("id_usuari");
+                txt_nom.setText(rs.getString("nom"));
+                txt_cognom.setText(rs.getString("cognom"));
+                txt_email.setText(rs.getString("email"));
+                txt_telefon.setText(rs.getString("telefon"));               
+                txt_usuari.setText(rs.getString("usuari"));
+                
+                ComboNivell.setSelectedItem(rs.getString("nivell"));
+                ComboEstat.setSelectedItem(rs.getString("estat"));
+            
+            }
+        
+            cn.close();
+        
+        }catch(SQLException e){
+        
+                System.err.println("Error al solicitar les dades d'usuari" + e);
+                JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");     
+        
+        }
+        
+    
+    
+    }
+    
+    
     private void UsuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseEntered
         // TODO add your handling code here:
         changecolor(Usuaris, new Color(255, 204, 102));
@@ -1198,6 +1451,7 @@ public class Principal extends javax.swing.JFrame  {
     private void N_ConfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ConfMouseClicked
         // TODO add your handling code here:
         DashTasques.setVisible(false);
+        DashUsuaris.setVisible(false);
         DashConfiguracio.setVisible(true);
 
     }//GEN-LAST:event_N_ConfMouseClicked
@@ -1253,6 +1507,145 @@ public class Principal extends javax.swing.JFrame  {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_campActionPerformed
 
+    private void ComboNivellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNivellActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboNivellActionPerformed
+
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+        // TODO add your handling code here:
+        int nivell, estat, validacio = 0;
+        String nom, cognom, mail, telefon, usuari, nivell_string = "", estat_string="";
+        
+        mail = txt_email.getText().trim();
+        nom = txt_nom.getText().trim();
+        cognom = txt_cognom.getText().trim();
+        telefon = txt_telefon.getText().trim();
+        usuari = txt_usuari.getText().trim();
+        
+        nivell = ComboNivell.getSelectedIndex() + 1;
+        estat = ComboEstat.getSelectedIndex() + 1;
+        
+        if(mail.equals("")){
+        
+            txt_email.setBackground(Color.red);
+            validacio++;
+        }
+         if(nom.equals("")){
+        
+            txt_nom.setBackground(Color.red);
+            validacio++;
+        }
+          if(cognom.equals("")){
+        
+            txt_cognom.setBackground(Color.red);
+            validacio++;
+        }
+           if(telefon.equals("")){
+        
+            txt_telefon.setBackground(Color.red);
+            validacio++;
+        }
+           
+        if (validacio == 0){
+        
+            if (nivell == 1){
+                
+                nivell_string = "Administrador";
+                
+            }else if(nivell == 2){
+            
+                nivell_string = "Oficinista";
+            }else if(nivell ==3){
+            
+                nivell_string = "Operari";
+            
+            }
+            
+            if (estat == 1){
+                
+                estat_string= "Actiu";
+                
+            }else if(nivell == 2){
+            
+                estat_string = "No Actiu";
+                
+                
+            }
+        
+            try{
+            
+                Connection cn = Conexio.conectar();
+                PreparedStatement pst = cn.prepareStatement("select usuari from Usuaris where usuari = '" + usuari + "' and not id_usuari = '" + id + "'" );
+                ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                
+                txt_usuari.setBackground(Color.red);
+                JOptionPane.showMessageDialog(null, "Nom d'usuari no disponible");
+                cn.close();
+                
+                
+            } else{
+            
+                Connection cn2 = Conexio.conectar();
+                PreparedStatement pst2 = cn2.prepareStatement("update Usuaris set nom=?, cognom=?, telefon=?, email=?, usuari=?, nivell=?, estat=?" + "where id_usuari = '"
+                +id+"'");
+                pst2.setString(1,nom);
+                pst2.setString(2,cognom);
+                pst2.setString(3,telefon);
+                pst2.setString(4,mail);
+                pst2.setString(5,usuari);                
+                pst2.setString(6,nivell_string);
+                pst2.setString(7,estat_string);
+                
+                pst2.executeUpdate();
+                cn2.close();
+                
+                 txt_email.setBackground(Color.green);
+                 txt_nom.setBackground(Color.green);
+                 txt_cognom.setBackground(Color.green);
+                 txt_telefon.setBackground(Color.green);
+                 txt_usuari.setBackground(Color.green);
+                 ComboEstat.setBackground(Color.green);
+                 ComboNivell.setBackground(Color.green);
+                
+                JOptionPane.showMessageDialog(null, "Modificacio Correcta!");
+                
+                
+                 
+                    
+                   
+            
+            }
+            
+            
+            
+            }catch(SQLException e){
+            
+                System.err.println("Error al Gardar" + e);
+            
+            }
+            
+            
+           
+        
+        }else{
+        
+             JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+        
+        }
+        
+        
+    }//GEN-LAST:event_GuardarActionPerformed
+
+    private void txt_cognomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cognomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_cognomActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1296,18 +1689,23 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel ButtonMax;
     private javax.swing.JPanel ButtonMin;
     private javax.swing.JLabel Close;
+    private javax.swing.JComboBox<String> ComboEstat;
+    private javax.swing.JComboBox<String> ComboNivell;
     private javax.swing.JLabel Conf;
     private javax.swing.JPanel Configuracio;
     private javax.swing.JPanel Contador;
     private javax.swing.JPanel Contador1;
     private javax.swing.JPanel DashBoardView;
     private javax.swing.JPanel DashConfiguracio;
+    private javax.swing.JPanel DashInfoUsuari;
     private javax.swing.JPanel DashTasques;
     private javax.swing.JPanel DashUsuaris;
     private javax.swing.JLabel Elem;
     private javax.swing.JPanel Elements;
+    private javax.swing.JLabel Enrera;
     private javax.swing.JLabel Gru;
     private javax.swing.JPanel Grups;
+    private javax.swing.JButton Guardar;
     private javax.swing.JPanel Header;
     private javax.swing.JPanel HideMenu;
     private javax.swing.JPanel IconMinMaxClose;
@@ -1338,13 +1736,22 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel Tasques;
     private javax.swing.JLabel Usu;
     private javax.swing.JPanel Usuaris;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1352,5 +1759,10 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable_Usuaris;
     private javax.swing.JTextField txt_camp;
+    private javax.swing.JTextField txt_cognom;
+    private javax.swing.JTextField txt_email;
+    private javax.swing.JTextField txt_nom;
+    private javax.swing.JTextField txt_telefon;
+    private javax.swing.JTextField txt_usuari;
     // End of variables declaration//GEN-END:variables
 }
