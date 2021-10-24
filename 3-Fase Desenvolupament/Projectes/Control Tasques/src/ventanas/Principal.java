@@ -150,7 +150,7 @@ public class Principal extends javax.swing.JFrame  {
         jPanel2 = new javax.swing.JPanel();
         txt_buscador = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Nou_Usuari = new javax.swing.JButton();
         Eliminar_Usuari = new javax.swing.JButton();
         jScrollPane_Usuaris = new javax.swing.JScrollPane();
         jTable_Usuaris = new javax.swing.JTable();
@@ -677,7 +677,12 @@ public class Principal extends javax.swing.JFrame  {
 
         jLabel7.setText("Buscar");
 
-        jButton1.setText("Nou Usuari");
+        Nou_Usuari.setText("Nou");
+        Nou_Usuari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Nou_UsuariActionPerformed(evt);
+            }
+        });
 
         Eliminar_Usuari.setText("Eliminar");
         Eliminar_Usuari.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -697,14 +702,14 @@ public class Principal extends javax.swing.JFrame  {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jButton1)
+                .addComponent(Nou_Usuari)
                 .addGap(33, 33, 33)
                 .addComponent(Eliminar_Usuari)
                 .addGap(38, 38, 38)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -712,7 +717,7 @@ public class Principal extends javax.swing.JFrame  {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
+                    .addComponent(Nou_Usuari)
                     .addComponent(jLabel7)
                     .addComponent(Eliminar_Usuari))
                 .addGap(12, 12, 12))
@@ -728,7 +733,8 @@ public class Principal extends javax.swing.JFrame  {
                 .addGap(130, 130, 130)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Contador1Layout.setVerticalGroup(
@@ -739,7 +745,7 @@ public class Principal extends javax.swing.JFrame  {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -768,15 +774,15 @@ public class Principal extends javax.swing.JFrame  {
         DashUsuaris.setLayout(DashUsuarisLayout);
         DashUsuarisLayout.setHorizontalGroup(
             DashUsuarisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Contador1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jScrollPane_Usuaris)
+            .addComponent(Contador1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         DashUsuarisLayout.setVerticalGroup(
             DashUsuarisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DashUsuarisLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashUsuarisLayout.createSequentialGroup()
                 .addComponent(Contador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane_Usuaris, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE))
+                .addComponent(jScrollPane_Usuaris, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE))
         );
 
         DashConfiguracio.setBackground(new java.awt.Color(51, 255, 51));
@@ -785,11 +791,11 @@ public class Principal extends javax.swing.JFrame  {
         DashConfiguracio.setLayout(DashConfiguracioLayout);
         DashConfiguracioLayout.setHorizontalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
+            .addGap(0, 785, Short.MAX_VALUE)
         );
         DashConfiguracioLayout.setVerticalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
+            .addGap(0, 586, Short.MAX_VALUE)
         );
 
         DashTasques.setBackground(new java.awt.Color(255, 255, 255));
@@ -818,7 +824,7 @@ public class Principal extends javax.swing.JFrame  {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
         );
         ContadorLayout.setVerticalGroup(
             ContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -993,7 +999,7 @@ public class Principal extends javax.swing.JFrame  {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(ComboEstat, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(Contrasenya)))))
-                .addGap(35, 162, Short.MAX_VALUE))
+                .addGap(35, 131, Short.MAX_VALUE))
         );
         DashInfoUsuariLayout.setVerticalGroup(
             DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1060,7 +1066,7 @@ public class Principal extends javax.swing.JFrame  {
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashTasques, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 12, Short.MAX_VALUE)))
+                    .addGap(0, 62, Short.MAX_VALUE)))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashUsuaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1074,7 +1080,7 @@ public class Principal extends javax.swing.JFrame  {
 
         getContentPane().add(DashBoardView, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(1050, 575));
+        setSize(new java.awt.Dimension(1046, 575));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1267,11 +1273,11 @@ public class Principal extends javax.swing.JFrame  {
     private void UsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseClicked
         // TODO add your handling code here:
         
-        
-        
+                System.out.println("HOLA");
+                
         
                 DashConfiguracio.setVisible(false);
-                DashTasques.setVisible(false);
+                DashTasques.setVisible(false);               
                 DashUsuaris.setVisible(true);
 
                 DefaultTableModel model = new DefaultTableModel();
@@ -1334,6 +1340,10 @@ public class Principal extends javax.swing.JFrame  {
                         int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
                         int columna = 3;
                         
+                        System.out.println(fila_point);
+                        System.out.println(columna_point);
+                        
+                                                
                         if (fila_point > -1 && columna_point > 0 ){
                             
                             user_update = (String)model.getValueAt(fila_point, columna);
@@ -1738,18 +1748,18 @@ public class Principal extends javax.swing.JFrame  {
         
             if (IsSelected(i,0, jTable_Usuaris)){
             
-               if (eliminarRegistre(jTable_Usuaris.getValueAt(i,3).toString())){
+               eliminarRegistre(jTable_Usuaris.getValueAt(i,3).toString());
                
                   
-                    UsuMouseClicked(evt);
                     
-               }       
+                    
+               
               
                
             }
         
         }
-        
+        UsuMouseClicked(evt);
     }//GEN-LAST:event_Eliminar_UsuariMouseClicked
 
     private void txt_buscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscadorKeyReleased
@@ -1757,13 +1767,45 @@ public class Principal extends javax.swing.JFrame  {
         BuscarUsuaris(txt_buscador.getText());
     }//GEN-LAST:event_txt_buscadorKeyReleased
 
+    private void Nou_UsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nou_UsuariActionPerformed
+        // TODO add your handling code here:   
+        
+        new NouUsuari().setVisible(true);
+    }//GEN-LAST:event_Nou_UsuariActionPerformed
+
+    
+    public void BuscarUsuari(String usuari,java.awt.event.MouseEvent evt ){
+    
+        UsuMouseClicked(evt);
+        txt_buscador.setText(usuari);
+        BuscarUsuaris(usuari);
+        
+    
+    
+    }
+    
+    
     public boolean eliminarRegistre(String usuari){
     
         try{
-            Connection cn = Conexio.conectar();                   
-            PreparedStatement pst = cn.prepareStatement("delete from Usuaris where usuari = ?");
-            pst.setString(1, usuari);
-            int i = pst.executeUpdate();
+            System.out.println(usuari);
+             int id = 0;
+             Connection cn = Conexio.conectar();
+             PreparedStatement pst = cn.prepareStatement("select id_usuari from Usuaris where usuari = '" + usuari + "'" );
+             ResultSet rs = pst.executeQuery();
+             if (rs.next()){
+              id = rs.getInt("id_usuari");
+             
+             }            
+             
+             System.out.println(id);
+             cn.close();      
+          
+             
+            Connection cn2 = Conexio.conectar();            
+            PreparedStatement pst2 = cn2.prepareStatement("delete from Usuaris where id_usuari='" + id + "'");
+            //pst2.setInt(1, id);
+            int i = pst2.executeUpdate();
             if (i != 0){
                 
                 return true;
@@ -1795,7 +1837,7 @@ public class Principal extends javax.swing.JFrame  {
 
                 try {
                     
-                    
+                    System.out.println("Conexio Buscar");
                     
                     
                     //String[] titols = {"Seleccionar, Nom, Cognom, Usuari, Nivell, Estat"};                   
@@ -1877,6 +1919,17 @@ public class Principal extends javax.swing.JFrame  {
          
      
      }
+     
+     public void actualitzarUsuariNou(java.awt.event.MouseEvent evt){
+     
+         
+     
+     }
+     
+     
+     
+     
+     
     
     
     /**
@@ -1967,11 +2020,11 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel N_Tasques;
     private javax.swing.JLabel N_Usu;
     private javax.swing.JPanel N_Usuaris;
+    private javax.swing.JButton Nou_Usuari;
     private javax.swing.JLabel Tasq;
     private javax.swing.JPanel Tasques;
     private javax.swing.JLabel Usu;
     private javax.swing.JPanel Usuaris;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
