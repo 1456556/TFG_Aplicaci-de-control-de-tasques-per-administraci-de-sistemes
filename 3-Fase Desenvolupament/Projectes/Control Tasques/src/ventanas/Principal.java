@@ -152,6 +152,9 @@ public class Principal extends javax.swing.JFrame  {
         jLabel7 = new javax.swing.JLabel();
         Nou_Usuari = new javax.swing.JButton();
         Eliminar_Usuari = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         jScrollPane_Usuaris = new javax.swing.JScrollPane();
         jTable_Usuaris = new javax.swing.JTable();
         DashConfiguracio = new javax.swing.JPanel();
@@ -182,6 +185,27 @@ public class Principal extends javax.swing.JFrame  {
         Guardar = new javax.swing.JButton();
         Enrera = new javax.swing.JLabel();
         Contrasenya = new javax.swing.JButton();
+        DashNouUsuari = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        txt_mail1 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jButton_Registar = new javax.swing.JButton();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        txt_nom1 = new javax.swing.JTextField();
+        jSeparator6 = new javax.swing.JSeparator();
+        txt_cognom1 = new javax.swing.JTextField();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        jLabel21 = new javax.swing.JLabel();
+        txt_telefon1 = new javax.swing.JTextField();
+        jSeparator9 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
+        txt_contrassenya1 = new javax.swing.JPasswordField();
+        jLabel22 = new javax.swing.JLabel();
+        txt_usuari1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -654,12 +678,16 @@ public class Principal extends javax.swing.JFrame  {
         DashUsuaris.setBackground(new java.awt.Color(255, 255, 255));
         DashUsuaris.setForeground(new java.awt.Color(51, 51, 255));
 
+        Contador1.setBackground(new java.awt.Color(255, 153, 51));
         Contador1.setForeground(new java.awt.Color(60, 63, 65));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Tasques Gestionades");
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Tasques Totals");
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Tasques Asignades");
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 51));
@@ -675,6 +703,7 @@ public class Principal extends javax.swing.JFrame  {
             }
         });
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Buscar");
 
         Nou_Usuari.setText("Nou");
@@ -723,19 +752,33 @@ public class Principal extends javax.swing.JFrame  {
                 .addGap(12, 12, 12))
         );
 
+        jTextField1.setBackground(new java.awt.Color(255, 153, 51));
+
+        jTextField2.setBackground(new java.awt.Color(255, 153, 51));
+
+        jTextField3.setBackground(new java.awt.Color(255, 153, 51));
+
         javax.swing.GroupLayout Contador1Layout = new javax.swing.GroupLayout(Contador1);
         Contador1.setLayout(Contador1Layout);
         Contador1Layout.setHorizontalGroup(
             Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Contador1Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(Contador1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(130, 130, 130)
+                .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Contador1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         Contador1Layout.setVerticalGroup(
             Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -745,7 +788,12 @@ public class Principal extends javax.swing.JFrame  {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -768,7 +816,9 @@ public class Principal extends javax.swing.JFrame  {
                 return types [columnIndex];
             }
         });
+        jTable_Usuaris.setColumnSelectionAllowed(true);
         jScrollPane_Usuaris.setViewportView(jTable_Usuaris);
+        jTable_Usuaris.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout DashUsuarisLayout = new javax.swing.GroupLayout(DashUsuaris);
         DashUsuaris.setLayout(DashUsuarisLayout);
@@ -791,7 +841,7 @@ public class Principal extends javax.swing.JFrame  {
         DashConfiguracio.setLayout(DashConfiguracioLayout);
         DashConfiguracioLayout.setHorizontalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 785, Short.MAX_VALUE)
+            .addGap(0, 788, Short.MAX_VALUE)
         );
         DashConfiguracioLayout.setVerticalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -824,7 +874,7 @@ public class Principal extends javax.swing.JFrame  {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
         );
         ContadorLayout.setVerticalGroup(
             ContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -938,6 +988,11 @@ public class Principal extends javax.swing.JFrame  {
         Guardar.setBackground(new java.awt.Color(255, 153, 51));
         Guardar.setForeground(new java.awt.Color(255, 255, 255));
         Guardar.setText("Guardar");
+        Guardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GuardarMouseClicked(evt);
+            }
+        });
         Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuardarActionPerformed(evt);
@@ -999,7 +1054,7 @@ public class Principal extends javax.swing.JFrame  {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(ComboEstat, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(Contrasenya)))))
-                .addGap(35, 131, Short.MAX_VALUE))
+                .addGap(35, 134, Short.MAX_VALUE))
         );
         DashInfoUsuariLayout.setVerticalGroup(
             DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1045,6 +1100,185 @@ public class Principal extends javax.swing.JFrame  {
                         .addGap(57, 57, 57))))
         );
 
+        DashNouUsuari.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel15.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel15.setText("Nou Usuari");
+
+        txt_mail1.setBackground(new java.awt.Color(255, 255, 255));
+        txt_mail1.setForeground(new java.awt.Color(153, 153, 153));
+        txt_mail1.setBorder(null);
+        txt_mail1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_mail1ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel17.setText("Cognom");
+
+        jLabel18.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel18.setText("Email");
+
+        jButton_Registar.setBackground(new java.awt.Color(255, 153, 51));
+        jButton_Registar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Registar.setText("Guardar");
+        jButton_Registar.setBorder(null);
+        jButton_Registar.setBorderPainted(false);
+        jButton_Registar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_RegistarMouseClicked(evt);
+            }
+        });
+        jButton_Registar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RegistarActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel19.setText("Usuari");
+
+        jLabel20.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel20.setText("Nom");
+
+        txt_nom1.setBackground(new java.awt.Color(255, 255, 255));
+        txt_nom1.setForeground(new java.awt.Color(153, 153, 153));
+        txt_nom1.setBorder(null);
+
+        txt_cognom1.setBackground(new java.awt.Color(255, 255, 255));
+        txt_cognom1.setForeground(new java.awt.Color(153, 153, 153));
+        txt_cognom1.setBorder(null);
+
+        jLabel21.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel21.setText("Telèfon");
+
+        txt_telefon1.setBackground(new java.awt.Color(255, 255, 255));
+        txt_telefon1.setForeground(new java.awt.Color(153, 153, 153));
+        txt_telefon1.setBorder(null);
+
+        txt_contrassenya1.setBackground(new java.awt.Color(255, 255, 255));
+        txt_contrassenya1.setForeground(new java.awt.Color(153, 153, 153));
+        txt_contrassenya1.setBorder(null);
+
+        jLabel22.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel22.setText("Contrasenya");
+
+        txt_usuari1.setBackground(new java.awt.Color(255, 255, 255));
+        txt_usuari1.setForeground(new java.awt.Color(153, 153, 153));
+        txt_usuari1.setBorder(null);
+
+        javax.swing.GroupLayout DashNouUsuariLayout = new javax.swing.GroupLayout(DashNouUsuari);
+        DashNouUsuari.setLayout(DashNouUsuariLayout);
+        DashNouUsuariLayout.setHorizontalGroup(
+            DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 776, Short.MAX_VALUE)
+            .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                    .addGap(0, 143, Short.MAX_VALUE)
+                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addGap(150, 150, 150)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(160, 160, 160)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addComponent(txt_nom1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(140, 140, 140)
+                            .addComponent(txt_mail1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(140, 140, 140)
+                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(160, 160, 160)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addComponent(txt_cognom1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(140, 140, 140)
+                            .addComponent(txt_usuari1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(140, 140, 140)
+                            .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(160, 160, 160)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addComponent(txt_telefon1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(140, 140, 140)
+                            .addComponent(txt_contrassenya1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(140, 140, 140)
+                            .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addGap(160, 160, 160)
+                            .addComponent(jButton_Registar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 143, Short.MAX_VALUE)))
+        );
+        DashNouUsuariLayout.setVerticalGroup(
+            DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 537, Short.MAX_VALUE)
+            .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                    .addGap(0, 53, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(40, 40, 40)
+                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txt_nom1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_mail1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(20, 20, 20)
+                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txt_cognom1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_usuari1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(10, 10, 10)
+                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txt_telefon1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(txt_contrassenya1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(60, 60, 60)
+                    .addComponent(jButton_Registar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 54, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout DashBoardViewLayout = new javax.swing.GroupLayout(DashBoardView);
         DashBoardView.setLayout(DashBoardViewLayout);
         DashBoardViewLayout.setHorizontalGroup(
@@ -1058,6 +1292,11 @@ public class Principal extends javax.swing.JFrame  {
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(DashInfoUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(DashNouUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         DashBoardViewLayout.setVerticalGroup(
@@ -1076,6 +1315,11 @@ public class Principal extends javax.swing.JFrame  {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DashInfoUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addGap(6, 6, 6)
+                    .addComponent(DashNouUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         getContentPane().add(DashBoardView, java.awt.BorderLayout.CENTER);
@@ -1253,112 +1497,21 @@ public class Principal extends javax.swing.JFrame  {
     }//GEN-LAST:event_ElemMouseExited
 
     
-    public void addCheckBox(int column, JTable table){
-    
+    public void addCheckBox(int column, JTable table) {
+
         TableColumn tc = table.getColumnModel().getColumn(column);
         tc.setCellEditor(table.getDefaultEditor(Boolean.class));
         tc.setCellRenderer(table.getDefaultRenderer(Boolean.class));
-    
-    
+
     }
     
     
-    public boolean IsSelected(int fila, int columna, JTable taula){
     
-        return jTable_Usuaris.getValueAt(fila, columna) != null;  
-    
-    }
     
     
     private void UsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseClicked
-        // TODO add your handling code here:
-        
-                System.out.println("HOLA");
-                
-        
-                DashConfiguracio.setVisible(false);
-                DashTasques.setVisible(false);               
-                DashUsuaris.setVisible(true);
-
-                DefaultTableModel model = new DefaultTableModel();
-                   
-
-                try {
-                    
-                    
-                    jTable_Usuaris.setModel(model);
-                    
-                                   
-                    Connection cn = Conexio.conectar();                   
-                    PreparedStatement pst = cn.prepareStatement("select nom, cognom, usuari, nivell, estat from Usuaris");
-                    ResultSet rs = pst.executeQuery();
-                    
-                    ResultSetMetaData rsMd = rs.getMetaData();
-                    int cantitatColumnas = 6;
-                    
-                    model.addColumn("Seleccionar");
-                    model.addColumn("Nom");
-                    model.addColumn("Cognom");
-                    model.addColumn("Usuari");
-                    model.addColumn("Nivell"); 
-                    model.addColumn("Estat");                   
-                        
-
-                    
-                    while(rs.next()){
-                    
-                        Object[] fila = new Object[cantitatColumnas];
-                        
-                        for (int i = 1; i < cantitatColumnas; i++) {
-
-                            fila[i] = rs.getObject(i);
-
-                        }
-
-                        model.addRow(fila);
-                        addCheckBox(0,jTable_Usuaris);
-                    
-                    
-                    }                   
-                  
-
-                    cn.close();
-
-                } catch (SQLException e) {
-
-                    System.err.println("Error al omplir la taula");
-                    JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-                }
-                
-                jTable_Usuaris.addMouseListener(new MouseAdapter(){
-                    @Override
-                    
-                    public void mouseClicked(MouseEvent e){
-                    
-                        int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
-                        int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
-                        int columna = 3;
-                        
-                        System.out.println(fila_point);
-                        System.out.println(columna_point);
-                        
-                                                
-                        if (fila_point > -1 && columna_point > 0 ){
-                            
-                            user_update = (String)model.getValueAt(fila_point, columna);
-                            //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
-                            DashUsuaris.setVisible(false);
-                            DashInfoUsuari.setVisible(true);
-                            informacioUsuari(user_update);
-                        }
-                    
-                    }
-                
-                
-                });
-                
-     
+        // TODO add your handling code here:       
+        DashUsuaris();
     }//GEN-LAST:event_UsuMouseClicked
 
     public void informacioUsuari(String user){
@@ -1391,10 +1544,7 @@ public class Principal extends javax.swing.JFrame  {
                 System.err.println("Error al solicitar les dades d'usuari" + e);
                 JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");     
         
-        }
-        
-    
-    
+        }    
     }
     
     
@@ -1476,8 +1626,91 @@ public class Principal extends javax.swing.JFrame  {
 
     private void N_UsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuMouseClicked
         // TODO add your handling code here:
+        DashUsuaris();
     }//GEN-LAST:event_N_UsuMouseClicked
 
+    
+    public void DashUsuaris(){
+    
+        DashInfoUsuari.setVisible(false);
+        DashConfiguracio.setVisible(false);
+        DashTasques.setVisible(false);
+        DashNouUsuari.setVisible(false);
+        DashUsuaris.setVisible(true);
+
+        DefaultTableModel model = new DefaultTableModel();
+
+        try {
+
+            jTable_Usuaris.setModel(model);
+
+            Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("select nom, cognom, usuari, nivell, estat from Usuaris");
+            ResultSet rs = pst.executeQuery();
+
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int cantitatColumnas = 6;
+
+            model.addColumn("Seleccionar");
+            model.addColumn("Nom");
+            model.addColumn("Cognom");
+            model.addColumn("Usuari");
+            model.addColumn("Nivell");
+            model.addColumn("Estat");
+
+            while (rs.next()) {
+
+                Object[] fila = new Object[cantitatColumnas];
+
+                for (int i = 1; i < cantitatColumnas; i++) {
+
+                    fila[i] = rs.getObject(i);
+
+                }
+
+                model.addRow(fila);
+                addCheckBox(0, jTable_Usuaris);
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al omplir la taula");
+            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+
+        jTable_Usuaris.updateUI();
+        jTable_Usuaris.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
+                int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
+                int columna = 3;
+
+                System.out.println(fila_point);
+                System.out.println(columna_point);
+
+                if (fila_point > -1 && columna_point > 0) {
+
+                    user_update = (String) model.getValueAt(fila_point, columna);
+                    //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
+                    DashUsuaris.setVisible(false);
+                    DashInfoUsuari.setVisible(true);
+                    informacioUsuari(user_update);
+                }
+
+            }
+
+        });
+
+    }
+    
+    
     private void N_UsuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuMouseEntered
         // TODO add your handling code here:
         changecolor(N_Usuaris, new Color(255, 204, 102));
@@ -1598,127 +1831,6 @@ public class Principal extends javax.swing.JFrame  {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
-        int nivell, estat, validacio = 0;
-        String nom, cognom, mail, telefon, usuari, nivell_string = "", estat_string="";
-        
-        mail = txt_email.getText().trim();
-        nom = txt_nom.getText().trim();
-        cognom = txt_cognom.getText().trim();
-        telefon = txt_telefon.getText().trim();
-        usuari = txt_usuari.getText().trim();
-        
-        nivell = ComboNivell.getSelectedIndex() + 1;
-        estat = ComboEstat.getSelectedIndex() + 1;
-        
-        if(mail.equals("")){
-        
-            txt_email.setBackground(Color.red);
-            validacio++;
-        }
-         if(nom.equals("")){
-        
-            txt_nom.setBackground(Color.red);
-            validacio++;
-        }
-          if(cognom.equals("")){
-        
-            txt_cognom.setBackground(Color.red);
-            validacio++;
-        }
-           if(telefon.equals("")){
-        
-            txt_telefon.setBackground(Color.red);
-            validacio++;
-        }
-           
-        if (validacio == 0){
-        
-            if (nivell == 1){
-                
-                nivell_string = "Administrador";
-                
-            }else if(nivell == 2){
-            
-                nivell_string = "Oficinista";
-            }else if(nivell ==3){
-            
-                nivell_string = "Operari";
-            
-            }
-            
-            if (estat == 1){
-                
-                estat_string= "Actiu";
-                
-            }else if(nivell == 2){
-            
-                estat_string = "No Actiu";
-                
-                
-            }
-        
-            try{
-            
-                Connection cn = Conexio.conectar();
-                PreparedStatement pst = cn.prepareStatement("select usuari from Usuaris where usuari = '" + usuari + "' and not id_usuari = '" + id + "'" );
-                ResultSet rs = pst.executeQuery();
-            
-            if(rs.next()){
-                
-                txt_usuari.setBackground(Color.red);
-                JOptionPane.showMessageDialog(null, "Nom d'usuari no disponible");
-                cn.close();
-                
-                
-            } else{
-            
-                Connection cn2 = Conexio.conectar();
-                PreparedStatement pst2 = cn2.prepareStatement("update Usuaris set nom=?, cognom=?, telefon=?, email=?, usuari=?, nivell=?, estat=?" + "where id_usuari = '"
-                +id+"'");
-                pst2.setString(1,nom);
-                pst2.setString(2,cognom);
-                pst2.setString(3,telefon);
-                pst2.setString(4,mail);
-                pst2.setString(5,usuari);                
-                pst2.setString(6,nivell_string);
-                pst2.setString(7,estat_string);
-                
-                pst2.executeUpdate();
-                cn2.close();
-                
-                 txt_email.setBackground(Color.green);
-                 txt_nom.setBackground(Color.green);
-                 txt_cognom.setBackground(Color.green);
-                 txt_telefon.setBackground(Color.green);
-                 txt_usuari.setBackground(Color.green);
-                 ComboEstat.setBackground(Color.green);
-                 ComboNivell.setBackground(Color.green);
-                
-                JOptionPane.showMessageDialog(null, "Modificacio Correcta!");
-                
-                
-                 
-                    
-                   
-            
-            }
-            
-            
-            
-            }catch(SQLException e){
-            
-                System.err.println("Error al Gardar" + e);
-            
-            }
-            
-            
-           
-        
-        }else{
-        
-             JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
-        
-        }
         
         
     }//GEN-LAST:event_GuardarActionPerformed
@@ -1735,31 +1847,28 @@ public class Principal extends javax.swing.JFrame  {
 
     private void Eliminar_UsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_UsuariActionPerformed
         // TODO add your handling code here:
-        
-        
-        
-        
-        
+            
     }//GEN-LAST:event_Eliminar_UsuariActionPerformed
 
+    public boolean IsSelected(int fila, int columna, JTable taula){
+    
+        return jTable_Usuaris.getValueAt(fila, columna) != null;  
+    
+    }
+    
     private void Eliminar_UsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Eliminar_UsuariMouseClicked
         // TODO add your handling code here:
-        for (int i = 0; i<jTable_Usuaris.getRowCount(); i++){
-        
-            if (IsSelected(i,0, jTable_Usuaris)){
+        int j;
+        for (int i = 0; i < jTable_Usuaris.getRowCount(); i++) {
             
-               eliminarRegistre(jTable_Usuaris.getValueAt(i,3).toString());
-               
-                  
-                    
-                    
-               
-              
-               
+            if (IsSelected(i, 0, jTable_Usuaris)) {
+                
+                j = jTable_Usuaris.getSelectedRow();
+                
+                eliminarRegistre(jTable_Usuaris.getValueAt(j, 3).toString());
             }
-        
         }
-        UsuMouseClicked(evt);
+        DashUsuaris();
     }//GEN-LAST:event_Eliminar_UsuariMouseClicked
 
     private void txt_buscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscadorKeyReleased
@@ -1769,19 +1878,301 @@ public class Principal extends javax.swing.JFrame  {
 
     private void Nou_UsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nou_UsuariActionPerformed
         // TODO add your handling code here:   
-        
-        new NouUsuari().setVisible(true);
+        DashUsuaris.setVisible(false);
+        DashNouUsuari.setVisible(true);
     }//GEN-LAST:event_Nou_UsuariActionPerformed
 
-    
-    public void BuscarUsuari(String usuari,java.awt.event.MouseEvent evt ){
-    
-        UsuMouseClicked(evt);
-        txt_buscador.setText(usuari);
-        BuscarUsuaris(usuari);
+    private void jButton_RegistarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarMouseClicked
+        // TODO add your handling code here:
         
+        
+        int validacio = 0;
+        String nom, cognom, mail, telefon, usuari, contrassenya, nivell, estat;
+
+        mail = txt_mail1.getText().trim();
+        nom = txt_nom1.getText().trim();
+        cognom = txt_cognom1.getText().trim();
+        telefon = txt_telefon1.getText().trim();
+        usuari = txt_usuari1.getText().trim();
+        contrassenya = txt_contrassenya1.getText().trim();
+        nivell = "Operari";
+        estat = "Actiu";
+
+        if (mail.equals("")){
+
+            txt_mail1.setBackground(Color.orange.darker());
+            validacio++;
+        }
+        if (nom.equals("")){
+
+            txt_nom1.setBackground(Color.ORANGE.darker());
+            validacio++;
+        }
+        if (cognom.equals("")){
+
+            txt_cognom1.setBackground(Color.ORANGE.darker());
+            validacio++;
+        }
+        if (telefon.equals("")){
+
+            txt_telefon1.setBackground(Color.ORANGE.darker());
+            validacio++;
+        }
+        if (usuari.equals("")){
+
+            txt_usuari1.setBackground(Color.ORANGE.darker());
+            validacio++;
+        }
+        if (contrassenya.equals("")){
+
+            txt_contrassenya1.setBackground(Color.ORANGE.darker());
+            validacio++;
+        }
+
+        try{
+
+            Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("select usuari from Usuaris where usuari = '" + usuari + "'" );
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+                txt_usuari1.setBackground(Color.red);
+                JOptionPane.showMessageDialog(null, "Nom d'usuari no disponible");
+                
+            }else{
+                cn.close();
+                if (validacio == 0){
+                    try{
+
+                        Connection cn2 = Conexio.conectar();
+                        PreparedStatement pst2 = cn2.prepareStatement("insert into Usuaris values (?,?,?,?,?,?,?,?,?)");
+                        pst2.setInt(1,0);
+                        pst2.setString(2,nom);
+                        pst2.setString(3,cognom);
+                        pst2.setString(4,telefon);
+                        pst2.setString(5,mail);
+                        pst2.setString(6,usuari);
+                        pst2.setString(7,contrassenya);
+                        pst2.setString(8,nivell);
+                        pst2.setString(9,estat);
+
+                        pst2.executeUpdate();
+                        cn2.close();
+
+                        Natejar();
+
+                        JOptionPane.showMessageDialog(null, "Usuari creat amb exit");                                                 
+                        DashNouUsuari.setVisible(false);
+                        DashUsuaris();                        
+
+                    }catch (SQLException e){
+
+                        System.err.println("Error en crear el Usuari" + e);
+                        JOptionPane.showMessageDialog(null, "Error al crear usuari. Contacta amb l'administrador");
+                    }
+
+                }else{
+                    NatejarColor();
+                    JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps per crear un usuari");
+
+                }
+
+            }
+
+        }catch (Exception e){
+
+            System.err.println("Error en validar el nom d'usuari" + e);
+            JOptionPane.showMessageDialog(null,"Error al crear usuari. Contacti amb l'administrador.");
+        }
+
+    }//GEN-LAST:event_jButton_RegistarMouseClicked
+
+    public void Natejar(){
+    
+        txt_mail1.setText("");
+        txt_usuari1.setText("");
+        txt_cognom1.setText("");
+        txt_telefon1.setText("");
+        txt_contrassenya1.setText("");
+        txt_nom1.setText("");  
     
     
+    }
+    
+    
+    public void NatejarColor(){
+    
+        //txt_usuari.setBackground(Color.WHITE);
+        txt_mail1.setText("");
+        txt_cognom1.setText("");
+        txt_telefon1.setText("");
+        txt_contrassenya1.setText("");
+        txt_nom1.setText("");  
+    
+    
+    }
+    
+    
+    private void jButton_RegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton_RegistarActionPerformed
+
+    private void txt_mail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_mail1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_mail1ActionPerformed
+
+    private void GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMouseClicked
+        // TODO add your handling code here:
+        int nivell, estat, validacio = 0;
+        String nom, cognom, mail, telefon, usuari, nivell_string = "", estat_string = "";
+
+        mail = txt_email.getText().trim();
+        nom = txt_nom.getText().trim();
+        cognom = txt_cognom.getText().trim();
+        telefon = txt_telefon.getText().trim();
+        usuari = txt_usuari.getText().trim();
+
+        nivell = ComboNivell.getSelectedIndex() + 1;
+        estat = ComboEstat.getSelectedIndex() + 1;
+
+        if (mail.equals("")) {
+
+            txt_email.setBackground(Color.red);
+            validacio++;
+        }
+        if (nom.equals("")) {
+
+            txt_nom.setBackground(Color.red);
+            validacio++;
+        }
+        if (cognom.equals("")) {
+
+            txt_cognom.setBackground(Color.red);
+            validacio++;
+        }
+        if (telefon.equals("")) {
+
+            txt_telefon.setBackground(Color.red);
+            validacio++;
+        }
+
+        if (validacio == 0) {
+
+            if (nivell == 1) {
+
+                nivell_string = "Administrador";
+
+            }
+            if (nivell == 2) {
+
+                nivell_string = "Oficinista";
+            }
+            if (nivell == 3) {
+
+                nivell_string = "Operari";
+
+            }
+
+            if (estat == 1) {
+
+                estat_string = "Actiu";
+
+            } else if (nivell == 2) {
+
+                estat_string = "No Actiu";
+
+            }
+
+            try {
+
+                Connection cn = Conexio.conectar();
+                PreparedStatement pst = cn.prepareStatement("select usuari from Usuaris where usuari = '" + usuari + "' and not id_usuari = '" + id + "'");
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) {
+
+                    txt_usuari.setBackground(Color.red);
+                    JOptionPane.showMessageDialog(null, "Nom d'usuari no disponible");
+                    cn.close();
+
+                } else {
+
+                    Connection cn2 = Conexio.conectar();
+                    PreparedStatement pst2 = cn2.prepareStatement("update Usuaris set nom=?, cognom=?, telefon=?, email=?, usuari=?, nivell=?, estat=?" + "where id_usuari = '"
+                            + id + "'");
+                    pst2.setString(1, nom);
+                    pst2.setString(2, cognom);
+                    pst2.setString(3, telefon);
+                    pst2.setString(4, mail);
+                    pst2.setString(5, usuari);
+                    pst2.setString(6, nivell_string);
+                    pst2.setString(7, estat_string);
+
+                    pst2.executeUpdate();
+                    cn2.close();
+
+                    txt_email.setBackground(Color.green);
+                    txt_nom.setBackground(Color.green);
+                    txt_cognom.setBackground(Color.green);
+                    txt_telefon.setBackground(Color.green);
+                    txt_usuari.setBackground(Color.green);
+                    ComboEstat.setBackground(Color.green);
+                    ComboNivell.setBackground(Color.green);
+
+                    JOptionPane.showMessageDialog(null, "Modificacio Correcta!");
+                    DashInfoUsuari.setVisible(false);
+                    DashUsuaris();
+                }
+
+            } catch (SQLException e) {
+
+                System.err.println("Error al Gardar" + e);
+
+            }
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+
+        }
+
+
+    }//GEN-LAST:event_GuardarMouseClicked
+
+    public void BuscarUsuari(String usuari, java.awt.event.MouseEvent evt) {
+
+        System.out.print(usuari);
+        //UsuMouseClicked(evt);
+        txt_buscador.setText("HOLA");
+        //BuscarUsuaris(usuari);
+
+        DefaultTableModel model = new DefaultTableModel();
+        jTable_Usuaris.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
+                int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
+                int columna = 3;
+
+                System.out.println(fila_point);
+                System.out.println(columna_point);
+
+                if (fila_point > -1 && columna_point > 0) {
+
+                    user_update = (String) model.getValueAt(fila_point, columna);
+                    //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
+                    DashUsuaris.setVisible(false);
+                    DashInfoUsuari.setVisible(true);
+                    informacioUsuari(user_update);
+                }
+
+            }
+
+        });
+
     }
     
     
@@ -1904,7 +2295,7 @@ public class Principal extends javax.swing.JFrame  {
                         
                         if (fila_point > -1 && columna_point > 0 ){
                             
-                            user_update = (String)model.getValueAt(fila_point, columna);
+                            user_update = (String)model.getValueAt(fila_point, columna+1);
                             //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
                             DashUsuaris.setVisible(false);
                             DashInfoUsuari.setVisible(true);
@@ -1985,6 +2376,7 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel DashBoardView;
     private javax.swing.JPanel DashConfiguracio;
     private javax.swing.JPanel DashInfoUsuari;
+    private javax.swing.JPanel DashNouUsuari;
     private javax.swing.JPanel DashTasques;
     private javax.swing.JPanel DashUsuaris;
     private javax.swing.JLabel Elem;
@@ -2025,14 +2417,22 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel Tasques;
     private javax.swing.JLabel Usu;
     private javax.swing.JPanel Usuaris;
+    private javax.swing.JButton jButton_Registar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2044,13 +2444,28 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane_Usuaris;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable_Usuaris;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField txt_buscador;
     private javax.swing.JTextField txt_cognom;
+    private javax.swing.JTextField txt_cognom1;
+    private javax.swing.JPasswordField txt_contrassenya1;
     private javax.swing.JTextField txt_email;
+    private javax.swing.JTextField txt_mail1;
     private javax.swing.JTextField txt_nom;
+    private javax.swing.JTextField txt_nom1;
     private javax.swing.JTextField txt_telefon;
+    private javax.swing.JTextField txt_telefon1;
     private javax.swing.JTextField txt_usuari;
+    private javax.swing.JTextField txt_usuari1;
     // End of variables declaration//GEN-END:variables
 }

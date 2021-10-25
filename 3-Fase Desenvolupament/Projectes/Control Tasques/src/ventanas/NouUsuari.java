@@ -354,7 +354,7 @@ public class NouUsuari extends javax.swing.JFrame {
                 cn.close();
             }else{
                 cn.close();
-                if (validacio == 0){
+                //if (validacio == 0){
                     try{
 
                         Connection cn2 = Conexio.conectar();
@@ -376,7 +376,9 @@ public class NouUsuari extends javax.swing.JFrame {
 
                         JOptionPane.showMessageDialog(null, "Usuari creat amb exit");
                         this.dispose();                        
-                        new Principal().BuscarUsuari(usuari,evt);
+                        //new Principal().BuscarUsuari(usuari,evt);
+                        Principal p = new Principal();
+                        p.BuscarUsuari(usuari, evt);
 
                     }catch (SQLException e){
 
@@ -384,11 +386,11 @@ public class NouUsuari extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Error al crear usuari. Contacta amb l'administrador");
                     }
 
-                }else{
+                /*}else{
                     NatejarColor();
                     JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps per crear un usuari");
 
-                }
+                }*/
 
             }
 
