@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -21,6 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -799,8 +801,8 @@ public class Principal extends javax.swing.JFrame  {
 
         jTable_Usuaris.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
+                { new Boolean(false), null, null, null, null, null},
+                { new Boolean(false), null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
@@ -809,16 +811,14 @@ public class Principal extends javax.swing.JFrame  {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jTable_Usuaris.setColumnSelectionAllowed(true);
         jScrollPane_Usuaris.setViewportView(jTable_Usuaris);
-        jTable_Usuaris.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout DashUsuarisLayout = new javax.swing.GroupLayout(DashUsuaris);
         DashUsuaris.setLayout(DashUsuarisLayout);
@@ -1502,6 +1502,7 @@ public class Principal extends javax.swing.JFrame  {
         TableColumn tc = table.getColumnModel().getColumn(column);
         tc.setCellEditor(table.getDefaultEditor(Boolean.class));
         tc.setCellRenderer(table.getDefaultRenderer(Boolean.class));
+        
 
     }
     
@@ -1650,7 +1651,7 @@ public class Principal extends javax.swing.JFrame  {
 
             ResultSetMetaData rsMd = rs.getMetaData();
             int cantitatColumnas = 6;
-
+            int cantitatFilas = 0;
             model.addColumn("Seleccionar");
             model.addColumn("Nom");
             model.addColumn("Cognom");
@@ -1665,14 +1666,21 @@ public class Principal extends javax.swing.JFrame  {
                 for (int i = 1; i < cantitatColumnas; i++) {
 
                     fila[i] = rs.getObject(i);
-
+                   
                 }
-
+                cantitatFilas++;
                 model.addRow(fila);
                 addCheckBox(0, jTable_Usuaris);
-
+                
             }
+            
+                for (int i = 0; i < cantitatFilas; i++) {
 
+                    model.setValueAt(false,i,0);
+                   
+                }
+            
+            
             cn.close();
 
         } catch (SQLException e) {
@@ -1682,22 +1690,25 @@ public class Principal extends javax.swing.JFrame  {
 
         }
 
-        jTable_Usuaris.updateUI();
+        //jTable_Usuaris.updateUI();
+         model.fireTableDataChanged();
         jTable_Usuaris.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-
+               
+               // jTable_Usuaris.updateUI();
+               // jTable_Usuaris.repaint();
                 int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
                 int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
                 int columna = 3;
 
-                System.out.println(fila_point);
-                System.out.println(columna_point);
+                System.out.println("Fila" + fila_point);
+                System.out.println("Columna" + columna_point);
 
                 if (fila_point > -1 && columna_point > 0) {
-
-                    user_update = (String) model.getValueAt(fila_point, columna);
+                    
+                    user_update = model.getValueAt(fila_point, columna).toString();
                     //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
                     DashUsuaris.setVisible(false);
                     DashInfoUsuari.setVisible(true);
@@ -1708,6 +1719,57 @@ public class Principal extends javax.swing.JFrame  {
 
         });
 
+    }
+    
+    
+    public void ActualitzarTaula(){
+    
+        int i = jTable_Usuaris.getRowCount()-1;
+        System.out.print(i);
+        
+       // for (int i = 0; i < jTable_Usuaris.getRowCount(); i++) {
+
+                  String nom = jTable_Usuaris.getValueAt(i,1).toString();
+                  String cognom = jTable_Usuaris.getValueAt(i,2).toString();
+                  String user = jTable_Usuaris.getValueAt(i,3).toString();
+                  String nivell = jTable_Usuaris.getValueAt(i,4).toString();
+                  String estat = jTable_Usuaris.getValueAt(i,5).toString();
+                  
+                  System.out.print(nom);
+                  System.out.print(cognom);
+                  System.out.print(user);
+                  System.out.print(nivell);
+                  System.out.print(estat);
+                  
+                
+           try {
+                
+               Connection cn2 = Conexio.conectar();
+               PreparedStatement pst2 = cn2.prepareStatement("update Usuaris set nom=?, cognom=?, usuari=?, nivell=?, estat=? where usuari = '"+ user + "'");
+                    pst2.setString(1, nom);
+                    pst2.setString(2, cognom);                   
+                    pst2.setString(3, user);
+                    pst2.setString(4, nivell);
+                    pst2.setString(5, estat);
+
+                    pst2.executeUpdate();
+                   // DashUsuaris(); 
+
+            /*Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("UPDATE Usuaris SET nom='"+nom+"',cognom='"+cognom+"',usuari='"+user+"',nivell='"+nivell+"',estat='"+estat+"' WHERE usuari='"+user+"'");
+            //ResultSet rs = pst.executeQuery(); 
+            pst.executeUpdate();*/
+            
+            
+             }catch(SQLException e){
+             
+                 JOptionPane.showMessageDialog(null, e + "No s'han actualitzat les dades");
+             
+            // }
+             //     
+        }
+    
+       
     }
     
     
@@ -1852,23 +1914,40 @@ public class Principal extends javax.swing.JFrame  {
 
     public boolean IsSelected(int fila, int columna, JTable taula){
     
-        return jTable_Usuaris.getValueAt(fila, columna) != null;  
+        //return jTable_Usuaris.getValueAt(fila, columna) != null;  
+        Boolean checked=Boolean.valueOf(taula.getValueAt(fila,columna).toString());
+        System.out.print(checked);
+        return checked;
     
     }
     
     private void Eliminar_UsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Eliminar_UsuariMouseClicked
         // TODO add your handling code here:
-        int j;
-        for (int i = 0; i < jTable_Usuaris.getRowCount(); i++) {
+        
+        Eliminar_Usuari.addActionListener(new ActionListener() {
+
+      @Override
+      public void actionPerformed(ActionEvent arg0) {
+        // TODO Auto-generated method stub
+
+        //GET SELECTED ROW
+        for(int i=0;i<jTable_Usuaris.getRowCount();i++)
+        {
+          Boolean checked=Boolean.valueOf(jTable_Usuaris.getValueAt(i, 0).toString());
+          String col=jTable_Usuaris.getValueAt(i, 1).toString();
+
+          //DISPLAY
+          if(checked)
+          {
             
-            if (IsSelected(i, 0, jTable_Usuaris)) {
-                
-                j = jTable_Usuaris.getSelectedRow();
-                
-                eliminarRegistre(jTable_Usuaris.getValueAt(j, 3).toString());
-            }
+            eliminarRegistre(jTable_Usuaris.getValueAt(i, 3).toString());
+          }
         }
+
+      }
+    });
         DashUsuaris();
+       
     }//GEN-LAST:event_Eliminar_UsuariMouseClicked
 
     private void txt_buscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscadorKeyReleased
@@ -1886,7 +1965,40 @@ public class Principal extends javax.swing.JFrame  {
         // TODO add your handling code here:
         
         
-        int validacio = 0;
+       
+
+    }//GEN-LAST:event_jButton_RegistarMouseClicked
+
+    public void Natejar(){
+    
+        txt_mail1.setText("");
+        txt_usuari1.setText("");
+        txt_cognom1.setText("");
+        txt_telefon1.setText("");
+        txt_contrassenya1.setText("");
+        txt_nom1.setText("");  
+    
+    
+    }
+    
+    
+    public void NatejarColor(){
+    
+        //txt_usuari.setBackground(Color.WHITE);
+        txt_mail1.setText("");
+        txt_cognom1.setText("");
+        txt_telefon1.setText("");
+        txt_contrassenya1.setText("");
+        txt_nom1.setText("");  
+    
+    
+    }
+    
+    
+    private void jButton_RegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarActionPerformed
+        // TODO add your handling code here:
+
+         int validacio = 0;
         String nom, cognom, mail, telefon, usuari, contrassenya, nivell, estat;
 
         mail = txt_mail1.getText().trim();
@@ -1929,6 +2041,7 @@ public class Principal extends javax.swing.JFrame  {
             validacio++;
         }
 
+        //DefaultTableModel tableModel = (DefaultTableModel) jTable_Usuaris.getModel();
         try{
 
             Connection cn = Conexio.conectar();
@@ -1963,7 +2076,12 @@ public class Principal extends javax.swing.JFrame  {
 
                         JOptionPane.showMessageDialog(null, "Usuari creat amb exit");                                                 
                         DashNouUsuari.setVisible(false);
-                        DashUsuaris();                        
+                        //jTable_Usuaris.setModel(tableModel);
+                        //tableModel.fireTableDataChanged();
+                        //jTable_Usuaris.repaint();
+                        ActualitzarTaula();
+                        DashUsuaris(); 
+                        
 
                     }catch (SQLException e){
 
@@ -1984,38 +2102,10 @@ public class Principal extends javax.swing.JFrame  {
             System.err.println("Error en validar el nom d'usuari" + e);
             JOptionPane.showMessageDialog(null,"Error al crear usuari. Contacti amb l'administrador.");
         }
-
-    }//GEN-LAST:event_jButton_RegistarMouseClicked
-
-    public void Natejar(){
-    
-        txt_mail1.setText("");
-        txt_usuari1.setText("");
-        txt_cognom1.setText("");
-        txt_telefon1.setText("");
-        txt_contrassenya1.setText("");
-        txt_nom1.setText("");  
-    
-    
-    }
-    
-    
-    public void NatejarColor(){
-    
-        //txt_usuari.setBackground(Color.WHITE);
-        txt_mail1.setText("");
-        txt_cognom1.setText("");
-        txt_telefon1.setText("");
-        txt_contrassenya1.setText("");
-        txt_nom1.setText("");  
-    
-    
-    }
-    
-    
-    private void jButton_RegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarActionPerformed
-        // TODO add your handling code here:
-
+        
+        
+        
+        
     }//GEN-LAST:event_jButton_RegistarActionPerformed
 
     private void txt_mail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_mail1ActionPerformed
