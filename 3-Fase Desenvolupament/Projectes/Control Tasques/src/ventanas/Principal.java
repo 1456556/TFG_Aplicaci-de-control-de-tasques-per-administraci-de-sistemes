@@ -1691,7 +1691,7 @@ public class Principal extends javax.swing.JFrame  {
         }
 
         //jTable_Usuaris.updateUI();
-         model.fireTableDataChanged();
+        
         jTable_Usuaris.addMouseListener(new MouseAdapter() {
 
             @Override
@@ -1699,15 +1699,19 @@ public class Principal extends javax.swing.JFrame  {
                
                // jTable_Usuaris.updateUI();
                // jTable_Usuaris.repaint();
+               
+               //DefaultTableModel model2 = new DefaultTableModel();
+               jTable_Usuaris.setModel(model);
+                
                 int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
                 int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
                 int columna = 3;
-
+                
                 System.out.println("Fila" + fila_point);
                 System.out.println("Columna" + columna_point);
 
                 if (fila_point > -1 && columna_point > 0) {
-                    
+                    model.fireTableDataChanged();
                     user_update = model.getValueAt(fila_point, columna).toString();
                     //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
                     DashUsuaris.setVisible(false);
