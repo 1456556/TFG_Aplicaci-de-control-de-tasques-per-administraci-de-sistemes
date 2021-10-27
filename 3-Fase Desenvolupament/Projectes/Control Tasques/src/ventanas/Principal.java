@@ -1004,7 +1004,7 @@ public class Principal extends javax.swing.JFrame  {
 
         Contrasenya.setBackground(new java.awt.Color(255, 153, 51));
         Contrasenya.setForeground(new java.awt.Color(255, 255, 255));
-        Contrasenya.setText("Actualitzar Contrasseña");
+        Contrasenya.setText("Actualitzar Contrassenya");
         Contrasenya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContrasenyaActionPerformed(evt);
@@ -1016,17 +1016,10 @@ public class Principal extends javax.swing.JFrame  {
         DashInfoUsuariLayout.setHorizontalGroup(
             DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
                 .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(Enrera, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(192, 192, 192)
-                        .addComponent(jLabel8))
-                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                        .addGap(311, 311, 311)
-                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
+                        .addGap(46, 46, 46)
                         .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1034,27 +1027,41 @@ public class Principal extends javax.swing.JFrame  {
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txt_cognom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txt_email, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txt_telefon))
-                        .addGap(135, 135, 135)
+                            .addComponent(txt_cognom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_telefon, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_usuari, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                                    .addComponent(jLabel14)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ComboNivell, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ComboEstat, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(Contrasenya)))))
-                .addGap(35, 134, Short.MAX_VALUE))
+                                .addGap(121, 121, 121)
+                                .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel16)
+                                            .addComponent(jLabel14))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(ComboNivell, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ComboEstat, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txt_usuari, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashInfoUsuariLayout.createSequentialGroup()
+                                .addGap(169, 169, 169)
+                                .addComponent(Contrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                                .addComponent(Enrera, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(192, 192, 192)
+                                .addComponent(jLabel8))
+                            .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                                .addGap(272, 272, 272)
+                                .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         DashInfoUsuariLayout.setVerticalGroup(
             DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1065,15 +1072,24 @@ public class Principal extends javax.swing.JFrame  {
                     .addComponent(Enrera, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9))
-                    .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_usuari, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel13)))
-                .addGap(44, 44, 44)
-                .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_usuari, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13))
+                        .addGap(44, 44, 44)
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(ComboNivell))
+                        .addGap(65, 65, 65)
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(ComboEstat))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE))
+                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(44, 44, 44)
                         .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_cognom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
@@ -1086,18 +1102,9 @@ public class Principal extends javax.swing.JFrame  {
                             .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12)
                             .addComponent(Contrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(ComboNivell))
-                        .addGap(65, 65, 65)
-                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(ComboEstat))
-                        .addGap(130, 130, 130)
-                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
 
         DashNouUsuari.setBackground(new java.awt.Color(255, 255, 255));
@@ -1313,7 +1320,7 @@ public class Principal extends javax.swing.JFrame  {
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashBoardViewLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DashInfoUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DashInfoUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
@@ -1504,50 +1511,13 @@ public class Principal extends javax.swing.JFrame  {
         tc.setCellRenderer(table.getDefaultRenderer(Boolean.class));
         
 
-    }
-    
-    
-    
-    
+    }    
     
     private void UsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseClicked
         // TODO add your handling code here:       
         DashUsuaris();
     }//GEN-LAST:event_UsuMouseClicked
 
-    public void informacioUsuari(String user){
-        
-        System.out.print(user);
-        jLabel8.setText(user);
-        try{
-            Connection cn = Conexio.conectar();                   
-            PreparedStatement pst = cn.prepareStatement("select * from Usuaris where usuari = '" + user + "'");
-            ResultSet rs = pst.executeQuery();
-            
-            if(rs.next()){
-            
-                id = rs.getInt("id_usuari");
-                txt_nom.setText(rs.getString("nom"));
-                txt_cognom.setText(rs.getString("cognom"));
-                txt_email.setText(rs.getString("email"));
-                txt_telefon.setText(rs.getString("telefon"));               
-                txt_usuari.setText(rs.getString("usuari"));
-                
-                ComboNivell.setSelectedItem(rs.getString("nivell"));
-                ComboEstat.setSelectedItem(rs.getString("estat"));
-            
-            }
-        
-            cn.close();
-        
-        }catch(SQLException e){
-        
-                System.err.println("Error al solicitar les dades d'usuari" + e);
-                JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");     
-        
-        }    
-    }
-    
     
     private void UsuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseEntered
         // TODO add your handling code here:
@@ -1630,152 +1600,6 @@ public class Principal extends javax.swing.JFrame  {
         DashUsuaris();
     }//GEN-LAST:event_N_UsuMouseClicked
 
-    
-    public void DashUsuaris(){
-    
-        DashInfoUsuari.setVisible(false);
-        DashConfiguracio.setVisible(false);
-        DashTasques.setVisible(false);
-        DashNouUsuari.setVisible(false);
-        DashUsuaris.setVisible(true);
-
-        DefaultTableModel model = new DefaultTableModel();
-
-        try {
-
-            jTable_Usuaris.setModel(model);
-
-            Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select nom, cognom, usuari, nivell, estat from Usuaris");
-            ResultSet rs = pst.executeQuery();
-
-            ResultSetMetaData rsMd = rs.getMetaData();
-            int cantitatColumnas = 6;
-            int cantitatFilas = 0;
-            model.addColumn("Seleccionar");
-            model.addColumn("Nom");
-            model.addColumn("Cognom");
-            model.addColumn("Usuari");
-            model.addColumn("Nivell");
-            model.addColumn("Estat");
-
-            while (rs.next()) {
-
-                Object[] fila = new Object[cantitatColumnas];
-
-                for (int i = 1; i < cantitatColumnas; i++) {
-
-                    fila[i] = rs.getObject(i);
-                   
-                }
-                cantitatFilas++;
-                model.addRow(fila);
-                addCheckBox(0, jTable_Usuaris);
-                
-            }
-            
-                for (int i = 0; i < cantitatFilas; i++) {
-
-                    model.setValueAt(false,i,0);
-                   
-                }
-            
-            
-            cn.close();
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al omplir la taula");
-            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-        }
-
-        //jTable_Usuaris.updateUI();
-        
-        jTable_Usuaris.addMouseListener(new MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-               
-               // jTable_Usuaris.updateUI();
-               // jTable_Usuaris.repaint();
-               
-               //DefaultTableModel model2 = new DefaultTableModel();
-               jTable_Usuaris.setModel(model);
-                
-                int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
-                int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
-                int columna = 3;
-                
-                System.out.println("Fila" + fila_point);
-                System.out.println("Columna" + columna_point);
-
-                if (fila_point > -1 && columna_point > 0) {
-                    model.fireTableDataChanged();
-                    user_update = model.getValueAt(fila_point, columna).toString();
-                    //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
-                    DashUsuaris.setVisible(false);
-                    DashInfoUsuari.setVisible(true);
-                    informacioUsuari(user_update);
-                }
-
-            }
-
-        });
-
-    }
-    
-    
-    public void ActualitzarTaula(){
-    
-        int i = jTable_Usuaris.getRowCount()-1;
-        System.out.print(i);
-        
-       // for (int i = 0; i < jTable_Usuaris.getRowCount(); i++) {
-
-                  String nom = jTable_Usuaris.getValueAt(i,1).toString();
-                  String cognom = jTable_Usuaris.getValueAt(i,2).toString();
-                  String user = jTable_Usuaris.getValueAt(i,3).toString();
-                  String nivell = jTable_Usuaris.getValueAt(i,4).toString();
-                  String estat = jTable_Usuaris.getValueAt(i,5).toString();
-                  
-                  System.out.print(nom);
-                  System.out.print(cognom);
-                  System.out.print(user);
-                  System.out.print(nivell);
-                  System.out.print(estat);
-                  
-                
-           try {
-                
-               Connection cn2 = Conexio.conectar();
-               PreparedStatement pst2 = cn2.prepareStatement("update Usuaris set nom=?, cognom=?, usuari=?, nivell=?, estat=? where usuari = '"+ user + "'");
-                    pst2.setString(1, nom);
-                    pst2.setString(2, cognom);                   
-                    pst2.setString(3, user);
-                    pst2.setString(4, nivell);
-                    pst2.setString(5, estat);
-
-                    pst2.executeUpdate();
-                   // DashUsuaris(); 
-
-            /*Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("UPDATE Usuaris SET nom='"+nom+"',cognom='"+cognom+"',usuari='"+user+"',nivell='"+nivell+"',estat='"+estat+"' WHERE usuari='"+user+"'");
-            //ResultSet rs = pst.executeQuery(); 
-            pst.executeUpdate();*/
-            
-            
-             }catch(SQLException e){
-             
-                 JOptionPane.showMessageDialog(null, e + "No s'han actualitzat les dades");
-             
-            // }
-             //     
-        }
-    
-       
-    }
-    
     
     private void N_UsuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuMouseEntered
         // TODO add your handling code here:
@@ -1916,42 +1740,153 @@ public class Principal extends javax.swing.JFrame  {
             
     }//GEN-LAST:event_Eliminar_UsuariActionPerformed
 
-    public boolean IsSelected(int fila, int columna, JTable taula){
-    
-        //return jTable_Usuaris.getValueAt(fila, columna) != null;  
-        Boolean checked=Boolean.valueOf(taula.getValueAt(fila,columna).toString());
-        System.out.print(checked);
-        return checked;
-    
-    }
-    
-    private void Eliminar_UsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Eliminar_UsuariMouseClicked
-        // TODO add your handling code here:
-        
-        Eliminar_Usuari.addActionListener(new ActionListener() {
+    //Pantalla Usuaris
+    public void DashUsuaris() {
 
-      @Override
-      public void actionPerformed(ActionEvent arg0) {
-        // TODO Auto-generated method stub
+        DashInfoUsuari.setVisible(false);
+        DashConfiguracio.setVisible(false);
+        DashTasques.setVisible(false);
+        DashNouUsuari.setVisible(false);
+        DashUsuaris.setVisible(true);
 
-        //GET SELECTED ROW
-        for(int i=0;i<jTable_Usuaris.getRowCount();i++)
-        {
-          Boolean checked=Boolean.valueOf(jTable_Usuaris.getValueAt(i, 0).toString());
-          String col=jTable_Usuaris.getValueAt(i, 1).toString();
+        DefaultTableModel model = new DefaultTableModel();
 
-          //DISPLAY
-          if(checked)
-          {
-            
-            eliminarRegistre(jTable_Usuaris.getValueAt(i, 3).toString());
-          }
+        try {
+
+            jTable_Usuaris.setModel(model);
+            model.fireTableDataChanged();
+            try ( Connection cn = Conexio.conectar()) {
+                PreparedStatement pst = cn.prepareStatement("select nom, cognom, usuari, nivell, estat from Usuaris");
+                ResultSet rs = pst.executeQuery();
+
+                ResultSetMetaData rsMd = rs.getMetaData();
+                int cantitatColumnas = 6;
+                int cantitatFilas = 0;
+                model.addColumn("Seleccionar");
+                model.addColumn("Nom");
+                model.addColumn("Cognom");
+                model.addColumn("Usuari");
+                model.addColumn("Nivell");
+                model.addColumn("Estat");
+
+                while (rs.next()) {
+
+                    Object[] fila = new Object[cantitatColumnas];
+
+                    for (int i = 1; i < cantitatColumnas; i++) {
+
+                        fila[i] = rs.getObject(i);
+
+                    }
+                    cantitatFilas++;
+                    model.addRow(fila);
+                    addCheckBox(0, jTable_Usuaris);
+
+                }
+
+                for (int i = 0; i < cantitatFilas; i++) {
+
+                    model.setValueAt(false, i, 0);
+
+                }
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al omplir la taula");
+            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
         }
 
-      }
-    });
+        jTable_Usuaris.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                DefaultTableModel model2 = new DefaultTableModel();
+                model2 = (DefaultTableModel) jTable_Usuaris.getModel();
+
+                int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
+                int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
+                int columna = 3;
+
+                System.out.println("Fila" + fila_point);
+                System.out.println("Columna" + columna_point);
+
+                jTable_Usuaris.repaint();
+                jTable_Usuaris.updateUI();
+                if (fila_point > -1 && columna_point > 0) {
+
+                    user_update = model2.getValueAt(fila_point, columna).toString();
+                    //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
+                    DashUsuaris.setVisible(false);
+                    DashInfoUsuari.setVisible(true);
+                    informacioUsuari(user_update);
+                }
+
+            }
+
+        });
+
+    }
+
+    //Mostra informacio detallada dels usuaris
+    public void informacioUsuari(String user) {
+
+        System.out.print(user);
+        jLabel8.setText(user);
+        try {
+            Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("select * from Usuaris where usuari = '" + user + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                id = rs.getInt("id_usuari");
+                txt_nom.setText(rs.getString("nom"));
+                txt_cognom.setText(rs.getString("cognom"));
+                txt_email.setText(rs.getString("email"));
+                txt_telefon.setText(rs.getString("telefon"));
+                txt_usuari.setText(rs.getString("usuari"));
+
+                ComboNivell.setSelectedItem(rs.getString("nivell"));
+                ComboEstat.setSelectedItem(rs.getString("estat"));
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al solicitar les dades d'usuari" + e);
+            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+    }
+
+    public boolean IsSelected(int fila, int columna, JTable taula) {
+
+        Boolean checked = Boolean.valueOf(taula.getValueAt(fila, columna).toString());
+        System.out.print(checked);
+        return checked;
+
+    }
+
+    private void Eliminar_UsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Eliminar_UsuariMouseClicked
+        // TODO add your handling code here:
+
+        for (int i = 0; i < jTable_Usuaris.getRowCount(); i++) {
+            Boolean checked = Boolean.valueOf(jTable_Usuaris.getValueAt(i, 0).toString());
+            String col = jTable_Usuaris.getValueAt(i, 1).toString();
+
+            //DISPLAY
+            if (checked) {
+
+                eliminarRegistre(jTable_Usuaris.getValueAt(i, 3).toString());
+            }
+        }
         DashUsuaris();
-       
+
     }//GEN-LAST:event_Eliminar_UsuariMouseClicked
 
     private void txt_buscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscadorKeyReleased
@@ -1967,42 +1902,38 @@ public class Principal extends javax.swing.JFrame  {
 
     private void jButton_RegistarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarMouseClicked
         // TODO add your handling code here:
-        
-        
-       
+
 
     }//GEN-LAST:event_jButton_RegistarMouseClicked
 
-    public void Natejar(){
-    
+    public void Natejar() {
+
         txt_mail1.setText("");
         txt_usuari1.setText("");
         txt_cognom1.setText("");
         txt_telefon1.setText("");
         txt_contrassenya1.setText("");
-        txt_nom1.setText("");  
-    
-    
+        txt_nom1.setText("");
+
     }
-    
-    
-    public void NatejarColor(){
-    
-        //txt_usuari.setBackground(Color.WHITE);
-        txt_mail1.setText("");
-        txt_cognom1.setText("");
-        txt_telefon1.setText("");
-        txt_contrassenya1.setText("");
-        txt_nom1.setText("");  
-    
-    
+
+    public void NatejarColor() {
+
+        txt_usuari.setBackground(Color.WHITE);
+        txt_mail1.setBackground(Color.white);
+        txt_cognom1.setBackground(Color.white);
+        txt_telefon1.setBackground(Color.white);
+        txt_contrassenya1.setBackground(Color.white);
+        txt_nom1.setBackground(Color.white);
+
     }
-    
-    
+
+    //Crear usuaris
     private void jButton_RegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarActionPerformed
         // TODO add your handling code here:
-
-         int validacio = 0;
+        
+        //
+        int validacio = 0;
         String nom, cognom, mail, telefon, usuari, contrassenya, nivell, estat;
 
         mail = txt_mail1.getText().trim();
@@ -2014,102 +1945,97 @@ public class Principal extends javax.swing.JFrame  {
         nivell = "Operari";
         estat = "Actiu";
 
-        if (mail.equals("")){
+        if (mail.equals("")) {
 
-            txt_mail1.setBackground(Color.orange.darker());
+            txt_mail1.setBackground(Color.red.darker());
             validacio++;
         }
-        if (nom.equals("")){
+        if (nom.equals("")) {
 
-            txt_nom1.setBackground(Color.ORANGE.darker());
+            txt_nom1.setBackground(Color.red.darker());
             validacio++;
         }
-        if (cognom.equals("")){
+        if (cognom.equals("")) {
 
-            txt_cognom1.setBackground(Color.ORANGE.darker());
+            txt_cognom1.setBackground(Color.red.darker());
             validacio++;
         }
-        if (telefon.equals("")){
+        if (telefon.equals("")) {
 
-            txt_telefon1.setBackground(Color.ORANGE.darker());
+            txt_telefon1.setBackground(Color.red.darker());
             validacio++;
         }
-        if (usuari.equals("")){
+        if (usuari.equals("")) {
 
-            txt_usuari1.setBackground(Color.ORANGE.darker());
+            txt_usuari1.setBackground(Color.red.darker());
             validacio++;
         }
-        if (contrassenya.equals("")){
+        if (contrassenya.equals("")) {
 
-            txt_contrassenya1.setBackground(Color.ORANGE.darker());
+            txt_contrassenya1.setBackground(Color.red.darker());
             validacio++;
         }
 
-        //DefaultTableModel tableModel = (DefaultTableModel) jTable_Usuaris.getModel();
-        try{
+        
+        try {
 
             Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select usuari from Usuaris where usuari = '" + usuari + "'" );
+            PreparedStatement pst = cn.prepareStatement("select usuari from Usuaris where usuari = '" + usuari + "'");
             ResultSet rs = pst.executeQuery();
 
-            if(rs.next()){
-                txt_usuari1.setBackground(Color.red);
+            if (rs.next()) {
+                txt_usuari1.setBackground(Color.red.darker());
                 JOptionPane.showMessageDialog(null, "Nom d'usuari no disponible");
-                
-            }else{
+
+            } else {
                 cn.close();
-                if (validacio == 0){
-                    try{
+                if (validacio == 0) {
+                    try {
 
                         Connection cn2 = Conexio.conectar();
                         PreparedStatement pst2 = cn2.prepareStatement("insert into Usuaris values (?,?,?,?,?,?,?,?,?)");
-                        pst2.setInt(1,0);
-                        pst2.setString(2,nom);
-                        pst2.setString(3,cognom);
-                        pst2.setString(4,telefon);
-                        pst2.setString(5,mail);
-                        pst2.setString(6,usuari);
-                        pst2.setString(7,contrassenya);
-                        pst2.setString(8,nivell);
-                        pst2.setString(9,estat);
+                        pst2.setInt(1, 0);
+                        pst2.setString(2, nom);
+                        pst2.setString(3, cognom);
+                        pst2.setString(4, telefon);
+                        pst2.setString(5, mail);
+                        pst2.setString(6, usuari);
+                        pst2.setString(7, contrassenya);
+                        pst2.setString(8, nivell);
+                        pst2.setString(9, estat);
 
                         pst2.executeUpdate();
                         cn2.close();
 
                         Natejar();
-
-                        JOptionPane.showMessageDialog(null, "Usuari creat amb exit");                                                 
-                        DashNouUsuari.setVisible(false);
-                        //jTable_Usuaris.setModel(tableModel);
-                        //tableModel.fireTableDataChanged();
-                        //jTable_Usuaris.repaint();
-                        ActualitzarTaula();
-                        DashUsuaris(); 
                         
 
-                    }catch (SQLException e){
+                        JOptionPane.showMessageDialog(null, "Usuari creat amb exit");
+                        DashNouUsuari.setVisible(false);                        
+                        DashUsuaris();
+
+                    } catch (SQLException e) {
 
                         System.err.println("Error en crear el Usuari" + e);
                         JOptionPane.showMessageDialog(null, "Error al crear usuari. Contacta amb l'administrador");
                     }
 
-                }else{
-                    NatejarColor();
+                } else {
+                    
                     JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps per crear un usuari");
+                    NatejarColor();
 
                 }
 
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
             System.err.println("Error en validar el nom d'usuari" + e);
-            JOptionPane.showMessageDialog(null,"Error al crear usuari. Contacti amb l'administrador.");
+            JOptionPane.showMessageDialog(null, "Error al crear usuari. Contacti amb l'administrador.");
         }
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_jButton_RegistarActionPerformed
 
     private void txt_mail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_mail1ActionPerformed
@@ -2171,8 +2097,9 @@ public class Principal extends javax.swing.JFrame  {
             if (estat == 1) {
 
                 estat_string = "Actiu";
+            }
 
-            } else if (nivell == 2) {
+            if (estat == 2) {
 
                 estat_string = "No Actiu";
 
@@ -2221,7 +2148,7 @@ public class Principal extends javax.swing.JFrame  {
 
             } catch (SQLException e) {
 
-                System.err.println("Error al Gardar" + e);
+                System.err.println("Error al Guardar" + e);
 
             }
 
@@ -2231,15 +2158,10 @@ public class Principal extends javax.swing.JFrame  {
 
         }
 
-
+        
     }//GEN-LAST:event_GuardarMouseClicked
 
     public void BuscarUsuari(String usuari, java.awt.event.MouseEvent evt) {
-
-        System.out.print(usuari);
-        //UsuMouseClicked(evt);
-        txt_buscador.setText("HOLA");
-        //BuscarUsuaris(usuari);
 
         DefaultTableModel model = new DefaultTableModel();
         jTable_Usuaris.addMouseListener(new MouseAdapter() {
@@ -2256,7 +2178,114 @@ public class Principal extends javax.swing.JFrame  {
 
                 if (fila_point > -1 && columna_point > 0) {
 
-                    user_update = (String) model.getValueAt(fila_point, columna);
+                    user_update = (String) model.getValueAt(fila_point, columna);                    
+                    DashUsuaris.setVisible(false);
+                    DashInfoUsuari.setVisible(true);
+                    informacioUsuari(user_update);
+                }
+
+            }
+
+        });
+
+    }
+
+    public boolean eliminarRegistre(String usuari) {
+
+        try {
+            System.out.println(usuari);
+            int id = 0;
+            Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("select id_usuari from Usuaris where usuari = '" + usuari + "'");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                id = rs.getInt("id_usuari");
+
+            }
+
+            System.out.println(id);
+            cn.close();
+
+            Connection cn2 = Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("delete from Usuaris where id_usuari='" + id + "'");            
+            int i = pst2.executeUpdate();
+            if (i != 0) {
+
+                return true;
+
+            } else {
+
+                return false;
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al eliminar usuari" + e);
+            JOptionPane.showMessageDialog(null, "Error al eliminar l'usuari, contacti amb l'administrador");
+            return false;
+        }
+
+    }
+
+    public void BuscarUsuaris(String buscar) {
+
+        DefaultTableModel model = new DefaultTableModel();
+
+        try {
+
+                                 
+            Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("select * from Usuaris where nom like '%" + buscar + "%' or cognom like '%" + buscar + "%'"
+                    + "or usuari like '%" + buscar + "%' or nivell like '%" + buscar + "%' or estat like '%" + buscar + "%'");
+            ResultSet rs = pst.executeQuery();
+            //ResultSetMetaData rsMd = rs.getMetaData();
+
+            int cantitatColumnas = 6;
+
+            model.addColumn("Seleccionar");
+            model.addColumn("Nom");
+            model.addColumn("Cognom");
+            model.addColumn("Usuari");
+            model.addColumn("Nivell");
+            model.addColumn("Estat");
+
+            while (rs.next()) {
+
+                Object[] fila = new Object[cantitatColumnas];
+
+                fila[1] = rs.getString("Nom");
+                fila[2] = rs.getString("Cognom");
+                fila[3] = rs.getString("Usuari");
+                fila[4] = rs.getString("Nivell");
+                fila[5] = rs.getString("Estat");
+
+                model.addRow(fila);
+
+            }
+
+            jTable_Usuaris.setModel(model);
+            addCheckBox(0, jTable_Usuaris);
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al omplir la taula");
+            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+
+        jTable_Usuaris.addMouseListener(new MouseAdapter() {
+            @Override
+
+            public void mouseClicked(MouseEvent e) {
+
+                int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
+                int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
+                int columna = 3;
+
+                if (fila_point > -1 && columna_point > 0) {
+
+                    user_update = (String) model.getValueAt(fila_point, columna + 1);
                     //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
                     DashUsuaris.setVisible(false);
                     DashInfoUsuari.setVisible(true);
@@ -2268,149 +2297,8 @@ public class Principal extends javax.swing.JFrame  {
         });
 
     }
-    
-    
-    public boolean eliminarRegistre(String usuari){
-    
-        try{
-            System.out.println(usuari);
-             int id = 0;
-             Connection cn = Conexio.conectar();
-             PreparedStatement pst = cn.prepareStatement("select id_usuari from Usuaris where usuari = '" + usuari + "'" );
-             ResultSet rs = pst.executeQuery();
-             if (rs.next()){
-              id = rs.getInt("id_usuari");
-             
-             }            
-             
-             System.out.println(id);
-             cn.close();      
-          
-             
-            Connection cn2 = Conexio.conectar();            
-            PreparedStatement pst2 = cn2.prepareStatement("delete from Usuaris where id_usuari='" + id + "'");
-            //pst2.setInt(1, id);
-            int i = pst2.executeUpdate();
-            if (i != 0){
-                
-                return true;
-                
-            }else{
-            
-               return false;
-            }
-            
-            
-          
-        
-        }catch(SQLException e){
-        
-                System.err.println("Error al eliminar usuari" + e);
-                JOptionPane.showMessageDialog(null, "Error al eliminar l'usuari, contacti amb l'administrador");     
-                return false;
-        }
-    
-    
-    
-    }
-    
-    
-     public void BuscarUsuaris(String buscar){
-         
-        DefaultTableModel model = new DefaultTableModel();
-                   
 
-                try {
-                    
-                    System.out.println("Conexio Buscar");
-                    
-                    
-                    //String[] titols = {"Seleccionar, Nom, Cognom, Usuari, Nivell, Estat"};                   
-                    //model = new DefaultTableModel(null,titols);              
-                    Connection cn = Conexio.conectar();                   
-                    PreparedStatement pst = cn.prepareStatement("select * from Usuaris where nom like '%"+buscar+"%' or cognom like '%"+buscar+"%'"
-                            + "or usuari like '%"+buscar+"%' or nivell like '%"+buscar+"%' or estat like '%"+buscar+"%'");
-                    ResultSet rs = pst.executeQuery();                    
-                    //ResultSetMetaData rsMd = rs.getMetaData();
-                    
-                    
-                    
-                    int cantitatColumnas = 6;
-                    
-                    model.addColumn("Seleccionar");
-                    model.addColumn("Nom");
-                    model.addColumn("Cognom");
-                    model.addColumn("Usuari");
-                    model.addColumn("Nivell"); 
-                    model.addColumn("Estat");                  
-                        
-                    
-                    
-                    while(rs.next()){
-                    
-                        Object[] fila = new Object[cantitatColumnas];
-                        
-                        
 
-                            fila[1] = rs.getString("Nom");
-                            fila[2] = rs.getString("Cognom");
-                            fila[3] = rs.getString("Usuari");
-                            fila[4] = rs.getString("Nivell");
-                            fila[5] = rs.getString("Estat");
-                            
-
-                        
-
-                        model.addRow(fila);
-                        
-                    
-                    
-                    }                   
-                    
-                    jTable_Usuaris.setModel(model);
-                    addCheckBox(0,jTable_Usuaris);
-                    cn.close();
-
-                } catch (SQLException e) {
-
-                    System.err.println("Error al omplir la taula");
-                    JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-                }
-                
-                 jTable_Usuaris.addMouseListener(new MouseAdapter(){
-                    @Override
-                    
-                    public void mouseClicked(MouseEvent e){
-                    
-                        int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
-                        int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
-                        int columna = 3;
-                        
-                        if (fila_point > -1 && columna_point > 0 ){
-                            
-                            user_update = (String)model.getValueAt(fila_point, columna+1);
-                            //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
-                            DashUsuaris.setVisible(false);
-                            DashInfoUsuari.setVisible(true);
-                            informacioUsuari(user_update);
-                        }
-                    
-                    }
-                
-                
-                });
-         
-         
-     
-     }
-     
-     public void actualitzarUsuariNou(java.awt.event.MouseEvent evt){
-     
-         
-     
-     }
-     
      
      
      
