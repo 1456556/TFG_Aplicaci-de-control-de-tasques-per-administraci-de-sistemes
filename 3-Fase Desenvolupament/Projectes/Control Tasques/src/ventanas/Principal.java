@@ -146,7 +146,6 @@ public class Principal extends javax.swing.JFrame  {
         DashBoardView = new javax.swing.JPanel();
         DashUsuaris = new javax.swing.JPanel();
         Contador1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -155,8 +154,9 @@ public class Principal extends javax.swing.JFrame  {
         Nou_Usuari = new javax.swing.JButton();
         Eliminar_Usuari = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
         jScrollPane_Usuaris = new javax.swing.JScrollPane();
         jTable_Usuaris = new javax.swing.JTable();
         DashConfiguracio = new javax.swing.JPanel();
@@ -188,26 +188,22 @@ public class Principal extends javax.swing.JFrame  {
         Enrera = new javax.swing.JLabel();
         Contrasenya = new javax.swing.JButton();
         DashNouUsuari = new javax.swing.JPanel();
+        txt_usuari1 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        txt_mail1 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jButton_Registar = new javax.swing.JButton();
-        jSeparator5 = new javax.swing.JSeparator();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        txt_nom1 = new javax.swing.JTextField();
-        jSeparator6 = new javax.swing.JSeparator();
-        txt_cognom1 = new javax.swing.JTextField();
-        jSeparator7 = new javax.swing.JSeparator();
-        jSeparator8 = new javax.swing.JSeparator();
         jLabel21 = new javax.swing.JLabel();
-        txt_telefon1 = new javax.swing.JTextField();
-        jSeparator9 = new javax.swing.JSeparator();
-        jSeparator10 = new javax.swing.JSeparator();
-        txt_contrassenya1 = new javax.swing.JPasswordField();
         jLabel22 = new javax.swing.JLabel();
-        txt_usuari1 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        ComboNivell1 = new javax.swing.JComboBox<>();
+        ComboEstat1 = new javax.swing.JComboBox<>();
+        txt_nom1 = new javax.swing.JTextField();
+        txt_cognom1 = new javax.swing.JTextField();
+        txt_telefon1 = new javax.swing.JTextField();
+        txt_mail1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -681,18 +677,23 @@ public class Principal extends javax.swing.JFrame  {
         DashUsuaris.setForeground(new java.awt.Color(51, 51, 255));
 
         Contador1.setBackground(new java.awt.Color(255, 153, 51));
-        Contador1.setForeground(new java.awt.Color(60, 63, 65));
+        Contador1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
+        Contador1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Tasques Gestionades");
-
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Tasques Totals");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Tasques Asignades");
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Tasques Gestionades");
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         txt_buscador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -705,8 +706,8 @@ public class Principal extends javax.swing.JFrame  {
             }
         });
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Buscar");
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Buscar :");
 
         Nou_Usuari.setText("Nou");
         Nou_Usuari.addActionListener(new java.awt.event.ActionListener() {
@@ -732,72 +733,98 @@ public class Principal extends javax.swing.JFrame  {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(32, 32, 32)
                 .addComponent(Nou_Usuari)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(Eliminar_Usuari)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nou_Usuari)
                     .addComponent(jLabel7)
-                    .addComponent(Eliminar_Usuari))
-                .addGap(12, 12, 12))
+                    .addComponent(Eliminar_Usuari)
+                    .addComponent(Nou_Usuari))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jTextField1.setBackground(new java.awt.Color(255, 153, 51));
-
-        jTextField2.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jTextField3.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTextField4.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("Tasques Asignades");
 
         javax.swing.GroupLayout Contador1Layout = new javax.swing.GroupLayout(Contador1);
         Contador1.setLayout(Contador1Layout);
         Contador1Layout.setHorizontalGroup(
             Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(Contador1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(130, 130, 130)
-                .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
                 .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Contador1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
+                        .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Contador1Layout.createSequentialGroup()
+                                .addGap(154, 154, 154)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Contador1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)))
+                        .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Contador1Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(109, 109, 109)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Contador1Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel23)
+                                .addGap(56, 56, 56)
+                                .addComponent(jLabel6)))
+                        .addGap(0, 78, Short.MAX_VALUE))
+                    .addGroup(Contador1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         Contador1Layout.setVerticalGroup(
             Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Contador1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
                 .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Contador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        jScrollPane_Usuaris.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
 
         jTable_Usuaris.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -824,15 +851,15 @@ public class Principal extends javax.swing.JFrame  {
         DashUsuaris.setLayout(DashUsuarisLayout);
         DashUsuarisLayout.setHorizontalGroup(
             DashUsuarisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane_Usuaris)
             .addComponent(Contador1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane_Usuaris)
         );
         DashUsuarisLayout.setVerticalGroup(
             DashUsuarisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashUsuarisLayout.createSequentialGroup()
-                .addComponent(Contador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Contador1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane_Usuaris, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE))
+                .addComponent(jScrollPane_Usuaris, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
         );
 
         DashConfiguracio.setBackground(new java.awt.Color(51, 255, 51));
@@ -841,11 +868,11 @@ public class Principal extends javax.swing.JFrame  {
         DashConfiguracio.setLayout(DashConfiguracioLayout);
         DashConfiguracioLayout.setHorizontalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 788, Short.MAX_VALUE)
+            .addGap(0, 790, Short.MAX_VALUE)
         );
         DashConfiguracioLayout.setVerticalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 586, Short.MAX_VALUE)
+            .addGap(0, 603, Short.MAX_VALUE)
         );
 
         DashTasques.setBackground(new java.awt.Color(255, 255, 255));
@@ -874,7 +901,7 @@ public class Principal extends javax.swing.JFrame  {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
         );
         ContadorLayout.setVerticalGroup(
             ContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1016,7 +1043,7 @@ public class Principal extends javax.swing.JFrame  {
         DashInfoUsuariLayout.setHorizontalGroup(
             DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
+                .addGap(52, 52, 52)
                 .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DashInfoUsuariLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
@@ -1061,12 +1088,12 @@ public class Principal extends javax.swing.JFrame  {
                                 .addGap(272, 272, 272)
                                 .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         DashInfoUsuariLayout.setVerticalGroup(
             DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(60, 60, 60)
                 .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(Enrera, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1084,7 +1111,7 @@ public class Principal extends javax.swing.JFrame  {
                         .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(ComboEstat))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(DashInfoUsuariLayout.createSequentialGroup()
                         .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1102,35 +1129,29 @@ public class Principal extends javax.swing.JFrame  {
                             .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12)
                             .addComponent(Contrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)))
                 .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+                .addGap(49, 49, 49))
         );
 
         DashNouUsuari.setBackground(new java.awt.Color(255, 255, 255));
+
+        txt_usuari1.setBackground(new java.awt.Color(255, 153, 51));
+        txt_usuari1.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel15.setBackground(new java.awt.Color(255, 153, 51));
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 153, 51));
         jLabel15.setText("Nou Usuari");
 
-        txt_mail1.setBackground(new java.awt.Color(255, 255, 255));
-        txt_mail1.setForeground(new java.awt.Color(153, 153, 153));
-        txt_mail1.setBorder(null);
-        txt_mail1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_mail1ActionPerformed(evt);
-            }
-        });
-
         jLabel17.setBackground(new java.awt.Color(255, 153, 51));
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Cognom");
 
         jLabel18.setBackground(new java.awt.Color(255, 153, 51));
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Email");
 
         jButton_Registar.setBackground(new java.awt.Color(255, 153, 51));
@@ -1151,139 +1172,137 @@ public class Principal extends javax.swing.JFrame  {
 
         jLabel19.setBackground(new java.awt.Color(255, 153, 51));
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Usuari");
 
-        jLabel20.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel20.setBackground(new java.awt.Color(0, 0, 0));
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Nom");
-
-        txt_nom1.setBackground(new java.awt.Color(255, 255, 255));
-        txt_nom1.setForeground(new java.awt.Color(153, 153, 153));
-        txt_nom1.setBorder(null);
-
-        txt_cognom1.setBackground(new java.awt.Color(255, 255, 255));
-        txt_cognom1.setForeground(new java.awt.Color(153, 153, 153));
-        txt_cognom1.setBorder(null);
 
         jLabel21.setBackground(new java.awt.Color(255, 153, 51));
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("Telèfon");
-
-        txt_telefon1.setBackground(new java.awt.Color(255, 255, 255));
-        txt_telefon1.setForeground(new java.awt.Color(153, 153, 153));
-        txt_telefon1.setBorder(null);
-
-        txt_contrassenya1.setBackground(new java.awt.Color(255, 255, 255));
-        txt_contrassenya1.setForeground(new java.awt.Color(153, 153, 153));
-        txt_contrassenya1.setBorder(null);
 
         jLabel22.setBackground(new java.awt.Color(255, 153, 51));
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel22.setText("Contrasenya");
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel22.setText("Nivell");
 
-        txt_usuari1.setBackground(new java.awt.Color(255, 255, 255));
-        txt_usuari1.setForeground(new java.awt.Color(153, 153, 153));
-        txt_usuari1.setBorder(null);
+        jLabel24.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel24.setText("Estat");
+
+        ComboNivell1.setBackground(new java.awt.Color(255, 153, 51));
+        ComboNivell1.setForeground(new java.awt.Color(255, 255, 255));
+        ComboNivell1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
+        ComboNivell1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboNivell1ActionPerformed(evt);
+            }
+        });
+
+        ComboEstat1.setBackground(new java.awt.Color(255, 153, 51));
+        ComboEstat1.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
+
+        txt_nom1.setBackground(new java.awt.Color(255, 153, 51));
+        txt_nom1.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_cognom1.setBackground(new java.awt.Color(255, 153, 51));
+        txt_cognom1.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_telefon1.setBackground(new java.awt.Color(255, 153, 51));
+        txt_telefon1.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_mail1.setBackground(new java.awt.Color(255, 153, 51));
+        txt_mail1.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout DashNouUsuariLayout = new javax.swing.GroupLayout(DashNouUsuari);
         DashNouUsuari.setLayout(DashNouUsuariLayout);
         DashNouUsuariLayout.setHorizontalGroup(
             DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 776, Short.MAX_VALUE)
-            .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                    .addGap(0, 143, Short.MAX_VALUE)
-                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addGap(150, 150, 150)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(160, 160, 160)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addComponent(txt_nom1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(140, 140, 140)
-                            .addComponent(txt_mail1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(140, 140, 140)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(160, 160, 160)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addComponent(txt_cognom1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(140, 140, 140)
-                            .addComponent(txt_usuari1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(140, 140, 140)
-                            .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(160, 160, 160)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addComponent(txt_telefon1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(140, 140, 140)
-                            .addComponent(txt_contrassenya1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(140, 140, 140)
-                            .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addGap(160, 160, 160)
-                            .addComponent(jButton_Registar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 143, Short.MAX_VALUE)))
+            .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                .addGap(265, 265, 265)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                .addGap(304, 304, 304)
+                .addComponent(jButton_Registar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashNouUsuariLayout.createSequentialGroup()
+                        .addComponent(txt_mail1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                        .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txt_cognom1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txt_telefon1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txt_nom1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                        .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ComboNivell1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_usuari1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ComboEstat1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(166, 166, 166))))
         );
         DashNouUsuariLayout.setVerticalGroup(
             DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 537, Short.MAX_VALUE)
-            .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                    .addGap(0, 53, Short.MAX_VALUE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(40, 40, 40)
-                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_nom1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_mail1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(20, 20, 20)
-                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_cognom1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_usuari1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(10, 10, 10)
-                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txt_telefon1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(txt_contrassenya1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(60, 60, 60)
-                    .addComponent(jButton_Registar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 54, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_telefon1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_usuari1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(ComboNivell1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ComboEstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_mail1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jButton_Registar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout DashBoardViewLayout = new javax.swing.GroupLayout(DashBoardView);
@@ -1296,10 +1315,7 @@ public class Principal extends javax.swing.JFrame  {
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(DashUsuaris, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(DashBoardViewLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(DashInfoUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(DashInfoUsuari, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addContainerGap()
@@ -1312,14 +1328,14 @@ public class Principal extends javax.swing.JFrame  {
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashTasques, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 62, Short.MAX_VALUE)))
+                    .addGap(0, 79, Short.MAX_VALUE)))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashUsuaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashBoardViewLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()
                     .addComponent(DashInfoUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1797,7 +1813,7 @@ public class Principal extends javax.swing.JFrame  {
             JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
 
         }
-
+        Natejar();
         jTable_Usuaris.addMouseListener(new MouseAdapter() {
 
             @Override
@@ -1834,7 +1850,7 @@ public class Principal extends javax.swing.JFrame  {
     public void informacioUsuari(String user) {
 
         System.out.print(user);
-        jLabel8.setText(user);
+        
         try {
             Connection cn = Conexio.conectar();
             PreparedStatement pst = cn.prepareStatement("select * from Usuaris where usuari = '" + user + "'");
@@ -1842,6 +1858,7 @@ public class Principal extends javax.swing.JFrame  {
 
             if (rs.next()) {
 
+                jLabel8.setText(rs.getString("nom"));
                 id = rs.getInt("id_usuari");
                 txt_nom.setText(rs.getString("nom"));
                 txt_cognom.setText(rs.getString("cognom"));
@@ -1900,148 +1917,28 @@ public class Principal extends javax.swing.JFrame  {
         DashNouUsuari.setVisible(true);
     }//GEN-LAST:event_Nou_UsuariActionPerformed
 
-    private void jButton_RegistarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarMouseClicked
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_jButton_RegistarMouseClicked
-
     public void Natejar() {
 
-        txt_mail1.setText("");
-        txt_usuari1.setText("");
-        txt_cognom1.setText("");
-        txt_telefon1.setText("");
-        txt_contrassenya1.setText("");
-        txt_nom1.setText("");
+        txt_telefon1.setText(" ");
+        txt_nom1.setText(" ");
+        txt_cognom1.setText(" ");
+        txt_usuari1.setText(" ");        
+        txt_mail1.setText(" ");
+        txt_buscador.setText("");
 
     }
 
     public void NatejarColor() {
 
         txt_usuari.setBackground(Color.WHITE);
-        txt_mail1.setBackground(Color.white);
-        txt_cognom1.setBackground(Color.white);
-        txt_telefon1.setBackground(Color.white);
-        txt_contrassenya1.setBackground(Color.white);
         txt_nom1.setBackground(Color.white);
+        txt_telefon1.setBackground(Color.white);
+        txt_mail1.setBackground(Color.white);        
+        txt_cognom1.setBackground(Color.white);
 
     }
 
-    //Crear usuaris
-    private void jButton_RegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarActionPerformed
-        // TODO add your handling code here:
-        
-        //
-        int validacio = 0;
-        String nom, cognom, mail, telefon, usuari, contrassenya, nivell, estat;
-
-        mail = txt_mail1.getText().trim();
-        nom = txt_nom1.getText().trim();
-        cognom = txt_cognom1.getText().trim();
-        telefon = txt_telefon1.getText().trim();
-        usuari = txt_usuari1.getText().trim();
-        contrassenya = txt_contrassenya1.getText().trim();
-        nivell = "Operari";
-        estat = "Actiu";
-
-        if (mail.equals("")) {
-
-            txt_mail1.setBackground(Color.red.darker());
-            validacio++;
-        }
-        if (nom.equals("")) {
-
-            txt_nom1.setBackground(Color.red.darker());
-            validacio++;
-        }
-        if (cognom.equals("")) {
-
-            txt_cognom1.setBackground(Color.red.darker());
-            validacio++;
-        }
-        if (telefon.equals("")) {
-
-            txt_telefon1.setBackground(Color.red.darker());
-            validacio++;
-        }
-        if (usuari.equals("")) {
-
-            txt_usuari1.setBackground(Color.red.darker());
-            validacio++;
-        }
-        if (contrassenya.equals("")) {
-
-            txt_contrassenya1.setBackground(Color.red.darker());
-            validacio++;
-        }
-
-        
-        try {
-
-            Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select usuari from Usuaris where usuari = '" + usuari + "'");
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-                txt_usuari1.setBackground(Color.red.darker());
-                JOptionPane.showMessageDialog(null, "Nom d'usuari no disponible");
-
-            } else {
-                cn.close();
-                if (validacio == 0) {
-                    try {
-
-                        Connection cn2 = Conexio.conectar();
-                        PreparedStatement pst2 = cn2.prepareStatement("insert into Usuaris values (?,?,?,?,?,?,?,?,?)");
-                        pst2.setInt(1, 0);
-                        pst2.setString(2, nom);
-                        pst2.setString(3, cognom);
-                        pst2.setString(4, telefon);
-                        pst2.setString(5, mail);
-                        pst2.setString(6, usuari);
-                        pst2.setString(7, contrassenya);
-                        pst2.setString(8, nivell);
-                        pst2.setString(9, estat);
-
-                        pst2.executeUpdate();
-                        cn2.close();
-
-                        Natejar();
-                        
-
-                        JOptionPane.showMessageDialog(null, "Usuari creat amb exit");
-                        DashNouUsuari.setVisible(false);                        
-                        DashUsuaris();
-
-                    } catch (SQLException e) {
-
-                        System.err.println("Error en crear el Usuari" + e);
-                        JOptionPane.showMessageDialog(null, "Error al crear usuari. Contacta amb l'administrador");
-                    }
-
-                } else {
-                    
-                    JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps per crear un usuari");
-                    NatejarColor();
-
-                }
-
-            }
-
-        } catch (Exception e) {
-
-            System.err.println("Error en validar el nom d'usuari" + e);
-            JOptionPane.showMessageDialog(null, "Error al crear usuari. Contacti amb l'administrador.");
-        }
-
-
-    }//GEN-LAST:event_jButton_RegistarActionPerformed
-
-    private void txt_mail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_mail1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_mail1ActionPerformed
-
+    //Modificar Usuari
     private void GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMouseClicked
         // TODO add your handling code here:
         int nivell, estat, validacio = 0;
@@ -2058,22 +1955,22 @@ public class Principal extends javax.swing.JFrame  {
 
         if (mail.equals("")) {
 
-            txt_email.setBackground(Color.red);
+            //txt_email.setBackground(Color.red);
             validacio++;
         }
         if (nom.equals("")) {
 
-            txt_nom.setBackground(Color.red);
+            //txt_nom.setBackground(Color.red);
             validacio++;
         }
         if (cognom.equals("")) {
 
-            txt_cognom.setBackground(Color.red);
+            //txt_cognom.setBackground(Color.red);
             validacio++;
         }
         if (telefon.equals("")) {
 
-            txt_telefon.setBackground(Color.red);
+            //txt_telefon.setBackground(Color.red);
             validacio++;
         }
 
@@ -2133,13 +2030,13 @@ public class Principal extends javax.swing.JFrame  {
                     pst2.executeUpdate();
                     cn2.close();
 
-                    txt_email.setBackground(Color.green);
+                    /*txt_email.setBackground(Color.green);
                     txt_nom.setBackground(Color.green);
                     txt_cognom.setBackground(Color.green);
                     txt_telefon.setBackground(Color.green);
                     txt_usuari.setBackground(Color.green);
                     ComboEstat.setBackground(Color.green);
-                    ComboNivell.setBackground(Color.green);
+                    ComboNivell.setBackground(Color.green);*/
 
                     JOptionPane.showMessageDialog(null, "Modificacio Correcta!");
                     DashInfoUsuari.setVisible(false);
@@ -2160,6 +2057,139 @@ public class Principal extends javax.swing.JFrame  {
 
         
     }//GEN-LAST:event_GuardarMouseClicked
+
+    //Crear usuaris
+    private void jButton_RegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarActionPerformed
+        // TODO add your handling code here:
+        
+        int  nivell, estat, validacio = 0;
+        String nom, cognom, mail, telefon, usuari,contrasenya, nivell_string=" ", estat_string=" ";
+
+        mail = txt_mail1.getText().trim();
+        nom = txt_nom1.getText().trim();
+        cognom = txt_cognom1.getText().trim();
+        telefon = txt_telefon1.getText().trim();
+        usuari = txt_usuari1.getText().trim();
+        contrasenya = "";
+
+        nivell = ComboNivell1.getSelectedIndex() +1;
+        estat = ComboEstat1.getSelectedIndex() + 1;
+
+        if (mail.equals("")) {
+
+            txt_mail1.setBackground(Color.red);
+            validacio++;
+        }
+        if (nom.equals("")) {
+
+            txt_nom1.setBackground(Color.red);
+            validacio++;
+        }
+        if (cognom.equals("")) {
+
+            txt_cognom1.setBackground(Color.red);
+            validacio++;
+        }
+        if (telefon.equals("")) {
+
+            txt_telefon1.setBackground(Color.red);
+            validacio++;
+        }
+
+        if (validacio == 0) {
+
+            if (nivell == 1) {
+
+                nivell_string = "Administrador";
+
+            }
+            if (nivell == 2) {
+
+                nivell_string = "Oficinista";
+            }
+            if (nivell == 3) {
+
+                nivell_string = "Operari";
+
+            }
+
+            if (estat == 1) {
+
+                estat_string = "Actiu";
+            }
+
+            if (estat == 2) {
+
+                estat_string = "No Actiu";
+
+            }
+
+            try {
+
+                Connection cn = Conexio.conectar();
+                PreparedStatement pst = cn.prepareStatement("select usuari from Usuaris where usuari = '" + usuari + "' and not id_usuari = '" + id + "'");
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) {
+
+                    txt_usuari1.setBackground(Color.red);
+                    JOptionPane.showMessageDialog(null, "Nom d'usuari no disponible");
+                    cn.close();
+
+                } else {
+
+                    Connection cn2 = Conexio.conectar();
+                    PreparedStatement pst2 = cn2.prepareStatement("insert into Usuaris values (?,?,?,?,?,?,?,?,?)");
+                    pst2.setInt(1,0);
+                    pst2.setString(2, nom);
+                    pst2.setString(3, cognom);
+                    pst2.setString(4, telefon);
+                    pst2.setString(5, mail);
+                    pst2.setString(6, usuari);
+                    pst2.setString(7, contrasenya);
+                    pst2.setString(8, nivell_string);
+                    pst2.setString(9, estat_string);
+                    
+
+                    pst2.executeUpdate();
+                    cn2.close();
+
+                    /*txt_email.setBackground(Color.green);
+                    txt_nom.setBackground(Color.green);
+                    txt_cognom.setBackground(Color.green);
+                    txt_telefon.setBackground(Color.green);
+                    txt_usuari.setBackground(Color.green);
+                    ComboEstat.setBackground(Color.green);
+                    ComboNivell.setBackground(Color.green);*/
+
+                    JOptionPane.showMessageDialog(null, "Usuari Creat Correctament!");
+                    DashNouUsuari.setVisible(false);
+                    DashUsuaris();
+                }
+
+            } catch (SQLException e) {
+
+                System.err.println("Error al Crear el Usuari" + e);
+
+            }
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+
+        }
+
+        
+    }//GEN-LAST:event_jButton_RegistarActionPerformed
+
+    private void jButton_RegistarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton_RegistarMouseClicked
+
+    private void ComboNivell1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNivell1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboNivell1ActionPerformed
 
     public void BuscarUsuari(String usuari, java.awt.event.MouseEvent evt) {
 
@@ -2349,7 +2379,9 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel ButtonMin;
     private javax.swing.JLabel Close;
     private javax.swing.JComboBox<String> ComboEstat;
+    private javax.swing.JComboBox<String> ComboEstat1;
     private javax.swing.JComboBox<String> ComboNivell;
+    private javax.swing.JComboBox<String> ComboNivell1;
     private javax.swing.JLabel Conf;
     private javax.swing.JPanel Configuracio;
     private javax.swing.JPanel Contador;
@@ -2415,8 +2447,9 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2426,21 +2459,14 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane_Usuaris;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable_Usuaris;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField txt_buscador;
     private javax.swing.JTextField txt_cognom;
     private javax.swing.JTextField txt_cognom1;
-    private javax.swing.JPasswordField txt_contrassenya1;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_mail1;
     private javax.swing.JTextField txt_nom;

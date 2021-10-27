@@ -353,7 +353,8 @@ public class Login extends javax.swing.JFrame {
                     String nivell = rs.getString("nivell");
                     if (nivell.equalsIgnoreCase("Administrador")){
                         this.dispose();
-                        new Principal().setVisible(true);
+                         Principal principal = new Principal();
+                         principal.setVisible(true);
                     }else{
                         JOptionPane.showMessageDialog(null, "Dades d'inici de sessió incorrectes");
                         txt_usuari.setText("");
