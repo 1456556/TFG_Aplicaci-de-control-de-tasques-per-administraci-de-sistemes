@@ -39,7 +39,7 @@ public class Principal extends javax.swing.JFrame  {
     
     public int id;
     
-    public static String user_update="";
+    public static String user_update="", element_update="";
    
 
     /**
@@ -144,6 +144,21 @@ public class Principal extends javax.swing.JFrame  {
         N_Configuracio = new javax.swing.JPanel();
         N_Conf = new javax.swing.JLabel();
         DashBoardView = new javax.swing.JPanel();
+        DashElements = new javax.swing.JPanel();
+        Contador2 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        txt_buscador1 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        Nou_Element = new javax.swing.JButton();
+        Eliminar_Usuari1 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jScrollPane_Elements = new javax.swing.JScrollPane();
+        jTable_Elements = new javax.swing.JTable();
         DashUsuaris = new javax.swing.JPanel();
         Contador1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -204,6 +219,46 @@ public class Principal extends javax.swing.JFrame  {
         txt_cognom1 = new javax.swing.JTextField();
         txt_telefon1 = new javax.swing.JTextField();
         txt_mail1 = new javax.swing.JTextField();
+        DashNouElement = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        txt_model = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jButton_RegistarElm = new javax.swing.JButton();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        ComboTipus = new javax.swing.JComboBox<>();
+        ComboEstatElem = new javax.swing.JComboBox<>();
+        txt_nomElem = new javax.swing.JTextField();
+        txt_numserie = new javax.swing.JTextField();
+        txt_usuariassignat = new javax.swing.JTextField();
+        txt_marca = new javax.swing.JTextField();
+        txt_observacions = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        DashInfoElement = new javax.swing.JPanel();
+        jLabel38 = new javax.swing.JLabel();
+        txt_numeroserieElem2 = new javax.swing.JTextField();
+        txt_nomElem2 = new javax.swing.JTextField();
+        txt_usuariElem2 = new javax.swing.JTextField();
+        txt_marcaElem2 = new javax.swing.JTextField();
+        txt_modelElem2 = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        ComboEstatElem2 = new javax.swing.JComboBox<>();
+        ComboTipusElem2 = new javax.swing.JComboBox<>();
+        Guardar2 = new javax.swing.JButton();
+        Enrera1 = new javax.swing.JLabel();
+        txt_observacionsElem2 = new javax.swing.JTextField();
+        jLabel46 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -673,6 +728,195 @@ public class Principal extends javax.swing.JFrame  {
 
         DashBoardView.setBackground(new java.awt.Color(255, 255, 255));
 
+        DashElements.setBackground(new java.awt.Color(255, 255, 255));
+        DashElements.setForeground(new java.awt.Color(51, 51, 255));
+
+        Contador2.setBackground(new java.awt.Color(255, 153, 51));
+        Contador2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
+        Contador2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel25.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("Tasques Totals");
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("Tasques Gestionades");
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_buscador1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_buscador1ActionPerformed(evt);
+            }
+        });
+        txt_buscador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_buscador1KeyReleased(evt);
+            }
+        });
+
+        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel27.setText("Buscar :");
+
+        Nou_Element.setText("Nou");
+        Nou_Element.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Nou_ElementActionPerformed(evt);
+            }
+        });
+
+        Eliminar_Usuari1.setText("Eliminar");
+        Eliminar_Usuari1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Eliminar_Usuari1MouseClicked(evt);
+            }
+        });
+        Eliminar_Usuari1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Eliminar_Usuari1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(Nou_Element)
+                .addGap(18, 18, 18)
+                .addComponent(Eliminar_Usuari1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_buscador1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_buscador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27)
+                    .addComponent(Eliminar_Usuari1)
+                    .addComponent(Nou_Element))
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+
+        jTextField2.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTextField5.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTextField6.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField6.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("Tasques Asignades");
+
+        javax.swing.GroupLayout Contador2Layout = new javax.swing.GroupLayout(Contador2);
+        Contador2.setLayout(Contador2Layout);
+        Contador2Layout.setHorizontalGroup(
+            Contador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Contador2Layout.createSequentialGroup()
+                .addGroup(Contador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Contador2Layout.createSequentialGroup()
+                        .addGroup(Contador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Contador2Layout.createSequentialGroup()
+                                .addGap(154, 154, 154)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Contador2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)))
+                        .addGroup(Contador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Contador2Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(109, 109, 109)
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Contador2Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel28)
+                                .addGap(56, 56, 56)
+                                .addComponent(jLabel26)))
+                        .addGap(0, 64, Short.MAX_VALUE))
+                    .addGroup(Contador2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        Contador2Layout.setVerticalGroup(
+            Contador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Contador2Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(Contador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Contador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jScrollPane_Elements.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
+
+        jTable_Elements.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                { new Boolean(false), null, null, null, null, null},
+                { new Boolean(false), null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Seleccionar", "Nom", "Usuari Asignat", "Tipus", "Marca", "Estat"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane_Elements.setViewportView(jTable_Elements);
+
+        javax.swing.GroupLayout DashElementsLayout = new javax.swing.GroupLayout(DashElements);
+        DashElements.setLayout(DashElementsLayout);
+        DashElementsLayout.setHorizontalGroup(
+            DashElementsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Contador2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane_Elements)
+        );
+        DashElementsLayout.setVerticalGroup(
+            DashElementsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashElementsLayout.createSequentialGroup()
+                .addComponent(Contador2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane_Elements, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE))
+        );
+
         DashUsuaris.setBackground(new java.awt.Color(255, 255, 255));
         DashUsuaris.setForeground(new java.awt.Color(51, 51, 255));
 
@@ -800,7 +1044,7 @@ public class Principal extends javax.swing.JFrame  {
                                 .addComponent(jLabel23)
                                 .addGap(56, 56, 56)
                                 .addComponent(jLabel6)))
-                        .addGap(0, 78, Short.MAX_VALUE))
+                        .addGap(0, 64, Short.MAX_VALUE))
                     .addGroup(Contador1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -868,11 +1112,11 @@ public class Principal extends javax.swing.JFrame  {
         DashConfiguracio.setLayout(DashConfiguracioLayout);
         DashConfiguracioLayout.setHorizontalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
+            .addGap(0, 776, Short.MAX_VALUE)
         );
         DashConfiguracioLayout.setVerticalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 603, Short.MAX_VALUE)
+            .addGap(0, 591, Short.MAX_VALUE)
         );
 
         DashTasques.setBackground(new java.awt.Color(255, 255, 255));
@@ -901,7 +1145,7 @@ public class Principal extends javax.swing.JFrame  {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
         );
         ContadorLayout.setVerticalGroup(
             ContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1079,16 +1323,13 @@ public class Principal extends javax.swing.JFrame  {
                                 .addGap(169, 169, 169)
                                 .addComponent(Contrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                        .addGroup(DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                                .addComponent(Enrera, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(192, 192, 192)
-                                .addComponent(jLabel8))
-                            .addGroup(DashInfoUsuariLayout.createSequentialGroup()
-                                .addGap(272, 272, 272)
-                                .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                        .addComponent(Enrera, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192)
+                        .addComponent(jLabel8))
+                    .addGroup(DashInfoUsuariLayout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         DashInfoUsuariLayout.setVerticalGroup(
             DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1159,6 +1400,7 @@ public class Principal extends javax.swing.JFrame  {
         jButton_Registar.setText("Guardar");
         jButton_Registar.setBorder(null);
         jButton_Registar.setBorderPainted(false);
+        jButton_Registar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_Registar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton_RegistarMouseClicked(evt);
@@ -1225,66 +1467,46 @@ public class Principal extends javax.swing.JFrame  {
         DashNouUsuariLayout.setHorizontalGroup(
             DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                .addGap(265, 265, 265)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(346, 346, 346)
+                .addComponent(jButton_Registar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashNouUsuariLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                .addGap(304, 304, 304)
-                .addComponent(jButton_Registar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
+                .addGap(172, 172, 172)
                 .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashNouUsuariLayout.createSequentialGroup()
+                    .addComponent(jLabel20)
+                    .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txt_mail1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(txt_telefon1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_cognom1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_nom1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboNivell1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_usuari1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(DashNouUsuariLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
                         .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txt_cognom1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txt_telefon1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txt_nom1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
-                        .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ComboNivell1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txt_usuari1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ComboEstat1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(166, 166, 166))))
+                            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ComboEstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(168, 168, 168))
         );
         DashNouUsuariLayout.setVerticalGroup(
             DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_nom1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_cognom1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_telefon1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DashNouUsuariLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_usuari1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1293,16 +1515,349 @@ public class Principal extends javax.swing.JFrame  {
                         .addGap(0, 0, 0)
                         .addComponent(ComboNivell1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ComboEstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_mail1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComboEstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashNouUsuariLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_nom1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_cognom1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_telefon1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_mail1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)))
                 .addComponent(jButton_Registar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+
+        DashNouElement.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_model.setBackground(new java.awt.Color(255, 153, 51));
+        txt_model.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(txt_model, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 226, 151, 30));
+
+        jLabel29.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel29.setText("Nou Element");
+        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 18, -1, 60));
+
+        jLabel30.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel30.setText("Usuari Assignat");
+        jPanel4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 190, -1, 25));
+
+        jLabel31.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel31.setText("Marca");
+        jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 95, -1, -1));
+
+        jButton_RegistarElm.setBackground(new java.awt.Color(255, 153, 51));
+        jButton_RegistarElm.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_RegistarElm.setText("Guardar");
+        jButton_RegistarElm.setBorder(null);
+        jButton_RegistarElm.setBorderPainted(false);
+        jButton_RegistarElm.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton_RegistarElm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_RegistarElmMouseClicked(evt);
+            }
+        });
+        jButton_RegistarElm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RegistarElmActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton_RegistarElm, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 407, 150, 30));
+
+        jLabel32.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel32.setText("Model");
+        jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 190, 151, 30));
+
+        jLabel33.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel33.setText("Nom");
+        jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 90, -1, 25));
+
+        jLabel34.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel34.setText("Tipus");
+        jPanel4.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 297, -1, 25));
+
+        jLabel35.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel35.setText("Número Serie");
+        jPanel4.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 285, 151, 30));
+
+        jLabel36.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel36.setText("Observacions");
+        jPanel4.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 174, -1, 30));
+
+        ComboTipus.setBackground(new java.awt.Color(255, 153, 51));
+        ComboTipus.setForeground(new java.awt.Color(255, 255, 255));
+        ComboTipus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordinador", "Portatil", "SmartPhone", "Impresora" }));
+        ComboTipus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboTipusActionPerformed(evt);
+            }
+        });
+        jPanel4.add(ComboTipus, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 328, 151, 30));
+
+        ComboEstatElem.setBackground(new java.awt.Color(255, 153, 51));
+        ComboEstatElem.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstatElem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
+        jPanel4.add(ComboEstatElem, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 128, 150, 26));
+
+        txt_nomElem.setBackground(new java.awt.Color(255, 153, 51));
+        txt_nomElem.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(txt_nomElem, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 121, 150, 31));
+
+        txt_numserie.setBackground(new java.awt.Color(255, 153, 51));
+        txt_numserie.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(txt_numserie, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 327, 150, 31));
+
+        txt_usuariassignat.setBackground(new java.awt.Color(255, 153, 51));
+        txt_usuariassignat.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(txt_usuariassignat, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 221, 150, 31));
+
+        txt_marca.setBackground(new java.awt.Color(255, 153, 51));
+        txt_marca.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(txt_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 126, 150, 30));
+
+        txt_observacions.setBackground(new java.awt.Color(255, 153, 51));
+        txt_observacions.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(txt_observacions, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 210, 186, 148));
+
+        jLabel37.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel37.setText("Estat");
+        jPanel4.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 90, -1, 30));
+
+        javax.swing.GroupLayout DashNouElementLayout = new javax.swing.GroupLayout(DashNouElement);
+        DashNouElement.setLayout(DashNouElementLayout);
+        DashNouElementLayout.setHorizontalGroup(
+            DashNouElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashNouElementLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(43, 43, 43))
+        );
+        DashNouElementLayout.setVerticalGroup(
+            DashNouElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashNouElementLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        DashInfoElement.setBackground(new java.awt.Color(255, 255, 255));
+        DashInfoElement.setForeground(new java.awt.Color(51, 51, 255));
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel38.setText("Informació Element");
+
+        txt_numeroserieElem2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_numeroserieElem2.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_nomElem2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_nomElem2.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_usuariElem2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_usuariElem2.setForeground(new java.awt.Color(255, 255, 255));
+        txt_usuariElem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_usuariElem2ActionPerformed(evt);
+            }
+        });
+
+        txt_marcaElem2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_marcaElem2.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_modelElem2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_modelElem2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel39.setText("Nom:");
+
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel40.setText("Número Serie:");
+
+        jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel41.setText("Usuari:");
+
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel42.setText("Marca:");
+
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel43.setText("Model:");
+
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel44.setText("Tipus:");
+
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel45.setText("Estat:");
+
+        ComboEstatElem2.setBackground(new java.awt.Color(255, 153, 51));
+        ComboEstatElem2.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstatElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
+
+        ComboTipusElem2.setBackground(new java.awt.Color(255, 153, 51));
+        ComboTipusElem2.setForeground(new java.awt.Color(255, 255, 255));
+        ComboTipusElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordinador", "Portatil", "SmartPhone", "Impresora" }));
+        ComboTipusElem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboTipusElem2ActionPerformed(evt);
+            }
+        });
+
+        Guardar2.setBackground(new java.awt.Color(255, 153, 51));
+        Guardar2.setForeground(new java.awt.Color(255, 255, 255));
+        Guardar2.setText("Guardar");
+        Guardar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Guardar2MouseClicked(evt);
+            }
+        });
+        Guardar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Guardar2ActionPerformed(evt);
+            }
+        });
+
+        Enrera1.setBackground(new java.awt.Color(0, 0, 0));
+        Enrera1.setForeground(new java.awt.Color(0, 0, 0));
+
+        txt_observacionsElem2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_observacionsElem2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel46.setText("Observacions:");
+
+        javax.swing.GroupLayout DashInfoElementLayout = new javax.swing.GroupLayout(DashInfoElement);
+        DashInfoElement.setLayout(DashInfoElementLayout);
+        DashInfoElementLayout.setHorizontalGroup(
+            DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashInfoElementLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashInfoElementLayout.createSequentialGroup()
+                        .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DashInfoElementLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel39, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel44, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ComboTipusElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_usuariElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_marcaElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_nomElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(83, 83, 83)
+                        .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(DashInfoElementLayout.createSequentialGroup()
+                                    .addComponent(jLabel43)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txt_modelElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(DashInfoElementLayout.createSequentialGroup()
+                                    .addGap(12, 12, 12)
+                                    .addComponent(jLabel45)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(ComboEstatElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(DashInfoElementLayout.createSequentialGroup()
+                                .addComponent(jLabel40)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_numeroserieElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3))
+                            .addGroup(DashInfoElementLayout.createSequentialGroup()
+                                .addComponent(jLabel46)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_observacionsElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(DashInfoElementLayout.createSequentialGroup()
+                        .addComponent(Enrera1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192)
+                        .addComponent(jLabel38))
+                    .addGroup(DashInfoElementLayout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(Guardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(127, Short.MAX_VALUE))
+        );
+        DashInfoElementLayout.setVerticalGroup(
+            DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashInfoElementLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(Enrera1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashInfoElementLayout.createSequentialGroup()
+                        .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_modelElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel43))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(DashInfoElementLayout.createSequentialGroup()
+                        .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_nomElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel39))
+                        .addGap(44, 44, 44)
+                        .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_usuariElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel41)
+                            .addComponent(txt_numeroserieElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel40))
+                        .addGap(39, 39, 39)
+                        .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel44)
+                            .addComponent(ComboTipusElem2)
+                            .addComponent(jLabel45)
+                            .addComponent(ComboEstatElem2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel42)
+                            .addGroup(DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txt_observacionsElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel46))
+                            .addComponent(txt_marcaElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)))
+                .addComponent(Guardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
 
         javax.swing.GroupLayout DashBoardViewLayout = new javax.swing.GroupLayout(DashBoardView);
@@ -1319,12 +1874,24 @@ public class Principal extends javax.swing.JFrame  {
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(DashNouUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DashNouUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(DashElements, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(DashNouElement, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(DashInfoElement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         DashBoardViewLayout.setVerticalGroup(
             DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DashConfiguracio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashBoardViewLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(DashConfiguracio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashTasques, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1343,6 +1910,19 @@ public class Principal extends javax.swing.JFrame  {
                     .addGap(6, 6, 6)
                     .addComponent(DashNouUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addComponent(DashElements, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addComponent(DashNouElement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 78, Short.MAX_VALUE)))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(DashInfoElement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         getContentPane().add(DashBoardView, java.awt.BorderLayout.CENTER);
@@ -1503,6 +2083,7 @@ public class Principal extends javax.swing.JFrame  {
 
     private void ElemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElemMouseClicked
         // TODO add your handling code here:
+        DashElements();
     }//GEN-LAST:event_ElemMouseClicked
 
     private void ElemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElemMouseEntered
@@ -1608,7 +2189,7 @@ public class Principal extends javax.swing.JFrame  {
 
     private void N_ElemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ElemMouseClicked
         // TODO add your handling code here:
-
+        DashElements();
     }//GEN-LAST:event_N_ElemMouseClicked
 
     private void N_UsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuMouseClicked
@@ -1925,6 +2506,7 @@ public class Principal extends javax.swing.JFrame  {
         txt_usuari1.setText(" ");        
         txt_mail1.setText(" ");
         txt_buscador.setText("");
+        txt_buscador1.setText("");
 
     }
 
@@ -2058,10 +2640,14 @@ public class Principal extends javax.swing.JFrame  {
         
     }//GEN-LAST:event_GuardarMouseClicked
 
+    private void ComboNivell1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNivell1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboNivell1ActionPerformed
+
     //Crear usuaris
     private void jButton_RegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarActionPerformed
         // TODO add your handling code here:
-        
+
         int  nivell, estat, validacio = 0;
         String nom, cognom, mail, telefon, usuari,contrasenya, nivell_string=" ", estat_string=" ";
 
@@ -2149,7 +2735,6 @@ public class Principal extends javax.swing.JFrame  {
                     pst2.setString(7, contrasenya);
                     pst2.setString(8, nivell_string);
                     pst2.setString(9, estat_string);
-                    
 
                     pst2.executeUpdate();
                     cn2.close();
@@ -2179,46 +2764,353 @@ public class Principal extends javax.swing.JFrame  {
 
         }
 
-        
     }//GEN-LAST:event_jButton_RegistarActionPerformed
 
     private void jButton_RegistarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarMouseClicked
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jButton_RegistarMouseClicked
 
-    private void ComboNivell1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNivell1ActionPerformed
+    private void txt_buscador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscador1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ComboNivell1ActionPerformed
+    }//GEN-LAST:event_txt_buscador1ActionPerformed
 
-    public void BuscarUsuari(String usuari, java.awt.event.MouseEvent evt) {
+    private void txt_buscador1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscador1KeyReleased
+        // TODO add your handling code here:
+        BuscarElements(txt_buscador1.getText());
+    }//GEN-LAST:event_txt_buscador1KeyReleased
 
-        DefaultTableModel model = new DefaultTableModel();
-        jTable_Usuaris.addMouseListener(new MouseAdapter() {
+    private void Nou_ElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nou_ElementActionPerformed
+        // TODO add your handling code here:
+       
+        DashElements.setVisible(false);
+        DashNouElement.setVisible(true);        
+        
+    }//GEN-LAST:event_Nou_ElementActionPerformed
 
-            @Override
-            public void mouseClicked(MouseEvent e) {
+    private void Eliminar_Usuari1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Eliminar_Usuari1MouseClicked
+        // TODO add your handling code here:
+        
+         for (int i = 0; i < jTable_Elements.getRowCount(); i++) {
+            Boolean checked = Boolean.valueOf(jTable_Elements.getValueAt(i, 0).toString());
+            String col = jTable_Elements.getValueAt(i, 1).toString();
 
-                int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
-                int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
-                int columna = 3;
+            //DISPLAY
+            if (checked) {
 
-                System.out.println(fila_point);
-                System.out.println(columna_point);
+                eliminarRegistreElem(jTable_Elements.getValueAt(i, 1).toString());
+            }
+        }
+        DashElements();
+    }//GEN-LAST:event_Eliminar_Usuari1MouseClicked
 
-                if (fila_point > -1 && columna_point > 0) {
+    private void Eliminar_Usuari1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_Usuari1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Eliminar_Usuari1ActionPerformed
+    //Crear Elements
+    private void jButton_RegistarElmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarElmMouseClicked
+        // TODO add your handling code here:
+        int  tipus, estat, validacio = 0;
+        String nom, usuari, marca, model, numero_serie, observacions, tipus_string=" ", estat_string=" ";
 
-                    user_update = (String) model.getValueAt(fila_point, columna);                    
-                    DashUsuaris.setVisible(false);
-                    DashInfoUsuari.setVisible(true);
-                    informacioUsuari(user_update);
-                }
+         
+        nom = txt_nomElem.getText().trim();
+        usuari = txt_usuariassignat.getText().trim();
+        marca = txt_marca.getText().trim();
+        model = txt_model.getText().trim();
+        numero_serie = txt_numserie.getText().trim();
+        observacions = txt_observacions.getText().trim();
+
+        tipus = ComboTipus.getSelectedIndex() +1;
+        estat = ComboEstatElem.getSelectedIndex() + 1;
+
+        if (nom.equals("")) {
+            
+            validacio++;
+        }
+        if (usuari.equals("")) {
+
+            validacio++;
+        }
+        if (marca.equals("")) {
+            
+            validacio++;
+        }
+        if (model.equals("")) {
+            
+            validacio++;
+        }
+        if (numero_serie.equals("")) {
+            
+            validacio++;
+        }
+
+        if (validacio == 0) {
+
+            if (tipus == 1) {
+
+                tipus_string = "Ordinador";
+
+            }
+            if (tipus == 2) {
+
+                tipus_string = "Portatil";
+            }
+            if (tipus == 3) {
+
+               tipus_string = "SmartPhone";
+
+            }
+            if (tipus == 4) {
+
+               tipus_string = "Impresora";
 
             }
 
-        });
+            if (estat == 1) {
 
+                estat_string = "Correcte";
+            }
+
+            if (estat == 2) {
+
+                estat_string = "Baixa";
+
+            }
+            if (estat == 3) {
+
+                estat_string = "Reparació";
+
+            }
+
+            try {
+
+                Connection cn = Conexio.conectar();
+                PreparedStatement pst = cn.prepareStatement("select nom from Elements where nom = '" + nom + "' and not id_element = '" + id + "'");
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) {
+
+                    txt_nom.setBackground(Color.red);
+                    JOptionPane.showMessageDialog(null, "Nom d'element no disponible");
+                    cn.close();
+
+                } else {
+
+                    Connection cn2 = Conexio.conectar();
+                    PreparedStatement pst2 = cn2.prepareStatement("insert into Elements values (?,?,?,?,?,?,?,?,?)");
+                    pst2.setInt(1,0);
+                    pst2.setString(2, nom);
+                    pst2.setString(3, usuari);
+                    pst2.setString(4, tipus_string);
+                    pst2.setString(5, marca);
+                    pst2.setString(6, model);
+                    pst2.setString(7, numero_serie);
+                    pst2.setString(8, estat_string);
+                    pst2.setString(9, observacions);
+
+                    pst2.executeUpdate();
+                    cn2.close();
+
+                    JOptionPane.showMessageDialog(null, "Element Creat Correctament!");
+                    DashNouElement.setVisible(false);
+                    DashElements();
+                }
+
+            } catch (SQLException e) {
+
+                System.err.println("Error al Crear L'element" + e);
+
+            }
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+
+        }
+
+    }//GEN-LAST:event_jButton_RegistarElmMouseClicked
+
+    private void jButton_RegistarElmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarElmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_RegistarElmActionPerformed
+
+    private void ComboTipusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboTipusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboTipusActionPerformed
+
+    private void txt_usuariElem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuariElem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_usuariElem2ActionPerformed
+
+    private void ComboTipusElem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboTipusElem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboTipusElem2ActionPerformed
+
+    //Modificacio ELements
+    private void Guardar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Guardar2MouseClicked
+        // TODO add your handling code here:
+        
+        int  tipus, estat, validacio = 0;
+        String nom, usuari, marca, model, numero_serie, observacions, tipus_string=" ", estat_string=" ";
+
+         
+        nom = txt_nomElem2.getText().trim();
+        usuari = txt_usuariElem2.getText().trim();
+        marca = txt_marcaElem2.getText().trim();
+        model = txt_modelElem2.getText().trim();
+        numero_serie = txt_numeroserieElem2.getText().trim();
+        observacions = txt_observacionsElem2.getText().trim();
+
+        tipus = ComboTipusElem2.getSelectedIndex() +1;
+        estat = ComboEstatElem2.getSelectedIndex() + 1;
+
+        if (nom.equals("")) {
+            
+            validacio++;
+        }
+        if (usuari.equals("")) {
+
+            validacio++;
+        }
+        if (marca.equals("")) {
+            
+            validacio++;
+        }
+        if (model.equals("")) {
+            
+            validacio++;
+        }
+        if (numero_serie.equals("")) {
+            
+            validacio++;
+        }
+
+        if (validacio == 0) {
+
+            if (tipus == 1) {
+
+                tipus_string = "Ordinador";
+
+            }
+            if (tipus == 2) {
+
+                tipus_string = "Portatil";
+            }
+            if (tipus == 3) {
+
+               tipus_string = "SmartPhone";
+
+            }
+            if (tipus == 4) {
+
+               tipus_string = "Impresora";
+
+            }
+
+            if (estat == 1) {
+
+                estat_string = "Correcte";
+            }
+
+            if (estat == 2) {
+
+                estat_string = "Baixa";
+
+            }
+            if (estat == 3) {
+
+                estat_string = "Reparació";
+
+            }
+
+            try {
+
+                Connection cn = Conexio.conectar();
+                PreparedStatement pst = cn.prepareStatement("select nom from Elements where nom = '" + nom + "' and not id_element = '" + id + "'");
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) {
+
+                    txt_nom.setBackground(Color.red);
+                    JOptionPane.showMessageDialog(null, "Nom d'element no disponible");
+                    cn.close();
+
+                } else {
+                    System.out.print(id);
+                    Connection cn2 = Conexio.conectar();
+                    PreparedStatement pst2 = cn2.prepareStatement("update Elements set nom=?, usuari=?, tipus=?, marca=?, model=?, numero_serie=?, estat=?, observacions=? where id_element = '"+id+"'");
+                   
+                    pst2.setString(1, nom);
+                    pst2.setString(2, usuari);
+                    pst2.setString(3, tipus_string);
+                    pst2.setString(4, marca);
+                    pst2.setString(5, model);
+                    pst2.setString(6, numero_serie);
+                    pst2.setString(7, estat_string);
+                    pst2.setString(8, observacions);
+
+                    pst2.executeUpdate();
+                    cn2.close();
+
+                    JOptionPane.showMessageDialog(null, "Element Modificat!");
+                    DashInfoElement.setVisible(false);
+                    DashElements();
+                }
+
+            } catch (SQLException e) {
+
+                System.err.println("Error al modificar L'element" + e);
+
+            }
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+
+        }       
+
+    }//GEN-LAST:event_Guardar2MouseClicked
+
+    private void Guardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Guardar2ActionPerformed
+
+        //Mostra informacio detallada dels elements
+    public void informacioElement(String element) {
+
+        System.out.print(element);
+        
+        try {
+            Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("select * from Elements where nom = '" + element + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                txt_nomElem2.setText(rs.getString("nom"));
+                id = rs.getInt("id_element");
+                txt_usuariElem2.setText(rs.getString("usuari"));
+                txt_marcaElem2.setText(rs.getString("marca"));
+                txt_modelElem2.setText(rs.getString("model"));
+                txt_numeroserieElem2.setText(rs.getString("numero_serie"));
+                txt_observacionsElem2.setText(rs.getString("observacions"));
+
+                ComboTipusElem2.setSelectedItem(rs.getString("tipus"));
+                ComboEstatElem2.setSelectedItem(rs.getString("estat"));
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al solicitar les dades" + e);
+            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
     }
+    
+    
 
     public boolean eliminarRegistre(String usuari) {
 
@@ -2238,6 +3130,43 @@ public class Principal extends javax.swing.JFrame  {
 
             Connection cn2 = Conexio.conectar();
             PreparedStatement pst2 = cn2.prepareStatement("delete from Usuaris where id_usuari='" + id + "'");            
+            int i = pst2.executeUpdate();
+            if (i != 0) {
+
+                return true;
+
+            } else {
+
+                return false;
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al eliminar usuari" + e);
+            JOptionPane.showMessageDialog(null, "Error al eliminar l'usuari, contacti amb l'administrador");
+            return false;
+        }
+
+    }
+    
+    public boolean eliminarRegistreElem(String nom) {
+
+        try {
+            System.out.println(nom);
+            int id = 0;
+            Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("select id_element from Elements where nom = '" + nom + "'");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                id = rs.getInt("id_element");
+
+            }
+
+            System.out.println(id);
+            cn.close();
+
+            Connection cn2 = Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("delete from Elements where id_element='" + id + "'");            
             int i = pst2.executeUpdate();
             if (i != 0) {
 
@@ -2328,9 +3257,166 @@ public class Principal extends javax.swing.JFrame  {
 
     }
 
+    //Pantalla Usuaris
+    public void DashElements() {
 
+        DashInfoUsuari.setVisible(false);
+        DashConfiguracio.setVisible(false);
+        DashTasques.setVisible(false);
+        DashNouUsuari.setVisible(false);
+        DashNouElement.setVisible(false);
+        DashUsuaris.setVisible(false);
+        DashElements.setVisible(true);
+
+        DefaultTableModel model_elements = new DefaultTableModel();
+
+        try {
+
+            jTable_Elements.setModel(model_elements);
+            model_elements.fireTableDataChanged();
+            try ( Connection cn = Conexio.conectar()) {
+                PreparedStatement pst = cn.prepareStatement("select nom, usuari, tipus, marca, estat from Elements");
+                ResultSet rs = pst.executeQuery();
+
+                ResultSetMetaData rsMd = rs.getMetaData();
+                int cantitatColumnas = 6;
+                int cantitatFilas = 0;
+                model_elements.addColumn("Seleccionar");
+                model_elements.addColumn("Nom");
+                model_elements.addColumn("Usuari assignat");
+                model_elements.addColumn("Tipus");
+                model_elements.addColumn("Marca");
+                model_elements.addColumn("Estat");
+
+                while (rs.next()) {
+
+                    Object[] fila = new Object[cantitatColumnas];
+
+                    for (int i = 1; i < cantitatColumnas; i++) {
+
+                        fila[i] = rs.getObject(i);
+
+                    }
+                    cantitatFilas++;
+                    model_elements.addRow(fila);
+                    addCheckBox(0, jTable_Elements);
+
+                }
+
+                for (int i = 0; i < cantitatFilas; i++) {
+
+                    model_elements.setValueAt(false, i, 0);
+
+                }
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al omplir la taula");
+            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+        Natejar();
+        jTable_Elements.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                DefaultTableModel model_elements2 = new DefaultTableModel();
+                model_elements2 = (DefaultTableModel) jTable_Elements.getModel();
+
+                int fila_point = jTable_Elements.rowAtPoint(e.getPoint());
+                int columna_point = jTable_Elements.columnAtPoint(e.getPoint());
+                int columna = 1;
+
+                System.out.println("Fila" + fila_point);
+                System.out.println("Columna" + columna_point);
+
+                jTable_Elements.repaint();
+                jTable_Elements.updateUI();
+                if (fila_point > -1 && columna_point > 0) {
+
+                    element_update = model_elements2.getValueAt(fila_point, columna).toString();                    
+                    DashElements.setVisible(false);
+                    DashInfoElement.setVisible(true);
+                    informacioElement(element_update);
+                }
+
+            }
+
+        });
+
+    }
      
+     public void BuscarElements(String buscarElem){  
+
+        DefaultTableModel modelElem = new DefaultTableModel();
+
+        try {
+
+                                 
+            try (Connection cn = Conexio.conectar()) {
+                PreparedStatement pst = cn.prepareStatement("select * from Elements where nom like '%" + buscarElem + "%' or usuari like '%" + buscarElem + "%'"
+                        + "or tipus like '%" + buscarElem + "%' or marca like '%" + buscarElem + "%' or estat like '%" + buscarElem + "%'");
+                ResultSet rs = pst.executeQuery();
+                //ResultSetMetaData rsMd = rs.getMetaData();
+                
+                int cantitatColumnas = 6;
+                
+                modelElem.addColumn("Seleccionar");
+                modelElem.addColumn("Nom");
+                modelElem.addColumn("Usuari Assignat");
+                modelElem.addColumn("Tipus");
+                modelElem.addColumn("Marca");
+                modelElem.addColumn("Estat");
+                
+                while (rs.next()) {
+                    
+                    Object[] fila = new Object[cantitatColumnas];
+                    
+                    fila[1] = rs.getString("Nom");
+                    fila[2] = rs.getString("Usuari Assignat");
+                    fila[3] = rs.getString("Tipus");
+                    fila[4] = rs.getString("Marca");
+                    fila[5] = rs.getString("Estat");
+                    
+                    modelElem.addRow(fila);
+                    
+                }
+                
+                jTable_Elements.setModel(modelElem);
+                addCheckBox(0, jTable_Elements);
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al omplir la taulaaaaaaaaaaaaaaaa");
+            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+
+        jTable_Elements.addMouseListener(new MouseAdapter() {
+            @Override
+
+            public void mouseClicked(MouseEvent e) {
+
+                int fila_point = jTable_Elements.rowAtPoint(e.getPoint());
+                int columna_point = jTable_Elements.columnAtPoint(e.getPoint());
+                int columna = 1;
+
+                if (fila_point > -1 && columna_point > 0) {
+
+                    element_update = (String) modelElem.getValueAt(fila_point, columna + 1);                    
+                    DashElements.setVisible(false);
+                    DashInfoElement.setVisible(true);
+                    informacioUsuari(element_update);
+                }
+
+            }
+
+        });  
      
+     }
      
      
     
@@ -2380,26 +3466,37 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JLabel Close;
     private javax.swing.JComboBox<String> ComboEstat;
     private javax.swing.JComboBox<String> ComboEstat1;
+    private javax.swing.JComboBox<String> ComboEstatElem;
+    private javax.swing.JComboBox<String> ComboEstatElem2;
     private javax.swing.JComboBox<String> ComboNivell;
     private javax.swing.JComboBox<String> ComboNivell1;
+    private javax.swing.JComboBox<String> ComboTipus;
+    private javax.swing.JComboBox<String> ComboTipusElem2;
     private javax.swing.JLabel Conf;
     private javax.swing.JPanel Configuracio;
     private javax.swing.JPanel Contador;
     private javax.swing.JPanel Contador1;
+    private javax.swing.JPanel Contador2;
     private javax.swing.JButton Contrasenya;
     private javax.swing.JPanel DashBoardView;
     private javax.swing.JPanel DashConfiguracio;
+    private javax.swing.JPanel DashElements;
+    private javax.swing.JPanel DashInfoElement;
     private javax.swing.JPanel DashInfoUsuari;
+    private javax.swing.JPanel DashNouElement;
     private javax.swing.JPanel DashNouUsuari;
     private javax.swing.JPanel DashTasques;
     private javax.swing.JPanel DashUsuaris;
     private javax.swing.JLabel Elem;
     private javax.swing.JPanel Elements;
     private javax.swing.JButton Eliminar_Usuari;
+    private javax.swing.JButton Eliminar_Usuari1;
     private javax.swing.JLabel Enrera;
+    private javax.swing.JLabel Enrera1;
     private javax.swing.JLabel Gru;
     private javax.swing.JPanel Grups;
     private javax.swing.JButton Guardar;
+    private javax.swing.JButton Guardar2;
     private javax.swing.JPanel Header;
     private javax.swing.JPanel HideMenu;
     private javax.swing.JPanel IconMinMaxClose;
@@ -2426,12 +3523,14 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel N_Tasques;
     private javax.swing.JLabel N_Usu;
     private javax.swing.JPanel N_Usuaris;
+    private javax.swing.JButton Nou_Element;
     private javax.swing.JButton Nou_Usuari;
     private javax.swing.JLabel Tasq;
     private javax.swing.JPanel Tasques;
     private javax.swing.JLabel Usu;
     private javax.swing.JPanel Usuaris;
     private javax.swing.JButton jButton_Registar;
+    private javax.swing.JButton jButton_RegistarElm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2449,7 +3548,29 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2457,23 +3578,43 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane_Elements;
     private javax.swing.JScrollPane jScrollPane_Usuaris;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable_Elements;
     private javax.swing.JTable jTable_Usuaris;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField txt_buscador;
+    private javax.swing.JTextField txt_buscador1;
     private javax.swing.JTextField txt_cognom;
     private javax.swing.JTextField txt_cognom1;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_mail1;
+    private javax.swing.JTextField txt_marca;
+    private javax.swing.JTextField txt_marcaElem2;
+    private javax.swing.JTextField txt_model;
+    private javax.swing.JTextField txt_modelElem2;
     private javax.swing.JTextField txt_nom;
     private javax.swing.JTextField txt_nom1;
+    private javax.swing.JTextField txt_nomElem;
+    private javax.swing.JTextField txt_nomElem2;
+    private javax.swing.JTextField txt_numeroserieElem2;
+    private javax.swing.JTextField txt_numserie;
+    private javax.swing.JTextField txt_observacions;
+    private javax.swing.JTextField txt_observacionsElem2;
     private javax.swing.JTextField txt_telefon;
     private javax.swing.JTextField txt_telefon1;
     private javax.swing.JTextField txt_usuari;
     private javax.swing.JTextField txt_usuari1;
+    private javax.swing.JTextField txt_usuariElem2;
+    private javax.swing.JTextField txt_usuariassignat;
     // End of variables declaration//GEN-END:variables
 }
