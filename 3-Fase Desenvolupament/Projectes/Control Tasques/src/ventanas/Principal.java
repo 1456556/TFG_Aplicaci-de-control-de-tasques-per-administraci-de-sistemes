@@ -24,8 +24,12 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import javax.swing.SwingUtilities;
+import java.util.Timer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import java.util.Date;
 
 /**
  *
@@ -42,10 +46,32 @@ public class Principal extends javax.swing.JFrame  {
     public static String user_update="", element_update="", tasca_update = "";
    
 
+   /* public static void main(String args[]) throws InterruptedException {
+               
+		Timer time = new Timer(); // Instantiate Timer Object
+		ScheduledTask st = new ScheduledTask(); // Instantiate SheduledTask class
+		time.schedule(st, 0, 1000); // Create Repetitively task for every 1 secs
+
+		//for demo only.
+		for (int i = 0; i <= 5; i++) {
+			System.out.println("Execution in Main Thread...." + i);
+			Thread.sleep(2000);
+			if (i == 5) {
+				System.out.println("Application Terminates");
+				System.exit(0);
+			}
+		}
+	}
+}*/
+    
     /**
      * Creates new form Ventana_Tasques2
      */
     public Principal() {
+        
+        
+        
+        
         initComponents();
         ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");
         Close.setIcon(delete_logo);
@@ -4370,6 +4396,38 @@ public class Principal extends javax.swing.JFrame  {
      
      }
     
+       public void recordatori(Date date){
+       
+         
+           String d = date.toString();
+          System.out.print("DATA SQL " + d);
+           
+       try {
+            Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("select * from Tasques where data = '" + d + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+               recordatori2();
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al solicitar les dades" + e);
+           // JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }      
+       
+       }
+        public void recordatori2(){
+            
+             JOptionPane.showMessageDialog(null, "TASCAAA!!!");
+        
+        }
     
     
     /**
@@ -4405,7 +4463,9 @@ public class Principal extends javax.swing.JFrame  {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new Principal().setVisible(true);        
+
+		
             }
         });
     }
