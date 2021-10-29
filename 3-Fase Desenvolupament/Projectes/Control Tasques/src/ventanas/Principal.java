@@ -39,7 +39,7 @@ public class Principal extends javax.swing.JFrame  {
     
     public int id;
     
-    public static String user_update="", element_update="";
+    public static String user_update="", element_update="", tasca_update = "";
    
 
     /**
@@ -144,6 +144,21 @@ public class Principal extends javax.swing.JFrame  {
         N_Configuracio = new javax.swing.JPanel();
         N_Conf = new javax.swing.JLabel();
         DashBoardView = new javax.swing.JPanel();
+        DashTasques = new javax.swing.JPanel();
+        Contador4 = new javax.swing.JPanel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        txt_buscador3 = new javax.swing.JTextField();
+        jLabel53 = new javax.swing.JLabel();
+        Nou_Tasca = new javax.swing.JButton();
+        Eliminar_Tasca = new javax.swing.JButton();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel54 = new javax.swing.JLabel();
+        jScrollPane_Tasques = new javax.swing.JScrollPane();
+        jTable_Tasques = new javax.swing.JTable();
         DashElements = new javax.swing.JPanel();
         Contador2 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
@@ -152,7 +167,7 @@ public class Principal extends javax.swing.JFrame  {
         txt_buscador1 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         Nou_Element = new javax.swing.JButton();
-        Eliminar_Usuari1 = new javax.swing.JButton();
+        Eliminar_Element = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
@@ -175,14 +190,6 @@ public class Principal extends javax.swing.JFrame  {
         jScrollPane_Usuaris = new javax.swing.JScrollPane();
         jTable_Usuaris = new javax.swing.JTable();
         DashConfiguracio = new javax.swing.JPanel();
-        DashTasques = new javax.swing.JPanel();
-        Contador = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         DashInfoUsuari = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         txt_telefon = new javax.swing.JTextField();
@@ -259,6 +266,38 @@ public class Principal extends javax.swing.JFrame  {
         Enrera1 = new javax.swing.JLabel();
         txt_observacionsElem2 = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
+        DashNovaTasca = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        txt_dataTasc = new javax.swing.JTextField();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jButton_RegistarElm1 = new javax.swing.JButton();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        ComboEstatElem1 = new javax.swing.JComboBox<>();
+        txt_titolTasc = new javax.swing.JTextField();
+        txt_usuariassignatTasc = new javax.swing.JTextField();
+        txt_prioritatTasc = new javax.swing.JTextField();
+        txt_descripcioTasc = new javax.swing.JTextField();
+        jLabel59 = new javax.swing.JLabel();
+        DashInfoTasca = new javax.swing.JPanel();
+        jLabel56 = new javax.swing.JLabel();
+        txt_prioritatTasc2 = new javax.swing.JTextField();
+        txt_titolTasc2 = new javax.swing.JTextField();
+        txt_usuariTasc2 = new javax.swing.JTextField();
+        txt_dataTasc2 = new javax.swing.JTextField();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        ComboEstatTasc2 = new javax.swing.JComboBox<>();
+        Guardar3 = new javax.swing.JButton();
+        Enrera2 = new javax.swing.JLabel();
+        txt_descripcioTasc2 = new javax.swing.JTextField();
+        jLabel66 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -728,6 +767,195 @@ public class Principal extends javax.swing.JFrame  {
 
         DashBoardView.setBackground(new java.awt.Color(255, 255, 255));
 
+        DashTasques.setBackground(new java.awt.Color(255, 255, 255));
+        DashTasques.setForeground(new java.awt.Color(51, 51, 255));
+
+        Contador4.setBackground(new java.awt.Color(255, 153, 51));
+        Contador4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
+        Contador4.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel51.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel51.setText("Tasques Totals");
+
+        jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel52.setText("Tasques Gestionades");
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel6.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_buscador3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_buscador3ActionPerformed(evt);
+            }
+        });
+        txt_buscador3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_buscador3KeyReleased(evt);
+            }
+        });
+
+        jLabel53.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel53.setText("Buscar :");
+
+        Nou_Tasca.setText("Nou");
+        Nou_Tasca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Nou_TascaActionPerformed(evt);
+            }
+        });
+
+        Eliminar_Tasca.setText("Eliminar");
+        Eliminar_Tasca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Eliminar_TascaMouseClicked(evt);
+            }
+        });
+        Eliminar_Tasca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Eliminar_TascaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(Nou_Tasca)
+                .addGap(18, 18, 18)
+                .addComponent(Eliminar_Tasca)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_buscador3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_buscador3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel53)
+                    .addComponent(Eliminar_Tasca)
+                    .addComponent(Nou_Tasca))
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+
+        jTextField10.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField10.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTextField11.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTextField12.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField12.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField12.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel54.setText("Tasques Asignades");
+
+        javax.swing.GroupLayout Contador4Layout = new javax.swing.GroupLayout(Contador4);
+        Contador4.setLayout(Contador4Layout);
+        Contador4Layout.setHorizontalGroup(
+            Contador4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Contador4Layout.createSequentialGroup()
+                .addGroup(Contador4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Contador4Layout.createSequentialGroup()
+                        .addGroup(Contador4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Contador4Layout.createSequentialGroup()
+                                .addGap(154, 154, 154)
+                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Contador4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)))
+                        .addGroup(Contador4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Contador4Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(109, 109, 109)
+                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Contador4Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel54)
+                                .addGap(56, 56, 56)
+                                .addComponent(jLabel52)))
+                        .addGap(0, 64, Short.MAX_VALUE))
+                    .addGroup(Contador4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        Contador4Layout.setVerticalGroup(
+            Contador4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Contador4Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(Contador4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Contador4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jScrollPane_Tasques.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
+
+        jTable_Tasques.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                { new Boolean(false), null, null, null, null, null},
+                { new Boolean(false), null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Seleccionar", "Titol", "Prioritat", "Usuari", "Data", "Estat"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane_Tasques.setViewportView(jTable_Tasques);
+
+        javax.swing.GroupLayout DashTasquesLayout = new javax.swing.GroupLayout(DashTasques);
+        DashTasques.setLayout(DashTasquesLayout);
+        DashTasquesLayout.setHorizontalGroup(
+            DashTasquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Contador4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane_Tasques)
+        );
+        DashTasquesLayout.setVerticalGroup(
+            DashTasquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashTasquesLayout.createSequentialGroup()
+                .addComponent(Contador4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane_Tasques, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE))
+        );
+
         DashElements.setBackground(new java.awt.Color(255, 255, 255));
         DashElements.setForeground(new java.awt.Color(51, 51, 255));
 
@@ -771,15 +999,15 @@ public class Principal extends javax.swing.JFrame  {
             }
         });
 
-        Eliminar_Usuari1.setText("Eliminar");
-        Eliminar_Usuari1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Eliminar_Element.setText("Eliminar");
+        Eliminar_Element.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Eliminar_Usuari1MouseClicked(evt);
+                Eliminar_ElementMouseClicked(evt);
             }
         });
-        Eliminar_Usuari1.addActionListener(new java.awt.event.ActionListener() {
+        Eliminar_Element.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Eliminar_Usuari1ActionPerformed(evt);
+                Eliminar_ElementActionPerformed(evt);
             }
         });
 
@@ -791,7 +1019,7 @@ public class Principal extends javax.swing.JFrame  {
                 .addGap(32, 32, 32)
                 .addComponent(Nou_Element)
                 .addGap(18, 18, 18)
-                .addComponent(Eliminar_Usuari1)
+                .addComponent(Eliminar_Element)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -805,7 +1033,7 @@ public class Principal extends javax.swing.JFrame  {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_buscador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27)
-                    .addComponent(Eliminar_Usuari1)
+                    .addComponent(Eliminar_Element)
                     .addComponent(Nou_Element))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
@@ -914,7 +1142,7 @@ public class Principal extends javax.swing.JFrame  {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashElementsLayout.createSequentialGroup()
                 .addComponent(Contador2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane_Elements, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE))
+                .addComponent(jScrollPane_Elements, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE))
         );
 
         DashUsuaris.setBackground(new java.awt.Color(255, 255, 255));
@@ -1103,7 +1331,7 @@ public class Principal extends javax.swing.JFrame  {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashUsuarisLayout.createSequentialGroup()
                 .addComponent(Contador1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane_Usuaris, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
+                .addComponent(jScrollPane_Usuaris, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE))
         );
 
         DashConfiguracio.setBackground(new java.awt.Color(51, 255, 51));
@@ -1116,76 +1344,7 @@ public class Principal extends javax.swing.JFrame  {
         );
         DashConfiguracioLayout.setVerticalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 591, Short.MAX_VALUE)
-        );
-
-        DashTasques.setBackground(new java.awt.Color(255, 255, 255));
-        DashTasques.setForeground(new java.awt.Color(51, 51, 255));
-
-        Contador.setForeground(new java.awt.Color(60, 63, 65));
-
-        jLabel1.setText("Tasques Gestionades");
-
-        jLabel2.setText("Tasques Totals");
-
-        jLabel3.setText("Tasques Asignades");
-
-        jPanel1.setBackground(new java.awt.Color(255, 51, 51));
-        jPanel1.setForeground(new java.awt.Color(204, 0, 51));
-        jPanel1.setLayout(new java.awt.BorderLayout());
-
-        javax.swing.GroupLayout ContadorLayout = new javax.swing.GroupLayout(Contador);
-        Contador.setLayout(ContadorLayout);
-        ContadorLayout.setHorizontalGroup(
-            ContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContadorLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-        );
-        ContadorLayout.setVerticalGroup(
-            ContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContadorLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(ContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        javax.swing.GroupLayout DashTasquesLayout = new javax.swing.GroupLayout(DashTasques);
-        DashTasques.setLayout(DashTasquesLayout);
-        DashTasquesLayout.setHorizontalGroup(
-            DashTasquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Contador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1)
-        );
-        DashTasquesLayout.setVerticalGroup(
-            DashTasquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DashTasquesLayout.createSequentialGroup()
-                .addComponent(Contador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 603, Short.MAX_VALUE)
         );
 
         DashInfoUsuari.setBackground(new java.awt.Color(255, 255, 255));
@@ -1816,7 +1975,7 @@ public class Principal extends javax.swing.JFrame  {
                     .addGroup(DashInfoElementLayout.createSequentialGroup()
                         .addGap(272, 272, 272)
                         .addComponent(Guardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         DashInfoElementLayout.setVerticalGroup(
             DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1860,13 +2019,273 @@ public class Principal extends javax.swing.JFrame  {
                 .addGap(49, 49, 49))
         );
 
+        DashNovaTasca.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_dataTasc.setBackground(new java.awt.Color(255, 153, 51));
+        txt_dataTasc.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(txt_dataTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 226, 151, 30));
+
+        jLabel47.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel47.setText("Nova Tasca");
+        jPanel5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 18, -1, 60));
+
+        jLabel48.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel48.setText("Usuari Assignat");
+        jPanel5.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 190, -1, 25));
+
+        jLabel49.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel49.setText("Prioritat");
+        jPanel5.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 95, -1, -1));
+
+        jButton_RegistarElm1.setBackground(new java.awt.Color(255, 153, 51));
+        jButton_RegistarElm1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_RegistarElm1.setText("Guardar");
+        jButton_RegistarElm1.setBorder(null);
+        jButton_RegistarElm1.setBorderPainted(false);
+        jButton_RegistarElm1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton_RegistarElm1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_RegistarElm1MouseClicked(evt);
+            }
+        });
+        jButton_RegistarElm1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RegistarElm1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton_RegistarElm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 407, 150, 30));
+
+        jLabel50.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel50.setText("Data");
+        jPanel5.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 190, 151, 30));
+
+        jLabel55.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel55.setText("Titol");
+        jPanel5.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 90, -1, 25));
+
+        jLabel58.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel58.setText("Descripció");
+        jPanel5.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 174, -1, 30));
+
+        ComboEstatElem1.setBackground(new java.awt.Color(255, 153, 51));
+        ComboEstatElem1.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstatElem1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nova", "En espera", "En procés", "Finalitzada" }));
+        jPanel5.add(ComboEstatElem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 128, 150, 26));
+
+        txt_titolTasc.setBackground(new java.awt.Color(255, 153, 51));
+        txt_titolTasc.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(txt_titolTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 121, 150, 31));
+
+        txt_usuariassignatTasc.setBackground(new java.awt.Color(255, 153, 51));
+        txt_usuariassignatTasc.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(txt_usuariassignatTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 221, 150, 31));
+
+        txt_prioritatTasc.setBackground(new java.awt.Color(255, 153, 51));
+        txt_prioritatTasc.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(txt_prioritatTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 126, 150, 30));
+
+        txt_descripcioTasc.setBackground(new java.awt.Color(255, 153, 51));
+        txt_descripcioTasc.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(txt_descripcioTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 210, 186, 148));
+
+        jLabel59.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel59.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel59.setText("Estat");
+        jPanel5.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 90, -1, 30));
+
+        javax.swing.GroupLayout DashNovaTascaLayout = new javax.swing.GroupLayout(DashNovaTasca);
+        DashNovaTasca.setLayout(DashNovaTascaLayout);
+        DashNovaTascaLayout.setHorizontalGroup(
+            DashNovaTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashNovaTascaLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(43, 43, 43))
+        );
+        DashNovaTascaLayout.setVerticalGroup(
+            DashNovaTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashNovaTascaLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        DashInfoTasca.setBackground(new java.awt.Color(255, 255, 255));
+        DashInfoTasca.setForeground(new java.awt.Color(51, 51, 255));
+
+        jLabel56.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel56.setText("Informació Tasca");
+
+        txt_prioritatTasc2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_prioritatTasc2.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_titolTasc2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_titolTasc2.setForeground(new java.awt.Color(255, 255, 255));
+
+        txt_usuariTasc2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_usuariTasc2.setForeground(new java.awt.Color(255, 255, 255));
+        txt_usuariTasc2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_usuariTasc2ActionPerformed(evt);
+            }
+        });
+
+        txt_dataTasc2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_dataTasc2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel57.setText("Titol:");
+
+        jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel60.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel60.setText("Prioritat: ");
+
+        jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel61.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel61.setText("Usuari:");
+
+        jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel62.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel62.setText("Data:");
+
+        jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel65.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel65.setText("Estat:");
+
+        ComboEstatTasc2.setBackground(new java.awt.Color(255, 153, 51));
+        ComboEstatTasc2.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
+
+        Guardar3.setBackground(new java.awt.Color(255, 153, 51));
+        Guardar3.setForeground(new java.awt.Color(255, 255, 255));
+        Guardar3.setText("Guardar");
+        Guardar3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Guardar3MouseClicked(evt);
+            }
+        });
+        Guardar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Guardar3ActionPerformed(evt);
+            }
+        });
+
+        Enrera2.setBackground(new java.awt.Color(0, 0, 0));
+        Enrera2.setForeground(new java.awt.Color(0, 0, 0));
+
+        txt_descripcioTasc2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_descripcioTasc2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel66.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel66.setText("Descripció:");
+
+        javax.swing.GroupLayout DashInfoTascaLayout = new javax.swing.GroupLayout(DashInfoTasca);
+        DashInfoTasca.setLayout(DashInfoTascaLayout);
+        DashInfoTascaLayout.setHorizontalGroup(
+            DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel57, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel62, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_titolTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_usuariTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_dataTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51)
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashInfoTascaLayout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel65)
+                                .addGap(18, 18, 18)
+                                .addComponent(ComboEstatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                                    .addComponent(jLabel60)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txt_prioritatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(3, 3, 3))
+                                .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                                    .addComponent(jLabel66)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txt_descripcioTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                        .addComponent(Enrera2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192)
+                        .addComponent(jLabel56)))
+                .addContainerGap(150, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashInfoTascaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Guardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(305, 305, 305))
+        );
+        DashInfoTascaLayout.setVerticalGroup(
+            DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel56)
+                    .addComponent(Enrera2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(65, 65, 65)
+                .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_prioritatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel60))
+                        .addGap(39, 39, 39)
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel65)
+                            .addComponent(ComboEstatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_descripcioTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel66)))
+                    .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_titolTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel57))
+                        .addGap(44, 44, 44)
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_usuariTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel61))
+                        .addGap(46, 46, 46)
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel62)
+                            .addComponent(txt_dataTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(73, 73, 73)
+                .addComponent(Guardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(114, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout DashBoardViewLayout = new javax.swing.GroupLayout(DashBoardView);
         DashBoardView.setLayout(DashBoardViewLayout);
         DashBoardViewLayout.setHorizontalGroup(
             DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(DashConfiguracio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(DashTasques, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(DashUsuaris, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1885,6 +2304,18 @@ public class Principal extends javax.swing.JFrame  {
                     .addContainerGap()
                     .addComponent(DashInfoElement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(DashTasques, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(DashNovaTasca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addGap(6, 6, 6)
+                    .addComponent(DashInfoTasca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(6, 6, 6)))
         );
         DashBoardViewLayout.setVerticalGroup(
             DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1892,10 +2323,6 @@ public class Principal extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(DashConfiguracio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(DashBoardViewLayout.createSequentialGroup()
-                    .addComponent(DashTasques, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 79, Short.MAX_VALUE)))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashUsuaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1917,12 +2344,26 @@ public class Principal extends javax.swing.JFrame  {
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashNouElement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 78, Short.MAX_VALUE)))
+                    .addGap(0, 90, Short.MAX_VALUE)))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(DashInfoElement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashBoardViewLayout.createSequentialGroup()
+                    .addComponent(DashTasques, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(DashNovaTasca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(84, Short.MAX_VALUE)))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addGap(6, 6, 6)
+                    .addComponent(DashInfoTasca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(16, 16, 16)))
         );
 
         getContentPane().add(DashBoardView, java.awt.BorderLayout.CENTER);
@@ -2061,8 +2502,7 @@ public class Principal extends javax.swing.JFrame  {
         // TODO add your handling code here:
         
     
-            DashConfiguracio.setVisible(false);
-            DashTasques.setVisible(true);
+         DashTasques();
         
        
     }//GEN-LAST:event_TasqMouseClicked
@@ -2170,8 +2610,7 @@ public class Principal extends javax.swing.JFrame  {
 
     private void N_TasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_TasMouseClicked
         // TODO add your handling code here:
-        DashConfiguracio.setVisible(false);
-        DashTasques.setVisible(true);
+        DashTasques();
 
     }//GEN-LAST:event_N_TasMouseClicked
 
@@ -2344,6 +2783,9 @@ public class Principal extends javax.swing.JFrame  {
         DashConfiguracio.setVisible(false);
         DashTasques.setVisible(false);
         DashNouUsuari.setVisible(false);
+        DashNouElement.setVisible(false);
+        DashElements.setVisible(false);
+        DashInfoElement.setVisible(false);
         DashUsuaris.setVisible(true);
 
         DefaultTableModel model = new DefaultTableModel();
@@ -2507,6 +2949,13 @@ public class Principal extends javax.swing.JFrame  {
         txt_mail1.setText(" ");
         txt_buscador.setText("");
         txt_buscador1.setText("");
+        
+        txt_nomElem.setText("");
+        txt_usuariassignat.setText("");
+        txt_marca.setText("");
+        txt_model.setText("");
+        txt_numserie.setText("");
+        txt_observacions.setText("");
 
     }
 
@@ -2783,11 +3232,12 @@ public class Principal extends javax.swing.JFrame  {
         // TODO add your handling code here:
        
         DashElements.setVisible(false);
+        DashInfoElement.setVisible(false);
         DashNouElement.setVisible(true);        
         
     }//GEN-LAST:event_Nou_ElementActionPerformed
 
-    private void Eliminar_Usuari1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Eliminar_Usuari1MouseClicked
+    private void Eliminar_ElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Eliminar_ElementMouseClicked
         // TODO add your handling code here:
         
          for (int i = 0; i < jTable_Elements.getRowCount(); i++) {
@@ -2801,18 +3251,19 @@ public class Principal extends javax.swing.JFrame  {
             }
         }
         DashElements();
-    }//GEN-LAST:event_Eliminar_Usuari1MouseClicked
+    }//GEN-LAST:event_Eliminar_ElementMouseClicked
 
-    private void Eliminar_Usuari1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_Usuari1ActionPerformed
+    private void Eliminar_ElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_ElementActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Eliminar_Usuari1ActionPerformed
+    }//GEN-LAST:event_Eliminar_ElementActionPerformed
     //Crear Elements
     private void jButton_RegistarElmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarElmMouseClicked
         // TODO add your handling code here:
         int  tipus, estat, validacio = 0;
         String nom, usuari, marca, model, numero_serie, observacions, tipus_string=" ", estat_string=" ";
 
-         
+       
+        
         nom = txt_nomElem.getText().trim();
         usuari = txt_usuariassignat.getText().trim();
         marca = txt_marca.getText().trim();
@@ -3074,6 +3525,310 @@ public class Principal extends javax.swing.JFrame  {
     private void Guardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Guardar2ActionPerformed
+
+    private void txt_buscador3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscador3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_buscador3ActionPerformed
+
+    private void txt_buscador3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscador3KeyReleased
+        // TODO add your handling code here:
+         BuscarTasques(txt_buscador3.getText());
+    }//GEN-LAST:event_txt_buscador3KeyReleased
+
+    private void Nou_TascaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nou_TascaActionPerformed
+        // TODO add your handling code here:
+        DashTasques.setVisible(false);
+        DashNovaTasca.setVisible(true);
+    }//GEN-LAST:event_Nou_TascaActionPerformed
+
+    private void Eliminar_TascaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Eliminar_TascaMouseClicked
+        // TODO add your handling code here:
+        for (int i = 0; i < jTable_Tasques.getRowCount(); i++) {
+            Boolean checked = Boolean.valueOf(jTable_Tasques.getValueAt(i, 0).toString());
+            String col = jTable_Tasques.getValueAt(i, 1).toString();
+
+            //DISPLAY
+            if (checked) {
+
+                eliminarRegistreTasc(jTable_Tasques.getValueAt(i, 1).toString());
+            }
+        }
+        DashTasques();
+                       
+        
+    }//GEN-LAST:event_Eliminar_TascaMouseClicked
+
+    public boolean eliminarRegistreTasc(String titol) {
+
+        try {
+            System.out.println(titol);
+            int id = 0;
+            Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("select id_tasca from Tasques where titol = '" + titol + "'");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                id = rs.getInt("id_tasca");
+
+            }
+
+            System.out.println(id);
+            cn.close();
+
+            Connection cn2 = Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("delete from Tasques where id_tasca='" + id + "'");            
+            int i = pst2.executeUpdate();
+            if (i != 0) {
+
+                return true;
+
+            } else {
+
+                return false;
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al eliminar tasca" + e);
+            JOptionPane.showMessageDialog(null, "Error al eliminar la tasca, contacti amb l'administrador");
+            return false;
+        }
+
+    }
+    
+    
+    private void Eliminar_TascaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_TascaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Eliminar_TascaActionPerformed
+
+    private void jButton_RegistarElm1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarElm1MouseClicked
+        // TODO add your handling code here:
+        int  estat, validacio = 0;
+        String titol, prioritat, usuari, data, descripcio, estat_string=" ";
+
+       
+        
+        titol = txt_titolTasc.getText().trim();
+        usuari = txt_usuariassignatTasc.getText().trim();
+        prioritat = txt_prioritatTasc.getText().trim();
+        data = txt_dataTasc.getText().trim();
+        descripcio = txt_descripcioTasc.getText().trim();       
+        
+        estat = ComboEstatElem.getSelectedIndex() + 1;
+
+        if (titol.equals("")) {
+            
+            validacio++;
+        }
+        if (usuari.equals("")) {
+
+            validacio++;
+        }
+        if (prioritat.equals("")) {
+            
+            validacio++;
+        }
+        if (data.equals("")) {
+            
+            validacio++;
+        }
+        if (descripcio.equals("")) {
+            
+            validacio++;
+        }
+
+        if (validacio == 0) {
+
+            
+            if (estat == 1) {
+
+                estat_string = "Nova";
+            }
+
+            if (estat == 2) {
+
+                estat_string = "En espera";
+
+            }
+            if (estat == 3) {
+
+                estat_string = "En procés";
+
+            }
+            if (estat == 3) {
+
+                estat_string = "Finalitzada";
+
+            }
+
+            try {
+
+                Connection cn = Conexio.conectar();
+                PreparedStatement pst = cn.prepareStatement("select titol from Tasques where titol = '" + titol + "' and not id_tasca = '" + id + "'");
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) {
+
+                    txt_nom.setBackground(Color.red);
+                    JOptionPane.showMessageDialog(null, "Titol de tasca no disponible");
+                    cn.close();
+
+                } else {
+
+                    Connection cn2 = Conexio.conectar();
+                    PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques values (?,?,?,?,?,?,?)");
+                    pst2.setInt(1,0);
+                    pst2.setString(2, titol);
+                    pst2.setString(3, prioritat);
+                    pst2.setString(4, usuari);
+                    pst2.setString(5, data);
+                    pst2.setString(6, estat_string);
+                    pst2.setString(7, descripcio);
+                    
+
+                    pst2.executeUpdate();
+                    cn2.close();
+
+                    JOptionPane.showMessageDialog(null, "Tasca Creada Correctament!");
+                    DashNovaTasca.setVisible(false);
+                    DashTasques();
+                }
+
+            } catch (SQLException e) {
+
+                System.err.println("Error al crear la tasca" + e);
+
+            }
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+
+        }
+        
+    }//GEN-LAST:event_jButton_RegistarElm1MouseClicked
+
+    private void jButton_RegistarElm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarElm1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_RegistarElm1ActionPerformed
+
+    private void txt_usuariTasc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuariTasc2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_usuariTasc2ActionPerformed
+
+    //Modificar Tasca
+    private void Guardar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Guardar3MouseClicked
+        // TODO add your handling code here:
+        int   estat, validacio = 0;
+        String titol, usuari, prioritat, data, descripcio, estat_string=" ";
+
+         
+        titol = txt_titolTasc2.getText().trim();
+        usuari = txt_usuariTasc2.getText().trim();
+        prioritat = txt_prioritatTasc2.getText().trim();
+        data = txt_dataTasc2.getText().trim();
+        descripcio = txt_descripcioTasc2.getText().trim();
+        
+
+        
+        estat = ComboEstatElem2.getSelectedIndex() + 1;
+
+        if (titol.equals("")) {
+            
+            validacio++;
+        }
+        if (usuari.equals("")) {
+
+            validacio++;
+        }
+        if (prioritat.equals("")) {
+            
+            validacio++;
+        }
+        if (data.equals("")) {
+            
+            validacio++;
+        }
+        if (descripcio.equals("")) {
+            
+            validacio++;
+        }
+
+        if (validacio == 0) {
+
+            if (estat == 1) {
+
+                estat_string = "Nova";
+            }
+
+            if (estat == 2) {
+
+                estat_string = "En espera";
+
+            }
+            if (estat == 3) {
+
+                estat_string = "En procés";
+
+            }
+            
+            if (estat == 3) {
+
+                estat_string = "Finalitzada";
+
+            }
+
+            try {
+
+                Connection cn = Conexio.conectar();
+                PreparedStatement pst = cn.prepareStatement("select titol from Tasques where titol = '" + titol + "' and not id_tasca = '" + id + "'");
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) {
+
+                    txt_nom.setBackground(Color.red);
+                    JOptionPane.showMessageDialog(null, "Titol de tasca no disponible");
+                    cn.close();
+
+                } else {
+                    System.out.print(id);
+                    Connection cn2 = Conexio.conectar();
+                    PreparedStatement pst2 = cn2.prepareStatement("update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=? where id_tasca = '"+id+"'");
+                   
+                    pst2.setString(1, titol);
+                    pst2.setString(2, prioritat);
+                    pst2.setString(3, usuari);
+                    pst2.setString(4, data);
+                    pst2.setString(5, estat_string);
+                    pst2.setString(6, descripcio);
+                    
+
+                    pst2.executeUpdate();
+                    cn2.close();
+
+                    JOptionPane.showMessageDialog(null, "Tasca Modificada!");
+                    DashInfoTasca.setVisible(false);
+                    DashTasques();
+                }
+
+            } catch (SQLException e) {
+
+                System.err.println("Error al modificar la tasca" + e);
+
+            }
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+
+        }       
+        
+        
+        
+    }//GEN-LAST:event_Guardar3MouseClicked
+
+    private void Guardar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Guardar3ActionPerformed
 
         //Mostra informacio detallada dels elements
     public void informacioElement(String element) {
@@ -3418,7 +4173,203 @@ public class Principal extends javax.swing.JFrame  {
      
      }
      
+     //Pantalla Usuaris
+    public void DashTasques() {
+
+        DashInfoUsuari.setVisible(false);
+        DashInfoTasca.setVisible(false);
+        DashNovaTasca.setVisible(false);
+        DashConfiguracio.setVisible(false);
+        DashTasques.setVisible(true);
+        DashNouUsuari.setVisible(false);
+        DashNouElement.setVisible(false);
+        DashUsuaris.setVisible(false);
+        DashElements.setVisible(false);
+        DashInfoElement.setVisible(false);
+
+        DefaultTableModel model_tasques = new DefaultTableModel();
+
+        try {
+
+            jTable_Tasques.setModel(model_tasques);
+            model_tasques.fireTableDataChanged();
+            try ( Connection cn = Conexio.conectar()) {
+                PreparedStatement pst = cn.prepareStatement("select titol, prioritat, usuari, data, estat from Tasques");
+                ResultSet rs = pst.executeQuery();
+
+                ResultSetMetaData rsMd = rs.getMetaData();
+                int cantitatColumnas = 6;
+                int cantitatFilas = 0;
+                model_tasques.addColumn("Seleccionar");
+                model_tasques.addColumn("Titol");
+                model_tasques.addColumn("Prioritat");
+                model_tasques.addColumn("Usuari assignat");
+                model_tasques.addColumn("Data");
+                model_tasques.addColumn("Estat");
+
+                while (rs.next()) {
+
+                    Object[] fila = new Object[cantitatColumnas];
+
+                    for (int i = 1; i < cantitatColumnas; i++) {
+
+                        fila[i] = rs.getObject(i);
+
+                    }
+                    cantitatFilas++;
+                    model_tasques.addRow(fila);
+                    addCheckBox(0, jTable_Tasques);
+
+                }
+
+                for (int i = 0; i < cantitatFilas; i++) {
+
+                    model_tasques.setValueAt(false, i, 0);
+
+                }
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al omplir la taula");
+            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+        Natejar();
+        jTable_Tasques.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                DefaultTableModel model_tasques2 = new DefaultTableModel();
+                model_tasques2 = (DefaultTableModel) jTable_Tasques.getModel();
+
+                int fila_point = jTable_Tasques.rowAtPoint(e.getPoint());
+                int columna_point = jTable_Tasques.columnAtPoint(e.getPoint());
+                int columna = 1;
+
+                System.out.println("Fila" + fila_point);
+                System.out.println("Columna" + columna_point);
+
+                jTable_Tasques.repaint();
+                jTable_Tasques.updateUI();
+                if (fila_point > -1 && columna_point > 0) {
+
+                    tasca_update = model_tasques2.getValueAt(fila_point, columna).toString();                    
+                    DashTasques.setVisible(false);
+                    DashInfoTasca.setVisible(true);
+                    informacioTasca(tasca_update);
+                }
+
+            }
+
+        });
+
+    }
+    
+    
+     //Mostra informacio detallada dels elements
+    public void informacioTasca(String tasca) {
+
+        System.out.print(tasca);
+        
+        try {
+            Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("select * from Tasques where titol = '" + tasca + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                txt_titolTasc2.setText(rs.getString("titol"));
+                id = rs.getInt("id_tasca");
+                txt_prioritatTasc2.setText(rs.getString("prioritat"));
+                txt_usuariTasc2.setText(rs.getString("usuari"));
+                txt_dataTasc2.setText(rs.getString("data"));                
+                txt_descripcioTasc2.setText(rs.getString("descripcio"));
+                
+                ComboEstatTasc2.setSelectedItem(rs.getString("estat"));
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al solicitar les dades" + e);
+            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+    }
+    
+    public void BuscarTasques(String buscarTasc){  
+
+        DefaultTableModel modelTasc = new DefaultTableModel();
+
+        try {
+
+                                 
+            try (Connection cn = Conexio.conectar()) {
+                PreparedStatement pst = cn.prepareStatement("select * from Tasques where titol like '%" + buscarTasc + "%' or prioritat like '%" + buscarTasc + "%'"
+                        + "or usuari like '%" + buscarTasc + "%' or data like '%" + buscarTasc + "%' or estat like '%" + buscarTasc + "%'");
+                ResultSet rs = pst.executeQuery();               
+                
+                int cantitatColumnas = 6;
+                
+                modelTasc.addColumn("Seleccionar");
+                modelTasc.addColumn("Titol");
+                modelTasc.addColumn("Prioritat");
+                modelTasc.addColumn("Usuari Assignat");
+                modelTasc.addColumn("Data");
+                modelTasc.addColumn("Estat");
+                
+                while (rs.next()) {
+                    
+                    Object[] fila = new Object[cantitatColumnas];
+                    
+                    fila[1] = rs.getString("Titol");
+                    fila[2] = rs.getString("Prioritat");
+                    fila[3] = rs.getString("Usuari Assignat");
+                    fila[4] = rs.getString("Data");
+                    fila[5] = rs.getString("Estat");
+                    
+                    modelTasc.addRow(fila);
+                    
+                }
+                
+                jTable_Tasques.setModel(modelTasc);
+                addCheckBox(0, jTable_Tasques);
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al omplir la taula");
+            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+
+        jTable_Tasques.addMouseListener(new MouseAdapter() {
+            @Override
+
+            public void mouseClicked(MouseEvent e) {
+
+                int fila_point = jTable_Tasques.rowAtPoint(e.getPoint());
+                int columna_point = jTable_Tasques.columnAtPoint(e.getPoint());
+                int columna = 1;
+
+                if (fila_point > -1 && columna_point > 0) {
+
+                    tasca_update = (String) modelTasc.getValueAt(fila_point, columna);                    
+                    DashTasques.setVisible(false);
+                    DashInfoTasca.setVisible(true);
+                    informacioUsuari(tasca_update);
+                }
+
+            }
+
+        });  
      
+     }
+    
     
     
     /**
@@ -3467,36 +4418,43 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JComboBox<String> ComboEstat;
     private javax.swing.JComboBox<String> ComboEstat1;
     private javax.swing.JComboBox<String> ComboEstatElem;
+    private javax.swing.JComboBox<String> ComboEstatElem1;
     private javax.swing.JComboBox<String> ComboEstatElem2;
+    private javax.swing.JComboBox<String> ComboEstatTasc2;
     private javax.swing.JComboBox<String> ComboNivell;
     private javax.swing.JComboBox<String> ComboNivell1;
     private javax.swing.JComboBox<String> ComboTipus;
     private javax.swing.JComboBox<String> ComboTipusElem2;
     private javax.swing.JLabel Conf;
     private javax.swing.JPanel Configuracio;
-    private javax.swing.JPanel Contador;
     private javax.swing.JPanel Contador1;
     private javax.swing.JPanel Contador2;
+    private javax.swing.JPanel Contador4;
     private javax.swing.JButton Contrasenya;
     private javax.swing.JPanel DashBoardView;
     private javax.swing.JPanel DashConfiguracio;
     private javax.swing.JPanel DashElements;
     private javax.swing.JPanel DashInfoElement;
+    private javax.swing.JPanel DashInfoTasca;
     private javax.swing.JPanel DashInfoUsuari;
     private javax.swing.JPanel DashNouElement;
     private javax.swing.JPanel DashNouUsuari;
+    private javax.swing.JPanel DashNovaTasca;
     private javax.swing.JPanel DashTasques;
     private javax.swing.JPanel DashUsuaris;
     private javax.swing.JLabel Elem;
     private javax.swing.JPanel Elements;
+    private javax.swing.JButton Eliminar_Element;
+    private javax.swing.JButton Eliminar_Tasca;
     private javax.swing.JButton Eliminar_Usuari;
-    private javax.swing.JButton Eliminar_Usuari1;
     private javax.swing.JLabel Enrera;
     private javax.swing.JLabel Enrera1;
+    private javax.swing.JLabel Enrera2;
     private javax.swing.JLabel Gru;
     private javax.swing.JPanel Grups;
     private javax.swing.JButton Guardar;
     private javax.swing.JButton Guardar2;
+    private javax.swing.JButton Guardar3;
     private javax.swing.JPanel Header;
     private javax.swing.JPanel HideMenu;
     private javax.swing.JPanel IconMinMaxClose;
@@ -3524,6 +4482,7 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JLabel N_Usu;
     private javax.swing.JPanel N_Usuaris;
     private javax.swing.JButton Nou_Element;
+    private javax.swing.JButton Nou_Tasca;
     private javax.swing.JButton Nou_Usuari;
     private javax.swing.JLabel Tasq;
     private javax.swing.JPanel Tasques;
@@ -3531,7 +4490,7 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel Usuaris;
     private javax.swing.JButton jButton_Registar;
     private javax.swing.JButton jButton_RegistarElm;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton_RegistarElm1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -3542,7 +4501,6 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -3553,7 +4511,6 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -3571,22 +4528,44 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane_Elements;
+    private javax.swing.JScrollPane jScrollPane_Tasques;
     private javax.swing.JScrollPane jScrollPane_Usuaris;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable_Elements;
+    private javax.swing.JTable jTable_Tasques;
     private javax.swing.JTable jTable_Usuaris;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -3594,8 +4573,13 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField txt_buscador;
     private javax.swing.JTextField txt_buscador1;
+    private javax.swing.JTextField txt_buscador3;
     private javax.swing.JTextField txt_cognom;
     private javax.swing.JTextField txt_cognom1;
+    private javax.swing.JTextField txt_dataTasc;
+    private javax.swing.JTextField txt_dataTasc2;
+    private javax.swing.JTextField txt_descripcioTasc;
+    private javax.swing.JTextField txt_descripcioTasc2;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_mail1;
     private javax.swing.JTextField txt_marca;
@@ -3610,11 +4594,17 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JTextField txt_numserie;
     private javax.swing.JTextField txt_observacions;
     private javax.swing.JTextField txt_observacionsElem2;
+    private javax.swing.JTextField txt_prioritatTasc;
+    private javax.swing.JTextField txt_prioritatTasc2;
     private javax.swing.JTextField txt_telefon;
     private javax.swing.JTextField txt_telefon1;
+    private javax.swing.JTextField txt_titolTasc;
+    private javax.swing.JTextField txt_titolTasc2;
     private javax.swing.JTextField txt_usuari;
     private javax.swing.JTextField txt_usuari1;
     private javax.swing.JTextField txt_usuariElem2;
+    private javax.swing.JTextField txt_usuariTasc2;
     private javax.swing.JTextField txt_usuariassignat;
+    private javax.swing.JTextField txt_usuariassignatTasc;
     // End of variables declaration//GEN-END:variables
 }
