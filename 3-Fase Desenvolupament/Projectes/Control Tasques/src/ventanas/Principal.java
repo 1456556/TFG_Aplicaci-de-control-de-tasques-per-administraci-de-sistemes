@@ -6,6 +6,7 @@
 package ventanas;
 
 import clases.Conexio;
+import com.github.lgooddatepicker.components.DateTimePicker;
 import java.sql.*;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -15,6 +16,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -308,6 +312,7 @@ public class Principal extends javax.swing.JFrame  {
         txt_prioritatTasc = new javax.swing.JTextField();
         txt_descripcioTasc = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
+        dateTimePicker = new com.github.lgooddatepicker.components.DateTimePicker();
         DashInfoTasca = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
         txt_prioritatTasc2 = new javax.swing.JTextField();
@@ -2134,6 +2139,7 @@ public class Principal extends javax.swing.JFrame  {
         jLabel59.setForeground(new java.awt.Color(0, 0, 0));
         jLabel59.setText("Estat");
         jPanel5.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 90, -1, 30));
+        jPanel5.add(dateTimePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
 
         javax.swing.GroupLayout DashNovaTascaLayout = new javax.swing.GroupLayout(DashNovaTasca);
         DashNovaTasca.setLayout(DashNovaTascaLayout);
@@ -2304,7 +2310,7 @@ public class Principal extends javax.swing.JFrame  {
                             .addComponent(txt_dataTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(73, 73, 73)
                 .addComponent(Guardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DashBoardViewLayout = new javax.swing.GroupLayout(DashBoardView);
@@ -3629,10 +3635,15 @@ public class Principal extends javax.swing.JFrame  {
     private void jButton_RegistarElm1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarElm1MouseClicked
         // TODO add your handling code here:
         int  estat, validacio = 0;
-        String titol, prioritat, usuari, data, descripcio, estat_string=" ";
-
-       
+        String time, date, titol, prioritat, usuari, data, descripcio, estat_string=" ";
         
+        
+        System.out.print(dateTimePicker.getDatePicker());
+        System.out.print(dateTimePicker.getTimePicker());
+        
+         
+        date = dateTimePicker.getDatePicker().toString();
+        time = dateTimePicker.getTimePicker().toString();
         titol = txt_titolTasc.getText().trim();
         usuari = txt_usuariassignatTasc.getText().trim();
         prioritat = txt_prioritatTasc.getText().trim();
@@ -3640,6 +3651,10 @@ public class Principal extends javax.swing.JFrame  {
         descripcio = txt_descripcioTasc.getText().trim();       
         
         estat = ComboEstatElem.getSelectedIndex() + 1;
+        
+        
+       
+        
 
         if (titol.equals("")) {
             
@@ -3653,7 +3668,11 @@ public class Principal extends javax.swing.JFrame  {
             
             validacio++;
         }
-        if (data.equals("")) {
+        if (date.equals("")) {
+            
+            validacio++;
+        }
+        if (time.equals("")) {
             
             validacio++;
         }
@@ -3699,7 +3718,18 @@ public class Principal extends javax.swing.JFrame  {
                     cn.close();
 
                 } else {
-
+                    
+                    //Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);  
+                     DateTimePicker formatter = new DateTimePicker();
+                     
+                   //  String dateFormatted = formatter.format(dateTimePicker.getDatePicker().toString());
+                    
+                    data = date +" " + time;                   
+                   
+                    
+                   
+                    
+                    System.out.print(data);
                     Connection cn2 = Conexio.conectar();
                     PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques values (?,?,?,?,?,?,?)");
                     pst2.setInt(1,0);
@@ -3723,7 +3753,7 @@ public class Principal extends javax.swing.JFrame  {
 
                 System.err.println("Error al crear la tasca" + e);
 
-            }
+            } 
 
         } else {
 
@@ -4398,9 +4428,13 @@ public class Principal extends javax.swing.JFrame  {
     
        public void recordatori(Date date){
        
+         //System.out.print("TIME: "+date.getHours() + date.getMinutes() + date.get);
          
-           String d = date.toString();
-          System.out.print("DATA SQL " + d);
+            DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");            
+            String dateFormatted = formatter.format(date);
+            System.out.print("TIME " + dateFormatted);
+            String d = date.toString();
+            System.out.print("DATA SQL " + d);
            
        try {
             Connection cn = Conexio.conectar();
@@ -4548,6 +4582,7 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel Tasques;
     private javax.swing.JLabel Usu;
     private javax.swing.JPanel Usuaris;
+    private com.github.lgooddatepicker.components.DateTimePicker dateTimePicker;
     private javax.swing.JButton jButton_Registar;
     private javax.swing.JButton jButton_RegistarElm;
     private javax.swing.JButton jButton_RegistarElm1;
