@@ -8,6 +8,8 @@ package ventanas;
 
 import java.util.TimerTask;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  * 
  * @author Victor.
@@ -23,6 +25,10 @@ public class ScheduledTask extends TimerTask {
 		now = new Date(); // initialize date               
                 System.out.println("Time is :" + now);       // Display current time
                 Principal principal = new Principal();
+            try {
                 principal.recordatori(now);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ScheduledTask.class.getName()).log(Level.SEVERE, null, ex);
+            }
 	}
 }
