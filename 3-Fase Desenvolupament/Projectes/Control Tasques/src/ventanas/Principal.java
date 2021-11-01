@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -34,6 +35,7 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -3622,8 +3624,8 @@ public class Principal extends javax.swing.JFrame  {
     private void jButton_RegistarElm1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarElm1MouseClicked
         // TODO add your handling code here:
         int  estat, validacio = 0;
-        String time, date, titol, prioritat, usuari, data, descripcio, estat_string=" ";
-        
+        String date, titol, time,  prioritat, usuari, data, descripcio, estat_string=" ";
+       
         
         System.out.print(dateTimePicker.getDatePicker());
         System.out.print(dateTimePicker.getTimePicker());
@@ -3719,7 +3721,7 @@ public class Principal extends javax.swing.JFrame  {
                     
                     System.out.print(data);
                     Connection cn2 = Conexio.conectar();
-                    PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques values (?,?,?,?,?,?,?)");
+                    PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques values (?,?,?,?,?,?,?,?)");
                     pst2.setInt(1,0);
                     pst2.setString(2, titol);
                     pst2.setString(3, prioritat);
@@ -3727,7 +3729,7 @@ public class Principal extends javax.swing.JFrame  {
                     pst2.setString(5, data);
                     pst2.setString(6, estat_string);
                     pst2.setString(7, descripcio);
-                    
+                    pst2.setInt(8,0);
 
                     pst2.executeUpdate();
                     cn2.close();
@@ -4414,38 +4416,31 @@ public class Principal extends javax.swing.JFrame  {
      
      }
     
-       public void recordatori(Date date) throws InterruptedException{
+       public void recordatori(Date date) throws InterruptedException, ParseException{
        
-         //System.out.print("TIME: "+date.getHours() + date.getMinutes() + date.get);
-         
+                 
             DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");            
             String d = formatter.format(date);
-            //System.out.print("DATE " + d);
-           // String d = date.toString();
-            //System.out.print("DATA SQL " + d);
-            
-           
+                      
        try {
             Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select id_tasca from Tasques where data = '" + d + "'");
+            PreparedStatement pst = cn.prepareStatement("select id_tasca, notificacio, titol, data from Tasques where data = '" + d + "'");
             ResultSet rs = pst.executeQuery();
-            //int id_tasca = 0;
             
-            if (rs.next() && id_tasca != rs.getInt("id_tasca")) {
+            
+            if (rs.next()) {
                
-                //id = rs.getInt("id_tasca");
+                if(rs.getInt("notificacio")==0){
+                
+                    
+                    id_tasca = rs.getInt("id_tasca");
+                    String titol = rs.getString("titol");
+                    String data = rs.getString("data");
+                    recordatori(titol, date);
+                
+                
+                }      
               
-               
-               recordatori();
-               
-                id_tasca = rs.getInt("id_tasca");
-               
-               //JOptionPane.showMessageDialog(null, "Ha Entrat!!!");
-               //Notificacio notificacio = new Notificacio();
-               //notificacio.recordatori(resultat);
-               //notificacio.setVisible(true);
-               //notificacio.record(resultat);
-               
                
             }
 
@@ -4454,17 +4449,81 @@ public class Principal extends javax.swing.JFrame  {
         } catch (SQLException e) {
 
             System.err.println("Error al solicitar les dades" + e);
-           // JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+            //JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
 
         }      
        
        }
        
-       public void recordatori(){
+       public void recordatori(String titol, Date data) throws ParseException{
        
            
-              JOptionPane.showMessageDialog(null, "HOLA");
-               
+           String[] botones = {"Veure Tasca", "Posposar 5min"};
+		int ventana = JOptionPane.showOptionDialog(null,titol,"Notificacio Tasca",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE, null, 
+						botones, botones[0]);
+		if(ventana == 0) {
+                    
+                    System.out.println("Veure Tasca");
+                    try {
+                        Connection cn = Conexio.conectar();
+                        PreparedStatement pst = cn.prepareStatement("update Tasques set notificacio=? where id_tasca = '" + id_tasca + "'");
+                        pst.setInt(1, 1);
+                        pst.executeUpdate();
+                        cn.close();
+
+                    } catch (SQLException e) {
+
+                        System.err.println("Error al modificar la notificacio" + e);
+
+                    }
+                
+                } 
+		else if(ventana == 1) {
+                    
+                    long timeInSecs = data.getTime();
+                    Date afterAdding10Mins = new Date((1 * 60 * 1000) + timeInSecs);
+                    //String d = data.substring(14,16);
+                    System.out.println("Posposar 5min");
+                    /*DateFormat formatter = new SimpleDateFormat("HH:mm");
+                    java.sql.Time timeValue = new java.sql.Time(formatter.parse(data).getTime());
+                    timeValue.setSeconds(5 + timeValue.getSeconds());
+                    
+                    
+                     DateFormat formattter = new SimpleDateFormat("HH:mm");            
+                     String hora = formattter.format(timeValue);*/
+                    
+                     DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");            
+                     String d = formatter.format(afterAdding10Mins);
+                     
+                     
+                     System.out.println("DATAAAAAAAAA:" + d);
+                    
+                    //DATA FORMAT!!!!!!!!!
+                    /* String string = "January 2, 2010";
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+                    LocalDate date = LocalDate.parse(string, formatter);
+                    System.out.println(date); */
+                    
+                    
+                  
+                    try {
+                        Connection cn = Conexio.conectar();
+                        PreparedStatement pst = cn.prepareStatement("update Tasques set data=? where id_tasca = '" + id_tasca + "'");
+                        
+                        
+                        pst.setString(1,d);
+                        pst.executeUpdate();
+                        cn.close();
+
+                    } catch (SQLException e) {
+
+                        System.err.println("Error al modificar la notificacio" + e);
+
+                    }
+                
+                }	
+	
+           
        
        
        }
