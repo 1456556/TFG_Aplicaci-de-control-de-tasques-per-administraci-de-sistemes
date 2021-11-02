@@ -330,7 +330,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EntrarActionPerformed
 
         dispose();
-        new Ventana_Registrar().setVisible(true);
+        new Registre().setVisible(true);
     }//GEN-LAST:event_jButton_EntrarActionPerformed
 
     private void jButton_Entrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Entrar1ActionPerformed
@@ -353,15 +353,18 @@ public class Login extends javax.swing.JFrame {
                     String nivell = rs.getString("nivell");
                     if (nivell.equalsIgnoreCase("Administrador")){
                         this.dispose();
-                         Principal principal = new Principal();
-                         principal.setVisible(true);
+                        Principal s = new Principal();
+                        s.DashTasques();
+                        s.setVisible(true);
+                         
+                        
                     }else{
                         JOptionPane.showMessageDialog(null, "Dades d'inici de sessió incorrectes");
                         txt_usuari.setText("");
                         txt_contraseña.setText("");
 
                     };
-
+                      
                 }else{
                     JOptionPane.showMessageDialog(null, "Dades d'inici de sessió incorrectes");
                     txt_usuari.setText("");

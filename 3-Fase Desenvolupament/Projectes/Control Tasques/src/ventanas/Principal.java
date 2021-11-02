@@ -19,7 +19,9 @@ import java.awt.event.MouseEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -287,27 +289,24 @@ public class Principal extends javax.swing.JFrame  {
         jLabel46 = new javax.swing.JLabel();
         DashNovaTasca = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        txt_dataTasc = new javax.swing.JTextField();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
         jButton_RegistarElm1 = new javax.swing.JButton();
-        jLabel50 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
-        ComboEstatElem1 = new javax.swing.JComboBox<>();
+        ComboPrioritatTasc = new javax.swing.JComboBox<>();
         txt_titolTasc = new javax.swing.JTextField();
         txt_usuariassignatTasc = new javax.swing.JTextField();
-        txt_prioritatTasc = new javax.swing.JTextField();
         txt_descripcioTasc = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
         dateTimePicker = new com.github.lgooddatepicker.components.DateTimePicker();
+        jLabel63 = new javax.swing.JLabel();
+        ComboEstatElem3 = new javax.swing.JComboBox<>();
         DashInfoTasca = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
-        txt_prioritatTasc2 = new javax.swing.JTextField();
         txt_titolTasc2 = new javax.swing.JTextField();
         txt_usuariTasc2 = new javax.swing.JTextField();
-        txt_dataTasc2 = new javax.swing.JTextField();
         jLabel57 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
@@ -318,6 +317,8 @@ public class Principal extends javax.swing.JFrame  {
         Enrera2 = new javax.swing.JLabel();
         txt_descripcioTasc2 = new javax.swing.JTextField();
         jLabel66 = new javax.swing.JLabel();
+        ComboPrioritatTasc2 = new javax.swing.JComboBox<>();
+        txt_dataTasc2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -852,8 +853,8 @@ public class Principal extends javax.swing.JFrame  {
                 .addGap(18, 18, 18)
                 .addComponent(Eliminar_Tasca)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_buscador3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
@@ -1041,8 +1042,8 @@ public class Principal extends javax.swing.JFrame  {
                 .addGap(18, 18, 18)
                 .addComponent(Eliminar_Element)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_buscador1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
@@ -1230,8 +1231,8 @@ public class Principal extends javax.swing.JFrame  {
                 .addGap(18, 18, 18)
                 .addComponent(Eliminar_Usuari)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
@@ -1244,7 +1245,7 @@ public class Principal extends javax.swing.JFrame  {
                     .addComponent(jLabel7)
                     .addComponent(Eliminar_Usuari)
                     .addComponent(Nou_Usuari))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -1311,9 +1312,8 @@ public class Principal extends javax.swing.JFrame  {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane_Usuaris.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
@@ -1351,7 +1351,7 @@ public class Principal extends javax.swing.JFrame  {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashUsuarisLayout.createSequentialGroup()
                 .addComponent(Contador1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane_Usuaris, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE))
+                .addComponent(jScrollPane_Usuaris, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         DashConfiguracio.setBackground(new java.awt.Color(51, 255, 51));
@@ -2044,21 +2044,17 @@ public class Principal extends javax.swing.JFrame  {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_dataTasc.setBackground(new java.awt.Color(255, 153, 51));
-        txt_dataTasc.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(txt_dataTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 226, 151, 30));
-
+        jLabel47.setText("Nova Tasca");
         jLabel47.setBackground(new java.awt.Color(255, 153, 51));
         jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel47.setText("Nova Tasca");
-        jPanel5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 18, -1, 60));
+        jPanel5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, -1, 60));
 
+        jLabel48.setText("Data");
         jLabel48.setBackground(new java.awt.Color(255, 153, 51));
         jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel48.setText("Usuari Assignat");
-        jPanel5.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 190, -1, 25));
+        jPanel5.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, 25));
 
         jLabel49.setBackground(new java.awt.Color(255, 153, 51));
         jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -2066,11 +2062,11 @@ public class Principal extends javax.swing.JFrame  {
         jLabel49.setText("Prioritat");
         jPanel5.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 95, -1, -1));
 
-        jButton_RegistarElm1.setBackground(new java.awt.Color(255, 153, 51));
-        jButton_RegistarElm1.setForeground(new java.awt.Color(255, 255, 255));
         jButton_RegistarElm1.setText("Guardar");
+        jButton_RegistarElm1.setBackground(new java.awt.Color(255, 153, 51));
         jButton_RegistarElm1.setBorder(null);
         jButton_RegistarElm1.setBorderPainted(false);
+        jButton_RegistarElm1.setForeground(new java.awt.Color(255, 255, 255));
         jButton_RegistarElm1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_RegistarElm1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2084,28 +2080,22 @@ public class Principal extends javax.swing.JFrame  {
         });
         jPanel5.add(jButton_RegistarElm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 407, 150, 30));
 
-        jLabel50.setBackground(new java.awt.Color(255, 153, 51));
-        jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel50.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel50.setText("Data");
-        jPanel5.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 190, 151, 30));
-
         jLabel55.setBackground(new java.awt.Color(0, 0, 0));
         jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel55.setForeground(new java.awt.Color(0, 0, 0));
         jLabel55.setText("Titol");
         jPanel5.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 90, -1, 25));
 
+        jLabel58.setText("Descripció");
         jLabel58.setBackground(new java.awt.Color(255, 153, 51));
         jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel58.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel58.setText("Descripció");
-        jPanel5.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 174, -1, 30));
+        jPanel5.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, 30));
 
-        ComboEstatElem1.setBackground(new java.awt.Color(255, 153, 51));
-        ComboEstatElem1.setForeground(new java.awt.Color(255, 255, 255));
-        ComboEstatElem1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nova", "En espera", "En procés", "Finalitzada" }));
-        jPanel5.add(ComboEstatElem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 128, 150, 26));
+        ComboPrioritatTasc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitja", "Alta", "Urgent", "Prioritaria" }));
+        ComboPrioritatTasc.setBackground(new java.awt.Color(255, 153, 51));
+        ComboPrioritatTasc.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(ComboPrioritatTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 150, 26));
 
         txt_titolTasc.setBackground(new java.awt.Color(255, 153, 51));
         txt_titolTasc.setForeground(new java.awt.Color(255, 255, 255));
@@ -2115,20 +2105,30 @@ public class Principal extends javax.swing.JFrame  {
         txt_usuariassignatTasc.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(txt_usuariassignatTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 221, 150, 31));
 
-        txt_prioritatTasc.setBackground(new java.awt.Color(255, 153, 51));
-        txt_prioritatTasc.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(txt_prioritatTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 126, 150, 30));
-
         txt_descripcioTasc.setBackground(new java.awt.Color(255, 153, 51));
         txt_descripcioTasc.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(txt_descripcioTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 210, 186, 148));
+        jPanel5.add(txt_descripcioTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 560, 90));
 
         jLabel59.setBackground(new java.awt.Color(255, 153, 51));
         jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel59.setForeground(new java.awt.Color(0, 0, 0));
         jLabel59.setText("Estat");
         jPanel5.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 90, -1, 30));
-        jPanel5.add(dateTimePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
+
+        dateTimePicker.setBackground(new java.awt.Color(255, 153, 51));
+        dateTimePicker.setForeground(new java.awt.Color(255, 153, 51));
+        jPanel5.add(dateTimePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 350, 30));
+
+        jLabel63.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel63.setText("Usuari Assignat");
+        jPanel5.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 190, -1, 25));
+
+        ComboEstatElem3.setBackground(new java.awt.Color(255, 153, 51));
+        ComboEstatElem3.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstatElem3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nova", "En espera", "En procés", "Finalitzada" }));
+        jPanel5.add(ComboEstatElem3, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 128, 150, 26));
 
         javax.swing.GroupLayout DashNovaTascaLayout = new javax.swing.GroupLayout(DashNovaTasca);
         DashNovaTasca.setLayout(DashNovaTascaLayout);
@@ -2154,9 +2154,6 @@ public class Principal extends javax.swing.JFrame  {
         jLabel56.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel56.setForeground(new java.awt.Color(0, 0, 0));
 
-        txt_prioritatTasc2.setBackground(new java.awt.Color(255, 153, 51));
-        txt_prioritatTasc2.setForeground(new java.awt.Color(255, 255, 255));
-
         txt_titolTasc2.setBackground(new java.awt.Color(255, 153, 51));
         txt_titolTasc2.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -2167,9 +2164,6 @@ public class Principal extends javax.swing.JFrame  {
                 txt_usuariTasc2ActionPerformed(evt);
             }
         });
-
-        txt_dataTasc2.setBackground(new java.awt.Color(255, 153, 51));
-        txt_dataTasc2.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel57.setText("Titol:");
         jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -2219,6 +2213,18 @@ public class Principal extends javax.swing.JFrame  {
         jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel66.setForeground(new java.awt.Color(0, 0, 0));
 
+        ComboPrioritatTasc2.setBackground(new java.awt.Color(255, 153, 51));
+        ComboPrioritatTasc2.setForeground(new java.awt.Color(255, 255, 255));
+        ComboPrioritatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitjana", "Alta", "Urgent", "Prioritaria" }));
+
+        txt_dataTasc2.setBackground(new java.awt.Color(255, 153, 51));
+        txt_dataTasc2.setForeground(new java.awt.Color(255, 255, 255));
+        txt_dataTasc2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_dataTasc2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout DashInfoTascaLayout = new javax.swing.GroupLayout(DashInfoTasca);
         DashInfoTasca.setLayout(DashInfoTascaLayout);
         DashInfoTascaLayout.setHorizontalGroup(
@@ -2238,22 +2244,19 @@ public class Principal extends javax.swing.JFrame  {
                             .addComponent(txt_usuariTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_dataTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(51, 51, 51)
-                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashInfoTascaLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(DashInfoTascaLayout.createSequentialGroup()
                                 .addComponent(jLabel65)
                                 .addGap(18, 18, 18)
                                 .addComponent(ComboEstatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(DashInfoTascaLayout.createSequentialGroup()
-                                    .addComponent(jLabel60)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txt_prioritatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(3, 3, 3))
-                                .addGroup(DashInfoTascaLayout.createSequentialGroup()
-                                    .addComponent(jLabel66)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txt_descripcioTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                                .addComponent(jLabel66)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_descripcioTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                                .addComponent(jLabel60)
+                                .addGap(18, 18, 18)
+                                .addComponent(ComboPrioritatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(DashInfoTascaLayout.createSequentialGroup()
                         .addComponent(Enrera2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(192, 192, 192)
@@ -2275,9 +2278,9 @@ public class Principal extends javax.swing.JFrame  {
                 .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DashInfoTascaLayout.createSequentialGroup()
                         .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_prioritatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel60))
-                        .addGap(39, 39, 39)
+                            .addComponent(jLabel60)
+                            .addComponent(ComboPrioritatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
                         .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel65)
                             .addComponent(ComboEstatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2293,11 +2296,11 @@ public class Principal extends javax.swing.JFrame  {
                         .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_usuariTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel61))
-                        .addGap(46, 46, 46)
-                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(42, 42, 42)
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel62)
                             .addComponent(txt_dataTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(73, 73, 73)
+                .addGap(77, 77, 77)
                 .addComponent(Guardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(236, Short.MAX_VALUE))
         );
@@ -2977,6 +2980,12 @@ public class Principal extends javax.swing.JFrame  {
         txt_model.setText("");
         txt_numserie.setText("");
         txt_observacions.setText("");
+        
+        txt_titolTasc.setText("");
+        txt_usuariassignatTasc.setText("");        
+        txt_usuariassignatTasc.setText("");
+        txt_descripcioTasc.setText("");
+        
 
     }
 
@@ -3623,8 +3632,8 @@ public class Principal extends javax.swing.JFrame  {
 
     private void jButton_RegistarElm1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarElm1MouseClicked
         // TODO add your handling code here:
-        int  estat, validacio = 0;
-        String date, titol, time,  prioritat, usuari, data, descripcio, estat_string=" ";
+        int  prioritat, estat, validacio = 0;
+        String date, titol, time, usuari, data, descripcio, estat_string=" ", prioritat_string= " ";
        
         
         System.out.print(dateTimePicker.getDatePicker());
@@ -3635,10 +3644,9 @@ public class Principal extends javax.swing.JFrame  {
         time = dateTimePicker.getTimePicker().toString();
         titol = txt_titolTasc.getText().trim();
         usuari = txt_usuariassignatTasc.getText().trim();
-        prioritat = txt_prioritatTasc.getText().trim();
-        data = txt_dataTasc.getText().trim();
-        descripcio = txt_descripcioTasc.getText().trim();       
-        
+         
+        descripcio = txt_descripcioTasc.getText().trim(); 
+         prioritat = ComboPrioritatTasc.getSelectedIndex() + 1;      
         estat = ComboEstatElem.getSelectedIndex() + 1;
         
         
@@ -3652,11 +3660,7 @@ public class Principal extends javax.swing.JFrame  {
         if (usuari.equals("")) {
 
             validacio++;
-        }
-        if (prioritat.equals("")) {
-            
-            validacio++;
-        }
+        }        
         if (date.equals("")) {
             
             validacio++;
@@ -3693,6 +3697,29 @@ public class Principal extends javax.swing.JFrame  {
                 estat_string = "Finalitzada";
 
             }
+            
+            if (prioritat == 1){
+            
+                prioritat_string = "Baixa";
+            }
+            if (prioritat == 2){
+            
+                prioritat_string = "Mitja";
+            }
+            if (prioritat == 3){
+            
+                prioritat_string = "Alta";
+                
+            }if (prioritat == 4){
+            
+                prioritat_string = "Urgent";
+            }
+            if (prioritat == 5){
+            
+                prioritat_string = "Prioritaria";
+            }
+            
+            
 
             try {
 
@@ -3724,7 +3751,7 @@ public class Principal extends javax.swing.JFrame  {
                     PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques values (?,?,?,?,?,?,?,?)");
                     pst2.setInt(1,0);
                     pst2.setString(2, titol);
-                    pst2.setString(3, prioritat);
+                    pst2.setString(3, prioritat_string);
                     pst2.setString(4, usuari);
                     pst2.setString(5, data);
                     pst2.setString(6, estat_string);
@@ -3764,14 +3791,15 @@ public class Principal extends javax.swing.JFrame  {
     //Modificar Tasca
     private void Guardar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Guardar3MouseClicked
         // TODO add your handling code here:
-        int   estat, validacio = 0;
-        String titol, usuari, prioritat, data, descripcio, estat_string=" ";
+        int   prioritat, estat, validacio = 0;
+        String titol, usuari, data, descripcio, estat_string=" ", prioritat_string=" ";
 
          
         titol = txt_titolTasc2.getText().trim();
         usuari = txt_usuariTasc2.getText().trim();
-        prioritat = txt_prioritatTasc2.getText().trim();
-        data = txt_dataTasc2.getText().trim();
+        prioritat = ComboPrioritatTasc2.getSelectedIndex() + 1;
+       data = txt_dataTasc2.getText().trim();
+        
         descripcio = txt_descripcioTasc2.getText().trim();
         
 
@@ -3785,11 +3813,7 @@ public class Principal extends javax.swing.JFrame  {
         if (usuari.equals("")) {
 
             validacio++;
-        }
-        if (prioritat.equals("")) {
-            
-            validacio++;
-        }
+        }       
         if (data.equals("")) {
             
             validacio++;
@@ -3822,6 +3846,33 @@ public class Principal extends javax.swing.JFrame  {
                 estat_string = "Finalitzada";
 
             }
+            
+            if (prioritat == 1) {
+
+                prioritat_string = "Baixa";
+            }
+
+            if (prioritat == 2) {
+
+                prioritat_string = "Mitja";
+
+            }
+            if (prioritat == 3) {
+
+                prioritat_string = "Alta";
+
+            }
+            
+            if (prioritat == 3) {
+
+                prioritat_string = "Urgent";
+
+            }
+            if (prioritat == 4) {
+
+                prioritat_string = "Prioritaria";
+
+            }
 
             try {
 
@@ -3841,7 +3892,7 @@ public class Principal extends javax.swing.JFrame  {
                     PreparedStatement pst2 = cn2.prepareStatement("update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=? where id_tasca = '"+id+"'");
                    
                     pst2.setString(1, titol);
-                    pst2.setString(2, prioritat);
+                    pst2.setString(2, prioritat_string);
                     pst2.setString(3, usuari);
                     pst2.setString(4, data);
                     pst2.setString(5, estat_string);
@@ -3875,6 +3926,10 @@ public class Principal extends javax.swing.JFrame  {
     private void Guardar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Guardar3ActionPerformed
+
+    private void txt_dataTasc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dataTasc2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_dataTasc2ActionPerformed
 
         //Mostra informacio detallada dels elements
     public void informacioElement(String element) {
@@ -4151,47 +4206,47 @@ public class Principal extends javax.swing.JFrame  {
      
      public void BuscarElements(String buscarElem){  
 
-        DefaultTableModel modelElem = new DefaultTableModel();
+         DefaultTableModel model = new DefaultTableModel();
 
         try {
 
                                  
-            try (Connection cn = Conexio.conectar()) {
-                PreparedStatement pst = cn.prepareStatement("select * from Elements where nom like '%" + buscarElem + "%' or usuari like '%" + buscarElem + "%'"
-                        + "or tipus like '%" + buscarElem + "%' or marca like '%" + buscarElem + "%' or estat like '%" + buscarElem + "%'");
-                ResultSet rs = pst.executeQuery();
-                //ResultSetMetaData rsMd = rs.getMetaData();
-                
-                int cantitatColumnas = 6;
-                
-                modelElem.addColumn("Seleccionar");
-                modelElem.addColumn("Nom");
-                modelElem.addColumn("Usuari Assignat");
-                modelElem.addColumn("Tipus");
-                modelElem.addColumn("Marca");
-                modelElem.addColumn("Estat");
-                
-                while (rs.next()) {
-                    
-                    Object[] fila = new Object[cantitatColumnas];
-                    
-                    fila[1] = rs.getString("Nom");
-                    fila[2] = rs.getString("Usuari Assignat");
-                    fila[3] = rs.getString("Tipus");
-                    fila[4] = rs.getString("Marca");
-                    fila[5] = rs.getString("Estat");
-                    
-                    modelElem.addRow(fila);
-                    
-                }
-                
-                jTable_Elements.setModel(modelElem);
-                addCheckBox(0, jTable_Elements);
+            Connection cn = Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("select * from Elements where nom like '%" + buscarElem + "%' or usuari like '%" + buscarElem + "%'"
+                    + "or tipus like '%" + buscarElem + "%' or marca like '%" + buscarElem + "%' or estat like '%" + buscarElem + "%'");
+            ResultSet rs = pst.executeQuery();
+            //ResultSetMetaData rsMd = rs.getMetaData();
+
+            int cantitatColumnas = 6;
+
+            model.addColumn("Seleccionar");
+            model.addColumn("Nom");
+            model.addColumn("Usuari Assignat");
+            model.addColumn("Tipus");
+            model.addColumn("Marca");
+            model.addColumn("Estat");
+
+            while (rs.next()) {
+
+                Object[] fila = new Object[cantitatColumnas];
+
+                fila[1] = rs.getString("nom");
+                fila[2] = rs.getString("usuari");
+                fila[3] = rs.getString("tipus");
+                fila[4] = rs.getString("marca");
+                fila[5] = rs.getString("estat");
+
+                model.addRow(fila);
+
             }
+
+            jTable_Elements.setModel(model);
+            addCheckBox(0, jTable_Elements);
+            cn.close();
 
         } catch (SQLException e) {
 
-            System.err.println("Error al omplir la taulaaaaaaaaaaaaaaaa");
+            System.err.println("Error al omplir la taula");
             JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
 
         }
@@ -4207,7 +4262,7 @@ public class Principal extends javax.swing.JFrame  {
 
                 if (fila_point > -1 && columna_point > 0) {
 
-                    element_update = (String) modelElem.getValueAt(fila_point, columna + 1);                    
+                    element_update = (String) model.getValueAt(fila_point, columna + 1);                    
                     DashElements.setVisible(false);
                     DashInfoElement.setVisible(true);
                     informacioUsuari(element_update);
@@ -4219,7 +4274,7 @@ public class Principal extends javax.swing.JFrame  {
      
      }
      
-     //Pantalla Usuaris
+     //Pantalla Tasques
     public void DashTasques() {
 
         DashInfoUsuari.setVisible(false);
@@ -4328,11 +4383,16 @@ public class Principal extends javax.swing.JFrame  {
 
                 txt_titolTasc2.setText(rs.getString("titol"));
                 id = rs.getInt("id_tasca");
-                txt_prioritatTasc2.setText(rs.getString("prioritat"));
+                //txt_prioritatTasc2.setText(rs.getString("prioritat"));
                 txt_usuariTasc2.setText(rs.getString("usuari"));
-                txt_dataTasc2.setText(rs.getString("data"));                
+                //String d = rs.getString("data");
+               // SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");            
+                //String d = formatter.format(afterAdding10Mins);
+                //Date date = new Date(d);                
+                //dateTimePicker1.setDateTimePermissive(LocalDateTime.parse(d,formatter));
                 txt_descripcioTasc2.setText(rs.getString("descripcio"));
-                
+                txt_dataTasc2.setText(rs.getString("data"));
+                ComboPrioritatTasc2.setSelectedItem(rs.getString("prioritat"));
                 ComboEstatTasc2.setSelectedItem(rs.getString("estat"));
 
             }
@@ -4374,7 +4434,7 @@ public class Principal extends javax.swing.JFrame  {
                     
                     fila[1] = rs.getString("Titol");
                     fila[2] = rs.getString("Prioritat");
-                    fila[3] = rs.getString("Usuari Assignat");
+                    fila[3] = rs.getString("Usuari");
                     fila[4] = rs.getString("Data");
                     fila[5] = rs.getString("Estat");
                     
@@ -4470,13 +4530,29 @@ public class Principal extends javax.swing.JFrame  {
                         pst.setInt(1, 1);
                         pst.executeUpdate();
                         cn.close();
+                        
+                        
 
                     } catch (SQLException e) {
 
                         System.err.println("Error al modificar la notificacio" + e);
 
                     }
-                
+                        jTable_Tasques.repaint();
+                        jTable_Tasques.updateUI();
+                        //DashTasques.setVisible(false);                        
+                        informacioTasca(titol);
+                        DashInfoTasca.setVisible(true);
+                        DashInfoUsuari.setVisible(false);
+                        DashInfoTasca.setVisible(false);
+                        DashNovaTasca.setVisible(false);
+                        DashConfiguracio.setVisible(false);
+                        DashTasques.setVisible(false);
+                        DashNouUsuari.setVisible(false);
+                        DashNouElement.setVisible(false);
+                        DashUsuaris.setVisible(false);
+                        DashElements.setVisible(false);
+                        DashInfoElement.setVisible(false);
                 } 
 		else if(ventana == 1) {
                     
@@ -4578,11 +4654,13 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JComboBox<String> ComboEstat;
     private javax.swing.JComboBox<String> ComboEstat1;
     private javax.swing.JComboBox<String> ComboEstatElem;
-    private javax.swing.JComboBox<String> ComboEstatElem1;
     private javax.swing.JComboBox<String> ComboEstatElem2;
+    private javax.swing.JComboBox<String> ComboEstatElem3;
     private javax.swing.JComboBox<String> ComboEstatTasc2;
     private javax.swing.JComboBox<String> ComboNivell;
     private javax.swing.JComboBox<String> ComboNivell1;
+    private javax.swing.JComboBox<String> ComboPrioritatTasc;
+    private javax.swing.JComboBox<String> ComboPrioritatTasc2;
     private javax.swing.JComboBox<String> ComboTipus;
     private javax.swing.JComboBox<String> ComboTipusElem2;
     private javax.swing.JLabel Conf;
@@ -4693,7 +4771,6 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
@@ -4707,6 +4784,7 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
@@ -4737,7 +4815,6 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JTextField txt_buscador3;
     private javax.swing.JTextField txt_cognom;
     private javax.swing.JTextField txt_cognom1;
-    private javax.swing.JTextField txt_dataTasc;
     private javax.swing.JTextField txt_dataTasc2;
     private javax.swing.JTextField txt_descripcioTasc;
     private javax.swing.JTextField txt_descripcioTasc2;
@@ -4755,8 +4832,6 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JTextField txt_numserie;
     private javax.swing.JTextField txt_observacions;
     private javax.swing.JTextField txt_observacionsElem2;
-    private javax.swing.JTextField txt_prioritatTasc;
-    private javax.swing.JTextField txt_prioritatTasc2;
     private javax.swing.JTextField txt_telefon;
     private javax.swing.JTextField txt_telefon1;
     private javax.swing.JTextField txt_titolTasc;

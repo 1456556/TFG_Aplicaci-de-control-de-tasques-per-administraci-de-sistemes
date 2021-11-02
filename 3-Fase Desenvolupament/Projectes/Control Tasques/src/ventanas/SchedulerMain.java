@@ -17,8 +17,12 @@ import java.util.Timer;
 public class SchedulerMain {
 	public static void main(String args[]) throws InterruptedException {
 
-                Principal principal = new Principal();
-                principal.setVisible(true);
+                
+                Login login = new Login();
+                login.setVisible(true);
+            
+                //Principal principal = new Principal();
+                //principal.setVisible(true);
             
 		Timer time = new Timer(); // Instantiate Timer Object
 		ScheduledTask st = new ScheduledTask(); // Instantiate SheduledTask class

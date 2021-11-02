@@ -40,6 +40,7 @@ public class Registre extends javax.swing.JFrame {
         ImageIcon logo_logo = new ImageIcon("src/images/ezgif.com-gif-maker.png");        
         logo.setIcon(logo_logo);
         this.repaint();
+     
     }
 
     /**
@@ -161,7 +162,7 @@ public class Registre extends javax.swing.JFrame {
                 MinMouseExited(evt);
             }
         });
-        ButtonMin.add(Min, java.awt.BorderLayout.CENTER);
+        ButtonMin.add(Min, java.awt.BorderLayout.LINE_START);
 
         IconMinMaxClose.add(ButtonMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
@@ -527,7 +528,8 @@ public class Registre extends javax.swing.JFrame {
 
                         JOptionPane.showMessageDialog(null, "Registrat amb exit");
                         this.dispose();
-                        new Login().setVisible(true);
+                        Login l = new Login();
+                        l.setVisible(true);
 
                     }catch (SQLException e){
 

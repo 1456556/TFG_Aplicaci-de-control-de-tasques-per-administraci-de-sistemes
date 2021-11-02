@@ -6,6 +6,7 @@
 package ventanas;
 
 
+import java.text.ParseException;
 import java.util.TimerTask;
 import java.util.Date;
 import java.util.logging.Level;
@@ -25,9 +26,11 @@ public class ScheduledTask extends TimerTask {
 		now = new Date(); // initialize date               
                 System.out.println("Time is :" + now);       // Display current time
                 Principal principal = new Principal();
+                Login login = new Login();
             try {
+                
                 principal.recordatori(now);
-            } catch (InterruptedException ex) {
+            } catch (InterruptedException | ParseException ex) {
                 Logger.getLogger(ScheduledTask.class.getName()).log(Level.SEVERE, null, ex);
             }
 	}
