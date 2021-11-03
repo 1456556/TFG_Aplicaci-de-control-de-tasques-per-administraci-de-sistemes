@@ -11,6 +11,7 @@ import java.sql.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
+
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +23,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -37,8 +40,12 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+import javax.swing.RowSorter.SortKey;
+import javax.swing.SortOrder;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -4330,6 +4337,14 @@ public class Principal extends javax.swing.JFrame  {
                 }
             }
 
+            TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model_tasques);
+            jTable_Tasques.setRowSorter(sorter);
+            
+            List<SortKey> sortKeys = new ArrayList();
+            sortKeys.add(new SortKey(4,SortOrder.ASCENDING));
+            sorter.setSortKeys(sortKeys);
+            
+            
         } catch (SQLException e) {
 
             System.err.println("Error al omplir la taula");
@@ -4351,6 +4366,8 @@ public class Principal extends javax.swing.JFrame  {
 
                 System.out.println("Fila" + fila_point);
                 System.out.println("Columna" + columna_point);
+                
+      
 
                 jTable_Tasques.repaint();
                 jTable_Tasques.updateUI();
@@ -4410,6 +4427,7 @@ public class Principal extends javax.swing.JFrame  {
     public void BuscarTasques(String buscarTasc){  
 
         DefaultTableModel modelTasc = new DefaultTableModel();
+                 
 
         try {
 
@@ -4445,6 +4463,9 @@ public class Principal extends javax.swing.JFrame  {
                 jTable_Tasques.setModel(modelTasc);
                 addCheckBox(0, jTable_Tasques);
             }
+            
+             TableRowSorter<DefaultTableModel> sorter2 = new TableRowSorter<>(modelTasc);
+             jTable_Tasques.setRowSorter(sorter2);
 
         } catch (SQLException e) {
 
