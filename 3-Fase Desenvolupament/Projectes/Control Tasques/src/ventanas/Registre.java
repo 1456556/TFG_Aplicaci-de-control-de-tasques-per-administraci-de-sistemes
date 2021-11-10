@@ -528,7 +528,7 @@ public class Registre extends javax.swing.JFrame {
 
                         JOptionPane.showMessageDialog(null, "Registrat amb exit");
                         this.dispose();
-                        Login l = new Login();
+                        JFLogin l = new JFLogin();
                         l.setVisible(true);
 
                     }catch (SQLException e){

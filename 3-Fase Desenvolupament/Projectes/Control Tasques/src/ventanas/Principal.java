@@ -4337,12 +4337,12 @@ public class Principal extends javax.swing.JFrame  {
                 }
             }
 
-            TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model_tasques);
+           /* TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model_tasques);
             jTable_Tasques.setRowSorter(sorter);
             
             List<SortKey> sortKeys = new ArrayList();
             sortKeys.add(new SortKey(4,SortOrder.ASCENDING));
-            sorter.setSortKeys(sortKeys);
+            sorter.setSortKeys(sortKeys);*/
             
             
         } catch (SQLException e) {

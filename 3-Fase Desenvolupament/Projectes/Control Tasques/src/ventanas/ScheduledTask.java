@@ -26,7 +26,7 @@ public class ScheduledTask extends TimerTask {
 		now = new Date(); // initialize date               
                 System.out.println("Time is :" + now);       // Display current time
                 Principal principal = new Principal();
-                Login login = new Login();
+                JFLogin login = new JFLogin();
             try {
                 
                 principal.recordatori(now);

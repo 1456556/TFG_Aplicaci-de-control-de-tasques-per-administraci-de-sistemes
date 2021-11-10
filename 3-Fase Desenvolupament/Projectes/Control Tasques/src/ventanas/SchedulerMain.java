@@ -6,6 +6,9 @@
  */
 package ventanas;
 
+import Controlador.ControladorLogin;
+import Model.ConsultasLogin;
+import Model.Login;
 import java.util.Timer;
 
 /**
@@ -18,8 +21,13 @@ public class SchedulerMain {
 	public static void main(String args[]) throws InterruptedException {
 
                 
-                Login login = new Login();
-                login.setVisible(true);
+                Login mod = new Login();
+                ConsultasLogin modC = new ConsultasLogin();
+                JFLogin vist = new JFLogin();
+                ControladorLogin con = new ControladorLogin(mod, modC, vist);
+                
+                con.inicialitzar();
+                vist.setVisible(true);
             
                 //Principal principal = new Principal();
                 //principal.setVisible(true);

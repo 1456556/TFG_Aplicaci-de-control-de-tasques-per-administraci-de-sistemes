@@ -250,7 +250,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="txt_usuari" max="32767" attributes="0"/>
+                      <Component id="txtUsuari" max="32767" attributes="0"/>
                       <EmptySpace min="160" pref="160" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -266,7 +266,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="txt_contraseña" max="32767" attributes="0"/>
+                      <Component id="txtContrasenya" max="32767" attributes="0"/>
                       <EmptySpace min="160" pref="160" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -281,7 +281,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="jButton_Entrar1" max="32767" attributes="0"/>
+                      <Component id="btnEntrar" max="32767" attributes="0"/>
                       <EmptySpace min="170" pref="170" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -294,7 +294,7 @@
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="jLabel5" pref="40" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="txt_usuari" pref="30" max="32767" attributes="0"/>
+                      <Component id="txtUsuari" pref="30" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jSeparator2" pref="20" max="32767" attributes="0"/>
@@ -305,13 +305,13 @@
                               <Component id="jLabel2" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="txt_contraseña" pref="30" max="32767" attributes="0"/>
+                      <Component id="txtContrasenya" pref="30" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                       <Component id="jSeparator1" pref="20" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="jButton_Entrar" pref="30" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="jButton_Entrar1" pref="40" max="32767" attributes="0"/>
+                      <Component id="btnEntrar" pref="40" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -365,7 +365,7 @@
                 <Property name="text" type="java.lang.String" value="Contrasenya"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton_Entrar1">
+            <Component class="javax.swing.JButton" name="btnEntrar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="99" red="ff" type="rgb"/>
@@ -384,8 +384,11 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_Entrar1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEntrarActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="jButton_Entrar">
               <Properties>
@@ -407,7 +410,7 @@
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
             </Component>
-            <Component class="javax.swing.JPasswordField" name="txt_contrase&#xf1;a">
+            <Component class="javax.swing.JPasswordField" name="txtContrasenya">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -419,6 +422,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator2">
               <Properties>
@@ -427,7 +433,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_usuari">
+            <Component class="javax.swing.JTextField" name="txtUsuari">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -439,6 +445,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

@@ -1304,7 +1304,7 @@ public class Usuaris extends javax.swing.JFrame {
        // DashConfiguracio.setVisible(true);
 
         //this.dispose();
-        Login login = new Login();
+        JFLogin login = new JFLogin();
         login.setVisible(true);
 
         Point p = Header.getLocationOnScreen();
