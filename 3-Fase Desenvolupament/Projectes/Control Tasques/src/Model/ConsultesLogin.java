@@ -9,27 +9,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import static ventanas.JFLogin.usuari;
-import ventanas.Principal;
+
 
 /**
  *
  * @author Victor
  */
-public class ConsultasLogin extends Conexio {
+public class ConsultesLogin extends Conexio {
     
-    private boolean login;
+    private int login;
 
     
-    public boolean login(Login log){
+    public int login(Login log){
     
         String usuari = log.getUsuari();
         String contrasenya = log.getContrasenya();
 
-        if (!usuari.equals("") || !contrasenya.equals("")){
-
-      
+        if (!usuari.equals("") || !contrasenya.equals("")){    
       
             try{
                 Connection cn = getConexio();
@@ -43,36 +39,29 @@ public class ConsultasLogin extends Conexio {
                     String nivell = rs.getString("nivell");
                     if (nivell.equalsIgnoreCase("Administrador")){
                         
-                        login = true;
-                       // this.dispose();
-                       // Principal s = new Principal();
-                        //s.DashTasques();
-                       // s.setVisible(true);
+                        login = 0;                       
                     }          
                     
                       
                 }else{
                     
-                    login = false;
-                   // txt_usuari.setText("");
-                    //txt_contraseña.setText("");
-
+                    login = 1;
                 }
 
             }catch(SQLException e){
+                
                 System.err.println("Error en el boto ENTRAR" + e);
-                JOptionPane.showMessageDialog(null, "Error d'inici de sessió. Contacta amb l'administrador");
-                //login = false;
+                login = 2;       
+                
             }
 
         }else{
-            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
-            //login = false;
-        }
-        
+            
+           login = 3;           
+            
+        }   
+    
         return login;
-    
-    
     }
     
 }

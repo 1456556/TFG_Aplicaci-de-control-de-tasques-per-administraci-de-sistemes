@@ -250,9 +250,9 @@
                                   <Component id="jLabel7" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="txt_nom" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtNom" min="-2" pref="170" max="-2" attributes="0"/>
                                   <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
-                                  <Component id="txt_mail" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <Component id="txtCorreu" min="-2" pref="180" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jSeparator6" min="-2" pref="170" max="-2" attributes="0"/>
@@ -265,9 +265,9 @@
                                   <Component id="jLabel8" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="txt_cognom" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtCognom" min="-2" pref="170" max="-2" attributes="0"/>
                                   <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
-                                  <Component id="txt_usuari" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <Component id="txtUsuari" min="-2" pref="180" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jSeparator7" min="-2" pref="170" max="-2" attributes="0"/>
@@ -280,9 +280,9 @@
                                   <Component id="jLabel11" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="txt_telefon" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtTelefon" min="-2" pref="170" max="-2" attributes="0"/>
                                   <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
-                                  <Component id="txt_contrassenya" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtContrasenya" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jSeparator9" min="-2" pref="170" max="-2" attributes="0"/>
@@ -291,7 +291,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="160" pref="160" max="-2" attributes="0"/>
-                                  <Component id="jButton_Registar" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="btnRegistrar" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -312,8 +312,8 @@
                               <Component id="jLabel7" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txt_nom" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="txt_mail" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtNom" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtCorreu" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jSeparator6" min="-2" pref="10" max="-2" attributes="0"/>
@@ -325,8 +325,8 @@
                               <Component id="jLabel8" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txt_cognom" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="txt_usuari" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtCognom" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtUsuari" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
@@ -338,10 +338,10 @@
                               <Component id="jLabel11" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txt_telefon" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtTelefon" min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="txt_contrassenya" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtContrasenya" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -349,7 +349,7 @@
                               <Component id="jSeparator10" min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                          <Component id="jButton_Registar" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnRegistrar" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -371,7 +371,7 @@
                 <Property name="text" type="java.lang.String" value="Registrar-se"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_mail">
+            <Component class="javax.swing.JTextField" name="txtCorreu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -383,6 +383,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -412,7 +415,7 @@
                 <Property name="text" type="java.lang.String" value="Email"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton_Registar">
+            <Component class="javax.swing.JButton" name="btnRegistrar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="99" red="ff" type="rgb"/>
@@ -427,8 +430,11 @@
                 <Property name="borderPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_RegistarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator5">
             </Component>
@@ -460,7 +466,7 @@
                 <Property name="text" type="java.lang.String" value="Nom"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_nom">
+            <Component class="javax.swing.JTextField" name="txtNom">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -472,10 +478,13 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator6">
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_cognom">
+            <Component class="javax.swing.JTextField" name="txtCognom">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -487,6 +496,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator7">
             </Component>
@@ -506,7 +518,7 @@
                 <Property name="text" type="java.lang.String" value="Tel&#xe8;fon"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_telefon">
+            <Component class="javax.swing.JTextField" name="txtTelefon">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -518,12 +530,15 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator9">
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator10">
             </Component>
-            <Component class="javax.swing.JPasswordField" name="txt_contrassenya">
+            <Component class="javax.swing.JPasswordField" name="txtContrasenya">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -535,6 +550,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
               <Properties>
@@ -550,7 +568,7 @@
                 <Property name="text" type="java.lang.String" value="Contrasenya"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_usuari">
+            <Component class="javax.swing.JTextField" name="txtUsuari">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -562,6 +580,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

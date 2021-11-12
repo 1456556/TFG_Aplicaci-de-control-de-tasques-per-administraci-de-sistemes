@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ventanas;
+package Vista;
 
 import clases.Conexio;
 import com.github.lgooddatepicker.components.DateTimePicker;
@@ -46,12 +46,13 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.RowSorter.SortKey;
 import javax.swing.SortOrder;
 import javax.swing.table.TableRowSorter;
+import ventanas.Contrasenya;
 
 /**
  *
  * @author Victor
  */
-public class Principal extends javax.swing.JFrame  {
+public class JFPrincipal extends javax.swing.JFrame  {
 
     boolean a = true;
    
@@ -69,7 +70,7 @@ public class Principal extends javax.swing.JFrame  {
     /**
      * Creates new form Ventana_Tasques2
      */
-    public Principal() {
+    public JFPrincipal() {
         
         
         
@@ -92,23 +93,23 @@ public class Principal extends javax.swing.JFrame  {
         this.repaint();
 
         ImageIcon config_logo = new ImageIcon("src/images/settings_32px.png");
-        Conf.setIcon(config_logo);
+        btnConfiguracio.setIcon(config_logo);
         this.repaint();
 
         ImageIcon tasques_logo = new ImageIcon("src/images/clock-6-32.png");
-        Tasq.setIcon(tasques_logo);
+        btnTasques.setIcon(tasques_logo);
         this.repaint();
 
         ImageIcon elements_logo = new ImageIcon("src/images/icons8-workstation-30.png");
-        Elem.setIcon(elements_logo);
+        btnElements.setIcon(elements_logo);
         this.repaint();
 
         ImageIcon elements_usuaris = new ImageIcon("src/images/icons8-user-account-30.png");
-        Usu.setIcon(elements_usuaris);
+        btnUsuaris.setIcon(elements_usuaris);
         this.repaint();
 
         ImageIcon elements_grups = new ImageIcon("src/images/icons8-dog-tag-30.png");
-        Gru.setIcon(elements_grups);
+        btnGrup.setIcon(elements_grups);
         this.repaint();
         
         
@@ -146,31 +147,31 @@ public class Principal extends javax.swing.JFrame  {
         MenuDes = new javax.swing.JLabel();
         LiniaConfiguracio = new javax.swing.JPanel();
         Configuracio = new javax.swing.JPanel();
-        Conf = new javax.swing.JLabel();
+        btnConfiguracio = new javax.swing.JLabel();
         Tasques = new javax.swing.JPanel();
-        Tasq = new javax.swing.JLabel();
+        btnTasques = new javax.swing.JLabel();
         LiniaTasques = new javax.swing.JPanel();
         Elements = new javax.swing.JPanel();
-        Elem = new javax.swing.JLabel();
+        btnElements = new javax.swing.JLabel();
         LiniaElements = new javax.swing.JPanel();
         Usuaris = new javax.swing.JPanel();
-        Usu = new javax.swing.JLabel();
+        btnUsuaris = new javax.swing.JLabel();
         LiniaUsuaris = new javax.swing.JPanel();
         LiniaGrups = new javax.swing.JPanel();
         Grups = new javax.swing.JPanel();
-        Gru = new javax.swing.JLabel();
+        btnGrup = new javax.swing.JLabel();
         MenuHide = new javax.swing.JPanel();
         N_LiniaTasques = new javax.swing.JPanel();
         N_Tasques = new javax.swing.JPanel();
-        N_Tas = new javax.swing.JLabel();
+        btn_Tasques = new javax.swing.JLabel();
         N_Elements = new javax.swing.JPanel();
-        N_Elem = new javax.swing.JLabel();
+        btn_Elements = new javax.swing.JLabel();
         N_Usuaris = new javax.swing.JPanel();
-        N_Usu = new javax.swing.JLabel();
+        btn_Usuaris = new javax.swing.JLabel();
         N_Grups = new javax.swing.JPanel();
-        N_Gru = new javax.swing.JLabel();
+        btn_Grups = new javax.swing.JLabel();
         N_Configuracio = new javax.swing.JPanel();
-        N_Conf = new javax.swing.JLabel();
+        btn_Configuracio = new javax.swing.JLabel();
         DashBoardView = new javax.swing.JPanel();
         DashTasques = new javax.swing.JPanel();
         Contador4 = new javax.swing.JPanel();
@@ -470,38 +471,38 @@ public class Principal extends javax.swing.JFrame  {
         Configuracio.setBackground(new java.awt.Color(255, 153, 0));
         Configuracio.setLayout(new java.awt.BorderLayout());
 
-        Conf.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Conf.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConfiguracio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnConfiguracio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ConfMouseClicked(evt);
+                btnConfiguracioMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ConfMouseEntered(evt);
+                btnConfiguracioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                ConfMouseExited(evt);
+                btnConfiguracioMouseExited(evt);
             }
         });
-        Configuracio.add(Conf, java.awt.BorderLayout.CENTER);
+        Configuracio.add(btnConfiguracio, java.awt.BorderLayout.CENTER);
 
         MenuIcon.add(Configuracio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 50, 50));
 
         Tasques.setBackground(new java.awt.Color(255, 153, 0));
         Tasques.setLayout(new java.awt.BorderLayout());
 
-        Tasq.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tasq.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnTasques.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnTasques.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TasqMouseClicked(evt);
+                btnTasquesMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                TasqMouseEntered(evt);
+                btnTasquesMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                TasqMouseExited(evt);
+                btnTasquesMouseExited(evt);
             }
         });
-        Tasques.add(Tasq, java.awt.BorderLayout.CENTER);
+        Tasques.add(btnTasques, java.awt.BorderLayout.CENTER);
 
         MenuIcon.add(Tasques, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 55, 50, 50));
 
@@ -524,19 +525,19 @@ public class Principal extends javax.swing.JFrame  {
         Elements.setBackground(new java.awt.Color(255, 153, 0));
         Elements.setLayout(new java.awt.BorderLayout());
 
-        Elem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Elem.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnElements.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnElements.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ElemMouseClicked(evt);
+                btnElementsMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ElemMouseEntered(evt);
+                btnElementsMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                ElemMouseExited(evt);
+                btnElementsMouseExited(evt);
             }
         });
-        Elements.add(Elem, java.awt.BorderLayout.CENTER);
+        Elements.add(btnElements, java.awt.BorderLayout.CENTER);
 
         MenuIcon.add(Elements, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 50, 50));
 
@@ -559,22 +560,22 @@ public class Principal extends javax.swing.JFrame  {
         Usuaris.setBackground(new java.awt.Color(255, 153, 0));
         Usuaris.setLayout(new java.awt.BorderLayout());
 
-        Usu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Usu.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnUsuaris.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnUsuaris.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                UsuMouseClicked(evt);
+                btnUsuarisMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                UsuMouseEntered(evt);
+                btnUsuarisMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                UsuMouseExited(evt);
+                btnUsuarisMouseExited(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                UsuMouseReleased(evt);
+                btnUsuarisMouseReleased(evt);
             }
         });
-        Usuaris.add(Usu, java.awt.BorderLayout.CENTER);
+        Usuaris.add(btnUsuaris, java.awt.BorderLayout.CENTER);
 
         MenuIcon.add(Usuaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 165, 50, 50));
 
@@ -613,19 +614,19 @@ public class Principal extends javax.swing.JFrame  {
         Grups.setBackground(new java.awt.Color(255, 153, 0));
         Grups.setLayout(new java.awt.BorderLayout());
 
-        Gru.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Gru.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGrup.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnGrup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                GruMouseClicked(evt);
+                btnGrupMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                GruMouseEntered(evt);
+                btnGrupMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                GruMouseExited(evt);
+                btnGrupMouseExited(evt);
             }
         });
-        Grups.add(Gru, java.awt.BorderLayout.CENTER);
+        Grups.add(btnGrup, java.awt.BorderLayout.CENTER);
 
         MenuIcon.add(Grups, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 50, 50));
 
@@ -661,46 +662,46 @@ public class Principal extends javax.swing.JFrame  {
         });
         N_Tasques.setLayout(new java.awt.BorderLayout());
 
-        N_Tas.setBackground(new java.awt.Color(255, 153, 51));
-        N_Tas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        N_Tas.setForeground(new java.awt.Color(255, 255, 255));
-        N_Tas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        N_Tas.setText("  Tasques");
-        N_Tas.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Tasques.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_Tasques.setText("  Tasques");
+        btn_Tasques.setBackground(new java.awt.Color(255, 153, 51));
+        btn_Tasques.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_Tasques.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Tasques.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                N_TasMouseClicked(evt);
+                btn_TasquesMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                N_TasMouseEntered(evt);
+                btn_TasquesMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                N_TasMouseExited(evt);
+                btn_TasquesMouseExited(evt);
             }
         });
-        N_Tasques.add(N_Tas, java.awt.BorderLayout.CENTER);
+        N_Tasques.add(btn_Tasques, java.awt.BorderLayout.CENTER);
 
         MenuHide.add(N_Tasques, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 55, 220, 50));
 
         N_Elements.setBackground(new java.awt.Color(255, 153, 51));
         N_Elements.setLayout(new java.awt.BorderLayout());
 
-        N_Elem.setBackground(new java.awt.Color(255, 255, 255));
-        N_Elem.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        N_Elem.setForeground(new java.awt.Color(255, 255, 255));
-        N_Elem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        N_Elem.setText("  Elements");
-        N_Elem.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Elements.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_Elements.setText("  Elements");
+        btn_Elements.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Elements.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_Elements.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Elements.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                N_ElemMouseClicked(evt);
+                btn_ElementsMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                N_ElemMouseEntered(evt);
+                btn_ElementsMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                N_ElemMouseExited(evt);
+                btn_ElementsMouseExited(evt);
             }
         });
-        N_Elements.add(N_Elem, java.awt.BorderLayout.CENTER);
+        N_Elements.add(btn_Elements, java.awt.BorderLayout.CENTER);
 
         MenuHide.add(N_Elements, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 220, 50));
 
@@ -715,23 +716,23 @@ public class Principal extends javax.swing.JFrame  {
         });
         N_Usuaris.setLayout(new java.awt.BorderLayout());
 
-        N_Usu.setBackground(new java.awt.Color(255, 153, 51));
-        N_Usu.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        N_Usu.setForeground(new java.awt.Color(255, 255, 255));
-        N_Usu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        N_Usu.setText("  Usuaris");
-        N_Usu.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Usuaris.setBackground(new java.awt.Color(255, 153, 51));
+        btn_Usuaris.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_Usuaris.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Usuaris.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_Usuaris.setText("  Usuaris");
+        btn_Usuaris.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                N_UsuMouseClicked(evt);
+                btn_UsuarisMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                N_UsuMouseEntered(evt);
+                btn_UsuarisMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                N_UsuMouseExited(evt);
+                btn_UsuarisMouseExited(evt);
             }
         });
-        N_Usuaris.add(N_Usu, java.awt.BorderLayout.CENTER);
+        N_Usuaris.add(btn_Usuaris, java.awt.BorderLayout.CENTER);
 
         MenuHide.add(N_Usuaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 165, 220, 50));
 
@@ -746,46 +747,46 @@ public class Principal extends javax.swing.JFrame  {
         });
         N_Grups.setLayout(new java.awt.BorderLayout());
 
-        N_Gru.setBackground(new java.awt.Color(255, 153, 51));
-        N_Gru.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        N_Gru.setForeground(new java.awt.Color(255, 255, 255));
-        N_Gru.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        N_Gru.setText("  Grups");
-        N_Gru.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Grups.setBackground(new java.awt.Color(255, 153, 51));
+        btn_Grups.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_Grups.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Grups.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_Grups.setText("  Grups");
+        btn_Grups.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                N_GruMouseClicked(evt);
+                btn_GrupsMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                N_GruMouseEntered(evt);
+                btn_GrupsMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                N_GruMouseExited(evt);
+                btn_GrupsMouseExited(evt);
             }
         });
-        N_Grups.add(N_Gru, java.awt.BorderLayout.CENTER);
+        N_Grups.add(btn_Grups, java.awt.BorderLayout.CENTER);
 
         MenuHide.add(N_Grups, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 220, 50));
 
         N_Configuracio.setBackground(new java.awt.Color(255, 153, 51));
         N_Configuracio.setLayout(new java.awt.BorderLayout());
 
-        N_Conf.setBackground(new java.awt.Color(255, 255, 255));
-        N_Conf.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        N_Conf.setForeground(new java.awt.Color(255, 255, 255));
-        N_Conf.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        N_Conf.setText("  Configuració");
-        N_Conf.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Configuracio.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Configuracio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_Configuracio.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Configuracio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_Configuracio.setText("  Configuració");
+        btn_Configuracio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                N_ConfMouseClicked(evt);
+                btn_ConfiguracioMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                N_ConfMouseEntered(evt);
+                btn_ConfiguracioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                N_ConfMouseExited(evt);
+                btn_ConfiguracioMouseExited(evt);
             }
         });
-        N_Configuracio.add(N_Conf, java.awt.BorderLayout.CENTER);
+        N_Configuracio.add(btn_Configuracio, java.awt.BorderLayout.CENTER);
 
         MenuHide.add(N_Configuracio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 220, 50));
 
@@ -2220,9 +2221,9 @@ public class Principal extends javax.swing.JFrame  {
         jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel66.setForeground(new java.awt.Color(0, 0, 0));
 
+        ComboPrioritatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitjana", "Alta", "Urgent", "Prioritaria" }));
         ComboPrioritatTasc2.setBackground(new java.awt.Color(255, 153, 51));
         ComboPrioritatTasc2.setForeground(new java.awt.Color(255, 255, 255));
-        ComboPrioritatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitjana", "Alta", "Urgent", "Prioritaria" }));
 
         txt_dataTasc2.setBackground(new java.awt.Color(255, 153, 51));
         txt_dataTasc2.setForeground(new java.awt.Color(255, 255, 255));
@@ -2438,11 +2439,11 @@ public class Principal extends javax.swing.JFrame  {
 
     private void MaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseClicked
         // TODO add your handling code here:
-        if (this.getExtendedState() != Principal.MAXIMIZED_BOTH) {
-            this.setExtendedState(Principal.MAXIMIZED_BOTH);
+        if (this.getExtendedState() != JFPrincipal.MAXIMIZED_BOTH) {
+            this.setExtendedState(JFPrincipal.MAXIMIZED_BOTH);
 
         } else {
-            this.setExtendedState(Principal.NORMAL);
+            this.setExtendedState(JFPrincipal.NORMAL);
 
         }
 
@@ -2504,21 +2505,21 @@ public class Principal extends javax.swing.JFrame  {
 
     }//GEN-LAST:event_MenuDesMouseClicked
 
-    private void ConfMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfMouseEntered
+    private void btnConfiguracioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfiguracioMouseEntered
         // TODO add your handling code here:
         changecolor(Configuracio, new Color(255, 204, 102));
         changecolor(N_Configuracio, new Color(255, 204, 102));
 
-    }//GEN-LAST:event_ConfMouseEntered
+    }//GEN-LAST:event_btnConfiguracioMouseEntered
 
-    private void ConfMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfMouseExited
+    private void btnConfiguracioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfiguracioMouseExited
         // TODO add your handling code here:
         changecolor(Configuracio, new Color(255, 153, 0));
         changecolor(N_Configuracio, new Color(255, 153, 0));
 
-    }//GEN-LAST:event_ConfMouseExited
+    }//GEN-LAST:event_btnConfiguracioMouseExited
 
-    private void ConfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfMouseClicked
+    private void btnConfiguracioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfiguracioMouseClicked
         // TODO add your handling code here:
 
         //clickmenu(Configuracio,HideMenu,1);
@@ -2527,49 +2528,49 @@ public class Principal extends javax.swing.JFrame  {
         DashUsuaris.setVisible(false);
         DashConfiguracio.setVisible(true);
 
-    }//GEN-LAST:event_ConfMouseClicked
+    }//GEN-LAST:event_btnConfiguracioMouseClicked
 
-    private void TasqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TasqMouseClicked
+    private void btnTasquesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTasquesMouseClicked
         // TODO add your handling code here:
         
     
          DashTasques();
         
        
-    }//GEN-LAST:event_TasqMouseClicked
+    }//GEN-LAST:event_btnTasquesMouseClicked
 
-    private void TasqMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TasqMouseEntered
+    private void btnTasquesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTasquesMouseEntered
         // TODO add your handling code here:
         changecolor(Tasques, new Color(255, 204, 102));
         changecolor(N_Tasques, new Color(255, 204, 102));
 
-    }//GEN-LAST:event_TasqMouseEntered
+    }//GEN-LAST:event_btnTasquesMouseEntered
 
-    private void TasqMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TasqMouseExited
+    private void btnTasquesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTasquesMouseExited
         // TODO add your handling code here:
         changecolor(Tasques, new Color(255, 153, 0));
         changecolor(N_Tasques, new Color(255, 153, 0));
 
-    }//GEN-LAST:event_TasqMouseExited
+    }//GEN-LAST:event_btnTasquesMouseExited
 
-    private void ElemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElemMouseClicked
+    private void btnElementsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnElementsMouseClicked
         // TODO add your handling code here:
         DashElements();
-    }//GEN-LAST:event_ElemMouseClicked
+    }//GEN-LAST:event_btnElementsMouseClicked
 
-    private void ElemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElemMouseEntered
+    private void btnElementsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnElementsMouseEntered
         // TODO add your handling code here:
         changecolor(Elements, new Color(255, 204, 102));
         changecolor(N_Elements, new Color(255, 204, 102));
 
-    }//GEN-LAST:event_ElemMouseEntered
+    }//GEN-LAST:event_btnElementsMouseEntered
 
-    private void ElemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElemMouseExited
+    private void btnElementsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnElementsMouseExited
         // TODO add your handling code here:
         changecolor(Elements, new Color(255, 153, 0));
         changecolor(N_Elements, new Color(255, 153, 0));
 
-    }//GEN-LAST:event_ElemMouseExited
+    }//GEN-LAST:event_btnElementsMouseExited
 
     
     public void addCheckBox(int column, JTable table) {
@@ -2581,39 +2582,39 @@ public class Principal extends javax.swing.JFrame  {
 
     }    
     
-    private void UsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseClicked
+    private void btnUsuarisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarisMouseClicked
         // TODO add your handling code here:       
         DashUsuaris();
-    }//GEN-LAST:event_UsuMouseClicked
+    }//GEN-LAST:event_btnUsuarisMouseClicked
 
     
-    private void UsuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseEntered
+    private void btnUsuarisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarisMouseEntered
         // TODO add your handling code here:
         changecolor(Usuaris, new Color(255, 204, 102));
         changecolor(N_Usuaris, new Color(255, 204, 102));
-    }//GEN-LAST:event_UsuMouseEntered
+    }//GEN-LAST:event_btnUsuarisMouseEntered
 
-    private void UsuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseExited
+    private void btnUsuarisMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarisMouseExited
         // TODO add your handling code here:
         changecolor(Usuaris, new Color(255, 153, 0));
         changecolor(N_Usuaris, new Color(255, 153, 0));
-    }//GEN-LAST:event_UsuMouseExited
+    }//GEN-LAST:event_btnUsuarisMouseExited
 
-    private void GruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GruMouseClicked
+    private void btnGrupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGrupMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_GruMouseClicked
+    }//GEN-LAST:event_btnGrupMouseClicked
 
-    private void GruMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GruMouseEntered
+    private void btnGrupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGrupMouseEntered
         // TODO add your handling code here:
         changecolor(Grups, new Color(255, 204, 102));
         changecolor(N_Grups, new Color(255, 204, 102));
-    }//GEN-LAST:event_GruMouseEntered
+    }//GEN-LAST:event_btnGrupMouseEntered
 
-    private void GruMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GruMouseExited
+    private void btnGrupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGrupMouseExited
         // TODO add your handling code here:
         changecolor(Grups, new Color(255, 153, 0));
         changecolor(N_Grups, new Color(255, 153, 0));
-    }//GEN-LAST:event_GruMouseExited
+    }//GEN-LAST:event_btnGrupMouseExited
 
     private void N_TasquesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_TasquesMouseEntered
         // TODO add your handling code here:
@@ -2625,61 +2626,61 @@ public class Principal extends javax.swing.JFrame  {
 
     }//GEN-LAST:event_N_TasquesMouseExited
 
-    private void N_TasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_TasMouseEntered
+    private void btn_TasquesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TasquesMouseEntered
         // TODO add your handling code here:
         changecolor(N_Tasques, new Color(255, 204, 102));
         changecolor(Tasques, new Color(255, 204, 102));
 
-    }//GEN-LAST:event_N_TasMouseEntered
+    }//GEN-LAST:event_btn_TasquesMouseEntered
 
-    private void N_TasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_TasMouseExited
+    private void btn_TasquesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TasquesMouseExited
         // TODO add your handling code here:
         changecolor(N_Tasques, new Color(255, 153, 0));
         changecolor(Tasques, new Color(255, 153, 0));
 
-    }//GEN-LAST:event_N_TasMouseExited
+    }//GEN-LAST:event_btn_TasquesMouseExited
 
-    private void N_TasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_TasMouseClicked
+    private void btn_TasquesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TasquesMouseClicked
         // TODO add your handling code here:
         DashTasques();
 
-    }//GEN-LAST:event_N_TasMouseClicked
+    }//GEN-LAST:event_btn_TasquesMouseClicked
 
-    private void N_ElemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ElemMouseEntered
+    private void btn_ElementsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ElementsMouseEntered
         // TODO add your handling code here:
         changecolor(N_Elements, new Color(255, 204, 102));
         changecolor(Elements, new Color(255, 204, 102));
-    }//GEN-LAST:event_N_ElemMouseEntered
+    }//GEN-LAST:event_btn_ElementsMouseEntered
 
-    private void N_ElemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ElemMouseExited
+    private void btn_ElementsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ElementsMouseExited
         // TODO add your handling code here:
         changecolor(N_Elements, new Color(255, 153, 0));
         changecolor(Elements, new Color(255, 153, 0));
-    }//GEN-LAST:event_N_ElemMouseExited
+    }//GEN-LAST:event_btn_ElementsMouseExited
 
-    private void N_ElemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ElemMouseClicked
+    private void btn_ElementsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ElementsMouseClicked
         // TODO add your handling code here:
         DashElements();
-    }//GEN-LAST:event_N_ElemMouseClicked
+    }//GEN-LAST:event_btn_ElementsMouseClicked
 
-    private void N_UsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuMouseClicked
+    private void btn_UsuarisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuarisMouseClicked
         // TODO add your handling code here:
         DashUsuaris();
-    }//GEN-LAST:event_N_UsuMouseClicked
+    }//GEN-LAST:event_btn_UsuarisMouseClicked
 
     
-    private void N_UsuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuMouseEntered
+    private void btn_UsuarisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuarisMouseEntered
         // TODO add your handling code here:
         changecolor(N_Usuaris, new Color(255, 204, 102));
         changecolor(Usuaris, new Color(255, 204, 102));
 
-    }//GEN-LAST:event_N_UsuMouseEntered
+    }//GEN-LAST:event_btn_UsuarisMouseEntered
 
-    private void N_UsuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuMouseExited
+    private void btn_UsuarisMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuarisMouseExited
         // TODO add your handling code here:
         changecolor(Usuaris, new Color(255, 153, 0));
         changecolor(N_Usuaris, new Color(255, 153, 0));
-    }//GEN-LAST:event_N_UsuMouseExited
+    }//GEN-LAST:event_btn_UsuarisMouseExited
 
     private void N_UsuarisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_UsuarisMouseEntered
         // TODO add your handling code here:
@@ -2691,21 +2692,21 @@ public class Principal extends javax.swing.JFrame  {
 
     }//GEN-LAST:event_N_UsuarisMouseExited
 
-    private void N_GruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_GruMouseClicked
+    private void btn_GrupsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_GrupsMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_N_GruMouseClicked
+    }//GEN-LAST:event_btn_GrupsMouseClicked
 
-    private void N_GruMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_GruMouseEntered
+    private void btn_GrupsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_GrupsMouseEntered
         // TODO add your handling code here:
         changecolor(N_Grups, new Color(255, 204, 102));
         changecolor(Grups, new Color(255, 204, 102));
-    }//GEN-LAST:event_N_GruMouseEntered
+    }//GEN-LAST:event_btn_GrupsMouseEntered
 
-    private void N_GruMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_GruMouseExited
+    private void btn_GrupsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_GrupsMouseExited
         // TODO add your handling code here:
         changecolor(Grups, new Color(255, 153, 0));
         changecolor(N_Grups, new Color(255, 153, 0));
-    }//GEN-LAST:event_N_GruMouseExited
+    }//GEN-LAST:event_btn_GrupsMouseExited
 
     private void N_GrupsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_GrupsMouseEntered
         // TODO add your handling code here:
@@ -2716,7 +2717,7 @@ public class Principal extends javax.swing.JFrame  {
 
     }//GEN-LAST:event_N_GrupsMouseExited
 
-    private void N_ConfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ConfMouseClicked
+    private void btn_ConfiguracioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseClicked
         // TODO add your handling code here:
         DashTasques.setVisible(false);
         DashUsuaris.setVisible(false);
@@ -2729,19 +2730,19 @@ public class Principal extends javax.swing.JFrame  {
         usuari.setLocation(p);*/
         
 
-    }//GEN-LAST:event_N_ConfMouseClicked
+    }//GEN-LAST:event_btn_ConfiguracioMouseClicked
 
-    private void N_ConfMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ConfMouseEntered
+    private void btn_ConfiguracioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseEntered
         // TODO add your handling code here:
         changecolor(N_Configuracio, new Color(255, 204, 102));
         changecolor(Configuracio, new Color(255, 204, 102));
-    }//GEN-LAST:event_N_ConfMouseEntered
+    }//GEN-LAST:event_btn_ConfiguracioMouseEntered
 
-    private void N_ConfMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_ConfMouseExited
+    private void btn_ConfiguracioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseExited
         // TODO add your handling code here:
         changecolor(Configuracio, new Color(255, 153, 0));
         changecolor(N_Configuracio, new Color(255, 153, 0));
-    }//GEN-LAST:event_N_ConfMouseExited
+    }//GEN-LAST:event_btn_ConfiguracioMouseExited
 
     private void MinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseEntered
         // TODO add your handling code here:
@@ -2772,11 +2773,11 @@ public class Principal extends javax.swing.JFrame  {
         yMouse = evt.getY();
     }//GEN-LAST:event_HeaderMousePressed
 
-    private void UsuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuMouseReleased
+    private void btnUsuarisMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarisMouseReleased
         // TODO add your handling code here:
         
         
-    }//GEN-LAST:event_UsuMouseReleased
+    }//GEN-LAST:event_btnUsuarisMouseReleased
 
     private void txt_buscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscadorActionPerformed
         // TODO add your handling code here:
@@ -4644,14 +4645,18 @@ public class Principal extends javax.swing.JFrame  {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -4660,7 +4665,7 @@ public class Principal extends javax.swing.JFrame  {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);        
+                new JFPrincipal().setVisible(true);        
 
 		
             }
@@ -4684,24 +4689,22 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JComboBox<String> ComboPrioritatTasc2;
     private javax.swing.JComboBox<String> ComboTipus;
     private javax.swing.JComboBox<String> ComboTipusElem2;
-    private javax.swing.JLabel Conf;
     private javax.swing.JPanel Configuracio;
     private javax.swing.JPanel Contador1;
     private javax.swing.JPanel Contador2;
     private javax.swing.JPanel Contador4;
     private javax.swing.JButton Contrasenya;
     private javax.swing.JPanel DashBoardView;
-    private javax.swing.JPanel DashConfiguracio;
-    private javax.swing.JPanel DashElements;
-    private javax.swing.JPanel DashInfoElement;
-    private javax.swing.JPanel DashInfoTasca;
-    private javax.swing.JPanel DashInfoUsuari;
-    private javax.swing.JPanel DashNouElement;
-    private javax.swing.JPanel DashNouUsuari;
-    private javax.swing.JPanel DashNovaTasca;
-    private javax.swing.JPanel DashTasques;
-    private javax.swing.JPanel DashUsuaris;
-    private javax.swing.JLabel Elem;
+    public javax.swing.JPanel DashConfiguracio;
+    public javax.swing.JPanel DashElements;
+    public javax.swing.JPanel DashInfoElement;
+    public javax.swing.JPanel DashInfoTasca;
+    public javax.swing.JPanel DashInfoUsuari;
+    public javax.swing.JPanel DashNouElement;
+    public javax.swing.JPanel DashNouUsuari;
+    public javax.swing.JPanel DashNovaTasca;
+    public javax.swing.JPanel DashTasques;
+    public javax.swing.JPanel DashUsuaris;
     private javax.swing.JPanel Elements;
     private javax.swing.JButton Eliminar_Element;
     private javax.swing.JButton Eliminar_Tasca;
@@ -4709,12 +4712,11 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JLabel Enrera;
     private javax.swing.JLabel Enrera1;
     private javax.swing.JLabel Enrera2;
-    private javax.swing.JLabel Gru;
     private javax.swing.JPanel Grups;
     private javax.swing.JButton Guardar;
     private javax.swing.JButton Guardar2;
     private javax.swing.JButton Guardar3;
-    private javax.swing.JPanel Header;
+    public javax.swing.JPanel Header;
     private javax.swing.JPanel HideMenu;
     private javax.swing.JPanel IconMinMaxClose;
     private javax.swing.JPanel LiniaConfiguracio;
@@ -4729,24 +4731,27 @@ public class Principal extends javax.swing.JFrame  {
     private javax.swing.JPanel MenuHide;
     private javax.swing.JPanel MenuIcon;
     private javax.swing.JLabel Min;
-    private javax.swing.JLabel N_Conf;
     private javax.swing.JPanel N_Configuracio;
-    private javax.swing.JLabel N_Elem;
     private javax.swing.JPanel N_Elements;
-    private javax.swing.JLabel N_Gru;
     private javax.swing.JPanel N_Grups;
     private javax.swing.JPanel N_LiniaTasques;
-    private javax.swing.JLabel N_Tas;
     private javax.swing.JPanel N_Tasques;
-    private javax.swing.JLabel N_Usu;
     private javax.swing.JPanel N_Usuaris;
     private javax.swing.JButton Nou_Element;
     private javax.swing.JButton Nou_Tasca;
     private javax.swing.JButton Nou_Usuari;
-    private javax.swing.JLabel Tasq;
     private javax.swing.JPanel Tasques;
-    private javax.swing.JLabel Usu;
     private javax.swing.JPanel Usuaris;
+    public javax.swing.JLabel btnConfiguracio;
+    public javax.swing.JLabel btnElements;
+    public javax.swing.JLabel btnGrup;
+    public javax.swing.JLabel btnTasques;
+    public javax.swing.JLabel btnUsuaris;
+    public javax.swing.JLabel btn_Configuracio;
+    public javax.swing.JLabel btn_Elements;
+    public javax.swing.JLabel btn_Grups;
+    public javax.swing.JLabel btn_Tasques;
+    public javax.swing.JLabel btn_Usuaris;
     private com.github.lgooddatepicker.components.DateTimePicker dateTimePicker;
     private javax.swing.JButton jButton_Registar;
     private javax.swing.JButton jButton_RegistarElm;

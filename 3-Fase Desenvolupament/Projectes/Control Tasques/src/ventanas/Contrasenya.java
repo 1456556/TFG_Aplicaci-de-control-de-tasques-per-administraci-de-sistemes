@@ -5,13 +5,14 @@
  */
 package ventanas;
 
+import Vista.JFPrincipal;
 import clases.Conexio;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-import static ventanas.Principal.user_update;
+import static Vista.JFPrincipal.user_update;
 import java.sql.*;
 
 /**
@@ -25,7 +26,7 @@ public class Contrasenya extends javax.swing.JFrame {
      */
     public Contrasenya() {
         initComponents();
-        user_update = Principal.user_update;
+        user_update = JFPrincipal.user_update;
     }
 
     /**

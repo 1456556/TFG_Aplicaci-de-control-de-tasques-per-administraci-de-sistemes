@@ -7,8 +7,9 @@
 package ventanas;
 
 import Controlador.ControladorLogin;
-import Model.ConsultasLogin;
+import Model.ConsultesLogin;
 import Model.Login;
+import Vista.JFLogin;
 import java.util.Timer;
 
 /**
@@ -22,17 +23,16 @@ public class SchedulerMain {
 
                 
                 Login mod = new Login();
-                ConsultasLogin modC = new ConsultasLogin();
+                ConsultesLogin modC = new ConsultesLogin();
                 JFLogin vist = new JFLogin();
-                ControladorLogin con = new ControladorLogin(mod, modC, vist);
-                
+                ControladorLogin con = new ControladorLogin(mod, modC, vist);                
                 con.inicialitzar();
                 vist.setVisible(true);
             
                 //Principal principal = new Principal();
                 //principal.setVisible(true);
             
-		Timer time = new Timer(); // Instantiate Timer Object
+		/*Timer time = new Timer(); // Instantiate Timer Object
 		ScheduledTask st = new ScheduledTask(); // Instantiate SheduledTask class
 		time.schedule(st, 0, 1000); // Create Repetitively task for every 1 secs
 
@@ -44,6 +44,6 @@ public class SchedulerMain {
 				System.out.println("Application Terminates");
 				System.exit(0);
 			}
-		}
+		}*/
 	}
 }

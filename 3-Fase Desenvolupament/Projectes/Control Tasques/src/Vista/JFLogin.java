@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ventanas;
+package Vista;
 
+import ventanas.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -29,7 +30,7 @@ public class JFLogin extends javax.swing.JFrame {
     private int xMouse,yMouse;
     
     /**
-     * Creates new form Principal
+     * Creates new form JFPrincipal
      */
     public JFLogin() {
         initComponents();
@@ -77,7 +78,7 @@ public class JFLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnEntrar = new javax.swing.JButton();
-        jButton_Entrar = new javax.swing.JButton();
+        btnRegistre = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         txtContrasenya = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
@@ -220,14 +221,14 @@ public class JFLogin extends javax.swing.JFrame {
             }
         });
 
-        jButton_Entrar.setBackground(new java.awt.Color(255, 255, 255));
-        jButton_Entrar.setForeground(new java.awt.Color(255, 153, 51));
-        jButton_Entrar.setText("No teniu un compte? Registra't aquí ");
-        jButton_Entrar.setBorder(null);
-        jButton_Entrar.setBorderPainted(false);
-        jButton_Entrar.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistre.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistre.setForeground(new java.awt.Color(255, 153, 51));
+        btnRegistre.setText("No teniu un compte? Registra't aquí ");
+        btnRegistre.setBorder(null);
+        btnRegistre.setBorderPainted(false);
+        btnRegistre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_EntrarActionPerformed(evt);
+                btnRegistreActionPerformed(evt);
             }
         });
 
@@ -275,7 +276,7 @@ public class JFLogin extends javax.swing.JFrame {
                 .addGap(160, 160, 160))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(220, 220, 220)
-                .addComponent(jButton_Entrar, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                .addComponent(btnRegistre, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                 .addGap(180, 180, 180))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(190, 190, 190)
@@ -302,7 +303,7 @@ public class JFLogin extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
-                .addComponent(jButton_Entrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addComponent(btnRegistre, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                 .addGap(40, 40, 40)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                 .addGap(65, 65, 65))
@@ -327,16 +328,16 @@ public class JFLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EntrarActionPerformed
+    private void btnRegistreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreActionPerformed
 
-        dispose();
-        new Registre().setVisible(true);
-    }//GEN-LAST:event_jButton_EntrarActionPerformed
+        //dispose();
+        //new JFRegistre().setVisible(true);
+    }//GEN-LAST:event_btnRegistreActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
-        usuari = txtUsuari.getText().trim();
+        /*usuari = txtUsuari.getText().trim();
         contraseña = txtContrasenya.getText().trim();
 
         if (usuari.equals("") || !contraseña.equals("")){
@@ -353,7 +354,7 @@ public class JFLogin extends javax.swing.JFrame {
                     String nivell = rs.getString("nivell");
                     if (nivell.equalsIgnoreCase("Administrador")){
                         this.dispose();
-                        Principal s = new Principal();
+                        JFPrincipal s = new JFPrincipal();
                         s.DashTasques();
                         s.setVisible(true);
                          
@@ -379,7 +380,7 @@ public class JFLogin extends javax.swing.JFrame {
 
         }else{
             JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
-        }
+        }*/
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void HeaderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMousePressed
@@ -409,11 +410,11 @@ public class JFLogin extends javax.swing.JFrame {
 
     private void MaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseClicked
         // TODO add your handling code here:
-        if(this.getExtendedState()!= Principal.MAXIMIZED_BOTH){
-            this.setExtendedState(Principal.MAXIMIZED_BOTH);
+        if(this.getExtendedState()!= JFPrincipal.MAXIMIZED_BOTH){
+            this.setExtendedState(JFPrincipal.MAXIMIZED_BOTH);
 
         }else{
-            this.setExtendedState(Principal.NORMAL);
+            this.setExtendedState(JFPrincipal.NORMAL);
 
         }
     }//GEN-LAST:event_MaxMouseClicked
@@ -496,6 +497,14 @@ public class JFLogin extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -517,7 +526,7 @@ public class JFLogin extends javax.swing.JFrame {
     private javax.swing.JLabel Min;
     private javax.swing.JPanel Resize;
     public javax.swing.JButton btnEntrar;
-    private javax.swing.JButton jButton_Entrar;
+    public javax.swing.JButton btnRegistre;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

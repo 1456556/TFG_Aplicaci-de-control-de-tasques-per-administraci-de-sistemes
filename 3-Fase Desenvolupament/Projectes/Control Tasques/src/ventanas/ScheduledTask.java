@@ -6,6 +6,8 @@
 package ventanas;
 
 
+import Vista.JFPrincipal;
+import Vista.JFLogin;
 import java.text.ParseException;
 import java.util.TimerTask;
 import java.util.Date;
@@ -25,7 +27,7 @@ public class ScheduledTask extends TimerTask {
 	public void run() {
 		now = new Date(); // initialize date               
                 System.out.println("Time is :" + now);       // Display current time
-                Principal principal = new Principal();
+                JFPrincipal principal = new JFPrincipal();
                 JFLogin login = new JFLogin();
             try {
                 
