@@ -14,47 +14,211 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Vista.JFPrincipal;
-import java.awt.event.MouseListener;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
+import java.awt.Color;
+import java.awt.*;  
+import java.awt.event.*;
 
 /**
  *
  * @author Victor
  */
-public class ControladorMenu implements ActionListener {
+public class ControladorMenu implements MouseListener  {
     
     
     private JFPrincipal vis;
-
+    String newLine = System.getProperty("line.separator");
     
     public ControladorMenu(JFPrincipal vis){
     
       
         this.vis = vis;
-        //this.vis.btnTasques.addMouseListener((MouseListener) this);
+        addMouseListener(this);
+        this.vis.setVisible(true);        
+        this.vis.btnTasques.addMouseListener(this);
+        this.vis.btn_Tasques.addMouseListener( this);
+        this.vis.btnElements.addMouseListener( this);
+        this.vis.btn_Elements.addMouseListener(this);
+        this.vis.btnUsuaris.addMouseListener( this);
+        this.vis.btn_Usuaris.addMouseListener(this);
+       
+        
     
     }
+    
+  
+    
     
     
     public void inicialitzar(){
-    
-        this.vis.DashTasques.setVisible(true);
-    
+        
+        
+        Tasques modTasques = new Tasques();
+        ConsultesTasques modCTasques = new ConsultesTasques();        
+        ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis);       
+        con.inicialitzar();
+        con.MostrarTaula(vis.jTable_Tasques);
+        
+        vis.DashTasques.setVisible(true);        
+        vis.DashInfoUsuari.setVisible(false);
+        vis.DashInfoTasca.setVisible(false);
+        vis.DashNovaTasca.setVisible(false);
+        vis.DashConfiguracio.setVisible(false);         
+        vis.DashNouUsuari.setVisible(false);
+        vis.DashNouElement.setVisible(false);
+        vis.DashUsuaris.setVisible(false);
+        vis.DashElements.setVisible(false);
+        vis.DashInfoElement.setVisible(false);
+       
+        
     }
     
-    
-    public void actionPerformed(ActionEvent e){
+        
+    @Override
+    public void mouseClicked(MouseEvent e){
+        
+       
         
         if (e.getSource() == vis.btnTasques){
             
-                Tasques modTasques = new Tasques();
-                ConsultesTasques modCTasques = new ConsultesTasques();
-                JFPrincipal vistPrincipal = new JFPrincipal();
-                ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vistPrincipal);               
-                con.inicialitzar();
-                vistPrincipal.DashTasques.setVisible(true);
+            Tasques modTasques = new Tasques();
+            ConsultesTasques modCTasques = new ConsultesTasques();            
+            ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis);               
+            con.inicialitzar();
+               
+            vis.DashTasques.setVisible(true);        
+            vis.DashInfoUsuari.setVisible(false);
+            vis.DashInfoTasca.setVisible(false);
+            vis.DashNovaTasca.setVisible(false);
+            vis.DashConfiguracio.setVisible(false);         
+            vis.DashNouUsuari.setVisible(false);
+            vis.DashNouElement.setVisible(false);
+            vis.DashUsuaris.setVisible(false);
+            vis.DashElements.setVisible(false);
+            vis.DashInfoElement.setVisible(false);
         
         }
         
+        if (e.getSource() ==  vis.btn_Tasques){
+         
+            vis.DashTasques.setVisible(true);        
+            vis.DashInfoUsuari.setVisible(false);
+            vis.DashInfoTasca.setVisible(false);
+            vis.DashNovaTasca.setVisible(false);
+            vis.DashConfiguracio.setVisible(false);         
+            vis.DashNouUsuari.setVisible(false);
+            vis.DashNouElement.setVisible(false);
+            vis.DashUsuaris.setVisible(false);
+            vis.DashElements.setVisible(false);
+            vis.DashInfoElement.setVisible(false);
+            
+            
+        
+        
+        }
+        
+        if (e.getSource() ==  vis.btn_Elements){
+         
+            vis.DashTasques.setVisible(false);        
+            vis.DashInfoUsuari.setVisible(false);
+            vis.DashInfoTasca.setVisible(false);
+            vis.DashNovaTasca.setVisible(false);
+            vis.DashConfiguracio.setVisible(false);         
+            vis.DashNouUsuari.setVisible(false);
+            vis.DashNouElement.setVisible(false);
+            vis.DashUsuaris.setVisible(false);
+            vis.DashElements.setVisible(false);
+            vis.DashInfoElement.setVisible(true);
+            
+            
+        
+        
+        }
+        
+        if (e.getSource() ==  vis.btnElements){
+         
+            vis.DashTasques.setVisible(false);        
+            vis.DashInfoUsuari.setVisible(false);
+            vis.DashInfoTasca.setVisible(false);
+            vis.DashNovaTasca.setVisible(false);
+            vis.DashConfiguracio.setVisible(false);         
+            vis.DashNouUsuari.setVisible(false);
+            vis.DashNouElement.setVisible(false);
+            vis.DashUsuaris.setVisible(false);
+            vis.DashElements.setVisible(false);
+            vis.DashInfoElement.setVisible(true);
+            
+            
+        
+        
+        }
+        
+        if (e.getSource() ==  vis.btn_Usuaris){
+         
+            vis.DashTasques.setVisible(false);        
+            vis.DashInfoUsuari.setVisible(false);
+            vis.DashInfoTasca.setVisible(false);
+            vis.DashNovaTasca.setVisible(false);
+            vis.DashConfiguracio.setVisible(false);         
+            vis.DashNouUsuari.setVisible(false);
+            vis.DashNouElement.setVisible(false);
+            vis.DashUsuaris.setVisible(true);
+            vis.DashElements.setVisible(false);
+            vis.DashInfoElement.setVisible(false);
+            
+            
+        
+        
+        }
+        
+        if (e.getSource() ==  vis.btn_Usuaris){
+         
+            vis.DashTasques.setVisible(false);        
+            vis.DashInfoUsuari.setVisible(false);
+            vis.DashInfoTasca.setVisible(false);
+            vis.DashNovaTasca.setVisible(false);
+            vis.DashConfiguracio.setVisible(false);         
+            vis.DashNouUsuari.setVisible(false);
+            vis.DashNouElement.setVisible(false);
+            vis.DashUsuaris.setVisible(true);
+            vis.DashElements.setVisible(false);
+            vis.DashInfoElement.setVisible(false);
+            
+            
+        
+        
+        }
+       
+        
+        
+    }   
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
+        
     }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+       
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+       
+    }
+
+        
+        
+
+   
+
+    
     
 }

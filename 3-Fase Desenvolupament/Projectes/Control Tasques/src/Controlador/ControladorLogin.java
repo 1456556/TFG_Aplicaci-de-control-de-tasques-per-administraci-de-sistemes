@@ -16,6 +16,7 @@ import Vista.JFPrincipal;
 import Vista.JFRegistre;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 
 
@@ -25,7 +26,7 @@ import javax.swing.JOptionPane;
  *
  * @author Victor
  */
-public class ControladorLogin implements ActionListener {
+public class ControladorLogin  extends JFPrincipal implements ActionListener {
     
     private Login mod;
     private ConsultesLogin modC;
@@ -52,45 +53,36 @@ public class ControladorLogin implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e){
-    
+        System.out.println("HOlA");
         if (e.getSource() == vis.btnEntrar){
-        
+            System.out.println("HOlA");
             mod.setUsuari(vis.txtUsuari.getText().trim());
             mod.setContrasenya(String.valueOf(vis.txtContrasenya.getPassword()).trim());  
             
             //Login exitós
-            if (modC.login(mod) == 0){
+            /*if (modC.login(mod) == 0){*/
                 
                 
-                JOptionPane.showMessageDialog(null, "Inici de Sessió Correcte");
+                //JOptionPane.showMessageDialog(null, "Inici de Sessió Correcte");
                 natejar();
                 vis.dispose();
                 /*Tasques modTasques = new Tasques();
                 ConsultesTasques modCTasques = new ConsultesTasques();
                 JFPrincipal vistPrincipal = new JFPrincipal();
                 ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vistPrincipal);               
-                con.inicialitzar();
-                vistPrincipal.setVisible(true);*/
+                con.inicialitzar();*/
+                //vistPrincipal.setVisible(true);
                 
                 JFPrincipal vistPrincipal = new JFPrincipal();              
                 ControladorMenu con = new ControladorMenu(vistPrincipal);               
                 con.inicialitzar();
-                vistPrincipal.setVisible(true);
-                vistPrincipal.DashTasques.setVisible(true);
-                 vistPrincipal.DashInfoUsuari.setVisible(false);
-                 vistPrincipal.DashInfoTasca.setVisible(false);
-                 vistPrincipal.DashNovaTasca.setVisible(false);
-                 vistPrincipal.DashConfiguracio.setVisible(false);
-                 vistPrincipal.DashTasques.setVisible(true);
-                 vistPrincipal.DashNouUsuari.setVisible(false);
-                 vistPrincipal.DashNouElement.setVisible(false);
-                 vistPrincipal.DashUsuaris.setVisible(false);
-                 vistPrincipal.DashElements.setVisible(false);
-                 vistPrincipal.DashInfoElement.setVisible(false);
+                //vistPrincipal.setVisible(true);
                 
+                
+             
                 
             //Login no exitós
-            }else{
+           /* }else{
                 
                 switch (modC.login(mod)) {
                     case 1:
@@ -107,7 +99,7 @@ public class ControladorLogin implements ActionListener {
                         break;
                 }               
                 
-            }
+            }*/
         
         }
         
@@ -133,6 +125,11 @@ public class ControladorLogin implements ActionListener {
         vis.txtUsuari.setText(null);
         vis.txtContrasenya.setText(null);  
     
+    }
+
+    public void btn_ElementsMouseClicked(MouseEvent evt) {
+        // TODO add your handling code here:
+        // DashElements();
     }
     
 }
