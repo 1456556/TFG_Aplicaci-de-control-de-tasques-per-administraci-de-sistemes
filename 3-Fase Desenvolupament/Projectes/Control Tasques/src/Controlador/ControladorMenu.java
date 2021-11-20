@@ -5,10 +5,14 @@
  */
 package Controlador;
 
+import Model.ConsultesElements;
 import Model.ConsultesLogin;
 import Model.ConsultesTasques;
+import Model.ConsultesUsuaris;
+import Model.Elements;
 import Model.Login;
 import Model.Tasques;
+import Model.Usuaris;
 import Vista.JFLogin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -118,6 +122,12 @@ public class ControladorMenu implements MouseListener  {
         }
         
         if (e.getSource() ==  vis.btn_Elements){
+            
+            
+            Elements modElements = new Elements();
+            ConsultesElements modCElements = new ConsultesElements();            
+            ControladorElements con = new ControladorElements(modElements, modCElements, vis);               
+            con.inicialitzar();
          
             vis.DashTasques.setVisible(false);        
             vis.DashInfoUsuari.setVisible(false);
@@ -127,8 +137,8 @@ public class ControladorMenu implements MouseListener  {
             vis.DashNouUsuari.setVisible(false);
             vis.DashNouElement.setVisible(false);
             vis.DashUsuaris.setVisible(false);
-            vis.DashElements.setVisible(false);
-            vis.DashInfoElement.setVisible(true);
+            vis.DashElements.setVisible(true);
+            vis.DashInfoElement.setVisible(false);
             
             
         
@@ -136,6 +146,11 @@ public class ControladorMenu implements MouseListener  {
         }
         
         if (e.getSource() ==  vis.btnElements){
+            
+            Elements modElements = new Elements();
+            ConsultesElements modCElements = new ConsultesElements();            
+            ControladorElements con = new ControladorElements(modElements, modCElements, vis);               
+            con.inicialitzar();
          
             vis.DashTasques.setVisible(false);        
             vis.DashInfoUsuari.setVisible(false);
@@ -145,8 +160,8 @@ public class ControladorMenu implements MouseListener  {
             vis.DashNouUsuari.setVisible(false);
             vis.DashNouElement.setVisible(false);
             vis.DashUsuaris.setVisible(false);
-            vis.DashElements.setVisible(false);
-            vis.DashInfoElement.setVisible(true);
+            vis.DashElements.setVisible(true);
+            vis.DashInfoElement.setVisible(false);
             
             
         
@@ -154,6 +169,11 @@ public class ControladorMenu implements MouseListener  {
         }
         
         if (e.getSource() ==  vis.btn_Usuaris){
+            
+            Usuaris modUsuaris = new Usuaris();
+            ConsultesUsuaris modCUsuaris = new ConsultesUsuaris();            
+            ControladorUsuaris con = new ControladorUsuaris(modUsuaris, modCUsuaris, vis);               
+            con.inicialitzar();
          
             vis.DashTasques.setVisible(false);        
             vis.DashInfoUsuari.setVisible(false);
@@ -171,7 +191,12 @@ public class ControladorMenu implements MouseListener  {
         
         }
         
-        if (e.getSource() ==  vis.btn_Usuaris){
+        if (e.getSource() ==  vis.btnUsuaris){
+            
+             Usuaris modUsuaris = new Usuaris();
+            ConsultesUsuaris modCUsuaris = new ConsultesUsuaris();            
+            ControladorUsuaris con = new ControladorUsuaris(modUsuaris, modCUsuaris, vis);               
+            con.inicialitzar();
          
             vis.DashTasques.setVisible(false);        
             vis.DashInfoUsuari.setVisible(false);

@@ -275,10 +275,10 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        txt_buscador1 = new javax.swing.JTextField();
+        txt_buscadorElements = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        btnNovaTasca = new javax.swing.JButton();
-        Eliminar_Element = new javax.swing.JButton();
+        jButtonNouElement = new javax.swing.JButton();
+        jButtonEliminarElement = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
@@ -290,10 +290,10 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        txt_buscador = new javax.swing.JTextField();
+        txtBuscadorUsuaris = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        Nou_Usuari = new javax.swing.JButton();
-        Eliminar_Usuari = new javax.swing.JButton();
+        jButtonNouUsuari = new javax.swing.JButton();
+        jButtonEliminarUsuari = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
@@ -317,7 +317,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel16 = new javax.swing.JLabel();
         ComboEstat = new javax.swing.JComboBox<>();
         ComboNivell = new javax.swing.JComboBox<>();
-        Guardar = new javax.swing.JButton();
+        jButtonEditarUsuari = new javax.swing.JButton();
         Enrera = new javax.swing.JLabel();
         Contrasenya = new javax.swing.JButton();
         DashNouUsuari = new javax.swing.JPanel();
@@ -325,7 +325,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jButton_Registar = new javax.swing.JButton();
+        jButtonRegistarUsuari = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -343,7 +343,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jButton_RegistarElm = new javax.swing.JButton();
+        jButtonRegistarElement = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -373,7 +373,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel45 = new javax.swing.JLabel();
         ComboEstatElem2 = new javax.swing.JComboBox<>();
         ComboTipusElem2 = new javax.swing.JComboBox<>();
-        Guardar2 = new javax.swing.JButton();
+        jButtonEditarElement = new javax.swing.JButton();
         Enrera1 = new javax.swing.JLabel();
         txt_observacionsElem2 = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
@@ -867,16 +867,16 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Contador4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
         Contador4.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel51.setText("Tasques Totals");
         jLabel51.setBackground(new java.awt.Color(255, 255, 255));
         jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel51.setText("Tasques Totals");
 
-        jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
         jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel52.setText("Tasques Gestionades");
+        jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -893,8 +893,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
             }
         });
 
-        jLabel53.setForeground(new java.awt.Color(0, 0, 0));
         jLabel53.setText("Buscar :");
+        jLabel53.setForeground(new java.awt.Color(0, 0, 0));
 
         jButtonNovaTasca.setText("Nou");
 
@@ -937,23 +937,23 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        jTextField10.setBackground(new java.awt.Color(255, 153, 51));
         jTextField10.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextField10.setBackground(new java.awt.Color(255, 153, 51));
         jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField11.setBackground(new java.awt.Color(255, 153, 51));
         jTextField11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField11.setBackground(new java.awt.Color(255, 153, 51));
         jTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField12.setBackground(new java.awt.Color(255, 153, 51));
-        jTextField12.setForeground(new java.awt.Color(0, 0, 0));
         jTextField12.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField12.setBackground(new java.awt.Color(255, 153, 51));
         jTextField12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField12.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
         jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel54.setText("Tasques Asignades");
+        jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout Contador4Layout = new javax.swing.GroupLayout(Contador4);
         Contador4.setLayout(Contador4Layout);
@@ -1051,46 +1051,35 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Contador2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
         Contador2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("Tasques Totals");
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("Tasques Totals");
 
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("Tasques Gestionades");
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
-        txt_buscador1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_buscador1ActionPerformed(evt);
-            }
-        });
-        txt_buscador1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_buscador1KeyReleased(evt);
-            }
-        });
-
-        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("Buscar :");
+        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnNovaTasca.setText("Nou");
+        jButtonNouElement.setText("Nou");
 
-        Eliminar_Element.setText("Eliminar");
-        Eliminar_Element.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonEliminarElement.setText("Eliminar");
+        jButtonEliminarElement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Eliminar_ElementMouseClicked(evt);
+                jButtonEliminarElementMouseClicked(evt);
             }
         });
-        Eliminar_Element.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEliminarElement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Eliminar_ElementActionPerformed(evt);
+                jButtonEliminarElementActionPerformed(evt);
             }
         });
 
@@ -1100,13 +1089,13 @@ public class JFPrincipal extends javax.swing.JFrame  {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(btnNovaTasca)
+                .addComponent(jButtonNouElement)
                 .addGap(18, 18, 18)
-                .addComponent(Eliminar_Element)
+                .addComponent(jButtonEliminarElement)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_buscador1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_buscadorElements, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
         jPanel3Layout.setVerticalGroup(
@@ -1114,30 +1103,30 @@ public class JFPrincipal extends javax.swing.JFrame  {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_buscador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_buscadorElements, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27)
-                    .addComponent(Eliminar_Element)
-                    .addComponent(btnNovaTasca))
+                    .addComponent(jButtonEliminarElement)
+                    .addComponent(jButtonNouElement))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        jTextField2.setBackground(new java.awt.Color(255, 153, 51));
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextField2.setBackground(new java.awt.Color(255, 153, 51));
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField5.setBackground(new java.awt.Color(255, 153, 51));
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField5.setBackground(new java.awt.Color(255, 153, 51));
         jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField6.setBackground(new java.awt.Color(255, 153, 51));
-        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField6.setBackground(new java.awt.Color(255, 153, 51));
         jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText("Tasques Asignades");
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout Contador2Layout = new javax.swing.GroupLayout(Contador2);
         Contador2.setLayout(Contador2Layout);
@@ -1235,51 +1224,51 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Contador1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
         Contador1.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Tasques Totals");
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Tasques Totals");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Tasques Gestionades");
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        txt_buscador.addActionListener(new java.awt.event.ActionListener() {
+        txtBuscadorUsuaris.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_buscadorActionPerformed(evt);
+                txtBuscadorUsuarisActionPerformed(evt);
             }
         });
-        txt_buscador.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtBuscadorUsuaris.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_buscadorKeyReleased(evt);
+                txtBuscadorUsuarisKeyReleased(evt);
             }
         });
 
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Buscar :");
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
 
-        Nou_Usuari.setText("Nou");
-        Nou_Usuari.addActionListener(new java.awt.event.ActionListener() {
+        jButtonNouUsuari.setText("Nou");
+        jButtonNouUsuari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Nou_UsuariActionPerformed(evt);
+                jButtonNouUsuariActionPerformed(evt);
             }
         });
 
-        Eliminar_Usuari.setText("Eliminar");
-        Eliminar_Usuari.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonEliminarUsuari.setText("Eliminar");
+        jButtonEliminarUsuari.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Eliminar_UsuariMouseClicked(evt);
+                jButtonEliminarUsuariMouseClicked(evt);
             }
         });
-        Eliminar_Usuari.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEliminarUsuari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Eliminar_UsuariActionPerformed(evt);
+                jButtonEliminarUsuariActionPerformed(evt);
             }
         });
 
@@ -1289,13 +1278,13 @@ public class JFPrincipal extends javax.swing.JFrame  {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(Nou_Usuari)
+                .addComponent(jButtonNouUsuari)
                 .addGap(18, 18, 18)
-                .addComponent(Eliminar_Usuari)
+                .addComponent(jButtonEliminarUsuari)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscadorUsuaris, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1303,30 +1292,30 @@ public class JFPrincipal extends javax.swing.JFrame  {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscadorUsuaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(Eliminar_Usuari)
-                    .addComponent(Nou_Usuari))
+                    .addComponent(jButtonEliminarUsuari)
+                    .addComponent(jButtonNouUsuari))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextField1.setBackground(new java.awt.Color(255, 153, 51));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextField1.setBackground(new java.awt.Color(255, 153, 51));
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField3.setBackground(new java.awt.Color(255, 153, 51));
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField3.setBackground(new java.awt.Color(255, 153, 51));
         jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField4.setBackground(new java.awt.Color(255, 153, 51));
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField4.setBackground(new java.awt.Color(255, 153, 51));
         jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("Tasques Asignades");
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout Contador1Layout = new javax.swing.GroupLayout(Contador1);
         Contador1.setLayout(Contador1Layout);
@@ -1432,9 +1421,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         DashInfoUsuari.setBackground(new java.awt.Color(255, 255, 255));
         DashInfoUsuari.setForeground(new java.awt.Color(51, 51, 255));
 
+        jLabel8.setText("Informació Usuari");
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Informació Usuari");
 
         txt_telefon.setBackground(new java.awt.Color(255, 153, 51));
         txt_telefon.setForeground(new java.awt.Color(255, 255, 255));
@@ -1456,67 +1445,67 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_usuari.setBackground(new java.awt.Color(255, 153, 51));
         txt_usuari.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel9.setText("Nom:");
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Nom:");
 
+        jLabel10.setText("Telefon:");
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Telefon:");
 
+        jLabel11.setText("Cognom:");
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Cognom:");
 
+        jLabel12.setText("Email:");
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Email:");
 
+        jLabel13.setText("Usuari:");
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Usuari:");
 
+        jLabel14.setText("Nivell:");
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("Nivell:");
 
+        jLabel16.setText("Estat:");
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel16.setText("Estat:");
 
+        ComboEstat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
         ComboEstat.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstat.setForeground(new java.awt.Color(255, 255, 255));
-        ComboEstat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
 
+        ComboNivell.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell.setBackground(new java.awt.Color(255, 153, 51));
         ComboNivell.setForeground(new java.awt.Color(255, 255, 255));
-        ComboNivell.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboNivellActionPerformed(evt);
             }
         });
 
-        Guardar.setBackground(new java.awt.Color(255, 153, 51));
-        Guardar.setForeground(new java.awt.Color(255, 255, 255));
-        Guardar.setText("Guardar");
-        Guardar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonEditarUsuari.setText("Guardar");
+        jButtonEditarUsuari.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonEditarUsuari.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEditarUsuari.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                GuardarMouseClicked(evt);
+                jButtonEditarUsuariMouseClicked(evt);
             }
         });
-        Guardar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEditarUsuari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarActionPerformed(evt);
+                jButtonEditarUsuariActionPerformed(evt);
             }
         });
 
         Enrera.setBackground(new java.awt.Color(0, 0, 0));
         Enrera.setForeground(new java.awt.Color(0, 0, 0));
 
+        Contrasenya.setText("Actualitzar Contrassenya");
         Contrasenya.setBackground(new java.awt.Color(255, 153, 51));
         Contrasenya.setForeground(new java.awt.Color(255, 255, 255));
-        Contrasenya.setText("Actualitzar Contrassenya");
         Contrasenya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContrasenyaActionPerformed(evt);
@@ -1569,7 +1558,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                         .addComponent(jLabel8))
                     .addGroup(DashInfoUsuariLayout.createSequentialGroup()
                         .addGap(272, 272, 272)
-                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonEditarUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
         DashInfoUsuariLayout.setVerticalGroup(
@@ -1612,7 +1601,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                             .addComponent(jLabel12)
                             .addComponent(Contrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)))
-                .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonEditarUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
         );
 
@@ -1621,75 +1610,75 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_usuari1.setBackground(new java.awt.Color(255, 153, 51));
         txt_usuari1.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel15.setText("Nou Usuari");
         jLabel15.setBackground(new java.awt.Color(255, 153, 51));
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel15.setText("Nou Usuari");
 
+        jLabel17.setText("Cognom");
         jLabel17.setBackground(new java.awt.Color(255, 153, 51));
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel17.setText("Cognom");
 
+        jLabel18.setText("Email");
         jLabel18.setBackground(new java.awt.Color(255, 153, 51));
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel18.setText("Email");
 
-        jButton_Registar.setBackground(new java.awt.Color(255, 153, 51));
-        jButton_Registar.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Registar.setText("Guardar");
-        jButton_Registar.setBorder(null);
-        jButton_Registar.setBorderPainted(false);
-        jButton_Registar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton_Registar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonRegistarUsuari.setText("Guardar");
+        jButtonRegistarUsuari.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonRegistarUsuari.setBorder(null);
+        jButtonRegistarUsuari.setBorderPainted(false);
+        jButtonRegistarUsuari.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistarUsuari.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonRegistarUsuari.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_RegistarMouseClicked(evt);
+                jButtonRegistarUsuariMouseClicked(evt);
             }
         });
-        jButton_Registar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistarUsuari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_RegistarActionPerformed(evt);
+                jButtonRegistarUsuariActionPerformed(evt);
             }
         });
 
+        jLabel19.setText("Usuari");
         jLabel19.setBackground(new java.awt.Color(255, 153, 51));
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel19.setText("Usuari");
 
+        jLabel20.setText("Nom");
         jLabel20.setBackground(new java.awt.Color(0, 0, 0));
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel20.setText("Nom");
 
+        jLabel21.setText("Telèfon");
         jLabel21.setBackground(new java.awt.Color(255, 153, 51));
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel21.setText("Telèfon");
 
+        jLabel22.setText("Nivell");
         jLabel22.setBackground(new java.awt.Color(255, 153, 51));
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel22.setText("Nivell");
 
+        jLabel24.setText("Estat");
         jLabel24.setBackground(new java.awt.Color(255, 153, 51));
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel24.setText("Estat");
 
+        ComboNivell1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell1.setBackground(new java.awt.Color(255, 153, 51));
         ComboNivell1.setForeground(new java.awt.Color(255, 255, 255));
-        ComboNivell1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboNivell1ActionPerformed(evt);
             }
         });
 
+        ComboEstat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
         ComboEstat1.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstat1.setForeground(new java.awt.Color(255, 255, 255));
-        ComboEstat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
 
         txt_nom1.setBackground(new java.awt.Color(255, 153, 51));
         txt_nom1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1709,7 +1698,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
             DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashNouUsuariLayout.createSequentialGroup()
                 .addGap(346, 346, 346)
-                .addComponent(jButton_Registar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonRegistarUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashNouUsuariLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1778,7 +1767,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_mail1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)))
-                .addComponent(jButton_Registar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonRegistarUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -1809,23 +1798,23 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel31.setText("Marca");
         jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 95, -1, -1));
 
-        jButton_RegistarElm.setBackground(new java.awt.Color(255, 153, 51));
-        jButton_RegistarElm.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_RegistarElm.setText("Guardar");
-        jButton_RegistarElm.setBorder(null);
-        jButton_RegistarElm.setBorderPainted(false);
-        jButton_RegistarElm.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton_RegistarElm.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonRegistarElement.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonRegistarElement.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistarElement.setText("Guardar");
+        jButtonRegistarElement.setBorder(null);
+        jButtonRegistarElement.setBorderPainted(false);
+        jButtonRegistarElement.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonRegistarElement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_RegistarElmMouseClicked(evt);
+                jButtonRegistarElementMouseClicked(evt);
             }
         });
-        jButton_RegistarElm.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistarElement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_RegistarElmActionPerformed(evt);
+                jButtonRegistarElementActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton_RegistarElm, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 407, 150, 30));
+        jPanel4.add(jButtonRegistarElement, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 407, 150, 30));
 
         jLabel32.setBackground(new java.awt.Color(255, 153, 51));
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1860,11 +1849,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
         ComboTipus.setBackground(new java.awt.Color(255, 153, 51));
         ComboTipus.setForeground(new java.awt.Color(255, 255, 255));
         ComboTipus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordinador", "Portatil", "SmartPhone", "Impresora" }));
-        ComboTipus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboTipusActionPerformed(evt);
-            }
-        });
         jPanel4.add(ComboTipus, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 328, 151, 30));
 
         ComboEstatElem.setBackground(new java.awt.Color(255, 153, 51));
@@ -1918,9 +1902,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         DashInfoElement.setBackground(new java.awt.Color(255, 255, 255));
         DashInfoElement.setForeground(new java.awt.Color(51, 51, 255));
 
+        jLabel38.setText("Informació Element");
         jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel38.setText("Informació Element");
 
         txt_numeroserieElem2.setBackground(new java.awt.Color(255, 153, 51));
         txt_numeroserieElem2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1930,11 +1914,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
         txt_usuariElem2.setBackground(new java.awt.Color(255, 153, 51));
         txt_usuariElem2.setForeground(new java.awt.Color(255, 255, 255));
-        txt_usuariElem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_usuariElem2ActionPerformed(evt);
-            }
-        });
 
         txt_marcaElem2.setBackground(new java.awt.Color(255, 153, 51));
         txt_marcaElem2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1942,58 +1921,53 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_modelElem2.setBackground(new java.awt.Color(255, 153, 51));
         txt_modelElem2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel39.setText("Nom:");
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel39.setText("Nom:");
 
+        jLabel40.setText("Número Serie:");
         jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel40.setText("Número Serie:");
 
+        jLabel41.setText("Usuari:");
         jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel41.setText("Usuari:");
 
+        jLabel42.setText("Marca:");
         jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel42.setText("Marca:");
 
+        jLabel43.setText("Model:");
         jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel43.setText("Model:");
 
+        jLabel44.setText("Tipus:");
         jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel44.setText("Tipus:");
 
+        jLabel45.setText("Estat:");
         jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel45.setText("Estat:");
 
+        ComboEstatElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
         ComboEstatElem2.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstatElem2.setForeground(new java.awt.Color(255, 255, 255));
-        ComboEstatElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
 
+        ComboTipusElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordinador", "Portatil", "SmartPhone", "Impresora" }));
         ComboTipusElem2.setBackground(new java.awt.Color(255, 153, 51));
         ComboTipusElem2.setForeground(new java.awt.Color(255, 255, 255));
-        ComboTipusElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordinador", "Portatil", "SmartPhone", "Impresora" }));
-        ComboTipusElem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboTipusElem2ActionPerformed(evt);
-            }
-        });
 
-        Guardar2.setBackground(new java.awt.Color(255, 153, 51));
-        Guardar2.setForeground(new java.awt.Color(255, 255, 255));
-        Guardar2.setText("Guardar");
-        Guardar2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonEditarElement.setText("Guardar");
+        jButtonEditarElement.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonEditarElement.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEditarElement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Guardar2MouseClicked(evt);
+                jButtonEditarElementMouseClicked(evt);
             }
         });
-        Guardar2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEditarElement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Guardar2ActionPerformed(evt);
+                jButtonEditarElementActionPerformed(evt);
             }
         });
 
@@ -2003,9 +1977,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_observacionsElem2.setBackground(new java.awt.Color(255, 153, 51));
         txt_observacionsElem2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel46.setText("Observacions:");
         jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel46.setText("Observacions:");
 
         javax.swing.GroupLayout DashInfoElementLayout = new javax.swing.GroupLayout(DashInfoElement);
         DashInfoElement.setLayout(DashInfoElementLayout);
@@ -2056,7 +2030,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                         .addComponent(jLabel38))
                     .addGroup(DashInfoElementLayout.createSequentialGroup()
                         .addGap(272, 272, 272)
-                        .addComponent(Guardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonEditarElement, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         DashInfoElementLayout.setVerticalGroup(
@@ -2097,7 +2071,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                                 .addComponent(jLabel46))
                             .addComponent(txt_marcaElem2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)))
-                .addComponent(Guardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonEditarElement, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
         );
 
@@ -2202,9 +2176,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         DashInfoTasca.setBackground(new java.awt.Color(255, 255, 255));
         DashInfoTasca.setForeground(new java.awt.Color(51, 51, 255));
 
+        jLabel56.setText("Informació Tasca");
         jLabel56.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel56.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel56.setText("Informació Tasca");
 
         txt_titolTasc2.setBackground(new java.awt.Color(255, 153, 51));
         txt_titolTasc2.setForeground(new java.awt.Color(255, 255, 255));
@@ -2217,33 +2191,33 @@ public class JFPrincipal extends javax.swing.JFrame  {
             }
         });
 
+        jLabel57.setText("Titol:");
         jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel57.setText("Titol:");
 
+        jLabel60.setText("Prioritat: ");
         jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel60.setText("Prioritat: ");
 
+        jLabel61.setText("Usuari:");
         jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel61.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel61.setText("Usuari:");
 
+        jLabel62.setText("Data:");
         jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel62.setText("Data:");
 
+        jLabel65.setText("Estat:");
         jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel65.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel65.setText("Estat:");
 
+        ComboEstatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
         ComboEstatTasc2.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstatTasc2.setForeground(new java.awt.Color(255, 255, 255));
-        ComboEstatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
 
+        jButtonEditarTasca.setText("Guardar");
         jButtonEditarTasca.setBackground(new java.awt.Color(255, 153, 51));
         jButtonEditarTasca.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonEditarTasca.setText("Guardar");
         jButtonEditarTasca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonEditarTascaMouseClicked(evt);
@@ -2261,13 +2235,13 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_descripcioTasc2.setBackground(new java.awt.Color(255, 153, 51));
         txt_descripcioTasc2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel66.setText("Descripció:");
         jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel66.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel66.setText("Descripció:");
 
+        ComboPrioritatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitjana", "Alta", "Urgent", "Prioritaria" }));
         ComboPrioritatTasc2.setBackground(new java.awt.Color(255, 153, 51));
         ComboPrioritatTasc2.setForeground(new java.awt.Color(255, 255, 255));
-        ComboPrioritatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitjana", "Alta", "Urgent", "Prioritaria" }));
 
         javax.swing.GroupLayout DashInfoTascaLayout = new javax.swing.GroupLayout(DashInfoTasca);
         DashInfoTasca.setLayout(DashInfoTascaLayout);
@@ -2794,19 +2768,19 @@ public class JFPrincipal extends javax.swing.JFrame  {
         
     }//GEN-LAST:event_btnUsuarisMouseReleased
 
-    private void txt_buscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscadorActionPerformed
+    private void txtBuscadorUsuarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscadorUsuarisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_buscadorActionPerformed
+    }//GEN-LAST:event_txtBuscadorUsuarisActionPerformed
 
     private void ComboNivellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNivellActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboNivellActionPerformed
 
-    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+    private void jButtonEditarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarUsuariActionPerformed
         // TODO add your handling code here:
         
         
-    }//GEN-LAST:event_GuardarActionPerformed
+    }//GEN-LAST:event_jButtonEditarUsuariActionPerformed
 
     private void txt_cognomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cognomActionPerformed
         // TODO add your handling code here:
@@ -2818,15 +2792,15 @@ public class JFPrincipal extends javax.swing.JFrame  {
         new Contrasenya().setVisible(true);
     }//GEN-LAST:event_ContrasenyaActionPerformed
 
-    private void Eliminar_UsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_UsuariActionPerformed
+    private void jButtonEliminarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuariActionPerformed
         // TODO add your handling code here:
             
-    }//GEN-LAST:event_Eliminar_UsuariActionPerformed
+    }//GEN-LAST:event_jButtonEliminarUsuariActionPerformed
 
     //Pantalla Usuaris
     public void DashUsuaris() {
 
-        DashInfoUsuari.setVisible(false);
+      /*  DashInfoUsuari.setVisible(false);
         DashConfiguracio.setVisible(false);
         DashTasques.setVisible(false);
         DashNouUsuari.setVisible(false);
@@ -2912,14 +2886,14 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
             }
 
-        });
+        });*/
 
     }
 
     //Mostra informacio detallada dels usuaris
     public void informacioUsuari(String user) {
 
-        System.out.print(user);
+       /* System.out.print(user);
         
         try {
             Connection cn = Conexio.conectar();
@@ -2948,7 +2922,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
             System.err.println("Error al solicitar les dades d'usuari" + e);
             JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
 
-        }
+        }*/
     }
 
     public boolean IsSelected(int fila, int columna, JTable taula) {
@@ -2959,10 +2933,10 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     }
 
-    private void Eliminar_UsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Eliminar_UsuariMouseClicked
+    private void jButtonEliminarUsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuariMouseClicked
         // TODO add your handling code here:
 
-        for (int i = 0; i < jTable_Usuaris.getRowCount(); i++) {
+      /*  for (int i = 0; i < jTable_Usuaris.getRowCount(); i++) {
             Boolean checked = Boolean.valueOf(jTable_Usuaris.getValueAt(i, 0).toString());
             String col = jTable_Usuaris.getValueAt(i, 1).toString();
 
@@ -2972,20 +2946,20 @@ public class JFPrincipal extends javax.swing.JFrame  {
 //                eliminarRegistre(jTable_Usuaris.getValueAt(i, 3).toString());
             }
         }
-        DashUsuaris();
+        DashUsuaris();*/
 
-    }//GEN-LAST:event_Eliminar_UsuariMouseClicked
+    }//GEN-LAST:event_jButtonEliminarUsuariMouseClicked
 
-    private void txt_buscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscadorKeyReleased
+    private void txtBuscadorUsuarisKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscadorUsuarisKeyReleased
         // TODO add your handling code here:
        // BuscarUsuaris(txt_buscador.getText());
-    }//GEN-LAST:event_txt_buscadorKeyReleased
+    }//GEN-LAST:event_txtBuscadorUsuarisKeyReleased
 
-    private void Nou_UsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nou_UsuariActionPerformed
+    private void jButtonNouUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNouUsuariActionPerformed
         // TODO add your handling code here:   
-        DashUsuaris.setVisible(false);
-        DashNouUsuari.setVisible(true);
-    }//GEN-LAST:event_Nou_UsuariActionPerformed
+        //DashUsuaris.setVisible(false);
+        //DashNouUsuari.setVisible(true);
+    }//GEN-LAST:event_jButtonNouUsuariActionPerformed
 
     public void Natejar() {
 
@@ -2994,8 +2968,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_cognom1.setText(" ");
         txt_usuari1.setText(" ");        
         txt_mail1.setText(" ");
-        txt_buscador.setText("");
-        txt_buscador1.setText("");
+        txtBuscadorUsuaris.setText("");
+        txt_buscadorElements.setText("");
         
         txt_nomElem.setText("");
         txt_usuariassignat.setText("");
@@ -3023,7 +2997,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     }
 
     //Modificar Usuari
-    private void GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMouseClicked
+    private void jButtonEditarUsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarUsuariMouseClicked
         // TODO add your handling code here:
         int nivell, estat, validacio = 0;
         String nom, cognom, mail, telefon, usuari, nivell_string = "", estat_string = "";
@@ -3140,17 +3114,17 @@ public class JFPrincipal extends javax.swing.JFrame  {
         }
 
         
-    }//GEN-LAST:event_GuardarMouseClicked
+    }//GEN-LAST:event_jButtonEditarUsuariMouseClicked
 
     private void ComboNivell1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNivell1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboNivell1ActionPerformed
 
     //Crear usuaris
-    private void jButton_RegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarActionPerformed
+    private void jButtonRegistarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarUsuariActionPerformed
         // TODO add your handling code here:
 
-        int  nivell, estat, validacio = 0;
+     /*  int  nivell, estat, validacio = 0;
         String nom, cognom, mail, telefon, usuari,contrasenya, nivell_string=" ", estat_string=" ";
 
         mail = txt_mail1.getText().trim();
@@ -3247,7 +3221,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                     txt_telefon.setBackground(Color.green);
                     txt_usuari.setBackground(Color.green);
                     ComboEstat.setBackground(Color.green);
-                    ComboNivell.setBackground(Color.green);*/
+                    ComboNivell.setBackground(Color.green);
 
                     JOptionPane.showMessageDialog(null, "Usuari Creat Correctament!");
                     DashNouUsuari.setVisible(false);
@@ -3264,24 +3238,15 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
             JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
 
-        }
+        }*/
 
-    }//GEN-LAST:event_jButton_RegistarActionPerformed
+    }//GEN-LAST:event_jButtonRegistarUsuariActionPerformed
 
-    private void jButton_RegistarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarMouseClicked
+    private void jButtonRegistarUsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistarUsuariMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_RegistarMouseClicked
+    }//GEN-LAST:event_jButtonRegistarUsuariMouseClicked
 
-    private void txt_buscador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscador1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_buscador1ActionPerformed
-
-    private void txt_buscador1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscador1KeyReleased
-        // TODO add your handling code here:
-        BuscarElements(txt_buscador1.getText());
-    }//GEN-LAST:event_txt_buscador1KeyReleased
-
-    private void Eliminar_ElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Eliminar_ElementMouseClicked
+    private void jButtonEliminarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarElementMouseClicked
         // TODO add your handling code here:
         
          for (int i = 0; i < jTable_Elements.getRowCount(); i++) {
@@ -3295,15 +3260,15 @@ public class JFPrincipal extends javax.swing.JFrame  {
             }
         }
         //DashElements();
-    }//GEN-LAST:event_Eliminar_ElementMouseClicked
+    }//GEN-LAST:event_jButtonEliminarElementMouseClicked
 
-    private void Eliminar_ElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_ElementActionPerformed
+    private void jButtonEliminarElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarElementActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Eliminar_ElementActionPerformed
+    }//GEN-LAST:event_jButtonEliminarElementActionPerformed
     //Crear Elements
-    private void jButton_RegistarElmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RegistarElmMouseClicked
+    private void jButtonRegistarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistarElementMouseClicked
         // TODO add your handling code here:
-        int  tipus, estat, validacio = 0;
+/*        int  tipus, estat, validacio = 0;
         String nom, usuari, marca, model, numero_serie, observacions, tipus_string=" ", estat_string=" ";
 
        
@@ -3421,31 +3386,19 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
             JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
 
-        }
+        }*/
 
-    }//GEN-LAST:event_jButton_RegistarElmMouseClicked
+    }//GEN-LAST:event_jButtonRegistarElementMouseClicked
 
-    private void jButton_RegistarElmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarElmActionPerformed
+    private void jButtonRegistarElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarElementActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_RegistarElmActionPerformed
-
-    private void ComboTipusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboTipusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboTipusActionPerformed
-
-    private void txt_usuariElem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuariElem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_usuariElem2ActionPerformed
-
-    private void ComboTipusElem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboTipusElem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboTipusElem2ActionPerformed
+    }//GEN-LAST:event_jButtonRegistarElementActionPerformed
 
     //Modificacio ELements
-    private void Guardar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Guardar2MouseClicked
+    private void jButtonEditarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarElementMouseClicked
         // TODO add your handling code here:
         
-        int  tipus, estat, validacio = 0;
+      /*  int  tipus, estat, validacio = 0;
         String nom, usuari, marca, model, numero_serie, observacions, tipus_string=" ", estat_string=" ";
 
          
@@ -3562,13 +3515,13 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
             JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
 
-        }       
+        }   */    
 
-    }//GEN-LAST:event_Guardar2MouseClicked
+    }//GEN-LAST:event_jButtonEditarElementMouseClicked
 
-    private void Guardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar2ActionPerformed
+    private void jButtonEditarElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarElementActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Guardar2ActionPerformed
+    }//GEN-LAST:event_jButtonEditarElementActionPerformed
 
     private void txtBuscadorTasquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscadorTasquesActionPerformed
         // TODO add your handling code here:
@@ -3578,7 +3531,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         // TODO add your handling code here:
         
         
-        BuscarTasques(txtBuscadorTasques.getText());
+       // BuscarTasques(txtBuscadorTasques.getText());
     }//GEN-LAST:event_txtBuscadorTasquesKeyReleased
 
     private void jButtonEliminarTascaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarTascaMouseClicked
@@ -4153,7 +4106,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         }
     }*/
     
-    public void BuscarTasques(String buscarTasc){  
+   /* public void BuscarTasques(String buscarTasc){  
 
         DefaultTableModel modelTasc = new DefaultTableModel();
                  
@@ -4224,7 +4177,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
         });  
      
-     }
+     }*/
     
        public void recordatori(Date date) throws InterruptedException, ParseException{
        
@@ -4405,23 +4358,23 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JPanel ButtonMax;
     private javax.swing.JPanel ButtonMin;
     private javax.swing.JLabel Close;
-    private javax.swing.JComboBox<String> ComboEstat;
-    private javax.swing.JComboBox<String> ComboEstat1;
-    private javax.swing.JComboBox<String> ComboEstatElem;
-    private javax.swing.JComboBox<String> ComboEstatElem2;
+    public javax.swing.JComboBox<String> ComboEstat;
+    public javax.swing.JComboBox<String> ComboEstat1;
+    public javax.swing.JComboBox<String> ComboEstatElem;
+    public javax.swing.JComboBox<String> ComboEstatElem2;
     public javax.swing.JComboBox<String> ComboEstatElem3;
     public javax.swing.JComboBox<String> ComboEstatTasc2;
-    private javax.swing.JComboBox<String> ComboNivell;
-    private javax.swing.JComboBox<String> ComboNivell1;
+    public javax.swing.JComboBox<String> ComboNivell;
+    public javax.swing.JComboBox<String> ComboNivell1;
     public javax.swing.JComboBox<String> ComboPrioritatTasc;
     public javax.swing.JComboBox<String> ComboPrioritatTasc2;
-    private javax.swing.JComboBox<String> ComboTipus;
-    private javax.swing.JComboBox<String> ComboTipusElem2;
+    public javax.swing.JComboBox<String> ComboTipus;
+    public javax.swing.JComboBox<String> ComboTipusElem2;
     private javax.swing.JPanel Configuracio;
     private javax.swing.JPanel Contador1;
     private javax.swing.JPanel Contador2;
     private javax.swing.JPanel Contador4;
-    private javax.swing.JButton Contrasenya;
+    public javax.swing.JButton Contrasenya;
     public javax.swing.JPanel DashBoardView;
     public javax.swing.JPanel DashConfiguracio;
     public javax.swing.JPanel DashElements;
@@ -4434,14 +4387,10 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JPanel DashTasques;
     public javax.swing.JPanel DashUsuaris;
     private javax.swing.JPanel Elements;
-    private javax.swing.JButton Eliminar_Element;
-    private javax.swing.JButton Eliminar_Usuari;
     private javax.swing.JLabel Enrera;
     private javax.swing.JLabel Enrera1;
     private javax.swing.JLabel Enrera2;
     private javax.swing.JPanel Grups;
-    private javax.swing.JButton Guardar;
-    private javax.swing.JButton Guardar2;
     public javax.swing.JPanel Header;
     private javax.swing.JPanel HideMenu;
     public javax.swing.JPanel IconMinMaxClose;
@@ -4463,13 +4412,11 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JPanel N_LiniaTasques;
     private javax.swing.JPanel N_Tasques;
     private javax.swing.JPanel N_Usuaris;
-    private javax.swing.JButton Nou_Usuari;
     private javax.swing.JPanel Tasques;
     private javax.swing.JPanel Usuaris;
     public javax.swing.JLabel btnConfiguracio;
     public javax.swing.JLabel btnElements;
     public javax.swing.JLabel btnGrup;
-    public javax.swing.JButton btnNovaTasca;
     public javax.swing.JLabel btnTasques;
     public javax.swing.JLabel btnUsuaris;
     public javax.swing.JLabel btn_Configuracio;
@@ -4479,12 +4426,18 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JLabel btn_Usuaris;
     public com.github.lgooddatepicker.components.DateTimePicker dateTimePicker;
     public com.github.lgooddatepicker.components.DateTimePicker dateTimePicker1;
+    public javax.swing.JButton jButtonEditarElement;
     public javax.swing.JButton jButtonEditarTasca;
+    public javax.swing.JButton jButtonEditarUsuari;
+    public javax.swing.JButton jButtonEliminarElement;
     public javax.swing.JButton jButtonEliminarTasca;
+    public javax.swing.JButton jButtonEliminarUsuari;
+    public javax.swing.JButton jButtonNouElement;
+    public javax.swing.JButton jButtonNouUsuari;
     public javax.swing.JButton jButtonNovaTasca;
+    public javax.swing.JButton jButtonRegistarElement;
     public javax.swing.JButton jButtonRegistarTasca;
-    private javax.swing.JButton jButton_Registar;
-    private javax.swing.JButton jButton_RegistarElm;
+    public javax.swing.JButton jButtonRegistarUsuari;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -4552,10 +4505,10 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JPanel jPanel6;
     public javax.swing.JScrollPane jScrollPane_Elements;
     public javax.swing.JScrollPane jScrollPane_Tasques;
-    private javax.swing.JScrollPane jScrollPane_Usuaris;
+    public javax.swing.JScrollPane jScrollPane_Usuaris;
     public javax.swing.JTable jTable_Elements;
     public javax.swing.JTable jTable_Tasques;
-    private javax.swing.JTable jTable_Usuaris;
+    public javax.swing.JTable jTable_Usuaris;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -4566,35 +4519,35 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     public javax.swing.JTextField txtBuscadorTasques;
-    private javax.swing.JTextField txt_buscador;
-    private javax.swing.JTextField txt_buscador1;
-    private javax.swing.JTextField txt_cognom;
-    private javax.swing.JTextField txt_cognom1;
+    public javax.swing.JTextField txtBuscadorUsuaris;
+    public javax.swing.JTextField txt_buscadorElements;
+    public javax.swing.JTextField txt_cognom;
+    public javax.swing.JTextField txt_cognom1;
     public javax.swing.JTextField txt_descripcioTasc;
     public javax.swing.JTextField txt_descripcioTasc2;
-    private javax.swing.JTextField txt_email;
-    private javax.swing.JTextField txt_mail1;
-    private javax.swing.JTextField txt_marca;
-    private javax.swing.JTextField txt_marcaElem2;
-    private javax.swing.JTextField txt_model;
-    private javax.swing.JTextField txt_modelElem2;
-    private javax.swing.JTextField txt_nom;
-    private javax.swing.JTextField txt_nom1;
-    private javax.swing.JTextField txt_nomElem;
-    private javax.swing.JTextField txt_nomElem2;
-    private javax.swing.JTextField txt_numeroserieElem2;
-    private javax.swing.JTextField txt_numserie;
-    private javax.swing.JTextField txt_observacions;
-    private javax.swing.JTextField txt_observacionsElem2;
-    private javax.swing.JTextField txt_telefon;
-    private javax.swing.JTextField txt_telefon1;
+    public javax.swing.JTextField txt_email;
+    public javax.swing.JTextField txt_mail1;
+    public javax.swing.JTextField txt_marca;
+    public javax.swing.JTextField txt_marcaElem2;
+    public javax.swing.JTextField txt_model;
+    public javax.swing.JTextField txt_modelElem2;
+    public javax.swing.JTextField txt_nom;
+    public javax.swing.JTextField txt_nom1;
+    public javax.swing.JTextField txt_nomElem;
+    public javax.swing.JTextField txt_nomElem2;
+    public javax.swing.JTextField txt_numeroserieElem2;
+    public javax.swing.JTextField txt_numserie;
+    public javax.swing.JTextField txt_observacions;
+    public javax.swing.JTextField txt_observacionsElem2;
+    public javax.swing.JTextField txt_telefon;
+    public javax.swing.JTextField txt_telefon1;
     public javax.swing.JTextField txt_titolTasc;
     public javax.swing.JTextField txt_titolTasc2;
-    private javax.swing.JTextField txt_usuari;
-    private javax.swing.JTextField txt_usuari1;
-    private javax.swing.JTextField txt_usuariElem2;
+    public javax.swing.JTextField txt_usuari;
+    public javax.swing.JTextField txt_usuari1;
+    public javax.swing.JTextField txt_usuariElem2;
     public javax.swing.JTextField txt_usuariTasc2;
-    private javax.swing.JTextField txt_usuariassignat;
+    public javax.swing.JTextField txt_usuariassignat;
     public javax.swing.JTextField txt_usuariassignatTasc;
     // End of variables declaration//GEN-END:variables
 

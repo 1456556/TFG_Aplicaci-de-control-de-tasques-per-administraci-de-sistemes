@@ -43,7 +43,7 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Victor
  */
-public class ControladorTasques extends JFPrincipal implements ActionListener, MouseListener, KeyListener  {
+public class ControladorTasques  implements ActionListener, MouseListener, KeyListener  {
     
     private Tasques mod;
     private ConsultesTasques modC;
@@ -62,12 +62,10 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         this.vis.jButtonNovaTasca.addActionListener(this);
         this.vis.jButtonRegistarTasca.addActionListener(this);
         this.vis.jButtonEditarTasca.addActionListener(this);
-        this.vis.jButtonEliminarTasca.addActionListener(this);
-        
-        
-        this.vis.jTable_Tasques.addMouseListener(this);
-        
+        this.vis.jButtonEliminarTasca.addActionListener(this); 
+        this.vis.jTable_Tasques.addMouseListener(this);        
         this.vis.txtBuscadorTasques.addKeyListener(this);
+        
             
     }
    
@@ -271,9 +269,14 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
                      int id  = (int) modelTasques.getValueAt(i,6);
                      mod.setId(id);
-                     modC.EliminarTasca(mod);
+                     if (modC.EliminarTasca(mod) == false){
+                     
+                         JOptionPane.showMessageDialog(null, "Error al eliminar la tasca, contacti amb l'administrador");
+                     
+                     }
                  }
              }
+             
              MostrarTaula(vis.jTable_Tasques);
 
          }
@@ -327,16 +330,12 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
         }
          
-            vis.jTable_Tasques.setModel(model_tasques);
-             modelTasques = model_tasques;
-             addCheckBox(0, vis.jTable_Tasques);
+            vis.jTable_Tasques.setModel(model_tasques);            
+            modelTasques = model_tasques;
+            addCheckBox(0, vis.jTable_Tasques);  
+            vis.jTable_Tasques.removeColumn(vis.jTable_Tasques.getColumnModel().getColumn(6));
              
-//             System.out.println(model_tasques.getValueAt(1, 6));            
-              vis.jTable_Tasques.removeColumn(vis.jTable_Tasques.getColumnModel().getColumn(6));
              
-             //vis.jTable_Tasques.getModel().getValueAt(vis.jTable_Tasques.getSelectedRow(),4);
-             
-        
     
      }    
     
@@ -387,10 +386,10 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
             
             vis.jTable_Tasques.setModel(model_tasques);
+            
             modelTasques = model_tasques;
-             addCheckBox(0, vis.jTable_Tasques);
-//             System.out.println(model_tasques.getValueAt(1, 6));            
-              vis.jTable_Tasques.removeColumn(vis.jTable_Tasques.getColumnModel().getColumn(6));
+             addCheckBox(0, vis.jTable_Tasques);                      
+            vis.jTable_Tasques.removeColumn(vis.jTable_Tasques.getColumnModel().getColumn(6));
             
             
     

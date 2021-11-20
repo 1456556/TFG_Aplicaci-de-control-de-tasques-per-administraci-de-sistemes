@@ -379,8 +379,7 @@ public class ConsultesTasques extends Conexio {
 
         } catch (SQLException e) {
 
-            System.err.println("Error al eliminar tasca" + e);
-            JOptionPane.showMessageDialog(null, "Error al eliminar la tasca, contacti amb l'administrador");
+            System.err.println("Error al eliminar tasca" + e);            
             return false;
         }
 
