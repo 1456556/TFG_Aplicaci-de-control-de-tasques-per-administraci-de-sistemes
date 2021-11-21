@@ -23,6 +23,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -43,11 +44,11 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Victor
  */
-public class ControladorTasques  implements ActionListener, MouseListener, KeyListener  {
+public class ControladorTasques extends JFPrincipal implements ActionListener, MouseListener, KeyListener  {
     
-    private Tasques mod;
-    private ConsultesTasques modC;
-    private JFPrincipal vis;
+    public Tasques mod;
+    public ConsultesTasques modC;
+    public JFPrincipal vis;
     
     public DefaultTableModel modelTasques;
       
@@ -68,6 +69,13 @@ public class ControladorTasques  implements ActionListener, MouseListener, KeyLi
         
             
     }
+    
+    public ControladorTasques(Tasques mod, ConsultesTasques modC){
+    
+        this.mod = mod;
+        this.modC = modC;
+    
+    }
    
      
     public void inicialitzar(){
@@ -76,8 +84,69 @@ public class ControladorTasques  implements ActionListener, MouseListener, KeyLi
     }
 
 
-
     
+     public void NotificacioTasca(int id){
+    
+    
+       mod.setId(id);
+       System.out.println("ID + Not:" + id);
+      if (modC.informacioTasca(mod) == 1){
+      
+             vis.txt_titolTasc2.setText(mod.getTitol());
+             vis.txt_usuariTasc2.setText(mod.getUsuariAssignat());
+             vis.txt_descripcioTasc2.setText(mod.getDescripcio());
+
+             String d = mod.getData();
+             String date = d.substring(0, 10);
+             String time = d.substring(11, 16);
+             String data = date.replace("-", "/");
+
+             System.out.println("DATAASAAAAAAAA:" + d);
+             System.out.println("sSubCadena:" + date);
+             System.out.println("sSubCadena:" + data);
+             System.out.println("sSubCadena:" + time);
+
+             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+             DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+
+             //convert String to LocalDate
+             LocalDate localDate = LocalDate.parse(data, formatter);
+             LocalTime localTime = LocalTime.parse(time, formatter2);
+
+             //ControladorMenu cn = new ControladorMenu(vis);
+             //cn.notificacio();
+             
+             vis.dateTimePicker1.datePicker.setDate(localDate);
+             vis.dateTimePicker1.timePicker.setTime(localTime);
+             vis.ComboPrioritatTasc2.setSelectedItem(mod.getPrioritat());
+             vis.ComboEstatTasc2.setSelectedItem(mod.getEstat());
+             vis.txt_titolTasc2.setText(mod.getTitol());
+             vis.DashInfoTasca.setVisible(true);
+             vis.DashTasques.setVisible(false);
+             
+              //vis.DashTasques.setVisible(true);        
+            vis.DashInfoUsuari.setVisible(false);
+            //vis.DashInfoTasca.setVisible(false);
+            vis.DashNovaTasca.setVisible(false);
+            vis.DashConfiguracio.setVisible(false);         
+            vis.DashNouUsuari.setVisible(false);
+            vis.DashNouElement.setVisible(false);
+            vis.DashUsuaris.setVisible(false);
+            vis.DashElements.setVisible(false);
+            vis.DashInfoElement.setVisible(false);
+
+         } else {
+
+             JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");
+
+         }
+
+
+      
+      }
+    
+      
+     
      @Override
     public void actionPerformed(ActionEvent e){       
         

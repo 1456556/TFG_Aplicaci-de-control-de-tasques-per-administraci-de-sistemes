@@ -5,7 +5,9 @@
  */
 package Vista;
 
+import Controlador.ControladorNotificacio;
 import Controlador.ControladorTasques;
+import Model.ConsultesNotificacio;
 import Model.ConsultesTasques;
 import Model.Tasques;
 import clases.Conexio;
@@ -37,21 +39,11 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import javax.swing.SwingUtilities;
-import java.util.Timer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
-import javax.swing.RowSorter.SortKey;
-import javax.swing.SortOrder;
-import javax.swing.table.TableRowSorter;
 import ventanas.Contrasenya;
 import java.awt.event.*;
 import javax.swing.JButton;
+import Model.Notificacio;
 
 /**
  *
@@ -77,15 +69,12 @@ public class JFPrincipal extends javax.swing.JFrame  {
      */
     public JFPrincipal() {        
         
-        
-        
         initComponents();
-        
-       //setVisible(true);
-        
+
         ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");
         Close.setIcon(delete_logo);
         this.repaint();
+        
 
         ImageIcon max_logo = new ImageIcon("src/images/full_screen_32px.png");
         Max.setIcon(max_logo);
@@ -118,89 +107,13 @@ public class JFPrincipal extends javax.swing.JFrame  {
         ImageIcon elements_grups = new ImageIcon("src/images/icons8-dog-tag-30.png");
         btnGrup.setIcon(elements_grups);
         this.repaint();
-        
-        
+
         ImageIcon enrera_logo = new ImageIcon("src/images/icons8-left-35.png");
         Enrera.setIcon(enrera_logo);
         this.repaint();
-        
-       /* jTable_Tasques.addMouseListener(new MouseAdapter() {
-             @Override
-                 public void mouseClicked(MouseEvent e) {
-                    System.out.println("HELLOO");
-                     
-                     DefaultTableModel model_tasques2 = new DefaultTableModel();
-                model_tasques2 = (DefaultTableModel) jTable_Tasques.getModel();
-                Tasques modTasques = new Tasques();
-                
-                
-                int fila_point = jTable_Tasques.rowAtPoint(e.getPoint());
-                int columna_point = jTable_Tasques.columnAtPoint(e.getPoint());
-                int columna = 1;
-                
-                
-                  
-                
-                
-                System.out.println("Fila" + fila_point);
-                System.out.println("Columna" + columna_point);
-                jTable_Tasques.repaint();
-                jTable_Tasques.updateUI();
-                //vis.DashNovaTasca.setVisible(true);
-                if (fila_point > -1 && columna_point > 0) {
 
-                    System.out.println("Columna");
-                    tasca_update = model_tasques2.getValueAt(fila_point, columna).toString();                    
-                    //DashTasques.show();
-                   // DashInfoTasca.show();
-                    DashInfoTasca.setVisible(true);
-                    DashTasques.setVisible(false);
-          
-                   
-                    
-                    informacioTasca(tasca_update);
-                    
-                    System.out.println("Fila");
-                    System.out.println("tasca_update:" + tasca_update);
-                 
-                }
-
-            }
-
-        });*/
-        
-     
 
     }
-    
-    /* public void informacioTasca(String tasca) {
-
-             
-        Tasques mod = new Tasques();
-        ConsultesTasques modC = new ConsultesTasques();
-        ConsultesTasques modCTasques = new ConsultesTasques();
-        JFPrincipal vistPrincipal = new JFPrincipal();
-        ControladorTasques con = new ControladorTasques(mod, modCTasques, vistPrincipal);
-        mod.setTitol(tasca);        
-        modC.informacioTasca(mod);        
-        System.out.println("Prioritat" + mod.getPrioritat());
-        System.out.println("Data" + mod.getData());
-        txt_titolTasc2.setText(mod.getTitol());
-        txt_usuariTasc2.setText(mod.getUsuariAssignat());
-        txt_descripcioTasc2.setText(mod.getDescripcio());
-        txt_dataTasc2.setText(mod.getData());
-        ComboPrioritatTasc2.setSelectedItem(mod.getPrioritat());
-        ComboEstatTasc2.setSelectedItem(mod.getEstat());
-        ComboEstatTasc2.setSelectedItem(mod.getEstat());       
-        txt_titolTasc2.setText(mod.getTitol());
-   
-        con.natejar();
-       
-        
-        
-        
-    }*/
-    
 
    
     
@@ -867,16 +780,16 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Contador4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
         Contador4.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel51.setText("Tasques Totals");
         jLabel51.setBackground(new java.awt.Color(255, 255, 255));
         jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel51.setText("Tasques Totals");
 
-        jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel52.setText("Tasques Gestionades");
         jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel52.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel52.setText("Tasques Gestionades");
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -893,8 +806,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
             }
         });
 
-        jLabel53.setText("Buscar :");
         jLabel53.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel53.setText("Buscar :");
 
         jButtonNovaTasca.setText("Nou");
 
@@ -937,23 +850,23 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        jTextField10.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField10.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField10.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField11.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField12.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextField12.setBackground(new java.awt.Color(255, 153, 51));
-        jTextField12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField12.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField12.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel54.setText("Tasques Asignades");
         jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel54.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel54.setText("Tasques Asignades");
 
         javax.swing.GroupLayout Contador4Layout = new javax.swing.GroupLayout(Contador4);
         Contador4.setLayout(Contador4Layout);
@@ -1051,23 +964,23 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Contador2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
         Contador2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("Tasques Totals");
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("Tasques Totals");
 
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText("Tasques Gestionades");
         jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("Tasques Gestionades");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel27.setText("Buscar :");
         jLabel27.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel27.setText("Buscar :");
 
         jButtonNouElement.setText("Nou");
 
@@ -1110,23 +1023,23 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField2.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField6.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextField6.setBackground(new java.awt.Color(255, 153, 51));
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField6.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField6.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("Tasques Asignades");
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("Tasques Asignades");
 
         javax.swing.GroupLayout Contador2Layout = new javax.swing.GroupLayout(Contador2);
         Contador2.setLayout(Contador2Layout);
@@ -1224,16 +1137,16 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Contador1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
         Contador1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Tasques Totals");
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Tasques Totals");
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Tasques Gestionades");
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Tasques Gestionades");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1250,8 +1163,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
             }
         });
 
-        jLabel7.setText("Buscar :");
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Buscar :");
 
         jButtonNouUsuari.setText("Nou");
         jButtonNouUsuari.addActionListener(new java.awt.event.ActionListener() {
@@ -1299,23 +1212,23 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField1.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setBackground(new java.awt.Color(255, 153, 51));
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextField4.setBackground(new java.awt.Color(255, 153, 51));
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField4.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("Tasques Asignades");
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("Tasques Asignades");
 
         javax.swing.GroupLayout Contador1Layout = new javax.swing.GroupLayout(Contador1);
         Contador1.setLayout(Contador1Layout);
@@ -1421,9 +1334,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         DashInfoUsuari.setBackground(new java.awt.Color(255, 255, 255));
         DashInfoUsuari.setForeground(new java.awt.Color(51, 51, 255));
 
-        jLabel8.setText("Informació Usuari");
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Informació Usuari");
 
         txt_telefon.setBackground(new java.awt.Color(255, 153, 51));
         txt_telefon.setForeground(new java.awt.Color(255, 255, 255));
@@ -1445,50 +1358,50 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_usuari.setBackground(new java.awt.Color(255, 153, 51));
         txt_usuari.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel9.setText("Nom:");
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Nom:");
 
-        jLabel10.setText("Telefon:");
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Telefon:");
 
-        jLabel11.setText("Cognom:");
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Cognom:");
 
-        jLabel12.setText("Email:");
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Email:");
 
-        jLabel13.setText("Usuari:");
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Usuari:");
 
-        jLabel14.setText("Nivell:");
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("Nivell:");
 
-        jLabel16.setText("Estat:");
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("Estat:");
 
-        ComboEstat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
         ComboEstat.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstat.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
 
-        ComboNivell.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell.setBackground(new java.awt.Color(255, 153, 51));
         ComboNivell.setForeground(new java.awt.Color(255, 255, 255));
+        ComboNivell.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboNivellActionPerformed(evt);
             }
         });
 
-        jButtonEditarUsuari.setText("Guardar");
         jButtonEditarUsuari.setBackground(new java.awt.Color(255, 153, 51));
         jButtonEditarUsuari.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEditarUsuari.setText("Guardar");
         jButtonEditarUsuari.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonEditarUsuariMouseClicked(evt);
@@ -1503,9 +1416,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Enrera.setBackground(new java.awt.Color(0, 0, 0));
         Enrera.setForeground(new java.awt.Color(0, 0, 0));
 
-        Contrasenya.setText("Actualitzar Contrassenya");
         Contrasenya.setBackground(new java.awt.Color(255, 153, 51));
         Contrasenya.setForeground(new java.awt.Color(255, 255, 255));
+        Contrasenya.setText("Actualitzar Contrassenya");
         Contrasenya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContrasenyaActionPerformed(evt);
@@ -1610,26 +1523,26 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_usuari1.setBackground(new java.awt.Color(255, 153, 51));
         txt_usuari1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel15.setText("Nou Usuari");
         jLabel15.setBackground(new java.awt.Color(255, 153, 51));
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel15.setText("Nou Usuari");
 
-        jLabel17.setText("Cognom");
         jLabel17.setBackground(new java.awt.Color(255, 153, 51));
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("Cognom");
 
-        jLabel18.setText("Email");
         jLabel18.setBackground(new java.awt.Color(255, 153, 51));
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel18.setText("Email");
 
-        jButtonRegistarUsuari.setText("Guardar");
         jButtonRegistarUsuari.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonRegistarUsuari.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistarUsuari.setText("Guardar");
         jButtonRegistarUsuari.setBorder(null);
         jButtonRegistarUsuari.setBorderPainted(false);
-        jButtonRegistarUsuari.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRegistarUsuari.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonRegistarUsuari.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1642,43 +1555,43 @@ public class JFPrincipal extends javax.swing.JFrame  {
             }
         });
 
-        jLabel19.setText("Usuari");
         jLabel19.setBackground(new java.awt.Color(255, 153, 51));
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("Usuari");
 
-        jLabel20.setText("Nom");
         jLabel20.setBackground(new java.awt.Color(0, 0, 0));
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("Nom");
 
-        jLabel21.setText("Telèfon");
         jLabel21.setBackground(new java.awt.Color(255, 153, 51));
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("Telèfon");
 
-        jLabel22.setText("Nivell");
         jLabel22.setBackground(new java.awt.Color(255, 153, 51));
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel22.setText("Nivell");
 
-        jLabel24.setText("Estat");
         jLabel24.setBackground(new java.awt.Color(255, 153, 51));
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel24.setText("Estat");
 
-        ComboNivell1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell1.setBackground(new java.awt.Color(255, 153, 51));
         ComboNivell1.setForeground(new java.awt.Color(255, 255, 255));
+        ComboNivell1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboNivell1ActionPerformed(evt);
             }
         });
 
-        ComboEstat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
         ComboEstat1.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstat1.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
 
         txt_nom1.setBackground(new java.awt.Color(255, 153, 51));
         txt_nom1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1902,9 +1815,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         DashInfoElement.setBackground(new java.awt.Color(255, 255, 255));
         DashInfoElement.setForeground(new java.awt.Color(51, 51, 255));
 
-        jLabel38.setText("Informació Element");
         jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel38.setText("Informació Element");
 
         txt_numeroserieElem2.setBackground(new java.awt.Color(255, 153, 51));
         txt_numeroserieElem2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1921,45 +1834,45 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_modelElem2.setBackground(new java.awt.Color(255, 153, 51));
         txt_modelElem2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel39.setText("Nom:");
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel39.setText("Nom:");
 
-        jLabel40.setText("Número Serie:");
         jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel40.setText("Número Serie:");
 
-        jLabel41.setText("Usuari:");
         jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel41.setText("Usuari:");
 
-        jLabel42.setText("Marca:");
         jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel42.setText("Marca:");
 
-        jLabel43.setText("Model:");
         jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel43.setText("Model:");
 
-        jLabel44.setText("Tipus:");
         jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel44.setText("Tipus:");
 
-        jLabel45.setText("Estat:");
         jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel45.setText("Estat:");
 
-        ComboEstatElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
         ComboEstatElem2.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstatElem2.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstatElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
 
-        ComboTipusElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordinador", "Portatil", "SmartPhone", "Impresora" }));
         ComboTipusElem2.setBackground(new java.awt.Color(255, 153, 51));
         ComboTipusElem2.setForeground(new java.awt.Color(255, 255, 255));
+        ComboTipusElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordinador", "Portatil", "SmartPhone", "Impresora" }));
 
-        jButtonEditarElement.setText("Guardar");
         jButtonEditarElement.setBackground(new java.awt.Color(255, 153, 51));
         jButtonEditarElement.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEditarElement.setText("Guardar");
         jButtonEditarElement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonEditarElementMouseClicked(evt);
@@ -1977,9 +1890,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_observacionsElem2.setBackground(new java.awt.Color(255, 153, 51));
         txt_observacionsElem2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel46.setText("Observacions:");
         jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel46.setText("Observacions:");
 
         javax.swing.GroupLayout DashInfoElementLayout = new javax.swing.GroupLayout(DashInfoElement);
         DashInfoElement.setLayout(DashInfoElementLayout);
@@ -2176,9 +2089,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         DashInfoTasca.setBackground(new java.awt.Color(255, 255, 255));
         DashInfoTasca.setForeground(new java.awt.Color(51, 51, 255));
 
-        jLabel56.setText("Informació Tasca");
         jLabel56.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel56.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel56.setText("Informació Tasca");
 
         txt_titolTasc2.setBackground(new java.awt.Color(255, 153, 51));
         txt_titolTasc2.setForeground(new java.awt.Color(255, 255, 255));
@@ -2191,33 +2104,33 @@ public class JFPrincipal extends javax.swing.JFrame  {
             }
         });
 
-        jLabel57.setText("Titol:");
         jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel57.setText("Titol:");
 
-        jLabel60.setText("Prioritat: ");
         jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel60.setText("Prioritat: ");
 
-        jLabel61.setText("Usuari:");
         jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel61.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel61.setText("Usuari:");
 
-        jLabel62.setText("Data:");
         jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel62.setText("Data:");
 
-        jLabel65.setText("Estat:");
         jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel65.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel65.setText("Estat:");
 
-        ComboEstatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
         ComboEstatTasc2.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstatTasc2.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
 
-        jButtonEditarTasca.setText("Guardar");
         jButtonEditarTasca.setBackground(new java.awt.Color(255, 153, 51));
         jButtonEditarTasca.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEditarTasca.setText("Guardar");
         jButtonEditarTasca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonEditarTascaMouseClicked(evt);
@@ -2235,13 +2148,13 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_descripcioTasc2.setBackground(new java.awt.Color(255, 153, 51));
         txt_descripcioTasc2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel66.setText("Descripció:");
         jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel66.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel66.setText("Descripció:");
 
-        ComboPrioritatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitjana", "Alta", "Urgent", "Prioritaria" }));
         ComboPrioritatTasc2.setBackground(new java.awt.Color(255, 153, 51));
         ComboPrioritatTasc2.setForeground(new java.awt.Color(255, 255, 255));
+        ComboPrioritatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitjana", "Alta", "Urgent", "Prioritaria" }));
 
         javax.swing.GroupLayout DashInfoTascaLayout = new javax.swing.GroupLayout(DashInfoTasca);
         DashInfoTasca.setLayout(DashInfoTascaLayout);
@@ -2536,11 +2449,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void btnConfiguracioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfiguracioMouseClicked
         // TODO add your handling code here:
 
-        //clickmenu(Configuracio,HideMenu,1);
-        // DashBoardView.setVisible(false);
-       /* DashTasques.setVisible(false);
-        DashUsuaris.setVisible(false);
-        DashConfiguracio.setVisible(true);*/
 
     }//GEN-LAST:event_btnConfiguracioMouseClicked
 
@@ -2572,41 +2480,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     }//GEN-LAST:event_btnElementsMouseExited
 
-    
-    public void addCheckBox(int column, JTable table) {
 
-        TableColumn tc = table.getColumnModel().getColumn(column);
-        tc.setCellEditor(table.getDefaultEditor(Boolean.class));
-        tc.setCellRenderer(table.getDefaultRenderer(Boolean.class));
-        
-
-    }    
-    
-    public void vistaNovaTasca(){
-    
-        DashNovaTasca.setVisible(true);
-      //  DashTasques.setVisible(false)
-    
-    }
-    
-    
-    public void inicialitzarVista(){
-     System.out.println("Inicialitzar");
-            DashTasques.setVisible(false);        
-            DashInfoUsuari.setVisible(false);
-            DashInfoTasca.setVisible(false);
-            DashNovaTasca.setVisible(false);
-            DashConfiguracio.setVisible(false);     
-            DashNouUsuari.setVisible(false);
-            DashNouElement.setVisible(false);
-            DashUsuaris.setVisible(true);
-            DashElements.setVisible(false);
-            DashInfoElement.setVisible(false);    
-    
-    }
-    
-    
-    
     private void btnUsuarisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarisMouseEntered
         // TODO add your handling code here:
         changecolor(Usuaris, new Color(255, 204, 102));
@@ -2657,7 +2531,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         changecolor(Elements, new Color(255, 153, 0));
     }//GEN-LAST:event_btn_ElementsMouseExited
 
-    
+
     private void btn_UsuarisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuarisMouseEntered
         // TODO add your handling code here:
         changecolor(N_Usuaris, new Color(255, 204, 102));
@@ -2708,29 +2582,18 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void btn_ConfiguracioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseClicked
         // TODO add your handling code here:
-      //  DashTasques.setVisible(false);
-       // DashUsuaris.setVisible(false);
-        //DashConfiguracio.setVisible(true);
-        
-        /*CODI PER CANVIAR DE FINESTRA/CLASSE
-        Usuaris usuari = new Usuaris();
-        usuari.setVisible(true);        
-        Point p = Header.getLocationOnScreen();       
-        usuari.setLocation(p);*/
-        
+
 
     }//GEN-LAST:event_btn_ConfiguracioMouseClicked
 
     private void btn_ConfiguracioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseEntered
         // TODO add your handling code here:
-        changecolor(N_Configuracio, new Color(255, 204, 102));
-        changecolor(Configuracio, new Color(255, 204, 102));
+
     }//GEN-LAST:event_btn_ConfiguracioMouseEntered
 
     private void btn_ConfiguracioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseExited
         // TODO add your handling code here:
-        changecolor(Configuracio, new Color(255, 153, 0));
-        changecolor(N_Configuracio, new Color(255, 153, 0));
+
     }//GEN-LAST:event_btn_ConfiguracioMouseExited
 
     private void MinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseEntered
@@ -2764,8 +2627,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void btnUsuarisMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarisMouseReleased
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_btnUsuarisMouseReleased
 
     private void txtBuscadorUsuarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscadorUsuarisActionPerformed
@@ -2778,8 +2641,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void jButtonEditarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarUsuariActionPerformed
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_jButtonEditarUsuariActionPerformed
 
     private void txt_cognomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cognomActionPerformed
@@ -2788,171 +2651,32 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void ContrasenyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenyaActionPerformed
         // TODO add your handling code here:
-        
+
         new Contrasenya().setVisible(true);
     }//GEN-LAST:event_ContrasenyaActionPerformed
 
     private void jButtonEliminarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuariActionPerformed
         // TODO add your handling code here:
-            
+
     }//GEN-LAST:event_jButtonEliminarUsuariActionPerformed
 
-    //Pantalla Usuaris
-    public void DashUsuaris() {
-
-      /*  DashInfoUsuari.setVisible(false);
-        DashConfiguracio.setVisible(false);
-        DashTasques.setVisible(false);
-        DashNouUsuari.setVisible(false);
-        DashNouElement.setVisible(false);
-        DashElements.setVisible(false);
-        DashInfoElement.setVisible(false);
-        DashUsuaris.setVisible(true);
-
-        DefaultTableModel model = new DefaultTableModel();
-
-        try {
-
-            jTable_Usuaris.setModel(model);
-            model.fireTableDataChanged();
-            try ( Connection cn = Conexio.conectar()) {
-                PreparedStatement pst = cn.prepareStatement("select nom, cognom, usuari, nivell, estat from Usuaris");
-                ResultSet rs = pst.executeQuery();
-
-                ResultSetMetaData rsMd = rs.getMetaData();
-                int cantitatColumnas = 6;
-                int cantitatFilas = 0;
-                model.addColumn("Seleccionar");
-                model.addColumn("Nom");
-                model.addColumn("Cognom");
-                model.addColumn("Usuari");
-                model.addColumn("Nivell");
-                model.addColumn("Estat");
-
-                while (rs.next()) {
-
-                    Object[] fila = new Object[cantitatColumnas];
-
-                    for (int i = 1; i < cantitatColumnas; i++) {
-
-                        fila[i] = rs.getObject(i);
-
-                    }
-                    cantitatFilas++;
-                    model.addRow(fila);
-                    addCheckBox(0, jTable_Usuaris);
-
-                }
-
-                for (int i = 0; i < cantitatFilas; i++) {
-
-                    model.setValueAt(false, i, 0);
-
-                }
-            }
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al omplir la taula");
-            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-        }
-        Natejar();
-        jTable_Usuaris.addMouseListener(new MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                DefaultTableModel model2 = new DefaultTableModel();
-                model2 = (DefaultTableModel) jTable_Usuaris.getModel();
-
-                int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
-                int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
-                int columna = 3;
-
-                System.out.println("Fila" + fila_point);
-                System.out.println("Columna" + columna_point);
-
-                jTable_Usuaris.repaint();
-                jTable_Usuaris.updateUI();
-                if (fila_point > -1 && columna_point > 0) {
-
-                    user_update = model2.getValueAt(fila_point, columna).toString();
-                    //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
-                    DashUsuaris.setVisible(false);
-                    DashInfoUsuari.setVisible(true);
-                    informacioUsuari(user_update);
-                }
-
-            }
-
-        });*/
-
-    }
-
-    //Mostra informacio detallada dels usuaris
-    public void informacioUsuari(String user) {
-
-       /* System.out.print(user);
-        
-        try {
-            Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select * from Usuaris where usuari = '" + user + "'");
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-
-                jLabel8.setText(rs.getString("nom"));
-                id = rs.getInt("id_usuari");
-                txt_nom.setText(rs.getString("nom"));
-                txt_cognom.setText(rs.getString("cognom"));
-                txt_email.setText(rs.getString("email"));
-                txt_telefon.setText(rs.getString("telefon"));
-                txt_usuari.setText(rs.getString("usuari"));
-
-                ComboNivell.setSelectedItem(rs.getString("nivell"));
-                ComboEstat.setSelectedItem(rs.getString("estat"));
-
-            }
-
-            cn.close();
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al solicitar les dades d'usuari" + e);
-            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-        }*/
-    }
-
-    public boolean IsSelected(int fila, int columna, JTable taula) {
+    /* public boolean IsSelected(int fila, int columna, JTable taula) {
 
         Boolean checked = Boolean.valueOf(taula.getValueAt(fila, columna).toString());
         System.out.print(checked);
         return checked;
 
-    }
+    }*/
 
     private void jButtonEliminarUsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuariMouseClicked
         // TODO add your handling code here:
 
-      /*  for (int i = 0; i < jTable_Usuaris.getRowCount(); i++) {
-            Boolean checked = Boolean.valueOf(jTable_Usuaris.getValueAt(i, 0).toString());
-            String col = jTable_Usuaris.getValueAt(i, 1).toString();
-
-            //DISPLAY
-            if (checked) {
-
-//                eliminarRegistre(jTable_Usuaris.getValueAt(i, 3).toString());
-            }
-        }
-        DashUsuaris();*/
 
     }//GEN-LAST:event_jButtonEliminarUsuariMouseClicked
 
     private void txtBuscadorUsuarisKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscadorUsuarisKeyReleased
         // TODO add your handling code here:
-       // BuscarUsuaris(txt_buscador.getText());
+        // BuscarUsuaris(txt_buscador.getText());
     }//GEN-LAST:event_txtBuscadorUsuarisKeyReleased
 
     private void jButtonNouUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNouUsuariActionPerformed
@@ -2961,159 +2685,11 @@ public class JFPrincipal extends javax.swing.JFrame  {
         //DashNouUsuari.setVisible(true);
     }//GEN-LAST:event_jButtonNouUsuariActionPerformed
 
-    public void Natejar() {
-
-        txt_telefon1.setText(" ");
-        txt_nom1.setText(" ");
-        txt_cognom1.setText(" ");
-        txt_usuari1.setText(" ");        
-        txt_mail1.setText(" ");
-        txtBuscadorUsuaris.setText("");
-        txt_buscadorElements.setText("");
-        
-        txt_nomElem.setText("");
-        txt_usuariassignat.setText("");
-        txt_marca.setText("");
-        txt_model.setText("");
-        txt_numserie.setText("");
-        txt_observacions.setText("");
-        
-        txt_titolTasc.setText("");
-        txt_usuariassignatTasc.setText("");        
-        txt_usuariassignatTasc.setText("");
-        txt_descripcioTasc.setText("");
-        
-
-    }
-
-    public void NatejarColor() {
-
-        txt_usuari.setBackground(Color.WHITE);
-        txt_nom1.setBackground(Color.white);
-        txt_telefon1.setBackground(Color.white);
-        txt_mail1.setBackground(Color.white);        
-        txt_cognom1.setBackground(Color.white);
-
-    }
-
     //Modificar Usuari
     private void jButtonEditarUsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarUsuariMouseClicked
         // TODO add your handling code here:
-        int nivell, estat, validacio = 0;
-        String nom, cognom, mail, telefon, usuari, nivell_string = "", estat_string = "";
 
-        mail = txt_email.getText().trim();
-        nom = txt_nom.getText().trim();
-        cognom = txt_cognom.getText().trim();
-        telefon = txt_telefon.getText().trim();
-        usuari = txt_usuari.getText().trim();
 
-        nivell = ComboNivell.getSelectedIndex() + 1;
-        estat = ComboEstat.getSelectedIndex() + 1;
-
-        if (mail.equals("")) {
-
-            //txt_email.setBackground(Color.red);
-            validacio++;
-        }
-        if (nom.equals("")) {
-
-            //txt_nom.setBackground(Color.red);
-            validacio++;
-        }
-        if (cognom.equals("")) {
-
-            //txt_cognom.setBackground(Color.red);
-            validacio++;
-        }
-        if (telefon.equals("")) {
-
-            //txt_telefon.setBackground(Color.red);
-            validacio++;
-        }
-
-        if (validacio == 0) {
-
-            if (nivell == 1) {
-
-                nivell_string = "Administrador";
-
-            }
-            if (nivell == 2) {
-
-                nivell_string = "Oficinista";
-            }
-            if (nivell == 3) {
-
-                nivell_string = "Operari";
-
-            }
-
-            if (estat == 1) {
-
-                estat_string = "Actiu";
-            }
-
-            if (estat == 2) {
-
-                estat_string = "No Actiu";
-
-            }
-
-            try {
-
-                Connection cn = Conexio.conectar();
-                PreparedStatement pst = cn.prepareStatement("select usuari from Usuaris where usuari = '" + usuari + "' and not id_usuari = '" + id + "'");
-                ResultSet rs = pst.executeQuery();
-
-                if (rs.next()) {
-
-                    txt_usuari.setBackground(Color.red);
-                    JOptionPane.showMessageDialog(null, "Nom d'usuari no disponible");
-                    cn.close();
-
-                } else {
-
-                    Connection cn2 = Conexio.conectar();
-                    PreparedStatement pst2 = cn2.prepareStatement("update Usuaris set nom=?, cognom=?, telefon=?, email=?, usuari=?, nivell=?, estat=?" + "where id_usuari = '"
-                            + id + "'");
-                    pst2.setString(1, nom);
-                    pst2.setString(2, cognom);
-                    pst2.setString(3, telefon);
-                    pst2.setString(4, mail);
-                    pst2.setString(5, usuari);
-                    pst2.setString(6, nivell_string);
-                    pst2.setString(7, estat_string);
-
-                    pst2.executeUpdate();
-                    cn2.close();
-
-                    /*txt_email.setBackground(Color.green);
-                    txt_nom.setBackground(Color.green);
-                    txt_cognom.setBackground(Color.green);
-                    txt_telefon.setBackground(Color.green);
-                    txt_usuari.setBackground(Color.green);
-                    ComboEstat.setBackground(Color.green);
-                    ComboNivell.setBackground(Color.green);*/
-
-                    JOptionPane.showMessageDialog(null, "Modificacio Correcta!");
-                    DashInfoUsuari.setVisible(false);
-                    DashUsuaris();
-                }
-
-            } catch (SQLException e) {
-
-                System.err.println("Error al Guardar" + e);
-
-            }
-
-        } else {
-
-            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
-
-        }
-
-        
     }//GEN-LAST:event_jButtonEditarUsuariMouseClicked
 
     private void ComboNivell1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNivell1ActionPerformed
@@ -3124,121 +2700,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void jButtonRegistarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarUsuariActionPerformed
         // TODO add your handling code here:
 
-     /*  int  nivell, estat, validacio = 0;
-        String nom, cognom, mail, telefon, usuari,contrasenya, nivell_string=" ", estat_string=" ";
-
-        mail = txt_mail1.getText().trim();
-        nom = txt_nom1.getText().trim();
-        cognom = txt_cognom1.getText().trim();
-        telefon = txt_telefon1.getText().trim();
-        usuari = txt_usuari1.getText().trim();
-        contrasenya = "";
-
-        nivell = ComboNivell1.getSelectedIndex() +1;
-        estat = ComboEstat1.getSelectedIndex() + 1;
-
-        if (mail.equals("")) {
-
-            txt_mail1.setBackground(Color.red);
-            validacio++;
-        }
-        if (nom.equals("")) {
-
-            txt_nom1.setBackground(Color.red);
-            validacio++;
-        }
-        if (cognom.equals("")) {
-
-            txt_cognom1.setBackground(Color.red);
-            validacio++;
-        }
-        if (telefon.equals("")) {
-
-            txt_telefon1.setBackground(Color.red);
-            validacio++;
-        }
-
-        if (validacio == 0) {
-
-            if (nivell == 1) {
-
-                nivell_string = "Administrador";
-
-            }
-            if (nivell == 2) {
-
-                nivell_string = "Oficinista";
-            }
-            if (nivell == 3) {
-
-                nivell_string = "Operari";
-
-            }
-
-            if (estat == 1) {
-
-                estat_string = "Actiu";
-            }
-
-            if (estat == 2) {
-
-                estat_string = "No Actiu";
-
-            }
-
-            try {
-
-                Connection cn = Conexio.conectar();
-                PreparedStatement pst = cn.prepareStatement("select usuari from Usuaris where usuari = '" + usuari + "' and not id_usuari = '" + id + "'");
-                ResultSet rs = pst.executeQuery();
-
-                if (rs.next()) {
-
-                    txt_usuari1.setBackground(Color.red);
-                    JOptionPane.showMessageDialog(null, "Nom d'usuari no disponible");
-                    cn.close();
-
-                } else {
-
-                    Connection cn2 = Conexio.conectar();
-                    PreparedStatement pst2 = cn2.prepareStatement("insert into Usuaris values (?,?,?,?,?,?,?,?,?)");
-                    pst2.setInt(1,0);
-                    pst2.setString(2, nom);
-                    pst2.setString(3, cognom);
-                    pst2.setString(4, telefon);
-                    pst2.setString(5, mail);
-                    pst2.setString(6, usuari);
-                    pst2.setString(7, contrasenya);
-                    pst2.setString(8, nivell_string);
-                    pst2.setString(9, estat_string);
-
-                    pst2.executeUpdate();
-                    cn2.close();
-
-                    /*txt_email.setBackground(Color.green);
-                    txt_nom.setBackground(Color.green);
-                    txt_cognom.setBackground(Color.green);
-                    txt_telefon.setBackground(Color.green);
-                    txt_usuari.setBackground(Color.green);
-                    ComboEstat.setBackground(Color.green);
-                    ComboNivell.setBackground(Color.green);
-
-                    JOptionPane.showMessageDialog(null, "Usuari Creat Correctament!");
-                    DashNouUsuari.setVisible(false);
-                    DashUsuaris();
-                }
-
-            } catch (SQLException e) {
-
-                System.err.println("Error al Crear el Usuari" + e);
-
-            }
-
-        } else {
-
-            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
-
-        }*/
 
     }//GEN-LAST:event_jButtonRegistarUsuariActionPerformed
 
@@ -3248,18 +2709,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void jButtonEliminarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarElementMouseClicked
         // TODO add your handling code here:
-        
-         for (int i = 0; i < jTable_Elements.getRowCount(); i++) {
-            Boolean checked = Boolean.valueOf(jTable_Elements.getValueAt(i, 0).toString());
-            String col = jTable_Elements.getValueAt(i, 1).toString();
 
-            //DISPLAY
-            if (checked) {
 
-              //  eliminarRegistreElem(jTable_Elements.getValueAt(i, 1).toString());
-            }
-        }
-        //DashElements();
     }//GEN-LAST:event_jButtonEliminarElementMouseClicked
 
     private void jButtonEliminarElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarElementActionPerformed
@@ -3268,125 +2719,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     //Crear Elements
     private void jButtonRegistarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistarElementMouseClicked
         // TODO add your handling code here:
-/*        int  tipus, estat, validacio = 0;
-        String nom, usuari, marca, model, numero_serie, observacions, tipus_string=" ", estat_string=" ";
 
-       
-        
-        nom = txt_nomElem.getText().trim();
-        usuari = txt_usuariassignat.getText().trim();
-        marca = txt_marca.getText().trim();
-        model = txt_model.getText().trim();
-        numero_serie = txt_numserie.getText().trim();
-        observacions = txt_observacions.getText().trim();
-
-        tipus = ComboTipus.getSelectedIndex() +1;
-        estat = ComboEstatElem.getSelectedIndex() + 1;
-
-        if (nom.equals("")) {
-            
-            validacio++;
-        }
-        if (usuari.equals("")) {
-
-            validacio++;
-        }
-        if (marca.equals("")) {
-            
-            validacio++;
-        }
-        if (model.equals("")) {
-            
-            validacio++;
-        }
-        if (numero_serie.equals("")) {
-            
-            validacio++;
-        }
-
-        if (validacio == 0) {
-
-            if (tipus == 1) {
-
-                tipus_string = "Ordinador";
-
-            }
-            if (tipus == 2) {
-
-                tipus_string = "Portatil";
-            }
-            if (tipus == 3) {
-
-               tipus_string = "SmartPhone";
-
-            }
-            if (tipus == 4) {
-
-               tipus_string = "Impresora";
-
-            }
-
-            if (estat == 1) {
-
-                estat_string = "Correcte";
-            }
-
-            if (estat == 2) {
-
-                estat_string = "Baixa";
-
-            }
-            if (estat == 3) {
-
-                estat_string = "Reparació";
-
-            }
-
-            try {
-
-                Connection cn = Conexio.conectar();
-                PreparedStatement pst = cn.prepareStatement("select nom from Elements where nom = '" + nom + "' and not id_element = '" + id + "'");
-                ResultSet rs = pst.executeQuery();
-
-                if (rs.next()) {
-
-                    txt_nom.setBackground(Color.red);
-                    JOptionPane.showMessageDialog(null, "Nom d'element no disponible");
-                    cn.close();
-
-                } else {
-
-                    Connection cn2 = Conexio.conectar();
-                    PreparedStatement pst2 = cn2.prepareStatement("insert into Elements values (?,?,?,?,?,?,?,?,?)");
-                    pst2.setInt(1,0);
-                    pst2.setString(2, nom);
-                    pst2.setString(3, usuari);
-                    pst2.setString(4, tipus_string);
-                    pst2.setString(5, marca);
-                    pst2.setString(6, model);
-                    pst2.setString(7, numero_serie);
-                    pst2.setString(8, estat_string);
-                    pst2.setString(9, observacions);
-
-                    pst2.executeUpdate();
-                    cn2.close();
-
-                    JOptionPane.showMessageDialog(null, "Element Creat Correctament!");
-                    DashNouElement.setVisible(false);
-//                    DashElements();
-                }
-
-            } catch (SQLException e) {
-
-                System.err.println("Error al Crear L'element" + e);
-
-            }
-
-        } else {
-
-            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
-
-        }*/
 
     }//GEN-LAST:event_jButtonRegistarElementMouseClicked
 
@@ -3397,125 +2730,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     //Modificacio ELements
     private void jButtonEditarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarElementMouseClicked
         // TODO add your handling code here:
-        
-      /*  int  tipus, estat, validacio = 0;
-        String nom, usuari, marca, model, numero_serie, observacions, tipus_string=" ", estat_string=" ";
 
-         
-        nom = txt_nomElem2.getText().trim();
-        usuari = txt_usuariElem2.getText().trim();
-        marca = txt_marcaElem2.getText().trim();
-        model = txt_modelElem2.getText().trim();
-        numero_serie = txt_numeroserieElem2.getText().trim();
-        observacions = txt_observacionsElem2.getText().trim();
-
-        tipus = ComboTipusElem2.getSelectedIndex() +1;
-        estat = ComboEstatElem2.getSelectedIndex() + 1;
-
-        if (nom.equals("")) {
-            
-            validacio++;
-        }
-        if (usuari.equals("")) {
-
-            validacio++;
-        }
-        if (marca.equals("")) {
-            
-            validacio++;
-        }
-        if (model.equals("")) {
-            
-            validacio++;
-        }
-        if (numero_serie.equals("")) {
-            
-            validacio++;
-        }
-
-        if (validacio == 0) {
-
-            if (tipus == 1) {
-
-                tipus_string = "Ordinador";
-
-            }
-            if (tipus == 2) {
-
-                tipus_string = "Portatil";
-            }
-            if (tipus == 3) {
-
-               tipus_string = "SmartPhone";
-
-            }
-            if (tipus == 4) {
-
-               tipus_string = "Impresora";
-
-            }
-
-            if (estat == 1) {
-
-                estat_string = "Correcte";
-            }
-
-            if (estat == 2) {
-
-                estat_string = "Baixa";
-
-            }
-            if (estat == 3) {
-
-                estat_string = "Reparació";
-
-            }
-
-            try {
-
-                Connection cn = Conexio.conectar();
-                PreparedStatement pst = cn.prepareStatement("select nom from Elements where nom = '" + nom + "' and not id_element = '" + id + "'");
-                ResultSet rs = pst.executeQuery();
-
-                if (rs.next()) {
-
-                    txt_nom.setBackground(Color.red);
-                    JOptionPane.showMessageDialog(null, "Nom d'element no disponible");
-                    cn.close();
-
-                } else {
-                    System.out.print(id);
-                    Connection cn2 = Conexio.conectar();
-                    PreparedStatement pst2 = cn2.prepareStatement("update Elements set nom=?, usuari=?, tipus=?, marca=?, model=?, numero_serie=?, estat=?, observacions=? where id_element = '"+id+"'");
-                   
-                    pst2.setString(1, nom);
-                    pst2.setString(2, usuari);
-                    pst2.setString(3, tipus_string);
-                    pst2.setString(4, marca);
-                    pst2.setString(5, model);
-                    pst2.setString(6, numero_serie);
-                    pst2.setString(7, estat_string);
-                    pst2.setString(8, observacions);
-
-                    pst2.executeUpdate();
-                    cn2.close();
-
-                    JOptionPane.showMessageDialog(null, "Element Modificat!");
-                    DashInfoElement.setVisible(false);
-//                    DashElements();
-                }
-
-            } catch (SQLException e) {
-
-                System.err.println("Error al modificar L'element" + e);
-
-            }
-
-        } else {
-
-            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
-
-        }   */    
 
     }//GEN-LAST:event_jButtonEditarElementMouseClicked
 
@@ -3529,67 +2744,17 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void txtBuscadorTasquesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscadorTasquesKeyReleased
         // TODO add your handling code here:
-        
-        
-       // BuscarTasques(txtBuscadorTasques.getText());
+
+        // BuscarTasques(txtBuscadorTasques.getText());
     }//GEN-LAST:event_txtBuscadorTasquesKeyReleased
 
     private void jButtonEliminarTascaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarTascaMouseClicked
         // TODO add your handling code here:
-       /* for (int i = 0; i < jTable_Tasques.getRowCount(); i++) {
-            boolean checked = Boolean.valueOf(jTable_Tasques.getValueAt(i, 0).toString());
-            String col = jTable_Tasques.getValueAt(i, 1).toString();
 
-            //DISPLAY
-            if (checked) {
 
-                System.out.println(checked + col);
-                //eliminarRegistreTasc(jTable_Tasques.getValueAt(i, 1).toString());
-            }
-        }
-//        DashTasques();*/
-                       
-        
     }//GEN-LAST:event_jButtonEliminarTascaMouseClicked
 
-    //public boolean eliminarRegistreTasc(String titol) {
 
-       /* try {
-            System.out.println(titol);
-            int id = 0;
-            Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select id_tasca from Tasques where titol = '" + titol + "'");
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                id = rs.getInt("id_tasca");
-
-            }
-
-            System.out.println(id);
-            cn.close();
-
-            Connection cn2 = Conexio.conectar();
-            PreparedStatement pst2 = cn2.prepareStatement("delete from Tasques where id_tasca='" + id + "'");            
-            int i = pst2.executeUpdate();
-            if (i != 0) {
-
-                return true;
-
-            } else {
-
-                return false;
-            }
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al eliminar tasca" + e);
-            JOptionPane.showMessageDialog(null, "Error al eliminar la tasca, contacti amb l'administrador");
-            return false;
-        }*/
-
-   // }
-    
-    
     private void jButtonEliminarTasca(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarTasca
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEliminarTasca
@@ -3600,10 +2765,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     //Modificar Tasca
     private void jButtonEditarTascaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarTascaMouseClicked
-       
-        
-        
-        
+
+
     }//GEN-LAST:event_jButtonEditarTascaMouseClicked
 
     private void jButtonEditarTascaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarTascaActionPerformed
@@ -3618,593 +2781,38 @@ public class JFPrincipal extends javax.swing.JFrame  {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_TasquesMouseExited
 
+    
+    public void inicialitzarNotificacio(Date date){
+    
+        Notificacio n = new Notificacio();
+        ConsultesNotificacio cn = new ConsultesNotificacio();
+        ControladorNotificacio con = new ControladorNotificacio(n,cn,this);
+        con.Notificacio(date);
         
     
-        //Mostra informacio detallada dels elements
-    public void informacioElement(String element) {
-
-        System.out.print(element);
-        
-        try {
-            Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select * from Elements where nom = '" + element + "'");
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-
-                txt_nomElem2.setText(rs.getString("nom"));
-                id = rs.getInt("id_element");
-                txt_usuariElem2.setText(rs.getString("usuari"));
-                txt_marcaElem2.setText(rs.getString("marca"));
-                txt_modelElem2.setText(rs.getString("model"));
-                txt_numeroserieElem2.setText(rs.getString("numero_serie"));
-                txt_observacionsElem2.setText(rs.getString("observacions"));
-
-                ComboTipusElem2.setSelectedItem(rs.getString("tipus"));
-                ComboEstatElem2.setSelectedItem(rs.getString("estat"));
-
-            }
-
-            cn.close();
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al solicitar les dades" + e);
-            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-        }
     }
     
-    
+    public void recordatori(Date date) throws InterruptedException, ParseException {
 
-    public boolean eliminarRegistre(String usuari) {
-
-        try {
-            System.out.println(usuari);
-            int id = 0;
-            Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select id_usuari from Usuaris where usuari = '" + usuari + "'");
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                id = rs.getInt("id_usuari");
-
-            }
-
-            System.out.println(id);
-            cn.close();
-
-            Connection cn2 = Conexio.conectar();
-            PreparedStatement pst2 = cn2.prepareStatement("delete from Usuaris where id_usuari='" + id + "'");            
-            int i = pst2.executeUpdate();
-            if (i != 0) {
-
-                return true;
-
-            } else {
-
-                return false;
-            }
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al eliminar usuari" + e);
-            JOptionPane.showMessageDialog(null, "Error al eliminar l'usuari, contacti amb l'administrador");
-            return false;
-        }
-
-    }
-    
-    public boolean eliminarRegistreElem(String nom) {
+        DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        String d = formatter.format(date);
 
         try {
-            System.out.println(nom);
-            int id = 0;
-            Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select id_element from Elements where nom = '" + nom + "'");
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                id = rs.getInt("id_element");
-
-            }
-
-            System.out.println(id);
-            cn.close();
-
-            Connection cn2 = Conexio.conectar();
-            PreparedStatement pst2 = cn2.prepareStatement("delete from Elements where id_element='" + id + "'");            
-            int i = pst2.executeUpdate();
-            if (i != 0) {
-
-                return true;
-
-            } else {
-
-                return false;
-            }
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al eliminar usuari" + e);
-            JOptionPane.showMessageDialog(null, "Error al eliminar l'usuari, contacti amb l'administrador");
-            return false;
-        }
-
-    }
-
-    public void BuscarUsuaris(String buscar) {
-
-        DefaultTableModel model = new DefaultTableModel();
-
-        try {
-
-                                 
-            Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select * from Usuaris where nom like '%" + buscar + "%' or cognom like '%" + buscar + "%'"
-                    + "or usuari like '%" + buscar + "%' or nivell like '%" + buscar + "%' or estat like '%" + buscar + "%'");
-            ResultSet rs = pst.executeQuery();
-            //ResultSetMetaData rsMd = rs.getMetaData();
-
-            int cantitatColumnas = 6;
-
-            model.addColumn("Seleccionar");
-            model.addColumn("Nom");
-            model.addColumn("Cognom");
-            model.addColumn("Usuari");
-            model.addColumn("Nivell");
-            model.addColumn("Estat");
-
-            while (rs.next()) {
-
-                Object[] fila = new Object[cantitatColumnas];
-
-                fila[1] = rs.getString("Nom");
-                fila[2] = rs.getString("Cognom");
-                fila[3] = rs.getString("Usuari");
-                fila[4] = rs.getString("Nivell");
-                fila[5] = rs.getString("Estat");
-
-                model.addRow(fila);
-
-            }
-
-            jTable_Usuaris.setModel(model);
-            addCheckBox(0, jTable_Usuaris);
-            cn.close();
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al omplir la taula");
-            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-        }
-
-        jTable_Usuaris.addMouseListener(new MouseAdapter() {
-            @Override
-
-            public void mouseClicked(MouseEvent e) {
-
-                int fila_point = jTable_Usuaris.rowAtPoint(e.getPoint());
-                int columna_point = jTable_Usuaris.columnAtPoint(e.getPoint());
-                int columna = 3;
-
-                if (fila_point > -1 && columna_point > 0) {
-
-                    user_update = (String) model.getValueAt(fila_point, columna + 1);
-                    //Informacion_usuario informacion_usuario = new InofrmacionUsuario();
-                    DashUsuaris.setVisible(false);
-                    DashInfoUsuari.setVisible(true);
-                    informacioUsuari(user_update);
-                }
-
-            }
-
-        });
-
-    }
-
-    //Pantalla Usuaris
-    public void DashElements() {
-
-        DashInfoUsuari.setVisible(false);
-        DashConfiguracio.setVisible(false);
-        DashTasques.setVisible(false);
-        DashNouUsuari.setVisible(false);
-        DashNouElement.setVisible(false);
-        DashUsuaris.setVisible(false);
-        DashElements.setVisible(true);
-
-        DefaultTableModel model_elements = new DefaultTableModel();
-
-        try {
-
-            jTable_Elements.setModel(model_elements);
-            model_elements.fireTableDataChanged();
-            try ( Connection cn = Conexio.conectar()) {
-                PreparedStatement pst = cn.prepareStatement("select nom, usuari, tipus, marca, estat from Elements");
-                ResultSet rs = pst.executeQuery();
-
-                ResultSetMetaData rsMd = rs.getMetaData();
-                int cantitatColumnas = 6;
-                int cantitatFilas = 0;
-                model_elements.addColumn("Seleccionar");
-                model_elements.addColumn("Nom");
-                model_elements.addColumn("Usuari assignat");
-                model_elements.addColumn("Tipus");
-                model_elements.addColumn("Marca");
-                model_elements.addColumn("Estat");
-
-                while (rs.next()) {
-
-                    Object[] fila = new Object[cantitatColumnas];
-
-                    for (int i = 1; i < cantitatColumnas; i++) {
-
-                        fila[i] = rs.getObject(i);
-
-                    }
-                    cantitatFilas++;
-                    model_elements.addRow(fila);
-                    addCheckBox(0, jTable_Elements);
-
-                }
-
-                for (int i = 0; i < cantitatFilas; i++) {
-
-                    model_elements.setValueAt(false, i, 0);
-
-                }
-            }
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al omplir la taula");
-            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-        }
-        Natejar();
-        jTable_Elements.addMouseListener(new MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                DefaultTableModel model_elements2 = new DefaultTableModel();
-                model_elements2 = (DefaultTableModel) jTable_Elements.getModel();
-
-                int fila_point = jTable_Elements.rowAtPoint(e.getPoint());
-                int columna_point = jTable_Elements.columnAtPoint(e.getPoint());
-                int columna = 1;
-
-                System.out.println("Fila" + fila_point);
-                System.out.println("Columna" + columna_point);
-
-                jTable_Elements.repaint();
-                jTable_Elements.updateUI();
-                if (fila_point > -1 && columna_point > 0) {
-
-                    element_update = model_elements2.getValueAt(fila_point, columna).toString();                    
-                    DashElements.setVisible(false);
-                    DashInfoElement.setVisible(true);
-                    informacioElement(element_update);
-                }
-
-            }
-
-        });
-
-    }
-     
-     public void BuscarElements(String buscarElem){  
-
-         DefaultTableModel model = new DefaultTableModel();
-
-        try {
-
-                                 
-            Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select * from Elements where nom like '%" + buscarElem + "%' or usuari like '%" + buscarElem + "%'"
-                    + "or tipus like '%" + buscarElem + "%' or marca like '%" + buscarElem + "%' or estat like '%" + buscarElem + "%'");
-            ResultSet rs = pst.executeQuery();
-            //ResultSetMetaData rsMd = rs.getMetaData();
-
-            int cantitatColumnas = 6;
-
-            model.addColumn("Seleccionar");
-            model.addColumn("Nom");
-            model.addColumn("Usuari Assignat");
-            model.addColumn("Tipus");
-            model.addColumn("Marca");
-            model.addColumn("Estat");
-
-            while (rs.next()) {
-
-                Object[] fila = new Object[cantitatColumnas];
-
-                fila[1] = rs.getString("nom");
-                fila[2] = rs.getString("usuari");
-                fila[3] = rs.getString("tipus");
-                fila[4] = rs.getString("marca");
-                fila[5] = rs.getString("estat");
-
-                model.addRow(fila);
-
-            }
-
-            jTable_Elements.setModel(model);
-            addCheckBox(0, jTable_Elements);
-            cn.close();
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al omplir la taula");
-            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-        }
-
-        jTable_Elements.addMouseListener(new MouseAdapter() {
-            @Override
-
-            public void mouseClicked(MouseEvent e) {
-
-                int fila_point = jTable_Elements.rowAtPoint(e.getPoint());
-                int columna_point = jTable_Elements.columnAtPoint(e.getPoint());
-                int columna = 1;
-
-                if (fila_point > -1 && columna_point > 0) {
-
-                    element_update = (String) model.getValueAt(fila_point, columna + 1);                    
-                    DashElements.setVisible(false);
-                    DashInfoElement.setVisible(true);
-                    informacioUsuari(element_update);
-                }
-
-            }
-
-        });  
-     
-     }
-     
-     //Pantalla Tasques
-    public void DashTasques() {
-
-    /*    DashInfoUsuari.setVisible(false);
-        DashInfoTasca.setVisible(false);
-        DashNovaTasca.setVisible(false);
-        DashConfiguracio.setVisible(false);
-        DashTasques.setVisible(true);
-        DashNouUsuari.setVisible(false);
-        DashNouElement.setVisible(false);
-        DashUsuaris.setVisible(false);
-        DashElements.setVisible(false);
-        DashInfoElement.setVisible(false);
-
-        DefaultTableModel model_tasques = new DefaultTableModel();
-
-        try {
-
-            jTable_Tasques.setModel(model_tasques);
-            model_tasques.fireTableDataChanged();
-            try ( Connection cn = Conexio.conectar()) {
-                PreparedStatement pst = cn.prepareStatement("select titol, prioritat, usuari, data, estat from Tasques");
-                ResultSet rs = pst.executeQuery();
-
-                ResultSetMetaData rsMd = rs.getMetaData();
-                int cantitatColumnas = 6;
-                int cantitatFilas = 0;
-                model_tasques.addColumn("Seleccionar");
-                model_tasques.addColumn("Titol");
-                model_tasques.addColumn("Prioritat");
-                model_tasques.addColumn("Usuari assignat");
-                model_tasques.addColumn("Data");
-                model_tasques.addColumn("Estat");
-
-                while (rs.next()) {
-
-                    Object[] fila = new Object[cantitatColumnas];
-
-                    for (int i = 1; i < cantitatColumnas; i++) {
-
-                        fila[i] = rs.getObject(i);
-
-                    }
-                    cantitatFilas++;
-                    model_tasques.addRow(fila);
-                    addCheckBox(0, jTable_Tasques);
-
-                }
-
-                for (int i = 0; i < cantitatFilas; i++) {
-
-                    model_tasques.setValueAt(false, i, 0);
-
-                }
-            }
-
-            TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model_tasques);
-            jTable_Tasques.setRowSorter(sorter);
-            
-            List<SortKey> sortKeys = new ArrayList();
-            sortKeys.add(new SortKey(4,SortOrder.ASCENDING));
-            sorter.setSortKeys(sortKeys);
-            
-            
-        } catch (SQLException e) {
-
-            System.err.println("Error al omplir la taula");
-            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-        }
-        Natejar();
-        jTable_Tasques.addMouseListener(new MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                DefaultTableModel model_tasques2 = new DefaultTableModel();
-                model_tasques2 = (DefaultTableModel) jTable_Tasques.getModel();
-
-                int fila_point = jTable_Tasques.rowAtPoint(e.getPoint());
-                int columna_point = jTable_Tasques.columnAtPoint(e.getPoint());
-                int columna = 1;
-
-                System.out.println("Fila" + fila_point);
-                System.out.println("Columna" + columna_point);
-                
-      
-
-                jTable_Tasques.repaint();
-                jTable_Tasques.updateUI();
-                if (fila_point > -1 && columna_point > 0) {
-
-                    tasca_update = model_tasques2.getValueAt(fila_point, columna).toString();                    
-                    DashTasques.setVisible(false);
-                    DashInfoTasca.setVisible(true);
-                    informacioTasca(tasca_update);
-                }
-
-            }
-
-        });*/
-
-    }
-    
-    
-     //Mostra informacio detallada dels elements
-/*    public void informacioTasca(String tasca) {
-
-        System.out.print(tasca);
-        
-        try {
-            Connection cn = Conexio.conectar();
-            PreparedStatement pst = cn.prepareStatement("select * from Tasques where titol = '" + tasca + "'");
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-
-                txt_titolTasc2.setText(rs.getString("titol"));
-                id = rs.getInt("id_tasca");
-                //txt_prioritatTasc2.setText(rs.getString("prioritat"));
-                txt_usuariTasc2.setText(rs.getString("usuari"));
-                //String d = rs.getString("data");
-               // SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");            
-                //String d = formatter.format(afterAdding10Mins);
-                //Date date = new Date(d);                
-                //dateTimePicker1.setDateTimePermissive(LocalDateTime.parse(d,formatter));
-                txt_descripcioTasc2.setText(rs.getString("descripcio"));
-                txt_dataTasc2.setText(rs.getString("data"));
-                ComboPrioritatTasc2.setSelectedItem(rs.getString("prioritat"));
-                ComboEstatTasc2.setSelectedItem(rs.getString("estat"));
-
-            }
-
-            cn.close();
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al solicitar les dades" + e);
-            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-        }
-    }*/
-    
-   /* public void BuscarTasques(String buscarTasc){  
-
-        DefaultTableModel modelTasc = new DefaultTableModel();
-                 
-
-        try {
-
-                                 
-            try (Connection cn = Conexio.conectar()) {
-                PreparedStatement pst = cn.prepareStatement("select * from Tasques where titol like '%" + buscarTasc + "%' or prioritat like '%" + buscarTasc + "%'"
-                        + "or usuari like '%" + buscarTasc + "%' or data like '%" + buscarTasc + "%' or estat like '%" + buscarTasc + "%'");
-                ResultSet rs = pst.executeQuery();               
-                
-                int cantitatColumnas = 6;
-                
-                modelTasc.addColumn("Seleccionar");
-                modelTasc.addColumn("Titol");
-                modelTasc.addColumn("Prioritat");
-                modelTasc.addColumn("Usuari Assignat");
-                modelTasc.addColumn("Data");
-                modelTasc.addColumn("Estat");
-                
-                while (rs.next()) {
-                    
-                    Object[] fila = new Object[cantitatColumnas];
-                    
-                    fila[1] = rs.getString("Titol");
-                    fila[2] = rs.getString("Prioritat");
-                    fila[3] = rs.getString("Usuari");
-                    fila[4] = rs.getString("Data");
-                    fila[5] = rs.getString("Estat");
-                    
-                    modelTasc.addRow(fila);
-                    
-                }
-                
-                jTable_Tasques.setModel(modelTasc);
-                addCheckBox(0, jTable_Tasques);
-            }
-            
-             TableRowSorter<DefaultTableModel> sorter2 = new TableRowSorter<>(modelTasc);
-             jTable_Tasques.setRowSorter(sorter2);
-
-        } catch (SQLException e) {
-
-            System.err.println("Error al omplir la taula");
-            JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
-
-        }
-
-        jTable_Tasques.addMouseListener(new MouseAdapter() {
-            @Override
-
-            public void mouseClicked(MouseEvent e) {
-
-                int fila_point = jTable_Tasques.rowAtPoint(e.getPoint());
-                int columna_point = jTable_Tasques.columnAtPoint(e.getPoint());
-                int columna = 1;
-
-                if (fila_point > -1 && columna_point > 0) {
-
-                    tasca_update = (String) modelTasc.getValueAt(fila_point, columna);                    
-                    DashTasques.setVisible(false);
-                    DashInfoTasca.setVisible(true);
-                    informacioUsuari(tasca_update);
-                }
-
-            }
-
-        });  
-     
-     }*/
-    
-       public void recordatori(Date date) throws InterruptedException, ParseException{
-       
-                 
-            DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");            
-            String d = formatter.format(date);
-                      
-       try {
             Connection cn = Conexio.conectar();
             PreparedStatement pst = cn.prepareStatement("select id_tasca, notificacio, titol, data from Tasques where data = '" + d + "'");
             ResultSet rs = pst.executeQuery();
-            
-            
+
             if (rs.next()) {
-               
-                if(rs.getInt("notificacio")==0){
-                
-                    
+
+                if (rs.getInt("notificacio") == 0) {
+
                     id_tasca = rs.getInt("id_tasca");
                     String titol = rs.getString("titol");
                     String data = rs.getString("data");
                     recordatori(titol, date);
-                
-                
-                }      
-              
-               
+
+                }
+
             }
 
             cn.close();
@@ -4214,98 +2822,86 @@ public class JFPrincipal extends javax.swing.JFrame  {
             System.err.println("Error al solicitar les dades" + e);
             //JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
 
-        }      
-       
-       }
-       
-       public void recordatori(String titol, Date data) throws ParseException{
-       
-           
-           String[] botones = {"Veure Tasca", "Posposar 5min"};
-		int ventana = JOptionPane.showOptionDialog(null,titol,"Notificacio Tasca",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE, null, 
-						botones, botones[0]);
-		if(ventana == 0) {
-                    
-                    System.out.println("Veure Tasca");
-                    try {
-                        Connection cn = Conexio.conectar();
-                        PreparedStatement pst = cn.prepareStatement("update Tasques set notificacio=? where id_tasca = '" + id_tasca + "'");
-                        pst.setInt(1, 1);
-                        pst.executeUpdate();
-                        cn.close();
-                        
-                        
+        }
 
-                    } catch (SQLException e) {
+    }
 
-                        System.err.println("Error al modificar la notificacio" + e);
+    public void recordatori(String titol, Date data) throws ParseException {
 
-                    }
-                        jTable_Tasques.repaint();
-                        jTable_Tasques.updateUI();
-                        //DashTasques.setVisible(false);                        
-                       // informacioTasca(titol);
-                        DashInfoTasca.setVisible(true);
-                        DashInfoUsuari.setVisible(false);
-                        DashInfoTasca.setVisible(false);
-                        DashNovaTasca.setVisible(false);
-                        DashConfiguracio.setVisible(false);
-                        DashTasques.setVisible(false);
-                        DashNouUsuari.setVisible(false);
-                        DashNouElement.setVisible(false);
-                        DashUsuaris.setVisible(false);
-                        DashElements.setVisible(false);
-                        DashInfoElement.setVisible(false);
-                } 
-		else if(ventana == 1) {
-                    
-                    long timeInSecs = data.getTime();
-                    Date afterAdding10Mins = new Date((1 * 60 * 1000) + timeInSecs);
-                    //String d = data.substring(14,16);
-                    System.out.println("Posposar 5min");
-                    /*DateFormat formatter = new SimpleDateFormat("HH:mm");
+        String[] botones = {"Veure Tasca", "Posposar 5min"};
+        int ventana = JOptionPane.showOptionDialog(null, titol, "Notificacio Tasca", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+                botones, botones[0]);
+        if (ventana == 0) {
+
+            System.out.println("Veure Tasca");
+            try {
+                Connection cn = Conexio.conectar();
+                PreparedStatement pst = cn.prepareStatement("update Tasques set notificacio=? where id_tasca = '" + id_tasca + "'");
+                pst.setInt(1, 1);
+                pst.executeUpdate();
+                cn.close();
+
+            } catch (SQLException e) {
+
+                System.err.println("Error al modificar la notificacio" + e);
+
+            }
+            jTable_Tasques.repaint();
+            jTable_Tasques.updateUI();
+            //DashTasques.setVisible(false);                        
+            // informacioTasca(titol);
+            DashInfoTasca.setVisible(true);
+            DashInfoUsuari.setVisible(false);
+            //DashInfoTasca.setVisible(false);
+            DashNovaTasca.setVisible(false);
+            DashConfiguracio.setVisible(false);
+            DashTasques.setVisible(false);
+            DashNouUsuari.setVisible(false);
+            DashNouElement.setVisible(false);
+            DashUsuaris.setVisible(false);
+            DashElements.setVisible(false);
+            DashInfoElement.setVisible(false);
+        } else if (ventana == 1) {
+
+            long timeInSecs = data.getTime();
+            Date afterAdding10Mins = new Date((1 * 60 * 1000) + timeInSecs);
+            //String d = data.substring(14,16);
+            System.out.println("Posposar 5min");
+            /*DateFormat formatter = new SimpleDateFormat("HH:mm");
                     java.sql.Time timeValue = new java.sql.Time(formatter.parse(data).getTime());
                     timeValue.setSeconds(5 + timeValue.getSeconds());
                     
                     
                      DateFormat formattter = new SimpleDateFormat("HH:mm");            
                      String hora = formattter.format(timeValue);*/
-                    
-                     DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");            
-                     String d = formatter.format(afterAdding10Mins);
-                     
-                     
-                     System.out.println("DATAAAAAAAAA:" + d);
-                    
-                    //DATA FORMAT!!!!!!!!!
-                    /* String string = "January 2, 2010";
+
+            DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+            String d = formatter.format(afterAdding10Mins);
+
+            System.out.println("DATAAAAAAAAA:" + d);
+
+            //DATA FORMAT!!!!!!!!!
+            /* String string = "January 2, 2010";
                     DateTimeFormatter formatter = DateTimeFoDateTrmatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
                     LocalDate date = LocalDate.parse(string, formatter);
                     System.out.println(date); */
-                    
-                    
-                  
-                    try {
-                        Connection cn = Conexio.conectar();
-                        PreparedStatement pst = cn.prepareStatement("update Tasques set data=? where id_tasca = '" + id_tasca + "'");
-                        
-                        
-                        pst.setString(1,d);
-                        pst.executeUpdate();
-                        cn.close();
+            try {
+                Connection cn = Conexio.conectar();
+                PreparedStatement pst = cn.prepareStatement("update Tasques set data=? where id_tasca = '" + id_tasca + "'");
 
-                    } catch (SQLException e) {
+                pst.setString(1, d);
+                pst.executeUpdate();
+                cn.close();
 
-                        System.err.println("Error al modificar la notificacio" + e);
+            } catch (SQLException e) {
 
-                    }
-                
-                }	
-	
-           
-       
-       
-       }
+                System.err.println("Error al modificar la notificacio" + e);
+
+            }
+
+        }
+
+    }
       
     
     
@@ -4357,7 +2953,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JPanel ButtonClose;
     private javax.swing.JPanel ButtonMax;
     private javax.swing.JPanel ButtonMin;
-    private javax.swing.JLabel Close;
+    public javax.swing.JLabel Close;
     public javax.swing.JComboBox<String> ComboEstat;
     public javax.swing.JComboBox<String> ComboEstat1;
     public javax.swing.JComboBox<String> ComboEstatElem;
@@ -4400,12 +2996,12 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JPanel LiniaHideMenu;
     private javax.swing.JPanel LiniaTasques;
     private javax.swing.JPanel LiniaUsuaris;
-    private javax.swing.JLabel Max;
+    public javax.swing.JLabel Max;
     public javax.swing.JPanel Menu;
     private javax.swing.JLabel MenuDes;
     public javax.swing.JPanel MenuHide;
     public javax.swing.JPanel MenuIcon;
-    private javax.swing.JLabel Min;
+    public javax.swing.JLabel Min;
     private javax.swing.JPanel N_Configuracio;
     private javax.swing.JPanel N_Elements;
     private javax.swing.JPanel N_Grups;
@@ -4551,5 +3147,5 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JTextField txt_usuariassignatTasc;
     // End of variables declaration//GEN-END:variables
 
-    
+        
 }

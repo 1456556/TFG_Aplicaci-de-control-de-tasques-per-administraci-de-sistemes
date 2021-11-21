@@ -10,6 +10,7 @@ import Model.ConsultesRegistre;
 import Model.Login;
 import Model.Registre;
 import Vista.JFLogin;
+import Vista.JFPrincipal;
 import Vista.JFRegistre;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,12 +29,14 @@ public class ControladorRegistre implements ActionListener{
     private Registre mod;
     private ConsultesRegistre modC;
     private JFRegistre vis;
+    private JFPrincipal principal;
     
-    public ControladorRegistre(Registre mod, ConsultesRegistre modC, JFRegistre vis){
+    public ControladorRegistre(Registre mod, ConsultesRegistre modC, JFRegistre vis, JFPrincipal principal){
     
         this.mod = mod;
         this.modC = modC;
         this.vis = vis;
+        this.principal = principal;
         this.vis.btnRegistrar.addActionListener(this);
         
         
@@ -69,7 +72,7 @@ public class ControladorRegistre implements ActionListener{
                         Login modLogin = new Login();
                         ConsultesLogin modCLogin = new ConsultesLogin();
                         JFLogin vistLogin = new JFLogin();
-                        ControladorLogin con = new ControladorLogin(modLogin, modCLogin, vistLogin);
+                        ControladorLogin con = new ControladorLogin(modLogin, modCLogin, vistLogin, principal);
                         con.inicialitzar();
                         vistLogin.setVisible(true);
                         break;                        

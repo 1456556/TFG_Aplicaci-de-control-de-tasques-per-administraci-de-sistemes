@@ -77,6 +77,25 @@ public class ControladorMenu implements MouseListener  {
         
     }
     
+    public void notificacio(){
+    
+    
+        vis.DashTasques.setVisible(false);        
+        vis.DashInfoUsuari.setVisible(false);
+        vis.DashInfoTasca.setVisible(true);
+        vis.DashNovaTasca.setVisible(false);
+        vis.DashConfiguracio.setVisible(false);         
+        vis.DashNouUsuari.setVisible(false);
+        vis.DashNouElement.setVisible(false);
+        vis.DashUsuaris.setVisible(false);
+        vis.DashElements.setVisible(false);
+        vis.DashInfoElement.setVisible(false);
+    
+    
+    
+    
+    }
+    
         
     @Override
     public void mouseClicked(MouseEvent e){

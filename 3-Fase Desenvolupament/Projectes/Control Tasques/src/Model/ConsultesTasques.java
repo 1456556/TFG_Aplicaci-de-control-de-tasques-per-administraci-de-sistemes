@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -33,6 +34,12 @@ public class ConsultesTasques extends Conexio {
     
     String tasques;
     public static String tasca_update = "";
+    
+       
+    
+    
+    
+    
     
     
     
@@ -316,10 +323,77 @@ public class ConsultesTasques extends Conexio {
         }
     }
 
+     public int Notificacio(Tasques tas){
+        
+        int notificacio=0;
+        String d = tas.getData();
+    
+        try {
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select id_tasca, notificacio, titol, data from Tasques where data = '" + d + "'");
+            ResultSet rs = pst.executeQuery();
+            
+            
+            if (rs.next()) {
+               
+                if(rs.getInt("notificacio")==0){
+                
+                    tas.id = rs.getInt("id_tasca");
+                    tas.data = rs.getString("data");
+                    tas.titol = rs.getString("titol");  
+                    notificacio = 1;
+                    /*id_tasca = rs.getInt("id_tasca");
+                    String titol = rs.getString("titol");
+                    String data = rs.getString("data");
+                    recordatori(titol, date);*/
+                
+                
+                }      
+              
+               
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al solicitar les dades" + e);
+            //JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }    
+    
+        return notificacio;
+    
+    
+    
+    
+    }
+    
+    
+    public void ActualitzaNotificacio(Tasques tas){
+    
+    
+        try {
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("update Tasques set notificacio=? where id_tasca = '" + tas.getId() + "'");
+            pst.setInt(1, 1);
+            pst.executeUpdate();
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al modificar la notificacio" + e);
+
+        }
+
+    }
+    
+    
+    
+    
     public int informacioTasca(Tasques tas) {
 
-        String tasca = tas.getTitol();
-        System.out.print("TITOL" + tasca);
+        
          System.out.println("ID" + tas.getId());  
         int informacioTasca = 0;
         try {
@@ -339,7 +413,19 @@ public class ConsultesTasques extends Conexio {
 
             }
 
-             System.out.println("ID" + tas.getId());     
+             System.out.println("ID" + tas.getId());
+             
+            System.out.println("TITOL" +tas.getTitol());
+            
+             System.out.println("Usuari" +tas.getUsuariAssignat());
+             
+              System.out.println("Data" +tas.getData());
+              
+               System.out.print("Descripcio" +tas.getDescripcio());
+               
+                System.out.print("Estat" +tas.getEstat());
+                
+                 System.out.print("Prioritat" +tas.getPrioritat());
              cn.close();
 
         } catch (SQLException e) {

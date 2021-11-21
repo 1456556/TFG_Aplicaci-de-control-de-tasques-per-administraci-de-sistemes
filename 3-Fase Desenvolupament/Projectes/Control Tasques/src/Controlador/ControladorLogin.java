@@ -31,12 +31,14 @@ public class ControladorLogin  extends JFPrincipal implements ActionListener {
     private Login mod;
     private ConsultesLogin modC;
     private JFLogin vis;
+    private JFPrincipal principal;
     
-    public ControladorLogin(Login mod, ConsultesLogin modC, JFLogin vis){
+    public ControladorLogin(Login mod, ConsultesLogin modC, JFLogin vis, JFPrincipal principal){
     
         this.mod = mod;
         this.modC = modC;
         this.vis = vis;
+        this.principal = principal;
         this.vis.btnEntrar.addActionListener(this);
         this.vis.btnRegistre.addActionListener(this);
     
@@ -73,8 +75,8 @@ public class ControladorLogin  extends JFPrincipal implements ActionListener {
                 con.inicialitzar();*/
                 //vistPrincipal.setVisible(true);
                 
-                JFPrincipal vistPrincipal = new JFPrincipal();              
-                ControladorMenu con = new ControladorMenu(vistPrincipal);               
+                //JFPrincipal vistPrincipal = new JFPrincipal();              
+                ControladorMenu con = new ControladorMenu(principal);               
                 con.inicialitzar();
                 //vistPrincipal.setVisible(true);
                 
@@ -110,7 +112,7 @@ public class ControladorLogin  extends JFPrincipal implements ActionListener {
                 Registre modRegistre = new Registre();
                 ConsultesRegistre modCRegistre = new ConsultesRegistre();
                 JFRegistre vistRegistre = new JFRegistre();
-                ControladorRegistre con = new ControladorRegistre(modRegistre, modCRegistre, vistRegistre);               
+                ControladorRegistre con = new ControladorRegistre(modRegistre, modCRegistre, vistRegistre, principal);               
                 con.inicialitzar();
                 vistRegistre.setVisible(true);            
              

@@ -10,6 +10,7 @@ import Controlador.ControladorLogin;
 import Model.ConsultesLogin;
 import Model.Login;
 import Vista.JFLogin;
+import Vista.JFPrincipal;
 import java.util.Timer;
 
 /**
@@ -21,19 +22,21 @@ import java.util.Timer;
 public class SchedulerMain {
 	public static void main(String args[]) throws InterruptedException {
 
-                
+                JFPrincipal principal = new JFPrincipal();
                 Login mod = new Login();
                 ConsultesLogin modC = new ConsultesLogin();
                 JFLogin vist = new JFLogin();
-                ControladorLogin con = new ControladorLogin(mod, modC, vist);                
+                ControladorLogin con = new ControladorLogin(mod, modC, vist, principal);                
                 con.inicialitzar();
                 vist.setVisible(true);
             
                 //Principal principal = new Principal();
                 //principal.setVisible(true);
             
-		/*Timer time = new Timer(); // Instantiate Timer Object
-		ScheduledTask st = new ScheduledTask(); // Instantiate SheduledTask class
+                
+                
+		Timer time = new Timer(); // Instantiate Timer Object
+		ScheduledTask st = new ScheduledTask(principal); // Instantiate SheduledTask class
 		time.schedule(st, 0, 1000); // Create Repetitively task for every 1 secs
 
 		//for demo only.
@@ -44,6 +47,6 @@ public class SchedulerMain {
 				System.out.println("Application Terminates");
 				System.exit(0);
 			}
-		}*/
+		}
 	}
 }

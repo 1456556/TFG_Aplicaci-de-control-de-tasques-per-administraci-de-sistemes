@@ -124,4 +124,6 @@ public class Notificacio extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JTextField titolNotificacio;
     // End of variables declaration//GEN-END:variables
+
+  
 }
