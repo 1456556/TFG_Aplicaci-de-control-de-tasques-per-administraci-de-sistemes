@@ -47,14 +47,66 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
         this.vis.jButtonRegistarGrup.addActionListener(this);
         this.vis.jTable_Grups.addMouseListener(this);
         this.vis.jButtonAfegir.addActionListener(this);
+        this.vis.jRadioButtonElements.addActionListener(this);
+        this.vis.jRadioButtonUsuaris.addActionListener(this);
         
         //this.vis.jButtonEditarUsuari.addActionListener(this);
         //this.vis.txtBuscadorUsuaris.addKeyListener(this);
     }
 
       
+         public void inicialitzar(){    
+       
+              MostrarTaula();
+        }
     
     
+       public void MostrarTaula(){    
+        
+        
+         DefaultTableModel model_grups = new DefaultTableModel();
+         
+         
+         model_grups.addColumn("Seleccionar");
+         model_grups.addColumn("Nom");
+         //model_grups.addColumn("Tipus");        
+         model_grups.addColumn("ID");
+        
+         
+         Object [] columna = new Object[3];
+         
+         int numRegistres = modC.MostrarGrups().size();
+         System.out.println("Num: " + numRegistres);
+        
+         
+         for (int i = 0; i < numRegistres; i++){
+         
+             
+             columna[1] = modC.MostrarGrups().get(i).getNom();            
+             columna[2] = modC.MostrarGrups().get(i).getId();
+             
+             model_grups.addRow(columna);
+             
+             
+             mod.setId(modC.MostrarGrups().get(i).getId());
+             modC.GuardarId(mod);
+            
+         }
+         
+         for (int i = 0; i < numRegistres; i++) {
+
+            model_grups.setValueAt(false, i, 0);
+
+        }
+         
+            vis.jTable_Grups.setModel(model_grups);            
+            modelGrupsUsuaris = model_grups;
+            addCheckBox(0, vis.jTable_Grups);  
+            vis.jTable_Grups.removeColumn(vis.jTable_Grups.getColumnModel().getColumn(2));
+             
+             
+    
+     }    
     
     
     
@@ -108,6 +160,58 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
     
      }    
     
+      
+      public void MostrarTaulaGrupsElements(){    
+        
+        
+         DefaultTableModel model_grups = new DefaultTableModel();
+         
+         
+         model_grups.addColumn("Seleccionar");
+         model_grups.addColumn("Nom");
+         model_grups.addColumn("Usuari");
+         model_grups.addColumn("Tipus");
+         model_grups.addColumn("ID");
+        
+         
+         Object [] columna = new Object[5];
+         
+         int numRegistres = modC.MostrarGrupsElements().size();
+         System.out.println("Num: " + numRegistres);
+        
+         
+         for (int i = 0; i < numRegistres; i++){
+         
+             
+             columna[1] = modC.MostrarGrupsElements().get(i).getNomElement();
+             columna[2] = modC.MostrarGrupsElements().get(i).getUsuariElement();
+             columna[3] = modC.MostrarGrupsElements().get(i).getTipusElement();
+             columna[4] = modC.MostrarGrupsElements().get(i).getIdElement();
+             
+             model_grups.addRow(columna);
+             
+             
+             mod.setId(modC.MostrarGrupsElements().get(i).getId());
+             modC.GuardarIdElement(mod);
+            
+         }
+         
+         for (int i = 0; i < numRegistres; i++) {
+
+            model_grups.setValueAt(false, i, 0);
+
+        }
+         
+            vis.jTableCrearGrupsElements.setModel(model_grups);            
+            modelGrupsUsuaris = model_grups;
+            addCheckBox(0, vis.jTableCrearGrupsElements);  
+            vis.jTableCrearGrupsElements.removeColumn(vis.jTableCrearGrupsElements.getColumnModel().getColumn(4));
+             
+             
+    
+     }    
+      
+      
     public void addCheckBox(int column, JTable table) {
 
         TableColumn tc = table.getColumnModel().getColumn(column);
@@ -117,10 +221,7 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
     }
     
     
-    public void inicialitzar(){    
-       
-    
-    }
+   
     
     public boolean IsSelected(int fila, int columna, JTable taula) {
 
@@ -138,7 +239,12 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             
             vis.DashGrups.setVisible(false);
             vis.DashNouGrup.setVisible(true);
-            MostrarTaulaGrupsUsuaris();
+            vis.jRadioButtonUsuaris.setSelected(true);
+            //vis.jRadioButtonElements.setSelected(false);
+            vis.jTableCrearGrupsElements.setVisible(false);
+            vis.jTableCrearGrupsUsuaris.setVisible(true);           
+             MostrarTaulaGrupsUsuaris();
+            
         }
          
          if (e.getSource() == vis.jButtonAfegir) {
@@ -147,6 +253,8 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             System.out.println("Num: " + numRegistres);
             String array[];
             array = new String[numRegistres];
+            int arrayID[];
+            arrayID = new int[numRegistres];
             int j = 0;
             String line = "";
             for (int i = 0; i < numRegistres; i++) {
@@ -157,10 +265,16 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
                     DefaultTableModel model_grupsusuaris2 = new DefaultTableModel();
                     model_grupsusuaris2 = (DefaultTableModel) vis.jTableCrearGrupsUsuaris.getModel();
                     String titol = model_grupsusuaris2.getValueAt(i, 3).toString();
+                    int id = (int) model_grupsusuaris2.getValueAt(i, 4);
                     line += titol;
                     line += "\n";
-                    array[i] = titol;
+                    array[j] = titol;
+                    arrayID[j] = id;
+                    System.out.println("NOM:" + array[j]);
+                    System.out.println("ID:" + arrayID[j]);                    
                     mod.setGrupUsuaris(array);
+                    mod.setIdUsuaris(arrayID);
+                    j++;
 
                 }
                     
@@ -176,17 +290,29 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
          
          if (e.getSource() == vis.jButtonRegistarGrup){
             
+            
             mod.setNom(vis.txt_nomGrup.getText().trim());
             
-           switch (modC.NouGrup(mod)) {     
+            
+            
+           switch (modC.NouUserGrup(mod)) {     
                  
                        
                 case 1:
-                    JOptionPane.showMessageDialog(null, "Element Creat Correctament!");           
-                    //natejar();                   
-                    //vis.DashNouElement.setVisible(false);
-                    //vis.DashElements.setVisible(true);
-                    //MostrarTaula();                                
+                    if (modC.NouGrup(mod) == 1){
+                    
+                         JOptionPane.showMessageDialog(null, "Element Creat Correctament!");      
+                    
+                    }else{
+                    
+                        JOptionPane.showMessageDialog(null,"Error al crear l'element2. Contacti amb l'administrador");
+                    
+                    }                        
+                    Natejar();                   
+                    vis.DashNouGrup.setVisible(false);
+                    vis.DashGrups.setVisible(true);
+                    
+                    MostrarTaula();                                
                     break;                
                 case 2:
                     JOptionPane.showMessageDialog(null,"Error al crear l'element. Contacti amb l'administrador");
@@ -201,8 +327,40 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             
             
         }
+          
+         if (e.getSource() == vis.jRadioButtonUsuaris){
+             
+            vis.jTableCrearGrupsElements.setVisible(false);
+            vis.jTableCrearGrupsUsuaris.setVisible(true);
+            //vis.jRadioButtonUsuaris.setSelected(true);
+            vis.jRadioButtonElements.setSelected(false);
+          
+             MostrarTaulaGrupsUsuaris();
+             
+             
+             
+         }
+         
+         
+         if (e.getSource() == vis.jRadioButtonElements){
+                       
+               vis.jTableCrearGrupsUsuaris.setVisible(false);
+                vis.jTableCrearGrupsElements.setVisible(true);
+                vis.jRadioButtonUsuaris.setSelected(false);   
+             MostrarTaulaGrupsElements();
+             
+             
+         }
         
     }
+    
+    public void Natejar(){
+    
+        vis.txt_nomGrup.setText("");    
+    
+    
+    }
+    
 
     @Override
     public void mouseClicked(MouseEvent e) {

@@ -12,10 +12,75 @@ package Model;
 public class Grups {
     
     String nomUsuari;
+    String nomElement;
+    int idElement;
+    String usuariElement;
+    String tipusElement;
+    String[] GrupElements;
+    int[] IdElements;
+
+    public String getUsuariElement() {
+        return usuariElement;
+    }
+
+    public void setUsuariElement(String usuariElement) {
+        this.usuariElement = usuariElement;
+    }
+   
+
+    public String getNomElement() {
+        return nomElement;
+    }
+
+    public void setNomElement(String nomElement) {
+        this.nomElement = nomElement;
+    }
+
+    public int getIdElement() {
+        return idElement;
+    }
+
+    public void setIdElement(int idElement) {
+        this.idElement = idElement;
+    }
+
+    public String getTipusElement() {
+        return tipusElement;
+    }
+
+    public void setTipusElement(String tipusElement) {
+        this.tipusElement = tipusElement;
+    }
+
+    public String[] getGrupElements() {
+        return GrupElements;
+    }
+
+    public void setGrupElements(String[] GrupElements) {
+        this.GrupElements = GrupElements;
+    }
+
+    public int[] getIdElements() {
+        return IdElements;
+    }
+
+    public void setIdElements(int[] IdElements) {
+        this.IdElements = IdElements;
+    }
+    
     String nom;
     int id;
     int idUsuari;
     String[] GrupUsuaris;
+    int[] IdUsuaris;
+
+    public int[] getIdUsuaris() {
+        return IdUsuaris;
+    }
+
+    public void setIdUsuaris(int[] IdUsuaris) {
+        this.IdUsuaris = IdUsuaris;
+    }
 
     public String[] getGrupUsuaris() {
         return GrupUsuaris;

@@ -175,12 +175,16 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel72 = new javax.swing.JLabel();
         txt_nomGrup = new javax.swing.JTextField();
         txt_usuariassignatTasc1 = new javax.swing.JTextField();
-        jLabel75 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCrearGrupsUsuaris = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextGrupUsuaris = new javax.swing.JTextArea();
         jButtonAfegir = new javax.swing.JButton();
+        jRadioButtonElements = new javax.swing.JRadioButton();
+        jRadioButtonUsuaris = new javax.swing.JRadioButton();
+        jLabel73 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableCrearGrupsElements = new javax.swing.JTable();
         DashTasques = new javax.swing.JPanel();
         Contador4 = new javax.swing.JPanel();
         jLabel51 = new javax.swing.JLabel();
@@ -818,27 +822,21 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jButtonRegistarGrup.setBorder(null);
         jButtonRegistarGrup.setBorderPainted(false);
         jButtonRegistarGrup.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(jButtonRegistarGrup, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, 150, 30));
+        jPanel8.add(jButtonRegistarGrup, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 150, 30));
 
         jLabel72.setBackground(new java.awt.Color(0, 0, 0));
         jLabel72.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel72.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel72.setText("Nom Grup:");
-        jPanel8.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 25));
+        jLabel72.setText("Cerca:");
+        jPanel8.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, 25));
 
         txt_nomGrup.setBackground(new java.awt.Color(255, 153, 51));
         txt_nomGrup.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel8.add(txt_nomGrup, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 150, 31));
+        jPanel8.add(txt_nomGrup, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 110, 31));
 
         txt_usuariassignatTasc1.setBackground(new java.awt.Color(255, 153, 51));
         txt_usuariassignatTasc1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel8.add(txt_usuariassignatTasc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 150, 31));
-
-        jLabel75.setBackground(new java.awt.Color(255, 153, 51));
-        jLabel75.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel75.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel75.setText("Usuari Assignat");
-        jPanel8.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, 25));
+        jPanel8.add(txt_usuariassignatTasc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 100, 31));
 
         jTableCrearGrupsUsuaris.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -853,21 +851,58 @@ public class JFPrincipal extends javax.swing.JFrame  {
         ));
         jScrollPane1.setViewportView(jTableCrearGrupsUsuaris);
 
-        jPanel8.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 510, 260));
+        jPanel8.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 400, 240));
 
         jTextGrupUsuaris.setColumns(20);
         jTextGrupUsuaris.setRows(5);
         jScrollPane2.setViewportView(jTextGrupUsuaris);
 
-        jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 120, 280));
+        jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 120, 280));
 
         jButtonAfegir.setBackground(new java.awt.Color(255, 153, 51));
         jButtonAfegir.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAfegir.setText("Afegir");
+        jButtonAfegir.setText("Afegir Usuari");
         jButtonAfegir.setBorder(null);
         jButtonAfegir.setBorderPainted(false);
         jButtonAfegir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(jButtonAfegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 150, 30));
+        jPanel8.add(jButtonAfegir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 90, 30));
+
+        jRadioButtonElements.setText("Elements");
+        jRadioButtonElements.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonElementsActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jRadioButtonElements, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
+
+        jRadioButtonUsuaris.setText("Usuaris");
+        jRadioButtonUsuaris.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonUsuarisActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jRadioButtonUsuaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
+
+        jLabel73.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel73.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel73.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel73.setText("Nom Grup:");
+        jPanel8.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 25));
+
+        jTableCrearGrupsElements.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTableCrearGrupsElements);
+
+        jPanel8.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 400, 240));
 
         javax.swing.GroupLayout DashNouGrupLayout = new javax.swing.GroupLayout(DashNouGrup);
         DashNouGrup.setLayout(DashNouGrupLayout);
@@ -3098,6 +3133,14 @@ public class JFPrincipal extends javax.swing.JFrame  {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEliminarGrup
 
+    private void jRadioButtonElementsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonElementsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonElementsActionPerformed
+
+    private void jRadioButtonUsuarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsuarisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonUsuarisActionPerformed
+
     
     public void inicialitzarNotificacio(Date date){
     
@@ -3422,7 +3465,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
@@ -3432,12 +3475,16 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    public javax.swing.JRadioButton jRadioButtonElements;
+    public javax.swing.JRadioButton jRadioButtonUsuaris;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JScrollPane jScrollPane_Elements;
     public javax.swing.JScrollPane jScrollPane_Grups;
     public javax.swing.JScrollPane jScrollPane_Tasques;
     public javax.swing.JScrollPane jScrollPane_Usuaris;
+    public javax.swing.JTable jTableCrearGrupsElements;
     public javax.swing.JTable jTableCrearGrupsUsuaris;
     public javax.swing.JTable jTable_Elements;
     public javax.swing.JTable jTable_Grups;
