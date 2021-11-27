@@ -10,6 +10,7 @@ import Model.ConsultesUsuaris;
 import Model.Grups;
 import Model.Usuaris;
 import Vista.JFPrincipal;
+import static com.sun.tools.attach.VirtualMachine.list;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -17,6 +18,12 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.lang.reflect.Array;
+import static java.nio.file.Files.list;
+import java.util.ArrayList;
+import java.util.Arrays;
+import static java.util.Collections.list;
+import java.util.List;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -32,7 +39,10 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
     private ConsultesGrups modC;
     private JFPrincipal vis;
     
+    
+   
     public DefaultTableModel  modelGrupsUsuaris;
+    public DefaultTableModel  modelGrupsElements;
     public DefaultTableModel  modelGrups;
       
     
@@ -47,8 +57,13 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
         this.vis.jButtonRegistarGrup.addActionListener(this);
         this.vis.jTable_Grups.addMouseListener(this);
         this.vis.jButtonAfegir.addActionListener(this);
+        this.vis.jButtonAfegirElement.addActionListener(this);
         this.vis.jRadioButtonElements.addActionListener(this);
         this.vis.jRadioButtonUsuaris.addActionListener(this);
+        
+        ButtonGroup group = new ButtonGroup();
+        group.add(this.vis.jRadioButtonElements);
+        group.add(this.vis.jRadioButtonUsuaris);
         
         //this.vis.jButtonEditarUsuari.addActionListener(this);
         //this.vis.txtBuscadorUsuaris.addKeyListener(this);
@@ -100,7 +115,7 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
         }
          
             vis.jTable_Grups.setModel(model_grups);            
-            modelGrupsUsuaris = model_grups;
+            modelGrups = model_grups;
             addCheckBox(0, vis.jTable_Grups);  
             vis.jTable_Grups.removeColumn(vis.jTable_Grups.getColumnModel().getColumn(2));
              
@@ -203,7 +218,7 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
         }
          
             vis.jTableCrearGrupsElements.setModel(model_grups);            
-            modelGrupsUsuaris = model_grups;
+            modelGrupsElements = model_grups;
             addCheckBox(0, vis.jTableCrearGrupsElements);  
             vis.jTableCrearGrupsElements.removeColumn(vis.jTableCrearGrupsElements.getColumnModel().getColumn(4));
              
@@ -237,50 +252,110 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
         
          if (e.getSource() == vis.jButtonNouGrup){
             
-            vis.DashGrups.setVisible(false);
+            
+            vis.DashGrups.setVisible(false);           
             vis.DashNouGrup.setVisible(true);
-            vis.jRadioButtonUsuaris.setSelected(true);
-            //vis.jRadioButtonElements.setSelected(false);
-            vis.jTableCrearGrupsElements.setVisible(false);
-            vis.jTableCrearGrupsUsuaris.setVisible(true);           
-             MostrarTaulaGrupsUsuaris();
+            vis.jRadioButtonUsuaris.setSelected(true);        
+            vis.jButtonAfegirElement.setVisible(false);
+            vis.jScrollPaneElements.setVisible(false); 
+            
+            MostrarTaulaGrupsUsuaris();
+            
             
         }
          
          if (e.getSource() == vis.jButtonAfegir) {
-
+             
+             ArrayList<String> UsuariArrayList = new ArrayList<String>();
+            ArrayList<Integer> idArrayList = new ArrayList<Integer>();
             int numRegistres = modC.MostrarGrupsUsuaris().size();
-            System.out.println("Num: " + numRegistres);
-            String array[];
-            array = new String[numRegistres];
-            int arrayID[];
-            arrayID = new int[numRegistres];
+            System.out.println("Num: " + numRegistres);            
             int j = 0;
-            String line = "";
+            String line = "";            
             for (int i = 0; i < numRegistres; i++) {
 
                 if (IsSelected(i, 0, vis.jTableCrearGrupsUsuaris)) {
-                    
+                    System.out.println("ARRAY22222:" + UsuariArrayList);
                     
                     DefaultTableModel model_grupsusuaris2 = new DefaultTableModel();
                     model_grupsusuaris2 = (DefaultTableModel) vis.jTableCrearGrupsUsuaris.getModel();
-                    String titol = model_grupsusuaris2.getValueAt(i, 3).toString();
-                    int id = (int) model_grupsusuaris2.getValueAt(i, 4);
-                    line += titol;
-                    line += "\n";
-                    array[j] = titol;
-                    arrayID[j] = id;
-                    System.out.println("NOM:" + array[j]);
-                    System.out.println("ID:" + arrayID[j]);                    
-                    mod.setGrupUsuaris(array);
-                    mod.setIdUsuaris(arrayID);
-                    j++;
+                    String usuari = model_grupsusuaris2.getValueAt(i, 3).toString();
+                    int id = (int) model_grupsusuaris2.getValueAt(i, 4);    
+                   
+                        line += usuari;
+                        line += "\n";
+                        UsuariArrayList.add(usuari);
+                        idArrayList.add(id);
+                        System.out.println("NOM:" + UsuariArrayList.get(j));
+                        System.out.println("ID:" + idArrayList.get(j));
+                        System.out.println("ID:" + UsuariArrayList);
+                        //Object[] arrays = UsuariArrayList.toArray();
+                        //String array = Arrays.toString(arrays);
+                        String[] array = UsuariArrayList.toArray(new String[UsuariArrayList.size()]);
+                        int[] arrayID = idArrayList.stream().mapToInt(Integer::intValue).toArray();
+                        mod.setGrupUsuaris(array);
+                        mod.setIdUsuaris(arrayID);
+                        
+                    j++;                  
 
                 }
                     
             }
-           
+            String[] array = UsuariArrayList.toArray(new String[UsuariArrayList.size()]);
+            for (int i = 0; i < array.length ; i++) {
+            System.out.println("ARRAY:" + array[i]);
+            }
             vis.jTextGrupUsuaris.setText(line);
+            UsuariArrayList.clear();
+            idArrayList.clear();
+            
+
+        }
+         
+         if (e.getSource() == vis.jButtonAfegirElement) {
+
+            ArrayList<String> UsuariArrayList = new ArrayList<String>();
+            ArrayList<Integer> idArrayList = new ArrayList<Integer>();
+            int numRegistres = modC.MostrarGrupsElements().size();
+            System.out.println("Num: " + numRegistres);            
+            int j = 0;
+            String line = "";            
+            for (int i = 0; i < numRegistres; i++) {
+
+                if (IsSelected(i, 0, vis.jTableCrearGrupsElements)) {
+                    System.out.println("ARRAY22222:" + UsuariArrayList);
+                    
+                    DefaultTableModel model_grupsusuaris2 = new DefaultTableModel();
+                    model_grupsusuaris2 = (DefaultTableModel) vis.jTableCrearGrupsElements.getModel();
+                    String usuari = model_grupsusuaris2.getValueAt(i, 3).toString();
+                    int id = (int) model_grupsusuaris2.getValueAt(i, 4);    
+                   
+                        line += usuari;
+                        line += "\n";
+                        UsuariArrayList.add(usuari);
+                        idArrayList.add(id);
+                        System.out.println("NOM:" + UsuariArrayList.get(j));
+                        System.out.println("ID:" + idArrayList.get(j));
+                        System.out.println("ID:" + UsuariArrayList);
+                        //Object[] arrays = UsuariArrayList.toArray();
+                        //String array = Arrays.toString(arrays);
+                        String[] array = UsuariArrayList.toArray(new String[UsuariArrayList.size()]);
+                        int[] arrayID = idArrayList.stream().mapToInt(Integer::intValue).toArray();
+                        mod.setGrupUsuaris(array);
+                        mod.setIdUsuaris(arrayID);
+                        
+                    j++;                  
+
+                }
+                    
+            }
+            String[] array = UsuariArrayList.toArray(new String[UsuariArrayList.size()]);
+            for (int i = 0; i < array.length ; i++) {
+            System.out.println("ARRAY:" + array[i]);
+            }
+            vis.jTextGrupUsuaris.setText(line);
+            UsuariArrayList.clear();
+            idArrayList.clear();
 
         }
 
@@ -292,8 +367,9 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             
             
             mod.setNom(vis.txt_nomGrup.getText().trim());
+            String text= ( vis.jTextGrupUsuaris.getText());
             
-            
+           if (!mod.getGrupUsuaris().equals(null)){
             
            switch (modC.NouUserGrup(mod)) {     
                  
@@ -324,33 +400,76 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
                     break;                 
                     
             }
-            
-            
-        }
-          
-         if (e.getSource() == vis.jRadioButtonUsuaris){
-             
-            vis.jTableCrearGrupsElements.setVisible(false);
-            vis.jTableCrearGrupsUsuaris.setVisible(true);
-            //vis.jRadioButtonUsuaris.setSelected(true);
-            vis.jRadioButtonElements.setSelected(false);
-          
-             MostrarTaulaGrupsUsuaris();
-             
-             
-             
-         }
-         
-         
-         if (e.getSource() == vis.jRadioButtonElements){
+           }
+           
+           if (!mod.getGrupElements().equals(null)){
+             System.out.print("HOOOOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+           switch (modC.NouElementGrup(mod)) {     
+                 
                        
-               vis.jTableCrearGrupsUsuaris.setVisible(false);
-                vis.jTableCrearGrupsElements.setVisible(true);
-                vis.jRadioButtonUsuaris.setSelected(false);   
-             MostrarTaulaGrupsElements();
+                case 1:
+                    if (modC.NouGrup(mod) == 1){
+                    
+                         JOptionPane.showMessageDialog(null, "Element Creat Correctament!");      
+                    
+                    }else{
+                    
+                        JOptionPane.showMessageDialog(null,"Error al crear l'element2. Contacti amb l'administrador");
+                    
+                    }                        
+                    Natejar();                   
+                    vis.DashNouGrup.setVisible(false);
+                    vis.DashGrups.setVisible(true);
+                    
+                    MostrarTaula();                                
+                    break;                
+                case 2:
+                    JOptionPane.showMessageDialog(null,"Error al crear l'element. Contacti amb l'administrador");
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");                    
+                    break;
+                default:
+                    break;                 
+                    
+            }
+           
+           }
+           
+           
+           
+           }
+            
+        
+         
+         
+         
+         
+          
+        if (e.getSource() == vis.jRadioButtonUsuaris) {
+
+            
+            vis.jScrollPaneElements.setVisible(false);
+            vis.jScrollPaneUsuaris.setVisible(true);  
+            vis.jButtonAfegir.setVisible(true);
+            vis.jButtonAfegirElement.setVisible(false);
+            MostrarTaulaGrupsUsuaris();
+            
+
+        }
+
+        if (e.getSource() == vis.jRadioButtonElements) {
+           
              
-             
-         }
+            vis.jScrollPaneUsuaris.setVisible(false);
+            vis.jScrollPaneElements.setVisible(true);            
+            vis.jButtonAfegir.setVisible(false);
+            vis.jButtonAfegirElement.setVisible(true);
+            MostrarTaulaGrupsElements();
+           
+            
+
+        }
         
     }
     

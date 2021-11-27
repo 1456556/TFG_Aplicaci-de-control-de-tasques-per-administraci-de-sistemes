@@ -21,6 +21,43 @@ public class Tasques {
    String estat;
    String descripcio;
    String hora;
+   Boolean notificacio;
+   int tasquesTotals;
+   int tasquesAssingades;
+   int tasquesPendents;
+
+    public int getTasquesTotals() {
+        return tasquesTotals;
+    }
+
+    public void setTasquesTotals(int tasquesTotals) {
+        this.tasquesTotals = tasquesTotals;
+    }
+
+    public int getTasquesAssingades() {
+        return tasquesAssingades;
+    }
+
+    public void setTasquesAssingades(int tasquesAssingades) {
+        this.tasquesAssingades = tasquesAssingades;
+    }
+
+    public int getTasquesPendents() {
+        return tasquesPendents;
+    }
+
+    public void setTasquesPendents(int tasquesPendents) {
+        this.tasquesPendents = tasquesPendents;
+    }
+   
+
+    public Boolean getNotificacio() {
+        return notificacio;
+    }
+
+    public void setNotificacio(Boolean notificacio) {
+        this.notificacio = notificacio;
+    }
 
     public String getHora() {
         return hora;

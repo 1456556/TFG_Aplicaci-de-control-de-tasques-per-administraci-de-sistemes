@@ -62,29 +62,22 @@ public class ControladorLogin  extends JFPrincipal implements ActionListener {
             mod.setContrasenya(String.valueOf(vis.txtContrasenya.getPassword()).trim());  
             
             //Login exitós
-            /*if (modC.login(mod) == 0){*/
+            if (modC.login(mod) == 0){
                 
                 
-                //JOptionPane.showMessageDialog(null, "Inici de Sessió Correcte");
+                JOptionPane.showMessageDialog(null, "Inici de Sessió Correcte");
                 natejar();
-                vis.dispose();
-                /*Tasques modTasques = new Tasques();
-                ConsultesTasques modCTasques = new ConsultesTasques();
-                JFPrincipal vistPrincipal = new JFPrincipal();
-                ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vistPrincipal);               
-                con.inicialitzar();*/
-                //vistPrincipal.setVisible(true);
-                
-                //JFPrincipal vistPrincipal = new JFPrincipal();              
+                vis.dispose();      
+                    
                 ControladorMenu con = new ControladorMenu(principal);               
                 con.inicialitzar();
-                //vistPrincipal.setVisible(true);
+                
                 
                 
              
                 
             //Login no exitós
-           /* }else{
+            }else{
                 
                 switch (modC.login(mod)) {
                     case 1:
@@ -101,7 +94,7 @@ public class ControladorLogin  extends JFPrincipal implements ActionListener {
                         break;
                 }               
                 
-            }*/
+            }
         
         }
         

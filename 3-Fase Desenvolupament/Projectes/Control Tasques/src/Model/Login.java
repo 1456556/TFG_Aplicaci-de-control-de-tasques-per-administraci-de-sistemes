@@ -11,7 +11,7 @@ package Model;
  */
 public class Login {
     
-    String usuari;
+    public static String usuari;
     String contrasenya;
 
     public String getUsuari() {

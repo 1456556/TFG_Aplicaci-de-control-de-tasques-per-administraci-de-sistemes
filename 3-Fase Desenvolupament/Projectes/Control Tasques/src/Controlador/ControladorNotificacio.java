@@ -15,6 +15,23 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Model.Notificacio;
+import java.util.Date;
+
+import java.util.Properties;
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+
+
 
 /**
  *
@@ -39,7 +56,7 @@ public class ControladorNotificacio   {
     }
     
     
-    public void Notificacio(Date date){
+    public void Notificacio(Date date) throws MessagingException{
     
     
         DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");            
@@ -52,15 +69,16 @@ public class ControladorNotificacio   {
                 case 0:                                                
                     break;                
                 case 1:
+                    EnviarCorreu();
                     String[] botones = {"Veure Tasca", "Posposar 5min"};
                     int ventana = JOptionPane.showOptionDialog(null, mod.getTitol(), "Notificacio Tasca", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
                             botones, botones[0]);
+                    
                     if (ventana == 0) {
                         System.out.println("Veure Tasca");
                         modC.ActualitzaNotificacio(mod);
                         Tasques modTasques = new Tasques();
-                        ConsultesTasques modCTasques = new ConsultesTasques();
-                        //JFPrincipal vistPrincipal = new JFPrincipal(); 
+                        ConsultesTasques modCTasques = new ConsultesTasques();                        
                         ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis); 
                         con.NotificacioTasca(mod.getIdTasca());
                     }else{
@@ -90,7 +108,47 @@ public class ControladorNotificacio   {
     
     
     }
+    
+    
+    public void EnviarCorreu() throws AddressException, MessagingException{
+    
+    
+      
+      
+        // Get a Properties object
+        Properties p = System.getProperties();
+        p.setProperty("mail.smtp.host", "smtp.gmail.com");
+        p.setProperty("mail.smtp.starttls.enable", "true"); 
+        p.put("mail.smpt.ssl.trust", "smtp.gmail.com");
+        p.setProperty("mail.smtp.port", "587");
+        p.setProperty("mail.smtp.port", "correo");
+        p.setProperty("mail.smtp.auth", "true");
+
+        Session s = Session.getDefaultInstance(p);
+
+        MimeMessage msg = new MimeMessage(s);
+        
+        try{
+            
        
-    
-    
+        msg.setFrom(new InternetAddress("victor98calvo@gmail.com"));
+        msg.setRecipient(Message.RecipientType.TO, new InternetAddress(mod.getMail()));
+        msg.setSubject("Hello");
+        msg.setText("How are you");
+        msg.setSentDate(new Date());
+
+        Transport t = s.getTransport("smtp");
+        t.connect("victor98calvo@gmail.com", "wyczueysmkqlfdsj");
+        t.sendMessage(msg, msg.getAllRecipients());
+        t.close();
+
+        System.out.println("Message sent!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!e.");
+        }catch(AddressException ex){
+        
+            System.err.println(ex + "Error al enviar el correu");
+        
+        }
+    }
+
+
 }

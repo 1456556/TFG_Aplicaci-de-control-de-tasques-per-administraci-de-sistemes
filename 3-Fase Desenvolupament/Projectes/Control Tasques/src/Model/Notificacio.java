@@ -16,6 +16,24 @@ public class Notificacio {
     int idTasca;
     String titol;
     String data;
+    String usuari;
+    String mail;
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getUsuari() {
+        return usuari;
+    }
+
+    public void setUsuari(String usuari) {
+        this.usuari = usuari;
+    }
 
     public String getData() {
         return data;

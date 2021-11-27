@@ -36,9 +36,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+import org.jdesktop.swingx.autocomplete.ObjectToStringConverter;
 
 /**
  *
@@ -63,7 +67,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         this.vis.jButtonNovaTasca.addActionListener(this);
         this.vis.jButtonRegistarTasca.addActionListener(this);
         this.vis.jButtonEditarTasca.addActionListener(this);
-        this.vis.jButtonEliminarTasca.addActionListener(this); 
+        this.vis.jButtonEliminarTasca.addActionListener(this);
+        
         this.vis.jTable_Tasques.addMouseListener(this);        
         this.vis.txtBuscadorTasques.addKeyListener(this);
         
@@ -79,6 +84,9 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
    
      
     public void inicialitzar(){
+        
+        
+        
                    
     
     }
@@ -92,8 +100,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
        System.out.println("ID + Not:" + id);
       if (modC.informacioTasca(mod) == 1){
       
-             vis.txt_titolTasc2.setText(mod.getTitol());
-             vis.txt_usuariTasc2.setText(mod.getUsuariAssignat());
+             vis.txt_titolTasc2.setText(mod.getTitol());           
+             vis.ComboUsuariAssignat2.setSelectedItem(mod.getUsuariAssignat());
              vis.txt_descripcioTasc2.setText(mod.getDescripcio());
 
              String d = mod.getData();
@@ -155,6 +163,10 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             
             vis.DashTasques.setVisible(false);
             vis.DashNovaTasca.setVisible(true);
+            vis.ComboUsuariAssignat.removeAll();
+            modC.UsuariAssignat(vis,0);
+            AutoCompleteDecorator.decorate(ComboUsuariAssignat);
+            natejar();
         }
         
         if (e.getSource() == vis.jButtonRegistarTasca){
@@ -162,12 +174,19 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             System.out.println("HOlA");
             String prioritat_string = null, estat_string = null;
             mod.setTitol(vis.txt_titolTasc.getText().trim());
-            mod.setUsuariAssignat(vis.txt_usuariassignatTasc.getText().trim());
+            mod.setUsuariAssignat(vis.ComboUsuariAssignat.getSelectedItem().toString());
             mod.setData(vis.dateTimePicker.getDatePicker().toString());
             mod.setDescripcio(vis.txt_descripcioTasc.getText().trim());
             mod.setHora(vis.dateTimePicker.getTimePicker().toString());
-            int estat = vis.ComboEstatTasc2.getSelectedIndex() + 1;            
-            int prioritat = vis.ComboPrioritatTasc.getSelectedIndex() + 1;   
+            int estat = vis.ComboEstatTasc.getSelectedIndex() + 1;            
+            int prioritat = vis.ComboUsuariAssignat.getSelectedIndex() + 1;
+            boolean notificacio = false;
+
+            
+            if  (vis.jCheckBoxNotificacio.isSelected()){
+            
+                notificacio = true;
+            }
 
             
             if (estat == 1) {
@@ -183,11 +202,6 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             if (estat == 3) {
 
                 estat_string = "En procés";
-
-            }
-            if (estat == 4) {
-
-                estat_string = "Finalitzada";
 
             }
             
@@ -214,6 +228,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                         
             mod.setEstat(estat_string);
             mod.setPrioritat(prioritat_string);
+            mod.setNotificacio(notificacio);
             
             
             
@@ -249,10 +264,10 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             String prioritat_string = null, estat_string = null;
 
             mod.setTitol(vis.txt_titolTasc2.getText().trim());
-            mod.setUsuariAssignat(vis.txt_usuariTasc2.getText().trim());            
+            mod.setUsuariAssignat(vis.ComboUsuariAssignat2.getSelectedItem().toString());            
             mod.setData(vis.dateTimePicker1.getDatePicker().toString());            
             mod.setHora(vis.dateTimePicker1.getTimePicker().toString());            
-            estat = vis.ComboEstatTasc2.getSelectedIndex() + 1;
+            estat = vis.ComboEstatTasc2.getSelectedIndex() +1;
             prioritat = vis.ComboPrioritatTasc2.getSelectedIndex() + 1;
 
             if (estat == 1) {
@@ -270,11 +285,13 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 estat_string = "En procés";
 
             }
+            
             if (estat == 4) {
 
                 estat_string = "Finalitzada";
 
             }
+            
 
             if (prioritat == 1) {
 
@@ -293,59 +310,90 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
                 prioritat_string = "Urgent";
             }
-            if (prioritat == 5) {
+             if (prioritat == 5) {
 
-                prioritat_string = "Prioritaria";
-            }
+                 prioritat_string = "Prioritaria";
+             }
 
-            mod.setEstat(estat_string);
-            mod.setPrioritat(prioritat_string);
+             mod.setEstat(estat_string);
+             mod.setPrioritat(prioritat_string);
 
-            switch (modC.EditarTasca(mod)) {
+             if (estat_string == "Finalitzada") {
 
-                case 0:
-                    JOptionPane.showMessageDialog(null, "Titol de tasca no disponible");
-                    break;
-                case 1:
-                    JOptionPane.showMessageDialog(null, "Tasca Modificada!");
-                    natejar();
-                    vis.DashInfoTasca.setVisible(false);
-                    vis.DashTasques.setVisible(true);
-                    MostrarTaula(vis.jTable_Tasques);
-                    break;
-                case 2:
-                    JOptionPane.showMessageDialog(null, "Error al modificar la tasca. Contacti amb l'administrador");
-                    break;
-                case 3:
-                    JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
-                    break;
-                default:
-                    break;
+                 Object[] options = {"Aceptar", "Cancelar"};
+                 int n = JOptionPane.showOptionDialog(vis.DashInfoTasca, "Esteu segurs que voleu donada per finalitzada la tasca?", "",
+                         JOptionPane.YES_NO_OPTION,
+                         JOptionPane.INFORMATION_MESSAGE,
+                         null,
+                         options,
+                         options[0]);
 
-            }
+                 if (n == JOptionPane.YES_OPTION) {
 
-        }
-        
-        
+                     modC.FinalitzarTasca(mod);
+                     natejar();
+                     vis.DashInfoTasca.setVisible(false);
+                     vis.DashTasques.setVisible(true);
+                     MostrarTaula(vis.jTable_Tasques);
+
+                 }
+
+             } else {
+
+                 switch (modC.EditarTasca(mod)) {
+
+                     case 0:
+                         JOptionPane.showMessageDialog(null, "Titol de tasca no disponible");
+                         break;
+                     case 1:
+                         JOptionPane.showMessageDialog(null, "Tasca Modificada!");
+                         natejar();
+                         vis.DashInfoTasca.setVisible(false);
+                         vis.DashTasques.setVisible(true);
+                         MostrarTaula(vis.jTable_Tasques);
+                         break;
+                     case 2:
+                         JOptionPane.showMessageDialog(null, "Error al modificar la tasca. Contacti amb l'administrador");
+                         break;
+                     case 3:
+                         JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+                         break;
+                     default:
+                         break;
+
+                 }
+
+             }
+
+         }
+       
          if (e.getSource() == vis.jButtonEliminarTasca) {
 
-             for (int i = 0; i < vis.jTable_Tasques.getRowCount(); i++) {
+             TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
+             trs = (TableRowSorter<DefaultTableModel>) vis.jTable_Tasques.getRowSorter();
+             DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();
 
-                 Boolean checked = Boolean.valueOf(vis.jTable_Tasques.getValueAt(i, 0).toString());
+             trs.allRowsChanged();
+             int rows = trs.getViewRowCount();
+
+             for (int i = rows; rows >= 0; i--) {
+
+                 Boolean checked = Boolean.valueOf(model_tasques3.getValueAt(trs.convertRowIndexToModel(i - 1), 0).toString());
 
                  //DISPLAY
                  if (checked) {
-
-                     int id  = (int) modelTasques.getValueAt(i,6);
+                     System.out.print("ROW COUNT" + vis.jTable_Tasques.getRowCount());
+                     int id = (int) model_tasques3.getValueAt(trs.convertRowIndexToModel(i - 1), 6);
                      mod.setId(id);
-                     if (modC.EliminarTasca(mod) == false){
-                     
+                     model_tasques3.removeRow(i - 1);
+                     if (modC.EliminarTasca(mod) == false) {
+
                          JOptionPane.showMessageDialog(null, "Error al eliminar la tasca, contacti amb l'administrador");
-                     
+
                      }
                  }
              }
-             
+             System.out.print("ROW COUNT TRS " + trs.getModelRowCount());
              MostrarTaula(vis.jTable_Tasques);
 
          }
@@ -356,12 +404,21 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     
     
     public void MostrarTaula(JTable JTable_Tasques){
+        
+        
+        modC.contadorTasques(mod);
+        vis.jTextFieldTasquesTotals.setText(String.valueOf(mod.getTasquesTotals()));
+        vis.jTextFieldTasquesTotals.setEditable(false);
+        vis.jTextFieldTasquesAssignades.setText(String.valueOf(mod.getTasquesAssingades()));
+        vis.jTextFieldTasquesAssignades.setEditable(false);
+        vis.jTextFieldTasquesPendents.setText(String.valueOf(mod.getTasquesPendents()));
+        vis.jTextFieldTasquesPendents.setEditable(false);
     
         
         
          DefaultTableModel model_tasques = new DefaultTableModel();
          
-         
+        
          model_tasques.addColumn("Sleccionar");
          model_tasques.addColumn("Titol");
          model_tasques.addColumn("Prioritat");
@@ -393,6 +450,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             
          }
          
+            
+         
          for (int i = 0; i < numRegistres; i++) {
 
             model_tasques.setValueAt(false, i, 0);
@@ -403,7 +462,11 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             modelTasques = model_tasques;
             addCheckBox(0, vis.jTable_Tasques);  
             vis.jTable_Tasques.removeColumn(vis.jTable_Tasques.getColumnModel().getColumn(6));
-             
+            
+             TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Tasques.getModel()));
+            //sorter.setRowFilter(RowFilter.regexFilter(vis.txtBuscadorTasques.getText()));
+            vis.jTable_Tasques.setRowSorter(sorter);
+            vis.jTable_Tasques.getRowSorter().toggleSortOrder(4);
              
     
      }    
@@ -414,7 +477,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
         
 
-            DefaultTableModel model_tasques = new DefaultTableModel();     
+          /*  DefaultTableModel model_tasques = new DefaultTableModel();     
             
             
             model_tasques.addColumn("Sleccionar");
@@ -458,9 +521,11 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             
             modelTasques = model_tasques;
              addCheckBox(0, vis.jTable_Tasques);                      
-            vis.jTable_Tasques.removeColumn(vis.jTable_Tasques.getColumnModel().getColumn(6));
+            vis.jTable_Tasques.removeColumn(vis.jTable_Tasques.getColumnModel().getColumn(6));*/
             
-            
+             TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Tasques.getModel()));
+            sorter.setRowFilter(RowFilter.regexFilter(vis.txtBuscadorTasques.getText()));
+            vis.jTable_Tasques.setRowSorter(sorter);
     
 
     }
@@ -486,15 +551,16 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         mod.setUsuariAssignat("");
         
         vis.txt_titolTasc.setText("");
-        vis.txt_usuariassignatTasc.setText("");        
+        //vis.txt_usuariassignatTasc.setText("");        
         vis.dateTimePicker.datePicker.setDateToToday();
         vis.dateTimePicker.timePicker.setTimeToNow();
         vis.txt_descripcioTasc.setText("");
-        vis.ComboEstatElem3.setSelectedIndex(0);
-        vis.ComboPrioritatTasc.setSelectedIndex(0);
+        vis.ComboEstatTasc.setSelectedIndex(0);
+       // vis.ComboUsuariAssignat.setSelectedIndex(0);
+        vis.jCheckBoxNotificacio.setSelected(false);
         
         vis.txt_descripcioTasc2.setText("");
-        vis.txt_usuariTasc2.setText("");
+        //vis.txt_usuariTasc2.setText("");
         vis.txt_titolTasc2.setText("");
         vis.txt_descripcioTasc2.setText("");
         vis.ComboEstatTasc2.setSelectedIndex(0);
@@ -509,9 +575,12 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         
         if (e.getSource() == vis.jTable_Tasques) {
 
-            DefaultTableModel model_tasques2 = new DefaultTableModel();
-            model_tasques2 = (DefaultTableModel) vis.jTable_Tasques.getModel();
-
+            
+            
+           //TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Tasques.getModel()));
+            //sorter.setRowFilter(RowFilter.regexFilter(vis.txtBuscadorTasques.getText()));
+           // vis.jTable_Tasques.setRowSorter(sorter);
+            
             int fila_point = vis.jTable_Tasques.rowAtPoint(e.getPoint());
             int columna_point = vis.jTable_Tasques.columnAtPoint(e.getPoint());
             int columna = 1;
@@ -522,18 +591,36 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             vis.jTable_Tasques.updateUI();
 
             if (fila_point > -1 && columna_point > 0) {
-
                 
-                String titol = model_tasques2.getValueAt(fila_point, columna).toString();
+               // DefaultTableModel model_tasques2 = new DefaultTableModel(((TableRowSorter) vis.jTable_Tasques.getModel()));
+               // DefaultTableModel model_tasques2 = new DefaultTableModel();
+               // model_tasques2 = (DefaultTableModel) vis.jTable_Tasques.getModel();
+                
+                
+                TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
+                trs = (TableRowSorter<DefaultTableModel>) vis.jTable_Tasques.getRowSorter();               
+                DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();
+                
+                //System.out.println("SOORTER" + sorter.convertRowIndexToView(fila_point));
+                String titol = String.valueOf(model_tasques3.getValueAt(trs.convertRowIndexToModel(fila_point), columna));
+                System.out.println("Titol" + titol);
+                //String titol = model_tasques2.getValueAt(fila_point, columna).toString();
                 mod.setTitol(titol);
-                int id  = (int) modelTasques.getValueAt(fila_point,6);
+                //int id  = (int) .getValueAt(fila_point,6);
+                int id = (int) model_tasques3.getValueAt(trs.convertRowIndexToModel(fila_point), 6);
                 mod.setId(id);
                 System.out.println("INT_ID: " + mod.getId());
                 
-                if (modC.informacioTasca(mod) == 1) {                    
+                 
+                
+                if (modC.informacioTasca(mod) == 1) {  
+                    
+                    vis.ComboUsuariAssignat2.removeAll();
+                    modC.UsuariAssignat(vis,1);
+                    AutoCompleteDecorator.decorate(ComboUsuariAssignat2);
                     
                     vis.txt_titolTasc2.setText(mod.getTitol());
-                    vis.txt_usuariTasc2.setText(mod.getUsuariAssignat());
+                    vis.ComboUsuariAssignat2.setSelectedItem(mod.getUsuariAssignat());
                     vis.txt_descripcioTasc2.setText(mod.getDescripcio());
 
                     String d = mod.getData();

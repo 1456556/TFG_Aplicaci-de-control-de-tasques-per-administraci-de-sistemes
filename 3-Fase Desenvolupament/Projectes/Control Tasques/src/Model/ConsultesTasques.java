@@ -130,17 +130,56 @@ public class ConsultesTasques extends Conexio {
         return llistaTasques;
     }
     
+    
+    public void UsuariAssignat(JFPrincipal vis, int i) {
+
+        try {
+
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select * from Usuaris");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                
+                if (i == 1){
+
+                vis.ComboUsuariAssignat2.addItem(rs.getString("usuari"));
+                }else{
+                
+                vis.ComboUsuariAssignat.addItem(rs.getString("usuari"));
+                }
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al carregar el usuariAssignat");
+            //JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+
+    }
+    
+    
+    
     public int NovaTasca(Tasques tas) {
         
         int novaTasca, validacio=0;
         String titol,descripcio, data, usuari, estat, prioritat,date, time;
+        boolean notificacio;
+        
         titol = tas.getTitol();
         descripcio = tas.getDescripcio();
         estat = tas.getEstat();
+        System.out.print("ESTAT: " + estat);
         prioritat = tas.getPrioritat();
         usuari = tas.getUsuariAssignat();
         date = tas.getData();
         time = tas.getHora();
+        notificacio = tas.getNotificacio();
+        
         
          if (titol.equals("")) {
             
@@ -177,7 +216,7 @@ public class ConsultesTasques extends Conexio {
                 data = date + " " + time;
 
                 Connection cn2 = getConexio();
-                PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques values (?,?,?,?,?,?,?,?)");
+                PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques values (?,?,?,?,?,?,?,?,?)");
                 pst2.setInt(1, 0);
                 pst2.setString(2, titol);
                 pst2.setString(3, prioritat);
@@ -186,6 +225,7 @@ public class ConsultesTasques extends Conexio {
                 pst2.setString(6, estat);
                 pst2.setString(7, descripcio);
                 pst2.setInt(8, 0);
+                pst2.setBoolean(9, notificacio);
                 pst2.executeUpdate();
                                                 
                 cn2.close();
@@ -212,6 +252,150 @@ public class ConsultesTasques extends Conexio {
     }
     
 
+    public void contadorTasques(Tasques tas) {
+
+        
+
+        try {
+
+            Connection cn2 = clases.Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("SELECT count(id_tasca) FROM Tasques");
+            ResultSet rs = pst2.executeQuery();
+
+            if (rs.next()) {
+
+                tas.setTasquesTotals(rs.getInt(1));
+
+            }
+
+           cn2.close();
+
+        } catch (SQLException e) {
+            
+            System.err.println("Error al contar les tasques totals" + e);
+
+        }
+        
+        try {
+
+            Connection cn2 = clases.Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("SELECT count(id_tasca) FROM Tasques WHERE usuari = '" + Login.usuari  +  "'");
+            ResultSet rs = pst2.executeQuery();
+
+            if (rs.next()) {
+
+                tas.setTasquesAssingades(rs.getInt(1));
+
+            }
+
+           cn2.close();
+
+        } catch (SQLException e) {
+            
+            System.err.println("Error al contar les tasques assignades" + e);
+
+        }
+        
+        try {
+            String proces = "En procés", espera = "En espera";
+            Connection cn2 = clases.Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("SELECT count(id_tasca) FROM Tasques WHERE usuari = '" + Login.usuari  + "' AND estat = '" + proces + "' OR estat = '" + espera  + "'");
+            ResultSet rs = pst2.executeQuery();
+
+            if (rs.next()) {
+
+                tas.setTasquesPendents(rs.getInt(1));
+
+            }
+
+           cn2.close();
+
+        } catch (SQLException e) {
+            
+            System.err.println("Error al contar les tasques pendents" + e);
+
+        }
+        
+
+    }
+    
+    
+    
+    public void FinalitzarTasca(Tasques tas) {
+
+        int editarTasca, id, validacio = 0;
+        String titol, descripcio, data, usuari, estat, prioritat, date, time;
+        titol = tas.getTitol();
+        descripcio = tas.getDescripcio();
+        estat = tas.getEstat();
+        prioritat = tas.getPrioritat();
+        usuari = tas.getUsuariAssignat();
+        date = tas.getData();
+        time = tas.getHora();
+        id = tas.getId();
+        System.out.println("IDTASCA " + id);
+
+        if (titol.equals("")) {
+
+            validacio++;
+        }
+        if (usuari.equals("")) {
+
+            validacio++;
+        }
+        if (date.equals("")) {
+
+            validacio++;
+        }
+        if (time.equals("")) {
+
+            validacio++;
+        }
+        if (descripcio.equals("")) {
+
+            validacio++;
+        }
+
+        if (validacio == 0) {
+
+            try {
+
+                Connection cn2 = clases.Conexio.conectar();
+                PreparedStatement pst2 = cn2.prepareStatement("update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=? where id_tasca = '" + tas.getId() + "'");
+
+                String day = date.substring(8, 10);
+                String month = date.substring(5, 7);
+                String year = date.substring(0, 4);
+
+                System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+                date = day + "-" + month + "-" + year;
+                data = date + " " + time;
+
+                pst2.setString(1, titol);
+                pst2.setString(2, prioritat);
+                pst2.setString(3, usuari);
+                pst2.setString(4, data);
+                pst2.setString(5, estat);
+                pst2.setString(6, descripcio);
+                pst2.executeUpdate();
+
+                cn2.close();
+                System.err.println("Tasca modificada");
+
+            } catch (SQLException e) {
+
+                System.err.println("Error al modificar la tasca" + e);
+
+            }
+
+        } else {
+
+            System.err.println("Has d'omplir tots els camps");
+
+        }
+
+    }
+    
     
     public int EditarTasca(Tasques tas) {
 

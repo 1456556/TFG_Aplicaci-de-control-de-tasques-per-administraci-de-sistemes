@@ -24,25 +24,26 @@ public class ConsultesNotificacio extends Conexio {
     
         try {
             Connection cn = getConexio();
-            PreparedStatement pst = cn.prepareStatement("select id_tasca, notificacio, titol, data from Tasques where data = '" + d + "'");
+            PreparedStatement pst = cn.prepareStatement("select id_tasca, notificacio, usuari, titol, data, setNotificacio from Tasques where data = '" + d + "'");
             ResultSet rs = pst.executeQuery();
             
             
             if (rs.next()) {
+                
+                if (rs.getBoolean("setNotificacio") == true){
                
                 if(rs.getInt("notificacio")==0){
                 
                     not.idTasca = rs.getInt("id_tasca");
                     not.data = rs.getString("data");
-                    not.titol = rs.getString("titol");  
+                    not.titol = rs.getString("titol");
+                    not.usuari = rs.getString("usuari");
                     notificacio = 1;
-                    /*id_tasca = rs.getInt("id_tasca");
-                    String titol = rs.getString("titol");
-                    String data = rs.getString("data");
-                    recordatori(titol, date);*/
+                    
                 
+                }
                 
-                }      
+                }
               
                
             }
@@ -54,8 +55,34 @@ public class ConsultesNotificacio extends Conexio {
             System.err.println("Error al solicitar les dades" + e);
             //JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
 
-        }    
-    
+        }
+        
+        
+        if (notificacio == 1) {
+
+            try {
+                Connection cn = getConexio();
+                PreparedStatement pst = cn.prepareStatement("select email from Usuaris where usuari = '" + not.getUsuari() + "'");
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) {
+
+                    not.mail = rs.getString("email");
+                   
+
+                }
+
+                cn.close();
+
+            } catch (SQLException e) {
+
+                System.err.println("Error al solicitar el mail per enviar el correu" + e);
+                //JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+            }
+
+        }
+
         return notificacio;
     
     

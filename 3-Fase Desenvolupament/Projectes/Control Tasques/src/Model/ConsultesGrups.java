@@ -91,6 +91,7 @@ public class ConsultesGrups extends Conexio {
         }
         
         return llistaGrups;
+   
     
     
     }
@@ -277,7 +278,7 @@ public class ConsultesGrups extends Conexio {
         
             try {
                 
-                for (int i = 0; i < gru.getGrupUsuaris().length -2; i++) {
+                for (int i = 0; i < gru.getGrupUsuaris().length; i++) {
                     String[] array = gru.getGrupUsuaris();
                     int[] arrayID = gru.getIdUsuaris();
                     System.out.println(gru.getGrupUsuaris().length);
@@ -286,6 +287,87 @@ public class ConsultesGrups extends Conexio {
 
                     Connection cn = getConexio();
                     PreparedStatement pst = cn.prepareStatement("insert into GrupsUsuaris values (?,?,?,?)");
+
+                    pst.setInt(1, 0);
+                    pst.setInt(2, arrayID[i]);
+                    pst.setString(3, nom);
+                    pst.setString(4, array[i]);
+
+                    pst.executeUpdate();
+                    cn.close();
+
+                }
+
+                System.err.println("Element creat correctament");
+                
+
+                Connection cn1 = getConexio();
+                PreparedStatement pst1 = cn1.prepareStatement("insert into Grups values (?,?)");
+                pst1.setInt(1, 0);
+                pst1.setString(2, gru.getNom());
+                pst1.executeUpdate();
+                cn1.close();
+
+                System.err.println("Element creat correctament");
+                
+
+               
+               
+                nouGrup = 1;
+                  
+
+            } catch (SQLException e) {
+                nouGrup = 2;
+                System.err.println("Error al crear el grup d'usuaris" + e);
+
+            }
+            
+            
+
+            
+
+        } else {
+            nouGrup = 3;
+            System.err.println("Has d'omplir tots els camps");
+
+        }
+        
+        
+
+        return nouGrup;
+
+    }
+    
+    
+    public int NouElementGrup(Grups gru) {
+        
+        int nouGrup=0, validacio=0;
+        String nom;
+        nom = gru.getNom();
+        
+        
+         if (nom.equals("")) {
+            
+            validacio++;
+        }
+      
+        
+        
+        if (validacio == 0) {
+            
+            
+        
+            try {
+                
+                for (int i = 0; i < gru.getGrupElements().length; i++) {
+                    String[] array = gru.getGrupElements();
+                    int[] arrayID = gru.getIdElements();
+                    System.out.println(gru.getGrupElements().length);
+                    System.out.println("NOM:" + array[i]);
+                    System.out.println("ID:" + arrayID[i]);
+
+                    Connection cn = getConexio();
+                    PreparedStatement pst = cn.prepareStatement("insert into GrupsElements values (?,?,?,?)");
 
                     pst.setInt(1, 0);
                     pst.setInt(2, arrayID[i]);

@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Victor
@@ -18,6 +20,11 @@ public class Grups {
     String tipusElement;
     String[] GrupElements;
     int[] IdElements;
+    String nom;
+    int id;
+    int idUsuari;
+    String[] GrupUsuaris;
+    int[] IdUsuaris;
 
     public String getUsuariElement() {
         return usuariElement;
@@ -68,11 +75,7 @@ public class Grups {
         this.IdElements = IdElements;
     }
     
-    String nom;
-    int id;
-    int idUsuari;
-    String[] GrupUsuaris;
-    int[] IdUsuaris;
+    
 
     public int[] getIdUsuaris() {
         return IdUsuaris;
@@ -147,5 +150,7 @@ public class Grups {
     public void setUsuari(String usuari) {
         this.usuari = usuari;
     }
+
+    
     
 }
