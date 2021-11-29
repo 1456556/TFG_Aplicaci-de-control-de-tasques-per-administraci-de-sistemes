@@ -101,8 +101,11 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
       if (modC.informacioTasca(mod) == 1){
       
              vis.txt_titolTasc2.setText(mod.getTitol());           
-             vis.ComboUsuariAssignat2.setSelectedItem(mod.getUsuariAssignat());
+             vis.ComboUsuariAssignat.removeAll();
+            modC.UsuariAssignat(vis,1);
+            AutoCompleteDecorator.decorate(ComboUsuariAssignat);
              vis.txt_descripcioTasc2.setText(mod.getDescripcio());
+            
 
              String d = mod.getData();
              String date = d.substring(0, 10);
@@ -132,7 +135,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
              vis.DashInfoTasca.setVisible(true);
              vis.DashTasques.setVisible(false);
              
-              //vis.DashTasques.setVisible(true);        
+                    
             vis.DashInfoUsuari.setVisible(false);
             //vis.DashInfoTasca.setVisible(false);
             vis.DashNovaTasca.setVisible(false);

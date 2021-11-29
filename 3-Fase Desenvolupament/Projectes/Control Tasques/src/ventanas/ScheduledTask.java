@@ -19,6 +19,7 @@ import java.util.TimerTask;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.MessagingException;
 /**
  * 
  * @author Victor.
@@ -44,10 +45,14 @@ public class ScheduledTask extends TimerTask {
                 ConsultesNotificacio con = new ConsultesNotificacio();
                 ControladorNotificacio cn = new ControladorNotificacio(not, con, principal);
                 
-                cn.Notificacio(now);
-                //principal.inicialitzarNotificacio(now);
-                
-               // principal.recordatori(now);
-                //principal.Notificacio(now);
+        try {
+            cn.Notificacio(now);
+            //principal.inicialitzarNotificacio(now);
+            
+            // principal.recordatori(now);
+            //principal.Notificacio(now);
+        } catch (MessagingException ex) {
+            Logger.getLogger(ScheduledTask.class.getName()).log(Level.SEVERE, null, ex);
+        }
 	}
 }

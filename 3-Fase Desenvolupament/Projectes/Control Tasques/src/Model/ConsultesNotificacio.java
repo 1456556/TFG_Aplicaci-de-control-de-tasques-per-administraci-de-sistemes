@@ -24,7 +24,7 @@ public class ConsultesNotificacio extends Conexio {
     
         try {
             Connection cn = getConexio();
-            PreparedStatement pst = cn.prepareStatement("select id_tasca, notificacio, usuari, titol, data, setNotificacio from Tasques where data = '" + d + "'");
+            PreparedStatement pst = cn.prepareStatement("select id_tasca, notificacio, usuari, titol, data, descripcio,prioritat,estat, setNotificacio from Tasques where data = '" + d + "'");
             ResultSet rs = pst.executeQuery();
             
             
@@ -38,6 +38,9 @@ public class ConsultesNotificacio extends Conexio {
                     not.data = rs.getString("data");
                     not.titol = rs.getString("titol");
                     not.usuari = rs.getString("usuari");
+                    not.descripcio = rs.getString("descripcio");
+                    not.estat = rs.getString("estat");
+                    not.prioritat = rs.getString("prioritat");
                     notificacio = 1;
                     
                 

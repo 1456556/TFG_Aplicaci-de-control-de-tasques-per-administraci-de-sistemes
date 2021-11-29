@@ -8,11 +8,13 @@ package Controlador;
 import Model.ConsultesElements;
 import Model.ConsultesGrups;
 import Model.ConsultesLogin;
+import Model.ConsultesPerfil;
 import Model.ConsultesTasques;
 import Model.ConsultesUsuaris;
 import Model.Elements;
 import Model.Grups;
 import Model.Login;
+import Model.Perfil;
 import Model.Tasques;
 import Model.Usuaris;
 import Vista.JFLogin;
@@ -42,13 +44,14 @@ public class ControladorMenu implements MouseListener  {
         addMouseListener(this);
         this.vis.setVisible(true);        
         this.vis.btnTasques.addMouseListener(this);
-        this.vis.btn_Tasques.addMouseListener( this);
+        this.vis.jButtonNomUsuari.addMouseListener( this);
         this.vis.btnElements.addMouseListener( this);
         this.vis.btn_Elements.addMouseListener(this);
         this.vis.btnUsuaris.addMouseListener( this);
         this.vis.btn_Usuaris.addMouseListener(this);
         this.vis.btn_Grups.addMouseListener(this);
         this.vis.btnGrup.addMouseListener(this);
+        this.vis.jButtonNomUsuari.addMouseListener(this);
        
         
     
@@ -60,7 +63,7 @@ public class ControladorMenu implements MouseListener  {
     
     public void inicialitzar(){
         
-        
+        vis.jButtonNomUsuari.setText(Login.usuari);
         Tasques modTasques = new Tasques();
         ConsultesTasques modCTasques = new ConsultesTasques();        
         ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis);       
@@ -78,7 +81,8 @@ public class ControladorMenu implements MouseListener  {
         vis.DashInfoUsuari.setVisible(false);
         vis.DashGrups.setVisible(false);
         vis.DashNouGrup.setVisible(false);
-        vis.DashConfiguracio.setVisible(false);  
+        vis.DashConfiguracio.setVisible(false); 
+        vis.DashPerfilUsuari.setVisible(false);
        
         
        
@@ -102,6 +106,7 @@ public class ControladorMenu implements MouseListener  {
         vis.DashGrups.setVisible(false);
         vis.DashNouGrup.setVisible(false);
         vis.DashConfiguracio.setVisible(false);  
+        vis.DashPerfilUsuari.setVisible(false);
     
     
     
@@ -112,7 +117,32 @@ public class ControladorMenu implements MouseListener  {
     @Override
     public void mouseClicked(MouseEvent e){
         
-       
+        if (e.getSource() == vis.jButtonNomUsuari){
+            
+            Perfil modPerfil = new Perfil();
+            ConsultesPerfil modCPerfil = new ConsultesPerfil();            
+            ControladorPerfil con = new ControladorPerfil(modPerfil, modCPerfil, vis);               
+            con.inicialitzar();
+           
+            
+            vis.DashPerfilUsuari.setVisible(true);
+            vis.DashTasques.setVisible(false);
+            vis.DashNovaTasca.setVisible(false);
+            vis.DashInfoTasca.setVisible(false);
+            vis.DashElements.setVisible(false);
+            vis.DashNouElement.setVisible(false);
+            vis.DashInfoElement.setVisible(false);
+            vis.DashUsuaris.setVisible(false);
+            vis.DashNouUsuari.setVisible(false);
+            vis.DashInfoUsuari.setVisible(false);
+            vis.DashGrups.setVisible(false);
+            vis.DashNouGrup.setVisible(false);
+            vis.DashConfiguracio.setVisible(false); 
+            
+            
+            
+            
+        }
         
         if (e.getSource() == vis.btnTasques){
             
@@ -133,10 +163,16 @@ public class ControladorMenu implements MouseListener  {
             vis.DashGrups.setVisible(false);
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false); 
+            vis.DashPerfilUsuari.setVisible(false);
         
         }
         
         if (e.getSource() ==  vis.btn_Tasques){
+            
+            Tasques modTasques = new Tasques();
+            ConsultesTasques modCTasques = new ConsultesTasques();            
+            ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis);               
+            con.inicialitzar();
          
             vis.DashTasques.setVisible(true);
             vis.DashNovaTasca.setVisible(false);
@@ -150,6 +186,7 @@ public class ControladorMenu implements MouseListener  {
             vis.DashGrups.setVisible(false);
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false);
+            vis.DashPerfilUsuari.setVisible(false);
             
             
         
@@ -176,6 +213,7 @@ public class ControladorMenu implements MouseListener  {
             vis.DashGrups.setVisible(false);
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false);
+            vis.DashPerfilUsuari.setVisible(false);
             
             
         
@@ -201,6 +239,7 @@ public class ControladorMenu implements MouseListener  {
             vis.DashGrups.setVisible(false);
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false);
+            vis.DashPerfilUsuari.setVisible(false);
             
             
         
@@ -226,6 +265,7 @@ public class ControladorMenu implements MouseListener  {
             vis.DashGrups.setVisible(false);
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false);
+            vis.DashPerfilUsuari.setVisible(false);
             
             
         
@@ -251,6 +291,7 @@ public class ControladorMenu implements MouseListener  {
             vis.DashGrups.setVisible(false);
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false);
+            vis.DashPerfilUsuari.setVisible(false);
             
             
         
@@ -276,6 +317,7 @@ public class ControladorMenu implements MouseListener  {
             vis.DashInfoElement.setVisible(false);
             vis.DashGrups.setVisible(true);
             vis.DashNouGrup.setVisible(false);
+            vis.DashPerfilUsuari.setVisible(false);
             
             
         
@@ -301,6 +343,7 @@ public class ControladorMenu implements MouseListener  {
             vis.DashInfoElement.setVisible(false);
             vis.DashGrups.setVisible(true);
             vis.DashNouGrup.setVisible(false);
+            vis.DashPerfilUsuari.setVisible(false);
             
             
         

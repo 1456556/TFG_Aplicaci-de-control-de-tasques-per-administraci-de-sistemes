@@ -18,6 +18,34 @@ public class Notificacio {
     String data;
     String usuari;
     String mail;
+    String descripcio;
+    String estat;
+    String prioritat;
+
+    public String getEstat() {
+        return estat;
+    }
+
+    public void setEstat(String estat) {
+        this.estat = estat;
+    }
+
+    public String getPrioritat() {
+        return prioritat;
+    }
+
+    public void setPrioritat(String prioritat) {
+        this.prioritat = prioritat;
+    }
+    
+
+    public String getDescripcio() {
+        return descripcio;
+    }
+
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
+    }
 
     public String getMail() {
         return mail;

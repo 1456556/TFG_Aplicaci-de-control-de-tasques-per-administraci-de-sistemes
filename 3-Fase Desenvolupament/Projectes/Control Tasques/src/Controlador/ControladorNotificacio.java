@@ -72,8 +72,7 @@ public class ControladorNotificacio   {
                     EnviarCorreu();
                     String[] botones = {"Veure Tasca", "Posposar 5min"};
                     int ventana = JOptionPane.showOptionDialog(null, mod.getTitol(), "Notificacio Tasca", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
-                            botones, botones[0]);
-                    
+                            botones, botones[0]);                    
                     if (ventana == 0) {
                         System.out.println("Veure Tasca");
                         modC.ActualitzaNotificacio(mod);
@@ -131,14 +130,27 @@ public class ControladorNotificacio   {
         try{
             
        
-        msg.setFrom(new InternetAddress("victor98calvo@gmail.com"));
+        msg.setFrom(new InternetAddress("controltasques@gmail.com"));
         msg.setRecipient(Message.RecipientType.TO, new InternetAddress(mod.getMail()));
-        msg.setSubject("Hello");
-        msg.setText("How are you");
+        msg.setSubject("Tasca nova!");
+        msg.setText("                Control Tasques          \n"
+                + "                                           \n"
+                + "Titol:   "+mod.getTitol()+"                \n"
+                
+                + "Usuari:  "+mod.getUsuari()+"               \n"
+               
+                + "Data Venicment:  "+mod.getData()+"         \n"
+               
+                + "Prioritat:  "+mod.getPrioritat()+"         \n"
+               
+                + "Estat:  "+mod.getEstat()+"                 \n"
+               
+                + "Descripció:  "+mod.getDescripcio()+"       \n");
+        
         msg.setSentDate(new Date());
 
         Transport t = s.getTransport("smtp");
-        t.connect("victor98calvo@gmail.com", "wyczueysmkqlfdsj");
+        t.connect("controltasques@gmail.com", "eajuswacordmgrto");
         t.sendMessage(msg, msg.getAllRecipients());
         t.close();
 
