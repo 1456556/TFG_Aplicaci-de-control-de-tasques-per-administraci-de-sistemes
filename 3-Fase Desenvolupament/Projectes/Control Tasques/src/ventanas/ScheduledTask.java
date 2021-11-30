@@ -14,6 +14,7 @@ import Model.ConsultesNotificacio;
 import Model.Notificacio;
 import Vista.JFPrincipal;
 import Vista.JFLogin;
+import Vista.JFRepeticio;
 import java.text.ParseException;
 import java.util.TimerTask;
 import java.util.Date;
@@ -27,6 +28,7 @@ import javax.mail.MessagingException;
 // Create a class extends with TimerTask
 public class ScheduledTask extends TimerTask {
     private JFPrincipal principal;
+    private JFRepeticio repeticio;
 	Date now; // to display current time
         public ScheduledTask(JFPrincipal principal){
         

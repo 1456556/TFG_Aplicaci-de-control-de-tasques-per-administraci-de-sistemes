@@ -12,6 +12,7 @@ import Model.Registre;
 import Vista.JFLogin;
 import Vista.JFPrincipal;
 import Vista.JFRegistre;
+import Vista.JFRepeticio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -30,10 +31,12 @@ public class ControladorRegistre implements ActionListener{
     private ConsultesRegistre modC;
     private JFRegistre vis;
     private JFPrincipal principal;
+    private JFRepeticio repeticio;
     
-    public ControladorRegistre(Registre mod, ConsultesRegistre modC, JFRegistre vis, JFPrincipal principal){
+    public ControladorRegistre(Registre mod, ConsultesRegistre modC, JFRegistre vis, JFPrincipal principal, JFRepeticio repeticio){
     
         this.mod = mod;
+        this.repeticio = repeticio;
         this.modC = modC;
         this.vis = vis;
         this.principal = principal;
@@ -72,7 +75,7 @@ public class ControladorRegistre implements ActionListener{
                         Login modLogin = new Login();
                         ConsultesLogin modCLogin = new ConsultesLogin();
                         JFLogin vistLogin = new JFLogin();
-                        ControladorLogin con = new ControladorLogin(modLogin, modCLogin, vistLogin, principal);
+                        ControladorLogin con = new ControladorLogin(modLogin, modCLogin, vistLogin, principal, repeticio);
                         con.inicialitzar();
                         vistLogin.setVisible(true);
                         break;                        

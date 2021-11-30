@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Vista.JFPrincipal;
+import Vista.JFRepeticio;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
 import java.awt.Color;
 import java.awt.*;  
@@ -33,16 +34,18 @@ import java.awt.event.*;
  */
 public class ControladorMenu implements MouseListener  {
     
-    
+    private JFRepeticio repeticio;
     private JFPrincipal vis;
     String newLine = System.getProperty("line.separator");
     
-    public ControladorMenu(JFPrincipal vis){
+    public ControladorMenu(JFPrincipal vis,JFRepeticio repeticio ){
     
       
         this.vis = vis;
         addMouseListener(this);
-        this.vis.setVisible(true);        
+        this.vis.setVisible(true);
+        this.repeticio = repeticio;        
+        this.vis.btnTasques.addMouseListener(this);
         this.vis.btnTasques.addMouseListener(this);
         this.vis.jButtonNomUsuari.addMouseListener( this);
         this.vis.btnElements.addMouseListener( this);
@@ -66,9 +69,14 @@ public class ControladorMenu implements MouseListener  {
         vis.jButtonNomUsuari.setText(Login.usuari);
         Tasques modTasques = new Tasques();
         ConsultesTasques modCTasques = new ConsultesTasques();        
-        ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis);       
+        ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis, repeticio);       
         con.inicialitzar();
         con.MostrarTaula(vis.jTable_Tasques);
+        
+        
+        ConsultesPerfil modCPerfil = new ConsultesPerfil();       
+        modCPerfil.CargarImatge(vis);
+        
         
         vis.DashTasques.setVisible(true);
         vis.DashNovaTasca.setVisible(false);
@@ -148,7 +156,7 @@ public class ControladorMenu implements MouseListener  {
             
             Tasques modTasques = new Tasques();
             ConsultesTasques modCTasques = new ConsultesTasques();            
-            ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis);               
+            ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis, repeticio);               
             con.inicialitzar();
                
             vis.DashTasques.setVisible(true);
@@ -171,7 +179,7 @@ public class ControladorMenu implements MouseListener  {
             
             Tasques modTasques = new Tasques();
             ConsultesTasques modCTasques = new ConsultesTasques();            
-            ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis);               
+            ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis, repeticio);               
             con.inicialitzar();
          
             vis.DashTasques.setVisible(true);

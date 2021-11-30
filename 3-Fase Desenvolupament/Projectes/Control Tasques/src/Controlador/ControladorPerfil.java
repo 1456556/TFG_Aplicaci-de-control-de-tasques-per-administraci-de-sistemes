@@ -13,15 +13,24 @@ import Model.Perfil;
 import Model.Tasques;
 import Vista.JFContrasenya;
 import Vista.JFPrincipal;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.event.AncestorListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -46,10 +55,12 @@ public class ControladorPerfil implements ActionListener {
         
         this.vis.jButtonCanviarContrasenya.addActionListener(this);
         this.vis.jButtonCanviarFoto.addActionListener(this);
+        this.vis.jButtonGuardarFoto.addActionListener(this);
+        this.vis.txtNomImatge.setVisible(false);
         
-        
+      /*  contra = new JFContrasenya();
         contra.GuardarContrasneya.addActionListener(this);
-        contra.Cancelar.addActionListener(this);
+        contra.Cancelar.addActionListener(this);*/
         
     }
     
@@ -61,36 +72,62 @@ public class ControladorPerfil implements ActionListener {
     
     
     }
+
     
     
+    @Override
     public void actionPerformed(ActionEvent e){       
   
         if (e.getSource() == vis.jButtonCanviarContrasenya) {
-            contra = new JFContrasenya();
+            
             contra.setVisible(true);
 
         }
         
-        if (e.getSource() == contra.Cancelar) {
+/*        if (e.getSource() == contra.Cancelar) {
             
             contra.setVisible(false);
 
-        }
-        
-        if (e.getSource() == vis.jButtonCanviarFoto) {
-            
+        }*/
+        //System.out.println("Count of listeners: " + (((this.vis.jButtonCanviarFoto) e.getSource()).getActionListeners().length);
+         if (e.getSource() == vis.jButtonCanviarFoto) {
+                           
+
+            File file;    
             JFileChooser jf = new JFileChooser();
-            jf.setMultiSelectionEnabled(false);
-            if (jf.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){
+            jf.setFileFilter(new FileNameExtensionFilter("Formatos de archivos JPEG (*.JPG,*.JPEG)", "jpg", "jpeg"));
+            jf.setDialogTitle("Abrir archiu");
+            File ruta = new File("C:/Users/Víctor/Desktop");
+            jf.setCurrentDirectory(ruta);
+            int respuesta  = jf.showOpenDialog(null);       
+           
             
-                rsdragdropfiles.RSDragDropFiles.setCopiar(jf.getSelectedFile().toString(), "src/images/icons8-user-32.png");
-                vis.cLabelFoto.setIcon(new ImageIcon(jf.getSelectedFile().toString()));
+            if (respuesta == JFileChooser.APPROVE_OPTION){
+                
+                file = jf.getSelectedFile();
+                vis.txtNomImatge.setText(String.valueOf(file));
+                Image foto = Toolkit.getDefaultToolkit().getImage(vis.txtNomImatge.getText().trim());              
+                foto = foto.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+                vis.cLabelFoto.setIcon(new ImageIcon(foto));
+                
+                
             
             }
-
+                
+        }
+        
+        
+        
+        
+        if (e.getSource() == vis.jButtonGuardarFoto) {
+            
+           
+                modC.GuardarFoto(vis);
+                modC.CargarImatge(vis);
+           
         }
 
-        if (e.getSource() == contra.GuardarContrasneya) {
+       /* if (e.getSource() == contra.GuardarContrasneya) {
 
             mod.setContrasenya1(contra.jPasswordField1.getText().trim());
             mod.setContrasenya2(contra.jPasswordField2.getText().trim());
@@ -127,9 +164,11 @@ public class ControladorPerfil implements ActionListener {
 
             }
 
-        }
+        }*/
 
     }
+
+  
 
 }
     

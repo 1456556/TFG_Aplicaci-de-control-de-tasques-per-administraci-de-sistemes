@@ -11,6 +11,7 @@ import Model.ConsultesLogin;
 import Model.Login;
 import Vista.JFLogin;
 import Vista.JFPrincipal;
+import Vista.JFRepeticio;
 import java.util.Timer;
 
 /**
@@ -22,11 +23,12 @@ import java.util.Timer;
 public class SchedulerMain {
 	public static void main(String args[]) throws InterruptedException {
 
+                JFRepeticio repeticio = new JFRepeticio();
                 JFPrincipal principal = new JFPrincipal();
                 Login mod = new Login();
                 ConsultesLogin modC = new ConsultesLogin();
                 JFLogin vist = new JFLogin();
-                ControladorLogin con = new ControladorLogin(mod, modC, vist, principal);                
+                ControladorLogin con = new ControladorLogin(mod, modC, vist, principal, repeticio);                
                 con.inicialitzar();
                 vist.setVisible(true);
             

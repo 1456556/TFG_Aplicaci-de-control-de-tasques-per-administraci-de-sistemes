@@ -25,6 +25,15 @@ public class Tasques {
    int tasquesTotals;
    int tasquesAssingades;
    int tasquesPendents;
+   int repeticio;
+
+    public int getRepeticio() {
+        return repeticio;
+    }
+
+    public void setRepeticio(int repeticio) {
+        this.repeticio = repeticio;
+    }
 
     public int getTasquesTotals() {
         return tasquesTotals;

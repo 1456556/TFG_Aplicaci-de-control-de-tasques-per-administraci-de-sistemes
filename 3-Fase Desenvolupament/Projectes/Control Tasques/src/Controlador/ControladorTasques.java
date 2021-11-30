@@ -9,6 +9,7 @@ package Controlador;
 import Model.ConsultesTasques;
 import Model.Tasques;
 import Vista.JFPrincipal;
+import Vista.JFRepeticio;
 import clases.Conexio;
 import com.github.lgooddatepicker.components.DatePicker;
 import java.awt.Color;
@@ -34,6 +35,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
@@ -53,32 +55,39 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     public Tasques mod;
     public ConsultesTasques modC;
     public JFPrincipal vis;
-    
+    public JFRepeticio repeticio;
+
     public DefaultTableModel modelTasques;
       
     
-    public ControladorTasques(Tasques mod, ConsultesTasques modC, JFPrincipal vis){
+    public ControladorTasques(Tasques mod, ConsultesTasques modC, JFPrincipal vis ){
     
+        
         this.mod = mod;
         this.modC = modC;
         this.vis = vis;
+        
        
         
         this.vis.jButtonNovaTasca.addActionListener(this);
-        this.vis.jButtonRegistarTasca.addActionListener(this);
+        this.vis.jButtonRepeticio.addActionListener(this);
         this.vis.jButtonEditarTasca.addActionListener(this);
         this.vis.jButtonEliminarTasca.addActionListener(this);
+        this.vis.jButtonRepeticio.addActionListener(this);
         
         this.vis.jTable_Tasques.addMouseListener(this);        
         this.vis.txtBuscadorTasques.addKeyListener(this);
         
+       
+        
             
     }
     
-    public ControladorTasques(Tasques mod, ConsultesTasques modC){
+    public ControladorTasques(Tasques mod, ConsultesTasques modC, JFPrincipal vis,JFRepeticio repeticio){
     
         this.mod = mod;
         this.modC = modC;
+        this.repeticio = repeticio;
     
     }
    
@@ -159,8 +168,17 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
       
      
      @Override
-    public void actionPerformed(ActionEvent e){       
+    public void actionPerformed(ActionEvent e){
         
+       
+        
+        if (e.getSource() == vis.jButtonRepeticio){
+            
+                
+             ControladorRepeticio cr = new ControladorRepeticio(repeticio, mod);
+             cr.inicialitza();
+             
+        }
         
         if (e.getSource() == vis.jButtonNovaTasca){
             
@@ -172,7 +190,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             natejar();
         }
         
-        if (e.getSource() == vis.jButtonRegistarTasca){
+        if (e.getSource() == vis.jButtonRepeticio){
             
             System.out.println("HOlA");
             String prioritat_string = null, estat_string = null;
@@ -249,7 +267,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                     JOptionPane.showMessageDialog(null,"Error al crear la tasca. Contacti amb l'administrador");
                     break;
                 case 3:
-                    JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");                    
+                   // JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");                    
                     break;
                 default:
                     break;                 

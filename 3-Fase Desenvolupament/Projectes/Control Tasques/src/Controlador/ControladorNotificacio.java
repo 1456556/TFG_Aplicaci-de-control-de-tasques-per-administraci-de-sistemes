@@ -15,6 +15,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Model.Notificacio;
+import Vista.JFRepeticio;
 import java.util.Date;
 
 import java.util.Properties;
@@ -42,7 +43,7 @@ public class ControladorNotificacio   {
    public Notificacio mod;
     public ConsultesNotificacio modC;
     public JFPrincipal vis;
-    
+    public JFRepeticio repeticio;
     public DefaultTableModel modelTasques;
       
     
@@ -51,6 +52,7 @@ public class ControladorNotificacio   {
         this.mod = mod;
         this.modC = modC;
         this.vis = vis;
+        
         
         
     }
@@ -78,7 +80,7 @@ public class ControladorNotificacio   {
                         modC.ActualitzaNotificacio(mod);
                         Tasques modTasques = new Tasques();
                         ConsultesTasques modCTasques = new ConsultesTasques();                        
-                        ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis); 
+                        ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis, repeticio); 
                         con.NotificacioTasca(mod.getIdTasca());
                     }else{
                         long timeInSecs = date.getTime();
@@ -93,7 +95,7 @@ public class ControladorNotificacio   {
                         Tasques modTasques = new Tasques();
                         ConsultesTasques modCTasques = new ConsultesTasques();
                         //JFPrincipal vistPrincipal = new JFPrincipal(); 
-                        ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis); 
+                        ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis, repeticio); 
                         con.MostrarTaula(vis.jTable_Tasques);
                         
                     
