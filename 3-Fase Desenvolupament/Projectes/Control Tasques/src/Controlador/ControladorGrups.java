@@ -6,8 +6,10 @@
 package Controlador;
 
 import Model.ConsultesGrups;
+import Model.ConsultesTasques;
 import Model.ConsultesUsuaris;
 import Model.Grups;
+import Model.Tasques;
 import Model.Usuaris;
 import Vista.JFPrincipal;
 import static com.sun.tools.attach.VirtualMachine.list;
@@ -78,6 +80,16 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
     
        public void MostrarTaula(){    
         
+           
+        Tasques tas = new Tasques();
+        ConsultesTasques tasC = new ConsultesTasques();
+        tasC.contadorTasques(tas);
+        vis.TasquesTotalsGrups.setText(String.valueOf(tas.getTasquesTotals()));
+        vis.TasquesTotalsGrups.setEditable(false);
+        vis.TasquesAsignadesGrups.setText(String.valueOf(tas.getTasquesAssingades()));
+        vis.TasquesAsignadesGrups.setEditable(false);
+        vis.TasquesGestionadesGrups.setText(String.valueOf(tas.getTasquesPendents()));
+        vis.TasquesGestionadesGrups.setEditable(false);  
         
          DefaultTableModel model_grups = new DefaultTableModel();
          
@@ -179,6 +191,10 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
       public void MostrarTaulaGrupsElements(){    
         
         
+          
+          
+          
+          
          DefaultTableModel model_grups = new DefaultTableModel();
          
          

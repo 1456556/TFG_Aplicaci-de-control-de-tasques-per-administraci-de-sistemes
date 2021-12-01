@@ -39,28 +39,34 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControladorPerfil implements ActionListener {
     
-    
+    public JFContrasenya contrasenya;
     public Perfil mod;
     public ConsultesPerfil modC;
     public JFPrincipal vis;
-    public JFContrasenya contra;
+    public boolean valid = true;
     public DefaultTableModel modelTasques;
-      
+    public JFileChooser jf;
+    public File file, ruta;
     
-    public ControladorPerfil(Perfil mod, ConsultesPerfil modC, JFPrincipal vis){
+    public ControladorPerfil(Perfil mod, ConsultesPerfil modC, JFPrincipal vis, JFContrasenya contrasenya,  JFileChooser jf){
     
         this.mod = mod;
         this.modC = modC;
         this.vis = vis;
-        
+        this.contrasenya = contrasenya;
+        this.jf = jf;
         this.vis.jButtonCanviarContrasenya.addActionListener(this);
+        this.contrasenya.CancelarContrasenya.addActionListener(this);
+        this.contrasenya.GuardarContrasenya.addActionListener(this);
         this.vis.jButtonCanviarFoto.addActionListener(this);
         this.vis.jButtonGuardarFoto.addActionListener(this);
         this.vis.txtNomImatge.setVisible(false);
+             
+        this.jf.setFileFilter(new FileNameExtensionFilter("Formatos de archivos JPEG (*.JPG,*.JPEG)", "jpg", "jpeg"));
+        this.jf.setDialogTitle("Abrir archiu");
+        File ruta = new File("C:/Users/Víctor/Desktop");
         
-      /*  contra = new JFContrasenya();
-        contra.GuardarContrasneya.addActionListener(this);
-        contra.Cancelar.addActionListener(this);*/
+       
         
     }
     
@@ -80,41 +86,36 @@ public class ControladorPerfil implements ActionListener {
   
         if (e.getSource() == vis.jButtonCanviarContrasenya) {
             
-            contra.setVisible(true);
+            contrasenya.setVisible(true);
 
         }
         
-/*        if (e.getSource() == contra.Cancelar) {
-            
-            contra.setVisible(false);
 
-        }*/
-        //System.out.println("Count of listeners: " + (((this.vis.jButtonCanviarFoto) e.getSource()).getActionListeners().length);
          if (e.getSource() == vis.jButtonCanviarFoto) {
                            
-
-            File file;    
-            JFileChooser jf = new JFileChooser();
-            jf.setFileFilter(new FileNameExtensionFilter("Formatos de archivos JPEG (*.JPG,*.JPEG)", "jpg", "jpeg"));
-            jf.setDialogTitle("Abrir archiu");
-            File ruta = new File("C:/Users/Víctor/Desktop");
-            jf.setCurrentDirectory(ruta);
-            int respuesta  = jf.showOpenDialog(null);       
+      
+                
+              
+            
+            this.jf.setCurrentDirectory(ruta);
+            int respuesta  = this.jf.showOpenDialog(null);       
            
             
             if (respuesta == JFileChooser.APPROVE_OPTION){
                 
-                file = jf.getSelectedFile();
+                file = this.jf.getSelectedFile();
                 vis.txtNomImatge.setText(String.valueOf(file));
                 Image foto = Toolkit.getDefaultToolkit().getImage(vis.txtNomImatge.getText().trim());              
                 foto = foto.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
                 vis.cLabelFoto.setIcon(new ImageIcon(foto));
-                
+                JOptionPane.showMessageDialog(null, "Foto de perfil canviada correctament");
                 
             
             }
                 
         }
+            
+         
         
         
         
@@ -126,20 +127,26 @@ public class ControladorPerfil implements ActionListener {
                 modC.CargarImatge(vis);
            
         }
+        
+         if (e.getSource() == contrasenya.CancelarContrasenya) {
+             
+             this.contrasenya.setVisible(false);
+             
+         }
 
-       /* if (e.getSource() == contra.GuardarContrasneya) {
+        if (e.getSource() == contrasenya.GuardarContrasenya) {
 
-            mod.setContrasenya1(contra.jPasswordField1.getText().trim());
-            mod.setContrasenya2(contra.jPasswordField2.getText().trim());
+            mod.setContrasenya1(contrasenya.jPasswordField1.getText().trim());
+            mod.setContrasenya2(contrasenya.jPasswordField2.getText().trim());
             modC.CanviarContrasenya(mod);
 
             switch (modC.CanviarContrasenya(mod)) {
 
                 case 1:
                     JOptionPane.showMessageDialog(null, "Contrasenya canviada correctament");
-                    contra.jPasswordField1.setText("");
-                    contra.jPasswordField2.setText("");
-                    contra.setVisible(false);
+                    contrasenya.jPasswordField1.setText("");
+                    contrasenya.jPasswordField2.setText("");
+                    contrasenya.setVisible(false);
                     break;
                 case 2:
                     JOptionPane.showMessageDialog(null, "Error al canviar la contrasenya. Contacta amb l'administrador");
@@ -149,22 +156,22 @@ public class ControladorPerfil implements ActionListener {
                 case 4:
                     JOptionPane.showMessageDialog(null, "Les contrasenyes no puden ser buides");
                 case 5:
-                    String contrasenya = "<html><body width='%1s'><h1>Contrasenya Incorrecte</h1>"
+                    String contra = "<html><body width='%1s'><h1>Contrasenya Incorrecte</h1>"
                             + "<p> Ha de contenir com a miním:<br><br>"
                             + "> 1 Majuscula <br>"
                             + "> 1 Numero <br>"
                             + "> 1 Caràcter especial <br>"
                             + "> 8 Caràcters de longitud <br><br><p>";
-                    JOptionPane.showMessageDialog(null, String.format(contrasenya, 300, 300));
-                    contra.jPasswordField1.setText("");
-                    contra.jPasswordField2.setText("");
+                    JOptionPane.showMessageDialog(null, String.format(contra, 300, 300));
+                    contrasenya.jPasswordField1.setText("");
+                    contrasenya.jPasswordField2.setText("");
                     break;
                 default:
                     break;
 
             }
 
-        }*/
+        }
 
     }
 

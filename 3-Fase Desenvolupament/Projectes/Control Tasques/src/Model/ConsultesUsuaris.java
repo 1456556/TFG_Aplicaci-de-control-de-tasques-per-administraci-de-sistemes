@@ -388,5 +388,72 @@ public class ConsultesUsuaris extends Conexio {
 
         }
     }
+      
+      public void contadorTasques(Tasques tas) {
+
+        
+
+        try {
+
+            Connection cn2 = clases.Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("SELECT count(id_tasca) FROM Tasques");
+            ResultSet rs = pst2.executeQuery();
+
+            if (rs.next()) {
+
+                tas.setTasquesTotals(rs.getInt(1));
+
+            }
+
+           cn2.close();
+
+        } catch (SQLException e) {
+            
+            System.err.println("Error al contar les tasques totals" + e);
+
+        }
+        
+        try {
+
+            Connection cn2 = clases.Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("SELECT count(id_tasca) FROM Tasques WHERE usuari = '" + Login.usuari  +  "'");
+            ResultSet rs = pst2.executeQuery();
+
+            if (rs.next()) {
+
+                tas.setTasquesAssingades(rs.getInt(1));
+
+            }
+
+           cn2.close();
+
+        } catch (SQLException e) {
+            
+            System.err.println("Error al contar les tasques assignades" + e);
+
+        }
+        
+        try {
+            String proces = "En procés", espera = "En espera";
+            Connection cn2 = clases.Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("SELECT count(id_tasca) FROM Tasques WHERE usuari = '" + Login.usuari  + "' AND estat = '" + proces + "' OR estat = '" + espera  + "'");
+            ResultSet rs = pst2.executeQuery();
+
+            if (rs.next()) {
+
+                tas.setTasquesPendents(rs.getInt(1));
+
+            }
+
+           cn2.close();
+
+        } catch (SQLException e) {
+            
+            System.err.println("Error al contar les tasques pendents" + e);
+
+        }
+        
+
+    }
     
 }

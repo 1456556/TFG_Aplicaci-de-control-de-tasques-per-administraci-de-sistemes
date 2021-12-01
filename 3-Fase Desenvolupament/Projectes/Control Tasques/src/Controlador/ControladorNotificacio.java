@@ -152,7 +152,7 @@ public class ControladorNotificacio   {
         msg.setSentDate(new Date());
 
         Transport t = s.getTransport("smtp");
-        t.connect("controltasques@gmail.com", "eajuswacordmgrto");
+        t.connect("victor98calvo@gmail.com", "teylxccdwafmfsgh");
         t.sendMessage(msg, msg.getAllRecipients());
         t.close();
 

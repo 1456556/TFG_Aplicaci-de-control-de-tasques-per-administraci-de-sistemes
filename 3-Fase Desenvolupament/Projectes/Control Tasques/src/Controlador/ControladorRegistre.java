@@ -9,6 +9,7 @@ import Model.ConsultesLogin;
 import Model.ConsultesRegistre;
 import Model.Login;
 import Model.Registre;
+import Vista.JFContrasenya;
 import Vista.JFLogin;
 import Vista.JFPrincipal;
 import Vista.JFRegistre;
@@ -18,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 
@@ -32,16 +34,19 @@ public class ControladorRegistre implements ActionListener{
     private JFRegistre vis;
     private JFPrincipal principal;
     private JFRepeticio repeticio;
+    private JFContrasenya contrasenya;
+    private  JFileChooser jf;
     
-    public ControladorRegistre(Registre mod, ConsultesRegistre modC, JFRegistre vis, JFPrincipal principal, JFRepeticio repeticio){
+    public ControladorRegistre(Registre mod, ConsultesRegistre modC, JFRegistre vis, JFPrincipal principal, JFRepeticio repeticio, JFContrasenya contrasenya,  JFileChooser jf){
     
         this.mod = mod;
         this.repeticio = repeticio;
+        this.contrasenya = contrasenya;
         this.modC = modC;
         this.vis = vis;
         this.principal = principal;
         this.vis.btnRegistrar.addActionListener(this);
-        
+        this.jf = jf;
         
     }
     
@@ -75,7 +80,7 @@ public class ControladorRegistre implements ActionListener{
                         Login modLogin = new Login();
                         ConsultesLogin modCLogin = new ConsultesLogin();
                         JFLogin vistLogin = new JFLogin();
-                        ControladorLogin con = new ControladorLogin(modLogin, modCLogin, vistLogin, principal, repeticio);
+                        ControladorLogin con = new ControladorLogin(modLogin, modCLogin, vistLogin, principal, repeticio, contrasenya, jf);
                         con.inicialitzar();
                         vistLogin.setVisible(true);
                         break;                        

@@ -9,10 +9,12 @@ package ventanas;
 import Controlador.ControladorLogin;
 import Model.ConsultesLogin;
 import Model.Login;
+import Vista.JFContrasenya;
 import Vista.JFLogin;
 import Vista.JFPrincipal;
 import Vista.JFRepeticio;
 import java.util.Timer;
+import javax.swing.JFileChooser;
 
 /**
  * 
@@ -23,12 +25,14 @@ import java.util.Timer;
 public class SchedulerMain {
 	public static void main(String args[]) throws InterruptedException {
 
+                JFileChooser jf = new JFileChooser();
+                JFContrasenya contrasenya = new JFContrasenya();
                 JFRepeticio repeticio = new JFRepeticio();
                 JFPrincipal principal = new JFPrincipal();
                 Login mod = new Login();
                 ConsultesLogin modC = new ConsultesLogin();
                 JFLogin vist = new JFLogin();
-                ControladorLogin con = new ControladorLogin(mod, modC, vist, principal, repeticio);                
+                ControladorLogin con = new ControladorLogin(mod, modC, vist, principal, repeticio,contrasenya, jf);                
                 con.inicialitzar();
                 vist.setVisible(true);
             

@@ -7,6 +7,7 @@ package Controlador;
 
 
 import Model.ConsultesTasques;
+import Model.Login;
 import Model.Tasques;
 import Vista.JFPrincipal;
 import Vista.JFRepeticio;
@@ -36,9 +37,11 @@ import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
+import javax.swing.RowSorter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
@@ -60,21 +63,21 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     public DefaultTableModel modelTasques;
       
     
-    public ControladorTasques(Tasques mod, ConsultesTasques modC, JFPrincipal vis ){
+    public ControladorTasques(Tasques mod, ConsultesTasques modC, JFPrincipal vis, JFRepeticio repeticio ){
     
         
         this.mod = mod;
         this.modC = modC;
         this.vis = vis;
         
-       
+         this.repeticio = repeticio;
         
         this.vis.jButtonNovaTasca.addActionListener(this);
         this.vis.jButtonRepeticio.addActionListener(this);
+         this.vis.jButtonRegistarTasca.addActionListener(this);
         this.vis.jButtonEditarTasca.addActionListener(this);
         this.vis.jButtonEliminarTasca.addActionListener(this);
-        this.vis.jButtonRepeticio.addActionListener(this);
-        
+        this.vis.jButtonRepeticio.addActionListener(this);        
         this.vis.jTable_Tasques.addMouseListener(this);        
         this.vis.txtBuscadorTasques.addKeyListener(this);
         
@@ -83,11 +86,12 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             
     }
     
-    public ControladorTasques(Tasques mod, ConsultesTasques modC, JFPrincipal vis,JFRepeticio repeticio){
+    public ControladorTasques(Tasques mod, ConsultesTasques modC, JFPrincipal vis){
     
         this.mod = mod;
         this.modC = modC;
-        this.repeticio = repeticio;
+       
+        this.vis = vis;
     
     }
    
@@ -174,7 +178,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         
         if (e.getSource() == vis.jButtonRepeticio){
             
-                
+             repeticio.setVisible(true);
              ControladorRepeticio cr = new ControladorRepeticio(repeticio, mod);
              cr.inicialitza();
              
@@ -183,14 +187,17 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         if (e.getSource() == vis.jButtonNovaTasca){
             
             vis.DashTasques.setVisible(false);
-            vis.DashNovaTasca.setVisible(true);
-            vis.ComboUsuariAssignat.removeAll();
+            vis.DashNovaTasca.setVisible(true);             
+            DefaultComboBoxModel mdl = new DefaultComboBoxModel();
+            mdl.removeAllElements();
+            vis.ComboUsuariAssignat.setModel(mdl);
+            vis.ComboUsuariAssignat.setSelectedItem(Login.usuari);
             modC.UsuariAssignat(vis,0);
-            AutoCompleteDecorator.decorate(ComboUsuariAssignat);
+            AutoCompleteDecorator.decorate(vis.ComboUsuariAssignat);            
             natejar();
         }
         
-        if (e.getSource() == vis.jButtonRepeticio){
+        if (e.getSource() == vis.jButtonRegistarTasca){
             
             System.out.println("HOlA");
             String prioritat_string = null, estat_string = null;
@@ -260,7 +267,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                     JOptionPane.showMessageDialog(null, "Tasca Creada Correctament!");           
                     natejar();                   
                     vis.DashNovaTasca.setVisible(false);
-                    vis.DashTasques.setVisible(true);
+                    vis.DashTasques.setVisible(true);                    
                     MostrarTaula(vis.jTable_Tasques);                                
                     break;                
                 case 2:
@@ -389,24 +396,27 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
          }
        
          if (e.getSource() == vis.jButtonEliminarTasca) {
+             
+             
 
              TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
              trs = (TableRowSorter<DefaultTableModel>) vis.jTable_Tasques.getRowSorter();
              DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();
 
-             trs.allRowsChanged();
+            
              int rows = trs.getViewRowCount();
+             System.out.print("ROOOWS " + rows);
 
-             for (int i = rows; rows >= 0; i--) {
+             for (int i = 0; i< rows; i++) {
 
-                 Boolean checked = Boolean.valueOf(model_tasques3.getValueAt(trs.convertRowIndexToModel(i - 1), 0).toString());
-
+                 Boolean checked = Boolean.valueOf(model_tasques3.getValueAt(trs.convertRowIndexToModel(i), 0).toString());
+                  System.out.print("Boolean " + checked);
                  //DISPLAY
                  if (checked) {
                      System.out.print("ROW COUNT" + vis.jTable_Tasques.getRowCount());
-                     int id = (int) model_tasques3.getValueAt(trs.convertRowIndexToModel(i - 1), 6);
+                     int id = (int) model_tasques3.getValueAt(trs.convertRowIndexToModel(i), 6);
                      mod.setId(id);
-                     model_tasques3.removeRow(i - 1);
+                     model_tasques3.removeRow(i);
                      if (modC.EliminarTasca(mod) == false) {
 
                          JOptionPane.showMessageDialog(null, "Error al eliminar la tasca, contacti amb l'administrador");
@@ -488,6 +498,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             //sorter.setRowFilter(RowFilter.regexFilter(vis.txtBuscadorTasques.getText()));
             vis.jTable_Tasques.setRowSorter(sorter);
             vis.jTable_Tasques.getRowSorter().toggleSortOrder(4);
+           
+          
              
     
      }    

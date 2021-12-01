@@ -60,7 +60,15 @@ public class ControladorUsuaris implements ActionListener, MouseListener, KeyLis
     
     public void MostrarTaula(){
     
-        
+        Tasques tas = new Tasques();
+        ConsultesTasques tasC = new ConsultesTasques();
+        tasC.contadorTasques(tas);
+        vis.TasquesTotalsUsuaris.setText(String.valueOf(tas.getTasquesTotals()));
+        vis.TasquesTotalsUsuaris.setEditable(false);
+        vis.TasquesAsignadesUsuaris.setText(String.valueOf(tas.getTasquesAssingades()));
+        vis.TasquesAsignadesUsuaris.setEditable(false);
+        vis.TasquesGestionadesUsuaris.setText(String.valueOf(tas.getTasquesPendents()));
+        vis.TasquesGestionadesUsuaris.setEditable(false);
         
          DefaultTableModel model_usuaris = new DefaultTableModel();
          

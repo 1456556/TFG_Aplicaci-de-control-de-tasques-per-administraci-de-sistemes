@@ -27,175 +27,180 @@ public class JFRepeticio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonAceptar = new javax.swing.JButton();
-        jButtonCancelar = new javax.swing.JButton();
-        jRadioButtonDiari = new javax.swing.JRadioButton();
-        jRadioButtonSetmanal = new javax.swing.JRadioButton();
-        jRadioButtonMensual = new javax.swing.JRadioButton();
-        jRadioButtonAnual = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
-        jSpinnerDiari = new javax.swing.JSpinner();
-        jLabelDias = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        dateTimePickerRepeticio = new com.github.lgooddatepicker.components.DateTimePicker();
-        jLabelRepetirCada = new javax.swing.JLabel();
-        jCheckBoxDivendres = new javax.swing.JCheckBox();
-        jCheckBoxDilluns = new javax.swing.JCheckBox();
-        jCheckBoxDijous = new javax.swing.JCheckBox();
-        jCheckBoxDiumenge = new javax.swing.JCheckBox();
-        jCheckBoxDimarts = new javax.swing.JCheckBox();
-        jCheckBoxDimecres = new javax.swing.JCheckBox();
-        jCheckBoxDissabte = new javax.swing.JCheckBox();
-        jSpinnerSetmanal = new javax.swing.JSpinner();
+        jPanel1 = new javax.swing.JPanel();
         jLabelSetmanes = new javax.swing.JLabel();
+        jSpinner = new javax.swing.JSpinner();
+        jCheckBoxDissabte = new javax.swing.JCheckBox();
+        jCheckBoxDimecres = new javax.swing.JCheckBox();
+        jCheckBoxDimarts = new javax.swing.JCheckBox();
+        jCheckBoxDiumenge = new javax.swing.JCheckBox();
+        jCheckBoxDijous = new javax.swing.JCheckBox();
+        jCheckBoxDilluns = new javax.swing.JCheckBox();
+        jCheckBoxDivendres = new javax.swing.JCheckBox();
+        jLabelRepetirCada = new javax.swing.JLabel();
+        dateTimePickerRepeticioFinal = new com.github.lgooddatepicker.components.DateTimePicker();
+        jLabel4 = new javax.swing.JLabel();
+        jLabelDias = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jRadioButtonAcabar = new javax.swing.JRadioButton();
+        jRadioButtonMensual = new javax.swing.JRadioButton();
+        jRadioButtonSetmanal = new javax.swing.JRadioButton();
+        jRadioButtonDiari = new javax.swing.JRadioButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jButtonAceptar = new javax.swing.JButton();
+        jRadioButtonAnual = new javax.swing.JRadioButton();
+        dateTimePickerRepeticio1 = new com.github.lgooddatepicker.components.DateTimePicker();
+        jLabelMesos = new javax.swing.JLabel();
+        jLabelAnys = new javax.swing.JLabel();
+        jRadioButtonDataFinal = new javax.swing.JRadioButton();
+        jSpinnerAcabar = new javax.swing.JSpinner();
+        jLabelSetmanes1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
 
-        jButtonAceptar.setText("Aceptar");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51), 3));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonCancelar.setText("Cancelar");
-
-        jRadioButtonDiari.setText("Diari");
-
-        jRadioButtonSetmanal.setText("Setmanal");
-
-        jRadioButtonMensual.setText("Mensual");
-
-        jRadioButtonAnual.setText("Anual");
-
-        jLabel1.setText("Repetició");
-
-        jLabelDias.setText("dias");
-
-        jLabel4.setText("Data Inici: ");
-
-        jLabelRepetirCada.setText("Repetir Cada");
-
-        jCheckBoxDivendres.setText("Divendres");
-
-        jCheckBoxDilluns.setText("Dilluns");
-
-        jCheckBoxDijous.setText("Dijous");
-
-        jCheckBoxDiumenge.setText("Diumenge");
-
-        jCheckBoxDimarts.setText("Dimarts");
-
-        jCheckBoxDimecres.setText("Dimecres");
+        jLabelSetmanes.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelSetmanes.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelSetmanes.setText("setmanes");
+        jPanel1.add(jLabelSetmanes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
+        jPanel1.add(jSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
 
         jCheckBoxDissabte.setText("Dissabte");
+        jCheckBoxDissabte.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDissabte.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jCheckBoxDissabte, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
 
-        jLabelSetmanes.setText("setmanes");
+        jCheckBoxDimecres.setText("Dimecres");
+        jCheckBoxDimecres.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDimecres.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jCheckBoxDimecres, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
+
+        jCheckBoxDimarts.setText("Dimarts");
+        jCheckBoxDimarts.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDimarts.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jCheckBoxDimarts, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
+
+        jCheckBoxDiumenge.setText("Diumenge");
+        jCheckBoxDiumenge.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDiumenge.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jCheckBoxDiumenge, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
+
+        jCheckBoxDijous.setText("Dijous");
+        jCheckBoxDijous.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDijous.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jCheckBoxDijous, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
+
+        jCheckBoxDilluns.setText("Dilluns");
+        jCheckBoxDilluns.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDilluns.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jCheckBoxDilluns, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
+
+        jCheckBoxDivendres.setText("Divendres");
+        jCheckBoxDivendres.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDivendres.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jCheckBoxDivendres, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, -1, -1));
+
+        jLabelRepetirCada.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelRepetirCada.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelRepetirCada.setText("Repetir Cada");
+        jPanel1.add(jLabelRepetirCada, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
+
+        dateTimePickerRepeticioFinal.setEnabled(false);
+        jPanel1.add(dateTimePickerRepeticioFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 320, -1));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Data Inici: ");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
+
+        jLabelDias.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelDias.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelDias.setText("dias");
+        jPanel1.add(jLabelDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Repetició");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 84, -1));
+
+        jRadioButtonAcabar.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonAcabar.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonAcabar.setText("Acabar després de ");
+        jPanel1.add(jRadioButtonAcabar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
+
+        jRadioButtonMensual.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonMensual.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonMensual.setText("Mensual");
+        jPanel1.add(jRadioButtonMensual, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 100, -1));
+
+        jRadioButtonSetmanal.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonSetmanal.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonSetmanal.setText("Setmanal");
+        jPanel1.add(jRadioButtonSetmanal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
+
+        jRadioButtonDiari.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonDiari.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonDiari.setText("Diari");
+        jPanel1.add(jRadioButtonDiari, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
+
+        jButtonCancelar.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCancelar.setText("Cancelar");
+        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, -1, -1));
+
+        jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, -1, -1));
+
+        jRadioButtonAnual.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonAnual.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonAnual.setText("Anual");
+        jPanel1.add(jRadioButtonAnual, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 72, -1));
+        jPanel1.add(dateTimePickerRepeticio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 320, -1));
+
+        jLabelMesos.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelMesos.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelMesos.setText("mesos");
+        jPanel1.add(jLabelMesos, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
+
+        jLabelAnys.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelAnys.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelAnys.setText("Anys");
+        jPanel1.add(jLabelAnys, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
+
+        jRadioButtonDataFinal.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonDataFinal.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonDataFinal.setText("Data Final");
+        jPanel1.add(jRadioButtonDataFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 90, -1));
+
+        jSpinnerAcabar.setEnabled(false);
+        jPanel1.add(jSpinnerAcabar, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 280, 60, -1));
+
+        jLabelSetmanes1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelSetmanes1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelSetmanes1.setText("vegades");
+        jPanel1.add(jLabelSetmanes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(180, 180, 180)
-                                .addComponent(jButtonAceptar))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jRadioButtonDiari)
-                                            .addComponent(jRadioButtonMensual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jRadioButtonAnual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jRadioButtonSetmanal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabelRepetirCada)
-                                                .addGap(11, 11, 11))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jCheckBoxDilluns)
-                                                    .addComponent(jCheckBoxDijous))
-                                                .addGap(26, 26, 26)))))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(jButtonCancelar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jCheckBoxDivendres)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jCheckBoxDissabte))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jCheckBoxDimarts)
-                                                .addGap(29, 29, 29)
-                                                .addComponent(jCheckBoxDimecres))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jSpinnerSetmanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jSpinnerDiari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabelDias)))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabelSetmanes))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(dateTimePickerRepeticio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(447, 447, 447)
-                        .addComponent(jCheckBoxDiumenge)))
-                .addContainerGap(59, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(66, 66, 66)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButtonDiari)
-                    .addComponent(jSpinnerDiari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelDias)
-                    .addComponent(jLabelRepetirCada)
-                    .addComponent(jSpinnerSetmanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelSetmanes))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButtonSetmanal)
-                    .addComponent(jCheckBoxDimarts)
-                    .addComponent(jCheckBoxDimecres)
-                    .addComponent(jCheckBoxDilluns))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBoxDiumenge)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButtonMensual)
-                    .addComponent(jCheckBoxDijous)
-                    .addComponent(jCheckBoxDissabte)
-                    .addComponent(jCheckBoxDivendres))
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButtonAnual)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(dateTimePickerRepeticio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAceptar)
-                    .addComponent(jButtonCancelar))
-                .addGap(41, 41, 41))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(584, 388));
+        setSize(new java.awt.Dimension(660, 388));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -238,7 +243,8 @@ public class JFRepeticio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public com.github.lgooddatepicker.components.DateTimePicker dateTimePickerRepeticio;
+    public com.github.lgooddatepicker.components.DateTimePicker dateTimePickerRepeticio1;
+    public com.github.lgooddatepicker.components.DateTimePicker dateTimePickerRepeticioFinal;
     public javax.swing.JButton jButtonAceptar;
     public javax.swing.JButton jButtonCancelar;
     public javax.swing.JCheckBox jCheckBoxDijous;
@@ -250,14 +256,20 @@ public class JFRepeticio extends javax.swing.JFrame {
     public javax.swing.JCheckBox jCheckBoxDivendres;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabelAnys;
     public javax.swing.JLabel jLabelDias;
+    public javax.swing.JLabel jLabelMesos;
     public javax.swing.JLabel jLabelRepetirCada;
     public javax.swing.JLabel jLabelSetmanes;
+    public javax.swing.JLabel jLabelSetmanes1;
+    private javax.swing.JPanel jPanel1;
+    public javax.swing.JRadioButton jRadioButtonAcabar;
     public javax.swing.JRadioButton jRadioButtonAnual;
+    public javax.swing.JRadioButton jRadioButtonDataFinal;
     public javax.swing.JRadioButton jRadioButtonDiari;
     public javax.swing.JRadioButton jRadioButtonMensual;
     public javax.swing.JRadioButton jRadioButtonSetmanal;
-    public javax.swing.JSpinner jSpinnerDiari;
-    public javax.swing.JSpinner jSpinnerSetmanal;
+    public javax.swing.JSpinner jSpinner;
+    public javax.swing.JSpinner jSpinnerAcabar;
     // End of variables declaration//GEN-END:variables
 }

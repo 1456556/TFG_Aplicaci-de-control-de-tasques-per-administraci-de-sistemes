@@ -249,6 +249,17 @@ class ControladorElements implements ActionListener, MouseListener, KeyListener 
     public void MostrarTaula(){
     
         
+        Tasques tas = new Tasques();
+        ConsultesTasques tasC = new ConsultesTasques();
+        tasC.contadorTasques(tas);
+        vis.TasquesTotalsElements.setText(String.valueOf(tas.getTasquesTotals()));
+        vis.TasquesTotalsElements.setEditable(false);
+        vis.TasquesAsignadesElements.setText(String.valueOf(tas.getTasquesAssingades()));
+        vis.TasquesAsignadesElements.setEditable(false);
+        vis.TasquesGestionadesElements.setText(String.valueOf(tas.getTasquesPendents()));
+        vis.TasquesGestionadesElements.setEditable(false);
+       
+        
         
          DefaultTableModel model_elements = new DefaultTableModel();
          
