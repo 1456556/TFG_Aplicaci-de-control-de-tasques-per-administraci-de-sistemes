@@ -21,6 +21,35 @@ public class Notificacio {
     String descripcio;
     String estat;
     String prioritat;
+    int repeticio;
+    String data_final;
+    String tipus;
+
+    public String getTipus() {
+        return tipus;
+    }
+
+    public void setTipus(String tipus) {
+        this.tipus = tipus;
+    }
+    
+    
+
+    public int getRepeticio() {
+        return repeticio;
+    }
+
+    public void setRepeticio(int repeticio) {
+        this.repeticio = repeticio;
+    }
+
+    public String getData_final() {
+        return data_final;
+    }
+
+    public void setData_final(String data_final) {
+        this.data_final = data_final;
+    }
 
     public String getEstat() {
         return estat;

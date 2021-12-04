@@ -192,6 +192,28 @@ public class JFPrincipal extends javax.swing.JFrame  {
         btn_Grups = new javax.swing.JLabel();
         txt_fotoUsuari = new com.bolivia.label.CLabel();
         DashBoardView = new javax.swing.JPanel();
+        DashTriaTasca = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jButtonTascaRepetio = new javax.swing.JButton();
+        jButtonTascaNormal = new javax.swing.JButton();
+        DashNovaTasca = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jButtonRepeticio = new javax.swing.JButton();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        ComboUsuariAssignat = new javax.swing.JComboBox<>();
+        txt_titolTasc = new javax.swing.JTextField();
+        txt_descripcioTasc = new javax.swing.JTextField();
+        jLabel59 = new javax.swing.JLabel();
+        dateTimePicker = new com.github.lgooddatepicker.components.DateTimePicker();
+        jLabel63 = new javax.swing.JLabel();
+        ComboEstatTasc = new javax.swing.JComboBox<>();
+        jCheckBoxNotificacio = new javax.swing.JCheckBox();
+        ComboPrioritatTasc1 = new javax.swing.JComboBox<>();
+        jButtonRegistarTasca = new javax.swing.JButton();
         DashNouGrup = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
@@ -332,24 +354,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Enrera1 = new javax.swing.JLabel();
         txt_observacionsElem2 = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
-        DashNovaTasca = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jButtonRepeticio = new javax.swing.JButton();
-        jLabel55 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
-        ComboUsuariAssignat = new javax.swing.JComboBox<>();
-        txt_titolTasc = new javax.swing.JTextField();
-        txt_descripcioTasc = new javax.swing.JTextField();
-        jLabel59 = new javax.swing.JLabel();
-        dateTimePicker = new com.github.lgooddatepicker.components.DateTimePicker();
-        jLabel63 = new javax.swing.JLabel();
-        ComboEstatTasc = new javax.swing.JComboBox<>();
-        jCheckBoxNotificacio = new javax.swing.JCheckBox();
-        ComboPrioritatTasc1 = new javax.swing.JComboBox<>();
-        jButtonRegistarTasca = new javax.swing.JButton();
         DashInfoTasca = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
         txt_titolTasc2 = new javax.swing.JTextField();
@@ -381,6 +385,45 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel69 = new javax.swing.JLabel();
         jScrollPane_Grups = new javax.swing.JScrollPane();
         jTable_Grups = new javax.swing.JTable();
+        DashInfoTascaRepeticio = new javax.swing.JPanel();
+        jLabelSetmanes2 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jCheckBoxDissabte1 = new javax.swing.JCheckBox();
+        jCheckBoxDimecres1 = new javax.swing.JCheckBox();
+        jCheckBoxDimarts1 = new javax.swing.JCheckBox();
+        jCheckBoxDiumenge1 = new javax.swing.JCheckBox();
+        jCheckBoxDijous1 = new javax.swing.JCheckBox();
+        jCheckBoxDilluns1 = new javax.swing.JCheckBox();
+        jCheckBoxDivendres1 = new javax.swing.JCheckBox();
+        jLabelRepetirCada1 = new javax.swing.JLabel();
+        dateTimePickerRepeticioFinal1 = new com.github.lgooddatepicker.components.DateTimePicker();
+        jLabel78 = new javax.swing.JLabel();
+        jLabelDias1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jRadioButtonAcabar1 = new javax.swing.JRadioButton();
+        jRadioButtonMensual1 = new javax.swing.JRadioButton();
+        jRadioButtonSetmanal1 = new javax.swing.JRadioButton();
+        jRadioButtonDiari1 = new javax.swing.JRadioButton();
+        jButtonCancelar1 = new javax.swing.JButton();
+        jButtonAceptar1 = new javax.swing.JButton();
+        jRadioButtonAnual1 = new javax.swing.JRadioButton();
+        dateTimePickerRepeticio1 = new com.github.lgooddatepicker.components.DateTimePicker();
+        jLabelMesos1 = new javax.swing.JLabel();
+        jLabelAnys1 = new javax.swing.JLabel();
+        jRadioButtonDataFinal1 = new javax.swing.JRadioButton();
+        jSpinnerAcabar1 = new javax.swing.JSpinner();
+        jLabelSetmanes3 = new javax.swing.JLabel();
+        txt_titolTasc3 = new javax.swing.JTextField();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
+        ComboPrioritatTasc4 = new javax.swing.JComboBox<>();
+        ComboEstatTasc3 = new javax.swing.JComboBox<>();
+        jLabel81 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        ComboUsuariAssignat3 = new javax.swing.JComboBox<>();
+        jCheckBoxNotificacio2 = new javax.swing.JCheckBox();
+        txt_descripcioTasc3 = new javax.swing.JTextField();
+        jLabel83 = new javax.swing.JLabel();
         DashPerfilUsuari = new javax.swing.JPanel();
         jButtonCanviarContrasenya = new javax.swing.JButton();
         jButtonGuardarFoto = new javax.swing.JButton();
@@ -388,6 +431,45 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txtNomImatge = new javax.swing.JTextField();
         cLabelFoto = new com.bolivia.label.CLabel();
         jLabel70 = new javax.swing.JLabel();
+        DashNovaTascaRepeticio = new javax.swing.JPanel();
+        jLabelSetmanes = new javax.swing.JLabel();
+        jSpinner = new javax.swing.JSpinner();
+        jCheckBoxDissabte = new javax.swing.JCheckBox();
+        jCheckBoxDimecres = new javax.swing.JCheckBox();
+        jCheckBoxDimarts = new javax.swing.JCheckBox();
+        jCheckBoxDiumenge = new javax.swing.JCheckBox();
+        jCheckBoxDijous = new javax.swing.JCheckBox();
+        jCheckBoxDilluns = new javax.swing.JCheckBox();
+        jCheckBoxDivendres = new javax.swing.JCheckBox();
+        jLabelRepetirCada = new javax.swing.JLabel();
+        dateTimePickerRepeticioFinal = new com.github.lgooddatepicker.components.DateTimePicker();
+        jLabel4 = new javax.swing.JLabel();
+        jLabelDias = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jRadioButtonAcabar = new javax.swing.JRadioButton();
+        jRadioButtonMensual = new javax.swing.JRadioButton();
+        jRadioButtonSetmanal = new javax.swing.JRadioButton();
+        jRadioButtonDiari = new javax.swing.JRadioButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jButtonAceptar = new javax.swing.JButton();
+        jRadioButtonAnual = new javax.swing.JRadioButton();
+        dateTimePickerRepeticio = new com.github.lgooddatepicker.components.DateTimePicker();
+        jLabelMesos = new javax.swing.JLabel();
+        jLabelAnys = new javax.swing.JLabel();
+        jRadioButtonDataFinal = new javax.swing.JRadioButton();
+        jSpinnerAcabar = new javax.swing.JSpinner();
+        jLabelSetmanes1 = new javax.swing.JLabel();
+        txt_titolTasc1 = new javax.swing.JTextField();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        ComboPrioritatTasc3 = new javax.swing.JComboBox<>();
+        ComboEstatTasc1 = new javax.swing.JComboBox<>();
+        jLabel75 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
+        ComboUsuariAssignat1 = new javax.swing.JComboBox<>();
+        jCheckBoxNotificacio1 = new javax.swing.JCheckBox();
+        txt_descripcioTasc1 = new javax.swing.JTextField();
+        jLabel77 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -933,6 +1015,158 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
         DashBoardView.setBackground(new java.awt.Color(255, 255, 255));
 
+        DashTriaTasca.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButtonTascaRepetio.setText("Repetició");
+        jButtonTascaRepetio.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonTascaRepetio.setBorder(null);
+        jButtonTascaRepetio.setBorderPainted(false);
+        jButtonTascaRepetio.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonTascaRepetio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel9.add(jButtonTascaRepetio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 150, 210));
+
+        jButtonTascaNormal.setText("Nomal");
+        jButtonTascaNormal.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonTascaNormal.setBorder(null);
+        jButtonTascaNormal.setBorderPainted(false);
+        jButtonTascaNormal.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonTascaNormal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel9.add(jButtonTascaNormal, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 150, 210));
+
+        javax.swing.GroupLayout DashTriaTascaLayout = new javax.swing.GroupLayout(DashTriaTasca);
+        DashTriaTasca.setLayout(DashTriaTascaLayout);
+        DashTriaTascaLayout.setHorizontalGroup(
+            DashTriaTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashTriaTascaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        DashTriaTascaLayout.setVerticalGroup(
+            DashTriaTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashTriaTascaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        DashNovaTasca.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel47.setText("Nova Tasca");
+        jLabel47.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 153, 51));
+        jPanel5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, -1, 60));
+
+        jLabel48.setText("Data Venciment");
+        jLabel48.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, 25));
+
+        jLabel49.setText("Prioritat");
+        jLabel49.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 95, -1, -1));
+
+        jButtonRepeticio.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonRepeticio.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRepeticio.setText("Repetició");
+        jButtonRepeticio.setBorder(null);
+        jButtonRepeticio.setBorderPainted(false);
+        jButtonRepeticio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel5.add(jButtonRepeticio, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 110, 20));
+
+        jLabel55.setText("Titol");
+        jLabel55.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 90, -1, 25));
+
+        jLabel58.setText("Descripció");
+        jLabel58.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, 30));
+
+        ComboUsuariAssignat.setBackground(new java.awt.Color(255, 153, 51));
+        ComboUsuariAssignat.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(ComboUsuariAssignat, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 150, 26));
+
+        txt_titolTasc.setBackground(new java.awt.Color(255, 153, 51));
+        txt_titolTasc.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(txt_titolTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 121, 150, 31));
+
+        txt_descripcioTasc.setBackground(new java.awt.Color(255, 153, 51));
+        txt_descripcioTasc.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(txt_descripcioTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 560, 60));
+
+        jLabel59.setText("Estat");
+        jLabel59.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel59.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 90, -1, 30));
+
+        dateTimePicker.setBackground(new java.awt.Color(255, 153, 51));
+        dateTimePicker.setForeground(new java.awt.Color(255, 153, 51));
+        jPanel5.add(dateTimePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 350, 30));
+
+        jLabel63.setText("Usuari Assignat");
+        jLabel63.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 190, -1, 25));
+
+        ComboEstatTasc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nova", "En espera", "En procés" }));
+        ComboEstatTasc.setBackground(new java.awt.Color(255, 153, 51));
+        ComboEstatTasc.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(ComboEstatTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 128, 150, 26));
+
+        jCheckBoxNotificacio.setText("Notificació");
+        jCheckBoxNotificacio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxNotificacioActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jCheckBoxNotificacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 100, 30));
+
+        ComboPrioritatTasc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitja", "Alta", "Urgent", "Prioritaria" }));
+        ComboPrioritatTasc1.setBackground(new java.awt.Color(255, 153, 51));
+        ComboPrioritatTasc1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(ComboPrioritatTasc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 150, 26));
+
+        jButtonRegistarTasca.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonRegistarTasca.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistarTasca.setText("Guardar");
+        jButtonRegistarTasca.setBorder(null);
+        jButtonRegistarTasca.setBorderPainted(false);
+        jButtonRegistarTasca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel5.add(jButtonRegistarTasca, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 150, 30));
+
+        javax.swing.GroupLayout DashNovaTascaLayout = new javax.swing.GroupLayout(DashNovaTasca);
+        DashNovaTasca.setLayout(DashNovaTascaLayout);
+        DashNovaTascaLayout.setHorizontalGroup(
+            DashNovaTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashNovaTascaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        DashNovaTascaLayout.setVerticalGroup(
+            DashNovaTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashNovaTascaLayout.createSequentialGroup()
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
         DashNouGrup.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
@@ -1058,16 +1292,16 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Contador4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
         Contador4.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel51.setText("Tasques Totals");
         jLabel51.setBackground(new java.awt.Color(255, 255, 255));
         jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel51.setText("Tasques Totals");
 
-        jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
         jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel52.setText("Tasques Pendents");
+        jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1084,8 +1318,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
             }
         });
 
-        jLabel53.setForeground(new java.awt.Color(0, 0, 0));
         jLabel53.setText("Buscar :");
+        jLabel53.setForeground(new java.awt.Color(0, 0, 0));
 
         jButtonNovaTasca.setText("Nou");
 
@@ -1128,27 +1362,27 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        jTextFieldTasquesTotals.setBackground(new java.awt.Color(0, 153, 255));
         jTextFieldTasquesTotals.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextFieldTasquesTotals.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldTasquesTotals.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldTasquesTotals.setBackground(new java.awt.Color(0, 153, 255));
         jTextFieldTasquesTotals.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldTasquesTotals.setForeground(new java.awt.Color(0, 0, 0));
 
-        jTextFieldTasquesAssignades.setBackground(new java.awt.Color(255, 255, 51));
         jTextFieldTasquesAssignades.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jTextFieldTasquesAssignades.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldTasquesAssignades.setBackground(new java.awt.Color(255, 255, 51));
         jTextFieldTasquesAssignades.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextFieldTasquesPendents.setBackground(new java.awt.Color(102, 255, 102));
         jTextFieldTasquesPendents.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextFieldTasquesPendents.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldTasquesPendents.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldTasquesPendents.setBackground(new java.awt.Color(102, 255, 102));
         jTextFieldTasquesPendents.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldTasquesPendents.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
         jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel54.setText("Tasques Asignades");
+        jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout Contador4Layout = new javax.swing.GroupLayout(Contador4);
         Contador4.setLayout(Contador4Layout);
@@ -1176,7 +1410,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                             .addGroup(Contador4Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addComponent(jTextFieldTasquesAssignades, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                                 .addComponent(jTextFieldTasquesPendents, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(97, 97, 97))))
                     .addGroup(Contador4Layout.createSequentialGroup()
@@ -1238,7 +1472,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashTasquesLayout.createSequentialGroup()
                 .addComponent(Contador4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane_Tasques, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE))
+                .addComponent(jScrollPane_Tasques, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE))
         );
 
         DashElements.setBackground(new java.awt.Color(255, 255, 255));
@@ -1248,23 +1482,23 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Contador2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
         Contador2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("Tasques Totals");
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("Tasques Totals");
 
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("Tasques Gestionades");
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("Buscar :");
+        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
 
         jButtonNouElement.setText("Nou");
 
@@ -1307,33 +1541,33 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        TasquesTotalsElements.setBackground(new java.awt.Color(0, 153, 255));
         TasquesTotalsElements.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         TasquesTotalsElements.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TasquesTotalsElements.setBackground(new java.awt.Color(0, 153, 255));
         TasquesTotalsElements.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        TasquesAsignadesElements.setBackground(new java.awt.Color(255, 255, 51));
         TasquesAsignadesElements.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        TasquesAsignadesElements.setForeground(new java.awt.Color(0, 0, 0));
         TasquesAsignadesElements.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TasquesAsignadesElements.setBackground(new java.awt.Color(255, 255, 51));
         TasquesAsignadesElements.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TasquesAsignadesElements.setForeground(new java.awt.Color(0, 0, 0));
         TasquesAsignadesElements.setSelectedTextColor(new java.awt.Color(0, 0, 0));
 
-        TasquesGestionadesElements.setBackground(new java.awt.Color(102, 255, 102));
         TasquesGestionadesElements.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        TasquesGestionadesElements.setForeground(new java.awt.Color(0, 0, 0));
         TasquesGestionadesElements.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TasquesGestionadesElements.setBackground(new java.awt.Color(102, 255, 102));
         TasquesGestionadesElements.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TasquesGestionadesElements.setForeground(new java.awt.Color(0, 0, 0));
         TasquesGestionadesElements.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TasquesGestionadesElementsActionPerformed(evt);
             }
         });
 
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText("Tasques Asignades");
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout Contador2Layout = new javax.swing.GroupLayout(Contador2);
         Contador2.setLayout(Contador2Layout);
@@ -1362,7 +1596,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                                 .addComponent(jLabel28)
                                 .addGap(56, 56, 56)
                                 .addComponent(jLabel26)))
-                        .addGap(0, 65, Short.MAX_VALUE))
+                        .addGap(0, 70, Short.MAX_VALUE))
                     .addGroup(Contador2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1431,16 +1665,16 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Contador1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
         Contador1.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Tasques Totals");
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Tasques Totals");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Tasques Gestionades");
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1457,8 +1691,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
             }
         });
 
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Buscar :");
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
 
         jButtonNouUsuari.setText("Nou");
         jButtonNouUsuari.addActionListener(new java.awt.event.ActionListener() {
@@ -1506,28 +1740,28 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        TasquesTotalsUsuaris.setBackground(new java.awt.Color(0, 153, 255));
         TasquesTotalsUsuaris.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        TasquesTotalsUsuaris.setForeground(new java.awt.Color(0, 0, 0));
         TasquesTotalsUsuaris.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TasquesTotalsUsuaris.setBackground(new java.awt.Color(0, 153, 255));
         TasquesTotalsUsuaris.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TasquesTotalsUsuaris.setForeground(new java.awt.Color(0, 0, 0));
 
-        TasquesAsignadesUsuaris.setBackground(new java.awt.Color(255, 255, 51));
         TasquesAsignadesUsuaris.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        TasquesAsignadesUsuaris.setForeground(new java.awt.Color(0, 0, 0));
         TasquesAsignadesUsuaris.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TasquesAsignadesUsuaris.setBackground(new java.awt.Color(255, 255, 51));
         TasquesAsignadesUsuaris.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TasquesAsignadesUsuaris.setForeground(new java.awt.Color(0, 0, 0));
 
-        TasquesGestionadesUsuaris.setBackground(new java.awt.Color(102, 255, 102));
         TasquesGestionadesUsuaris.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        TasquesGestionadesUsuaris.setForeground(new java.awt.Color(0, 0, 0));
         TasquesGestionadesUsuaris.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TasquesGestionadesUsuaris.setBackground(new java.awt.Color(102, 255, 102));
         TasquesGestionadesUsuaris.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TasquesGestionadesUsuaris.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("Tasques Asignades");
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout Contador1Layout = new javax.swing.GroupLayout(Contador1);
         Contador1.setLayout(Contador1Layout);
@@ -1556,7 +1790,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                                 .addComponent(jLabel23)
                                 .addGap(56, 56, 56)
                                 .addComponent(jLabel6)))
-                        .addGap(0, 65, Short.MAX_VALUE))
+                        .addGap(0, 70, Short.MAX_VALUE))
                     .addGroup(Contador1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1623,19 +1857,19 @@ public class JFPrincipal extends javax.swing.JFrame  {
         DashConfiguracio.setLayout(DashConfiguracioLayout);
         DashConfiguracioLayout.setHorizontalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 777, Short.MAX_VALUE)
+            .addGap(0, 782, Short.MAX_VALUE)
         );
         DashConfiguracioLayout.setVerticalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 902, Short.MAX_VALUE)
+            .addGap(0, 716, Short.MAX_VALUE)
         );
 
         DashInfoUsuari.setBackground(new java.awt.Color(255, 255, 255));
         DashInfoUsuari.setForeground(new java.awt.Color(51, 51, 255));
 
+        jLabel8.setText("Informació Usuari");
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Informació Usuari");
 
         txt_telefon.setBackground(new java.awt.Color(255, 153, 51));
         txt_telefon.setForeground(new java.awt.Color(255, 255, 255));
@@ -1657,50 +1891,50 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_usuari.setBackground(new java.awt.Color(255, 153, 51));
         txt_usuari.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel9.setText("Nom:");
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Nom:");
 
+        jLabel10.setText("Telefon:");
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Telefon:");
 
+        jLabel11.setText("Cognom:");
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Cognom:");
 
+        jLabel12.setText("Email:");
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Email:");
 
+        jLabel13.setText("Usuari:");
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Usuari:");
 
+        jLabel14.setText("Nivell:");
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("Nivell:");
 
+        jLabel16.setText("Estat:");
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel16.setText("Estat:");
 
+        ComboEstat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
         ComboEstat.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstat.setForeground(new java.awt.Color(255, 255, 255));
-        ComboEstat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
 
+        ComboNivell.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell.setBackground(new java.awt.Color(255, 153, 51));
         ComboNivell.setForeground(new java.awt.Color(255, 255, 255));
-        ComboNivell.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboNivellActionPerformed(evt);
             }
         });
 
+        jButtonEditarUsuari.setText("Guardar");
         jButtonEditarUsuari.setBackground(new java.awt.Color(255, 153, 51));
         jButtonEditarUsuari.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonEditarUsuari.setText("Guardar");
         jButtonEditarUsuari.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonEditarUsuariMouseClicked(evt);
@@ -1715,9 +1949,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Enrera.setBackground(new java.awt.Color(0, 0, 0));
         Enrera.setForeground(new java.awt.Color(0, 0, 0));
 
+        Contrasenya.setText("Actualitzar Contrassenya");
         Contrasenya.setBackground(new java.awt.Color(255, 153, 51));
         Contrasenya.setForeground(new java.awt.Color(255, 255, 255));
-        Contrasenya.setText("Actualitzar Contrassenya");
         Contrasenya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContrasenyaActionPerformed(evt);
@@ -1771,7 +2005,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                     .addGroup(DashInfoUsuariLayout.createSequentialGroup()
                         .addGap(272, 272, 272)
                         .addComponent(jButtonEditarUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         DashInfoUsuariLayout.setVerticalGroup(
             DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1822,26 +2056,26 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_usuari1.setBackground(new java.awt.Color(255, 153, 51));
         txt_usuari1.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel15.setText("Nou Usuari");
         jLabel15.setBackground(new java.awt.Color(255, 153, 51));
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel15.setText("Nou Usuari");
 
+        jLabel17.setText("Cognom");
         jLabel17.setBackground(new java.awt.Color(255, 153, 51));
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel17.setText("Cognom");
 
+        jLabel18.setText("Email");
         jLabel18.setBackground(new java.awt.Color(255, 153, 51));
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel18.setText("Email");
 
-        jButtonRegistarUsuari.setBackground(new java.awt.Color(255, 153, 51));
-        jButtonRegistarUsuari.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRegistarUsuari.setText("Guardar");
+        jButtonRegistarUsuari.setBackground(new java.awt.Color(255, 153, 51));
         jButtonRegistarUsuari.setBorder(null);
         jButtonRegistarUsuari.setBorderPainted(false);
+        jButtonRegistarUsuari.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRegistarUsuari.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonRegistarUsuari.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1854,43 +2088,43 @@ public class JFPrincipal extends javax.swing.JFrame  {
             }
         });
 
+        jLabel19.setText("Usuari");
         jLabel19.setBackground(new java.awt.Color(255, 153, 51));
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel19.setText("Usuari");
 
+        jLabel20.setText("Nom");
         jLabel20.setBackground(new java.awt.Color(0, 0, 0));
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel20.setText("Nom");
 
+        jLabel21.setText("Telèfon");
         jLabel21.setBackground(new java.awt.Color(255, 153, 51));
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel21.setText("Telèfon");
 
+        jLabel22.setText("Nivell");
         jLabel22.setBackground(new java.awt.Color(255, 153, 51));
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel22.setText("Nivell");
 
+        jLabel24.setText("Estat");
         jLabel24.setBackground(new java.awt.Color(255, 153, 51));
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel24.setText("Estat");
 
+        ComboNivell1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell1.setBackground(new java.awt.Color(255, 153, 51));
         ComboNivell1.setForeground(new java.awt.Color(255, 255, 255));
-        ComboNivell1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Oficinista", "Operari", " " }));
         ComboNivell1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboNivell1ActionPerformed(evt);
             }
         });
 
+        ComboEstat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
         ComboEstat1.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstat1.setForeground(new java.awt.Color(255, 255, 255));
-        ComboEstat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Actiu", "No Actiu", " " }));
 
         txt_nom1.setBackground(new java.awt.Color(255, 153, 51));
         txt_nom1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1928,7 +2162,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                         .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2100,7 +2334,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
             DashNouElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashNouElementLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
                 .addGap(43, 43, 43))
         );
         DashNouElementLayout.setVerticalGroup(
@@ -2114,9 +2348,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         DashInfoElement.setBackground(new java.awt.Color(255, 255, 255));
         DashInfoElement.setForeground(new java.awt.Color(51, 51, 255));
 
+        jLabel38.setText("Informació Element");
         jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel38.setText("Informació Element");
 
         txt_numeroserieElem2.setBackground(new java.awt.Color(255, 153, 51));
         txt_numeroserieElem2.setForeground(new java.awt.Color(255, 255, 255));
@@ -2133,45 +2367,45 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_modelElem2.setBackground(new java.awt.Color(255, 153, 51));
         txt_modelElem2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel39.setText("Nom:");
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel39.setText("Nom:");
 
+        jLabel40.setText("Número Serie:");
         jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel40.setText("Número Serie:");
 
+        jLabel41.setText("Usuari:");
         jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel41.setText("Usuari:");
 
+        jLabel42.setText("Marca:");
         jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel42.setText("Marca:");
 
+        jLabel43.setText("Model:");
         jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel43.setText("Model:");
 
+        jLabel44.setText("Tipus:");
         jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel44.setText("Tipus:");
 
+        jLabel45.setText("Estat:");
         jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel45.setText("Estat:");
 
+        ComboEstatElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
         ComboEstatElem2.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstatElem2.setForeground(new java.awt.Color(255, 255, 255));
-        ComboEstatElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Correcte", "Baixa", "Reparació" }));
 
+        ComboTipusElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordinador", "Portatil", "SmartPhone", "Impresora" }));
         ComboTipusElem2.setBackground(new java.awt.Color(255, 153, 51));
         ComboTipusElem2.setForeground(new java.awt.Color(255, 255, 255));
-        ComboTipusElem2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordinador", "Portatil", "SmartPhone", "Impresora" }));
 
+        jButtonEditarElement.setText("Guardar");
         jButtonEditarElement.setBackground(new java.awt.Color(255, 153, 51));
         jButtonEditarElement.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonEditarElement.setText("Guardar");
         jButtonEditarElement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonEditarElementMouseClicked(evt);
@@ -2189,9 +2423,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_observacionsElem2.setBackground(new java.awt.Color(255, 153, 51));
         txt_observacionsElem2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel46.setText("Observacions:");
         jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel46.setText("Observacions:");
 
         javax.swing.GroupLayout DashInfoElementLayout = new javax.swing.GroupLayout(DashInfoElement);
         DashInfoElement.setLayout(DashInfoElementLayout);
@@ -2243,7 +2477,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                     .addGroup(DashInfoElementLayout.createSequentialGroup()
                         .addGap(272, 272, 272)
                         .addComponent(jButtonEditarElement, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         DashInfoElementLayout.setVerticalGroup(
             DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2287,157 +2521,43 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addGap(49, 49, 49))
         );
 
-        DashNovaTasca.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel47.setText("Nova Tasca");
-        jLabel47.setBackground(new java.awt.Color(255, 153, 51));
-        jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(255, 153, 51));
-        jPanel5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, -1, 60));
-
-        jLabel48.setText("Data Venciment");
-        jLabel48.setBackground(new java.awt.Color(255, 153, 51));
-        jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, 25));
-
-        jLabel49.setBackground(new java.awt.Color(255, 153, 51));
-        jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel49.setText("Prioritat");
-        jPanel5.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 95, -1, -1));
-
-        jButtonRepeticio.setBackground(new java.awt.Color(255, 153, 51));
-        jButtonRepeticio.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRepeticio.setText("Repetició");
-        jButtonRepeticio.setBorder(null);
-        jButtonRepeticio.setBorderPainted(false);
-        jButtonRepeticio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel5.add(jButtonRepeticio, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 110, 20));
-
-        jLabel55.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel55.setText("Titol");
-        jPanel5.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 90, -1, 25));
-
-        jLabel58.setText("Descripció");
-        jLabel58.setBackground(new java.awt.Color(255, 153, 51));
-        jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel58.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, 30));
-
-        ComboUsuariAssignat.setBackground(new java.awt.Color(255, 153, 51));
-        ComboUsuariAssignat.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(ComboUsuariAssignat, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 150, 26));
-
-        txt_titolTasc.setBackground(new java.awt.Color(255, 153, 51));
-        txt_titolTasc.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(txt_titolTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 121, 150, 31));
-
-        txt_descripcioTasc.setBackground(new java.awt.Color(255, 153, 51));
-        txt_descripcioTasc.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(txt_descripcioTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 560, 60));
-
-        jLabel59.setBackground(new java.awt.Color(255, 153, 51));
-        jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel59.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel59.setText("Estat");
-        jPanel5.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 90, -1, 30));
-
-        dateTimePicker.setBackground(new java.awt.Color(255, 153, 51));
-        dateTimePicker.setForeground(new java.awt.Color(255, 153, 51));
-        jPanel5.add(dateTimePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 350, 30));
-
-        jLabel63.setBackground(new java.awt.Color(255, 153, 51));
-        jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel63.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel63.setText("Usuari Assignat");
-        jPanel5.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 190, -1, 25));
-
-        ComboEstatTasc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nova", "En espera", "En procés" }));
-        ComboEstatTasc.setBackground(new java.awt.Color(255, 153, 51));
-        ComboEstatTasc.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(ComboEstatTasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 128, 150, 26));
-
-        jCheckBoxNotificacio.setText("Notificació");
-        jCheckBoxNotificacio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxNotificacioActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jCheckBoxNotificacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 100, 30));
-
-        ComboPrioritatTasc1.setBackground(new java.awt.Color(255, 153, 51));
-        ComboPrioritatTasc1.setForeground(new java.awt.Color(255, 255, 255));
-        ComboPrioritatTasc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitja", "Alta", "Urgent", "Prioritaria" }));
-        jPanel5.add(ComboPrioritatTasc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 150, 26));
-
-        jButtonRegistarTasca.setBackground(new java.awt.Color(255, 153, 51));
-        jButtonRegistarTasca.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRegistarTasca.setText("Guardar");
-        jButtonRegistarTasca.setBorder(null);
-        jButtonRegistarTasca.setBorderPainted(false);
-        jButtonRegistarTasca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel5.add(jButtonRegistarTasca, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 150, 30));
-
-        javax.swing.GroupLayout DashNovaTascaLayout = new javax.swing.GroupLayout(DashNovaTasca);
-        DashNovaTasca.setLayout(DashNovaTascaLayout);
-        DashNovaTascaLayout.setHorizontalGroup(
-            DashNovaTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DashNovaTascaLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
-                .addGap(43, 43, 43))
-        );
-        DashNovaTascaLayout.setVerticalGroup(
-            DashNovaTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DashNovaTascaLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-
         DashInfoTasca.setBackground(new java.awt.Color(255, 255, 255));
         DashInfoTasca.setForeground(new java.awt.Color(51, 51, 255));
 
+        jLabel56.setText("Informació Tasca");
         jLabel56.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel56.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel56.setText("Informació Tasca");
 
         txt_titolTasc2.setBackground(new java.awt.Color(255, 153, 51));
         txt_titolTasc2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel57.setText("Titol:");
         jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel57.setText("Titol:");
 
+        jLabel60.setText("Prioritat: ");
         jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel60.setText("Prioritat: ");
 
+        jLabel61.setText("Usuari:");
         jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel61.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel61.setText("Usuari:");
 
+        jLabel62.setText("Data:");
         jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel62.setText("Data:");
 
+        jLabel65.setText("Estat:");
         jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel65.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel65.setText("Estat:");
 
+        ComboEstatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nova", "En espera", "En procés", "Finalitzada" }));
         ComboEstatTasc2.setBackground(new java.awt.Color(255, 153, 51));
         ComboEstatTasc2.setForeground(new java.awt.Color(255, 255, 255));
-        ComboEstatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nova", "En espera", "En procés", "Finalitzada" }));
 
+        jButtonEditarTasca.setText("Actualitzar");
         jButtonEditarTasca.setBackground(new java.awt.Color(255, 153, 51));
         jButtonEditarTasca.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonEditarTasca.setText("Actualitzar");
         jButtonEditarTasca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonEditarTascaMouseClicked(evt);
@@ -2455,13 +2575,13 @@ public class JFPrincipal extends javax.swing.JFrame  {
         txt_descripcioTasc2.setBackground(new java.awt.Color(255, 153, 51));
         txt_descripcioTasc2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel66.setText("Descripció:");
         jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel66.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel66.setText("Descripció:");
 
+        ComboPrioritatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitjana", "Alta", "Urgent", "Prioritaria" }));
         ComboPrioritatTasc2.setBackground(new java.awt.Color(255, 153, 51));
         ComboPrioritatTasc2.setForeground(new java.awt.Color(255, 255, 255));
-        ComboPrioritatTasc2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitjana", "Alta", "Urgent", "Prioritaria" }));
 
         ComboUsuariAssignat2.setBackground(new java.awt.Color(255, 153, 51));
         ComboUsuariAssignat2.setForeground(new java.awt.Color(255, 255, 255));
@@ -2505,7 +2625,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                         .addComponent(jLabel66)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txt_descripcioTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(161, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashInfoTascaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonEditarTasca, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2546,7 +2666,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                     .addComponent(jLabel66))
                 .addGap(43, 43, 43)
                 .addComponent(jButtonEditarTasca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(402, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         DashGrups.setBackground(new java.awt.Color(255, 255, 255));
@@ -2556,16 +2676,16 @@ public class JFPrincipal extends javax.swing.JFrame  {
         Contador5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153), null, null));
         Contador5.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel64.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel64.setText("Tasques Totals");
         jLabel64.setBackground(new java.awt.Color(255, 255, 255));
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel64.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel64.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel64.setText("Tasques Totals");
 
-        jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel67.setForeground(new java.awt.Color(255, 255, 255));
         jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel67.setText("Tasques Gestionades");
+        jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel67.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -2582,8 +2702,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
             }
         });
 
-        jLabel68.setForeground(new java.awt.Color(0, 0, 0));
         jLabel68.setText("Buscar :");
+        jLabel68.setForeground(new java.awt.Color(0, 0, 0));
 
         jButtonNouGrup.setText("Nou");
 
@@ -2626,28 +2746,28 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        TasquesTotalsGrups.setBackground(new java.awt.Color(0, 153, 255));
         TasquesTotalsGrups.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        TasquesTotalsGrups.setForeground(new java.awt.Color(0, 0, 0));
         TasquesTotalsGrups.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TasquesTotalsGrups.setBackground(new java.awt.Color(0, 153, 255));
         TasquesTotalsGrups.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TasquesTotalsGrups.setForeground(new java.awt.Color(0, 0, 0));
 
-        TasquesAsignadesGrups.setBackground(new java.awt.Color(255, 255, 51));
         TasquesAsignadesGrups.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        TasquesAsignadesGrups.setForeground(new java.awt.Color(0, 0, 0));
         TasquesAsignadesGrups.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TasquesAsignadesGrups.setBackground(new java.awt.Color(255, 255, 51));
         TasquesAsignadesGrups.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TasquesAsignadesGrups.setForeground(new java.awt.Color(0, 0, 0));
 
-        TasquesGestionadesGrups.setBackground(new java.awt.Color(102, 255, 102));
         TasquesGestionadesGrups.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        TasquesGestionadesGrups.setForeground(new java.awt.Color(0, 0, 0));
         TasquesGestionadesGrups.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TasquesGestionadesGrups.setBackground(new java.awt.Color(102, 255, 102));
         TasquesGestionadesGrups.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TasquesGestionadesGrups.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel69.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel69.setForeground(new java.awt.Color(255, 255, 255));
         jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel69.setText("Tasques Asignades");
+        jLabel69.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout Contador5Layout = new javax.swing.GroupLayout(Contador5);
         Contador5.setLayout(Contador5Layout);
@@ -2676,7 +2796,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                                 .addComponent(jLabel69)
                                 .addGap(56, 56, 56)
                                 .addComponent(jLabel67)))
-                        .addGap(0, 65, Short.MAX_VALUE))
+                        .addGap(0, 70, Short.MAX_VALUE))
                     .addGroup(Contador5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -2735,38 +2855,227 @@ public class JFPrincipal extends javax.swing.JFrame  {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashGrupsLayout.createSequentialGroup()
                 .addComponent(Contador5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane_Grups, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE))
+                .addComponent(jScrollPane_Grups, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE))
         );
+
+        DashInfoTascaRepeticio.setBackground(new java.awt.Color(255, 255, 255));
+        DashInfoTascaRepeticio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51), 3));
+        DashInfoTascaRepeticio.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelSetmanes2.setText("setmanes");
+        jLabelSetmanes2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelSetmanes2.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jLabelSetmanes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
+        DashInfoTascaRepeticio.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, -1));
+
+        jCheckBoxDissabte1.setText("Dissabte");
+        jCheckBoxDissabte1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDissabte1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jCheckBoxDissabte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+
+        jCheckBoxDimecres1.setText("Dimecres");
+        jCheckBoxDimecres1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDimecres1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jCheckBoxDimecres1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
+
+        jCheckBoxDimarts1.setText("Dimarts");
+        jCheckBoxDimarts1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDimarts1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jCheckBoxDimarts1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, -1, -1));
+
+        jCheckBoxDiumenge1.setText("Diumenge");
+        jCheckBoxDiumenge1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDiumenge1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jCheckBoxDiumenge1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
+
+        jCheckBoxDijous1.setText("Dijous");
+        jCheckBoxDijous1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDijous1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jCheckBoxDijous1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, -1, -1));
+
+        jCheckBoxDilluns1.setText("Dilluns");
+        jCheckBoxDilluns1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDilluns1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jCheckBoxDilluns1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+
+        jCheckBoxDivendres1.setText("Divendres");
+        jCheckBoxDivendres1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDivendres1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jCheckBoxDivendres1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, -1));
+
+        jLabelRepetirCada1.setText("Repetir Cada");
+        jLabelRepetirCada1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelRepetirCada1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jLabelRepetirCada1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
+
+        dateTimePickerRepeticioFinal1.setEnabled(false);
+        DashInfoTascaRepeticio.add(dateTimePickerRepeticioFinal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 320, -1));
+
+        jLabel78.setText("Data Inici: ");
+        jLabel78.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel78.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
+
+        jLabelDias1.setText("dias");
+        jLabelDias1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelDias1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jLabelDias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Repetició");
+        DashInfoTascaRepeticio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 84, -1));
+
+        jRadioButtonAcabar1.setText("Acabar després de ");
+        jRadioButtonAcabar1.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonAcabar1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jRadioButtonAcabar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
+
+        jRadioButtonMensual1.setText("Mensual");
+        jRadioButtonMensual1.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonMensual1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jRadioButtonMensual1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 100, -1));
+
+        jRadioButtonSetmanal1.setText("Setmanal");
+        jRadioButtonSetmanal1.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonSetmanal1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jRadioButtonSetmanal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, -1, -1));
+
+        jRadioButtonDiari1.setText("Diari");
+        jRadioButtonDiari1.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonDiari1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jRadioButtonDiari1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, -1, -1));
+
+        jButtonCancelar1.setText("Cancelar");
+        jButtonCancelar1.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonCancelar1.setForeground(new java.awt.Color(255, 255, 255));
+        DashInfoTascaRepeticio.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, -1, -1));
+
+        jButtonAceptar1.setText("Aceptar");
+        jButtonAceptar1.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonAceptar1.setForeground(new java.awt.Color(255, 255, 255));
+        DashInfoTascaRepeticio.add(jButtonAceptar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, -1, -1));
+
+        jRadioButtonAnual1.setText("Anual");
+        jRadioButtonAnual1.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonAnual1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jRadioButtonAnual1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 72, -1));
+        DashInfoTascaRepeticio.add(dateTimePickerRepeticio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 320, -1));
+
+        jLabelMesos1.setText("mesos");
+        jLabelMesos1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelMesos1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jLabelMesos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
+
+        jLabelAnys1.setText("Anys");
+        jLabelAnys1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelAnys1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jLabelAnys1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
+
+        jRadioButtonDataFinal1.setText("Data Final");
+        jRadioButtonDataFinal1.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonDataFinal1.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jRadioButtonDataFinal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 90, -1));
+
+        jSpinnerAcabar1.setEnabled(false);
+        DashInfoTascaRepeticio.add(jSpinnerAcabar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 60, -1));
+
+        jLabelSetmanes3.setText("vegades");
+        jLabelSetmanes3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelSetmanes3.setForeground(new java.awt.Color(0, 0, 0));
+        DashInfoTascaRepeticio.add(jLabelSetmanes3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, -1, -1));
+
+        txt_titolTasc3.setBackground(new java.awt.Color(255, 153, 51));
+        txt_titolTasc3.setForeground(new java.awt.Color(255, 255, 255));
+        DashInfoTascaRepeticio.add(txt_titolTasc3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 121, 150, 31));
+
+        jLabel79.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel79.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel79.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel79.setText("Titol");
+        DashInfoTascaRepeticio.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 90, -1, 25));
+
+        jLabel80.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel80.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel80.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel80.setText("Prioritat");
+        DashInfoTascaRepeticio.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        ComboPrioritatTasc4.setBackground(new java.awt.Color(255, 153, 51));
+        ComboPrioritatTasc4.setForeground(new java.awt.Color(255, 255, 255));
+        ComboPrioritatTasc4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitja", "Alta", "Urgent", "Prioritaria" }));
+        DashInfoTascaRepeticio.add(ComboPrioritatTasc4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 100, 26));
+
+        ComboEstatTasc3.setBackground(new java.awt.Color(255, 153, 51));
+        ComboEstatTasc3.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstatTasc3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nova", "En espera", "En procés" }));
+        DashInfoTascaRepeticio.add(ComboEstatTasc3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 90, 26));
+
+        jLabel81.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel81.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel81.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel81.setText("Estat");
+        DashInfoTascaRepeticio.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 30));
+
+        jLabel82.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel82.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel82.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel82.setText("Usuari Assignat");
+        DashInfoTascaRepeticio.add(jLabel82, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, 25));
+
+        ComboUsuariAssignat3.setBackground(new java.awt.Color(255, 153, 51));
+        ComboUsuariAssignat3.setForeground(new java.awt.Color(255, 255, 255));
+        DashInfoTascaRepeticio.add(ComboUsuariAssignat3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 150, 26));
+
+        jCheckBoxNotificacio2.setText("Notificació");
+        jCheckBoxNotificacio2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxNotificacio2ActionPerformed(evt);
+            }
+        });
+        DashInfoTascaRepeticio.add(jCheckBoxNotificacio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 100, 30));
+
+        txt_descripcioTasc3.setBackground(new java.awt.Color(255, 153, 51));
+        txt_descripcioTasc3.setForeground(new java.awt.Color(255, 255, 255));
+        DashInfoTascaRepeticio.add(txt_descripcioTasc3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 690, 100));
+
+        jLabel83.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel83.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel83.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel83.setText("Descripció");
+        DashInfoTascaRepeticio.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, 30));
 
         DashPerfilUsuari.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButtonCanviarContrasenya.setBackground(new java.awt.Color(255, 153, 51));
-        jButtonCanviarContrasenya.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCanviarContrasenya.setText("Canviar contrasenya");
+        jButtonCanviarContrasenya.setBackground(new java.awt.Color(255, 153, 51));
         jButtonCanviarContrasenya.setBorder(null);
         jButtonCanviarContrasenya.setBorderPainted(false);
+        jButtonCanviarContrasenya.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCanviarContrasenya.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButtonGuardarFoto.setBackground(new java.awt.Color(255, 153, 51));
-        jButtonGuardarFoto.setForeground(new java.awt.Color(255, 255, 255));
         jButtonGuardarFoto.setText("Guardar Foto");
+        jButtonGuardarFoto.setBackground(new java.awt.Color(255, 153, 51));
         jButtonGuardarFoto.setBorder(null);
         jButtonGuardarFoto.setBorderPainted(false);
+        jButtonGuardarFoto.setForeground(new java.awt.Color(255, 255, 255));
         jButtonGuardarFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButtonCanviarFoto.setBackground(new java.awt.Color(255, 153, 51));
-        jButtonCanviarFoto.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCanviarFoto.setText("Selecionar foto");
+        jButtonCanviarFoto.setBackground(new java.awt.Color(255, 153, 51));
         jButtonCanviarFoto.setBorder(null);
         jButtonCanviarFoto.setBorderPainted(false);
+        jButtonCanviarFoto.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCanviarFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         cLabelFoto.setText("");
 
+        jLabel70.setText("Perfil");
         jLabel70.setBackground(new java.awt.Color(255, 153, 51));
         jLabel70.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel70.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel70.setText("Perfil");
 
         javax.swing.GroupLayout DashPerfilUsuariLayout = new javax.swing.GroupLayout(DashPerfilUsuari);
         DashPerfilUsuari.setLayout(DashPerfilUsuariLayout);
@@ -2810,6 +3119,195 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addContainerGap(334, Short.MAX_VALUE))
         );
 
+        DashNovaTascaRepeticio.setBackground(new java.awt.Color(255, 255, 255));
+        DashNovaTascaRepeticio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51), 3));
+        DashNovaTascaRepeticio.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelSetmanes.setText("setmanes");
+        jLabelSetmanes.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelSetmanes.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jLabelSetmanes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
+        DashNovaTascaRepeticio.add(jSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, -1));
+
+        jCheckBoxDissabte.setText("Dissabte");
+        jCheckBoxDissabte.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDissabte.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jCheckBoxDissabte, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+
+        jCheckBoxDimecres.setText("Dimecres");
+        jCheckBoxDimecres.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDimecres.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jCheckBoxDimecres, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
+
+        jCheckBoxDimarts.setText("Dimarts");
+        jCheckBoxDimarts.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDimarts.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jCheckBoxDimarts, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, -1, -1));
+
+        jCheckBoxDiumenge.setText("Diumenge");
+        jCheckBoxDiumenge.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDiumenge.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jCheckBoxDiumenge, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
+
+        jCheckBoxDijous.setText("Dijous");
+        jCheckBoxDijous.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDijous.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jCheckBoxDijous, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, -1, -1));
+
+        jCheckBoxDilluns.setText("Dilluns");
+        jCheckBoxDilluns.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDilluns.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jCheckBoxDilluns, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+
+        jCheckBoxDivendres.setText("Divendres");
+        jCheckBoxDivendres.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxDivendres.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jCheckBoxDivendres, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, -1));
+
+        jLabelRepetirCada.setText("Repetir Cada");
+        jLabelRepetirCada.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelRepetirCada.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jLabelRepetirCada, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
+
+        dateTimePickerRepeticioFinal.setEnabled(false);
+        DashNovaTascaRepeticio.add(dateTimePickerRepeticioFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 320, -1));
+
+        jLabel4.setText("Data Inici: ");
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
+
+        jLabelDias.setText("dias");
+        jLabelDias.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelDias.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jLabelDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Repetició");
+        DashNovaTascaRepeticio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 84, -1));
+
+        jRadioButtonAcabar.setText("Acabar després de ");
+        jRadioButtonAcabar.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonAcabar.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jRadioButtonAcabar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
+
+        jRadioButtonMensual.setText("Mensual");
+        jRadioButtonMensual.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonMensual.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jRadioButtonMensual, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 100, -1));
+
+        jRadioButtonSetmanal.setText("Setmanal");
+        jRadioButtonSetmanal.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonSetmanal.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jRadioButtonSetmanal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, -1, -1));
+
+        jRadioButtonDiari.setText("Diari");
+        jRadioButtonDiari.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonDiari.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jRadioButtonDiari, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, -1, -1));
+
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        DashNovaTascaRepeticio.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, -1, -1));
+
+        jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        DashNovaTascaRepeticio.add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, -1, -1));
+
+        jRadioButtonAnual.setText("Anual");
+        jRadioButtonAnual.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonAnual.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jRadioButtonAnual, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 72, -1));
+        DashNovaTascaRepeticio.add(dateTimePickerRepeticio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 320, -1));
+
+        jLabelMesos.setText("mesos");
+        jLabelMesos.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelMesos.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jLabelMesos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
+
+        jLabelAnys.setText("Anys");
+        jLabelAnys.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelAnys.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jLabelAnys, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
+
+        jRadioButtonDataFinal.setText("Data Final");
+        jRadioButtonDataFinal.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonDataFinal.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jRadioButtonDataFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 90, -1));
+
+        jSpinnerAcabar.setEnabled(false);
+        DashNovaTascaRepeticio.add(jSpinnerAcabar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 60, -1));
+
+        jLabelSetmanes1.setText("vegades");
+        jLabelSetmanes1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelSetmanes1.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jLabelSetmanes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, -1, -1));
+
+        txt_titolTasc1.setBackground(new java.awt.Color(255, 153, 51));
+        txt_titolTasc1.setForeground(new java.awt.Color(255, 255, 255));
+        DashNovaTascaRepeticio.add(txt_titolTasc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 121, 150, 31));
+
+        jLabel71.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel71.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel71.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel71.setText("Titol");
+        DashNovaTascaRepeticio.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 90, -1, 25));
+
+        jLabel74.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel74.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel74.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel74.setText("Prioritat");
+        DashNovaTascaRepeticio.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        ComboPrioritatTasc3.setBackground(new java.awt.Color(255, 153, 51));
+        ComboPrioritatTasc3.setForeground(new java.awt.Color(255, 255, 255));
+        ComboPrioritatTasc3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitja", "Alta", "Urgent", "Prioritaria" }));
+        DashNovaTascaRepeticio.add(ComboPrioritatTasc3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 100, 26));
+
+        ComboEstatTasc1.setBackground(new java.awt.Color(255, 153, 51));
+        ComboEstatTasc1.setForeground(new java.awt.Color(255, 255, 255));
+        ComboEstatTasc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nova", "En espera", "En procés" }));
+        DashNovaTascaRepeticio.add(ComboEstatTasc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 90, 26));
+
+        jLabel75.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel75.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel75.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel75.setText("Estat");
+        DashNovaTascaRepeticio.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 30));
+
+        jLabel76.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel76.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel76.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel76.setText("Usuari Assignat");
+        DashNovaTascaRepeticio.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, 25));
+
+        ComboUsuariAssignat1.setBackground(new java.awt.Color(255, 153, 51));
+        ComboUsuariAssignat1.setForeground(new java.awt.Color(255, 255, 255));
+        DashNovaTascaRepeticio.add(ComboUsuariAssignat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 150, 26));
+
+        jCheckBoxNotificacio1.setText("Notificació");
+        jCheckBoxNotificacio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxNotificacio1ActionPerformed(evt);
+            }
+        });
+        DashNovaTascaRepeticio.add(jCheckBoxNotificacio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 100, 30));
+
+        txt_descripcioTasc1.setBackground(new java.awt.Color(255, 153, 51));
+        txt_descripcioTasc1.setForeground(new java.awt.Color(255, 255, 255));
+        DashNovaTascaRepeticio.add(txt_descripcioTasc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 690, 100));
+
+        jLabel77.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel77.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel77.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel77.setText("Descripció");
+        DashNovaTascaRepeticio.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, 30));
+
         javax.swing.GroupLayout DashBoardViewLayout = new javax.swing.GroupLayout(DashBoardView);
         DashBoardView.setLayout(DashBoardViewLayout);
         DashBoardViewLayout.setHorizontalGroup(
@@ -2823,7 +3321,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(DashNouUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(88, Short.MAX_VALUE)))
+                    .addContainerGap(102, Short.MAX_VALUE)))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(DashElements, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2837,7 +3335,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addComponent(DashTasques, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
-                    .addContainerGap()
                     .addComponent(DashNovaTasca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2851,6 +3348,19 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addComponent(DashNouGrup, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(DashPerfilUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashBoardViewLayout.createSequentialGroup()
+                    .addComponent(DashNovaTascaRepeticio, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addComponent(DashTriaTasca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(DashInfoTascaRepeticio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         DashBoardViewLayout.setVerticalGroup(
             DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2879,7 +3389,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashNouElement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 389, Short.MAX_VALUE)))
+                    .addGap(0, 203, Short.MAX_VALUE)))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -2891,9 +3401,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
                     .addContainerGap()))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
-                    .addContainerGap()
                     .addComponent(DashNovaTasca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(359, Short.MAX_VALUE)))
+                    .addGap(0, 191, Short.MAX_VALUE)))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addGap(6, 6, 6)
@@ -2904,11 +3413,22 @@ public class JFPrincipal extends javax.swing.JFrame  {
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashNouGrup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 276, Short.MAX_VALUE)))
+                    .addGap(0, 90, Short.MAX_VALUE)))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashPerfilUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 193, Short.MAX_VALUE)))
+                    .addGap(0, 7, Short.MAX_VALUE)))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(DashNovaTascaRepeticio, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addComponent(DashTriaTasca, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 204, Short.MAX_VALUE)))
+            .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashBoardViewLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(DashInfoTascaRepeticio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         getContentPane().add(DashBoardView, java.awt.BorderLayout.CENTER);
@@ -3463,6 +3983,14 @@ public class JFPrincipal extends javax.swing.JFrame  {
         changecolor(N_TancarSessio, new Color(255, 153, 0));
     }//GEN-LAST:event_btn_TancarSessioMouseExited
 
+    private void jCheckBoxNotificacio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxNotificacio1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxNotificacio1ActionPerformed
+
+    private void jCheckBoxNotificacio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxNotificacio2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxNotificacio2ActionPerformed
+
     
     public void inicialitzarNotificacio(Date date) throws MessagingException{
     
@@ -3641,15 +4169,21 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JComboBox<String> ComboEstatElem;
     public javax.swing.JComboBox<String> ComboEstatElem2;
     public javax.swing.JComboBox<String> ComboEstatTasc;
+    public javax.swing.JComboBox<String> ComboEstatTasc1;
     public javax.swing.JComboBox<String> ComboEstatTasc2;
+    public javax.swing.JComboBox<String> ComboEstatTasc3;
     public javax.swing.JComboBox<String> ComboNivell;
     public javax.swing.JComboBox<String> ComboNivell1;
     public javax.swing.JComboBox<String> ComboPrioritatTasc1;
     public javax.swing.JComboBox<String> ComboPrioritatTasc2;
+    public javax.swing.JComboBox<String> ComboPrioritatTasc3;
+    public javax.swing.JComboBox<String> ComboPrioritatTasc4;
     public javax.swing.JComboBox<String> ComboTipus;
     public javax.swing.JComboBox<String> ComboTipusElem2;
     public javax.swing.JComboBox<String> ComboUsuariAssignat;
+    public javax.swing.JComboBox<String> ComboUsuariAssignat1;
     public javax.swing.JComboBox<String> ComboUsuariAssignat2;
+    public javax.swing.JComboBox<String> ComboUsuariAssignat3;
     private javax.swing.JPanel Configuracio;
     private javax.swing.JPanel Contador1;
     private javax.swing.JPanel Contador2;
@@ -3662,13 +4196,16 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JPanel DashGrups;
     public javax.swing.JPanel DashInfoElement;
     public javax.swing.JPanel DashInfoTasca;
+    public javax.swing.JPanel DashInfoTascaRepeticio;
     public javax.swing.JPanel DashInfoUsuari;
     public javax.swing.JPanel DashNouElement;
     public javax.swing.JPanel DashNouGrup;
     public javax.swing.JPanel DashNouUsuari;
     public javax.swing.JPanel DashNovaTasca;
+    public javax.swing.JPanel DashNovaTascaRepeticio;
     public javax.swing.JPanel DashPerfilUsuari;
     public javax.swing.JPanel DashTasques;
+    public javax.swing.JPanel DashTriaTasca;
     public javax.swing.JPanel DashUsuaris;
     private javax.swing.JPanel Elements;
     private javax.swing.JLabel Enrera;
@@ -3726,8 +4263,16 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public com.bolivia.label.CLabel cLabelFoto;
     public com.github.lgooddatepicker.components.DateTimePicker dateTimePicker;
     public com.github.lgooddatepicker.components.DateTimePicker dateTimePicker1;
+    public com.github.lgooddatepicker.components.DateTimePicker dateTimePickerRepeticio;
+    public com.github.lgooddatepicker.components.DateTimePicker dateTimePickerRepeticio1;
+    public com.github.lgooddatepicker.components.DateTimePicker dateTimePickerRepeticioFinal;
+    public com.github.lgooddatepicker.components.DateTimePicker dateTimePickerRepeticioFinal1;
+    public javax.swing.JButton jButtonAceptar;
+    public javax.swing.JButton jButtonAceptar1;
     public javax.swing.JButton jButtonAfegir;
     public javax.swing.JButton jButtonAfegirElement;
+    public javax.swing.JButton jButtonCancelar;
+    public javax.swing.JButton jButtonCancelar1;
     public javax.swing.JButton jButtonCanviarContrasenya;
     public javax.swing.JButton jButtonCanviarFoto;
     public javax.swing.JButton jButtonEditarElement;
@@ -3748,7 +4293,25 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JButton jButtonRegistarTasca;
     public javax.swing.JButton jButtonRegistarUsuari;
     public javax.swing.JButton jButtonRepeticio;
+    public javax.swing.JButton jButtonTascaNormal;
+    public javax.swing.JButton jButtonTascaRepetio;
+    public javax.swing.JCheckBox jCheckBoxDijous;
+    public javax.swing.JCheckBox jCheckBoxDijous1;
+    public javax.swing.JCheckBox jCheckBoxDilluns;
+    public javax.swing.JCheckBox jCheckBoxDilluns1;
+    public javax.swing.JCheckBox jCheckBoxDimarts;
+    public javax.swing.JCheckBox jCheckBoxDimarts1;
+    public javax.swing.JCheckBox jCheckBoxDimecres;
+    public javax.swing.JCheckBox jCheckBoxDimecres1;
+    public javax.swing.JCheckBox jCheckBoxDissabte;
+    public javax.swing.JCheckBox jCheckBoxDissabte1;
+    public javax.swing.JCheckBox jCheckBoxDiumenge;
+    public javax.swing.JCheckBox jCheckBoxDiumenge1;
+    public javax.swing.JCheckBox jCheckBoxDivendres;
+    public javax.swing.JCheckBox jCheckBoxDivendres1;
     public javax.swing.JCheckBox jCheckBoxNotificacio;
+    public javax.swing.JCheckBox jCheckBoxNotificacio1;
+    public javax.swing.JCheckBox jCheckBoxNotificacio2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3760,6 +4323,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -3770,6 +4334,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -3780,6 +4345,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -3814,10 +4380,33 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel jLabelAnys;
+    public javax.swing.JLabel jLabelAnys1;
+    public javax.swing.JLabel jLabelDias;
+    public javax.swing.JLabel jLabelDias1;
+    public javax.swing.JLabel jLabelMesos;
+    public javax.swing.JLabel jLabelMesos1;
+    public javax.swing.JLabel jLabelRepetirCada;
+    public javax.swing.JLabel jLabelRepetirCada1;
+    public javax.swing.JLabel jLabelSetmanes;
+    public javax.swing.JLabel jLabelSetmanes1;
+    public javax.swing.JLabel jLabelSetmanes2;
+    public javax.swing.JLabel jLabelSetmanes3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -3825,7 +4414,20 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    public javax.swing.JRadioButton jRadioButtonAcabar;
+    public javax.swing.JRadioButton jRadioButtonAcabar1;
+    public javax.swing.JRadioButton jRadioButtonAnual;
+    public javax.swing.JRadioButton jRadioButtonAnual1;
+    public javax.swing.JRadioButton jRadioButtonDataFinal;
+    public javax.swing.JRadioButton jRadioButtonDataFinal1;
+    public javax.swing.JRadioButton jRadioButtonDiari;
+    public javax.swing.JRadioButton jRadioButtonDiari1;
     public javax.swing.JRadioButton jRadioButtonElements;
+    public javax.swing.JRadioButton jRadioButtonMensual;
+    public javax.swing.JRadioButton jRadioButtonMensual1;
+    public javax.swing.JRadioButton jRadioButtonSetmanal;
+    public javax.swing.JRadioButton jRadioButtonSetmanal1;
     public javax.swing.JRadioButton jRadioButtonUsuaris;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JScrollPane jScrollPaneElements;
@@ -3834,6 +4436,10 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JScrollPane jScrollPane_Grups;
     public javax.swing.JScrollPane jScrollPane_Tasques;
     public javax.swing.JScrollPane jScrollPane_Usuaris;
+    public javax.swing.JSpinner jSpinner;
+    public javax.swing.JSpinner jSpinner1;
+    public javax.swing.JSpinner jSpinnerAcabar;
+    public javax.swing.JSpinner jSpinnerAcabar1;
     public javax.swing.JTable jTableCrearGrupsElements;
     public javax.swing.JTable jTableCrearGrupsUsuaris;
     public javax.swing.JTable jTable_Elements;
@@ -3852,7 +4458,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JTextField txt_cognom;
     public javax.swing.JTextField txt_cognom1;
     public javax.swing.JTextField txt_descripcioTasc;
+    public javax.swing.JTextField txt_descripcioTasc1;
     public javax.swing.JTextField txt_descripcioTasc2;
+    public javax.swing.JTextField txt_descripcioTasc3;
     public javax.swing.JTextField txt_email;
     public com.bolivia.label.CLabel txt_fotoUsuari;
     public javax.swing.JTextField txt_mail1;
@@ -3872,7 +4480,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JTextField txt_telefon;
     public javax.swing.JTextField txt_telefon1;
     public javax.swing.JTextField txt_titolTasc;
+    public javax.swing.JTextField txt_titolTasc1;
     public javax.swing.JTextField txt_titolTasc2;
+    public javax.swing.JTextField txt_titolTasc3;
     public javax.swing.JTextField txt_usuari;
     public javax.swing.JTextField txt_usuari1;
     public javax.swing.JTextField txt_usuariElem2;

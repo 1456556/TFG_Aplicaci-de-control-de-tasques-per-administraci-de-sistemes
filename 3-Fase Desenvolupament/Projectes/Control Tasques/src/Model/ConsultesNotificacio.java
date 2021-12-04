@@ -24,13 +24,30 @@ public class ConsultesNotificacio extends Conexio {
     
         try {
             Connection cn = getConexio();
-            PreparedStatement pst = cn.prepareStatement("select id_tasca, notificacio, usuari, titol, data, descripcio,prioritat,estat, setNotificacio from Tasques where data = '" + d + "'");
+            PreparedStatement pst = cn.prepareStatement("select * from Tasques where data = '" + d + "'");
             ResultSet rs = pst.executeQuery();
             
             
             if (rs.next()) {
                 
-                if (rs.getBoolean("setNotificacio") == true){
+                if (rs.getBoolean("setNotificacio") == true && rs.getBoolean("notificacio") == false){
+                    
+                    if (rs.getBoolean("recurrent")==true){
+                    
+                    not.idTasca = rs.getInt("id_tasca");
+                    not.data = rs.getString("data");
+                    not.titol = rs.getString("titol");
+                    not.usuari = rs.getString("usuari");
+                    not.descripcio = rs.getString("descripcio");
+                    not.estat = rs.getString("estat");
+                    not.prioritat = rs.getString("prioritat");
+                    not.data_final = rs.getString("dataFinal");
+                    not.repeticio = rs.getInt("repeticioInici");                   
+                    notificacio = 1;
+                    
+                    
+                    
+                    }else{
                
                 if(rs.getInt("notificacio")==0){
                 
@@ -45,6 +62,7 @@ public class ConsultesNotificacio extends Conexio {
                     
                 
                 }
+                    }
                 
                 }
               

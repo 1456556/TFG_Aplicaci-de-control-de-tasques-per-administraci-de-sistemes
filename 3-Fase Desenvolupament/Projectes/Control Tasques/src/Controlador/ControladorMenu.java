@@ -29,6 +29,7 @@ import java.awt.Color;
 import java.awt.*;  
 import java.awt.event.*;
 import javax.swing.JFileChooser;
+import ventanas.SchedulerMain;
 
 /**
  *
@@ -61,6 +62,8 @@ public class ControladorMenu implements MouseListener  {
         this.vis.btn_Grups.addMouseListener(this);
         this.vis.btnGrup.addMouseListener(this);
         this.vis.jButtonNomUsuari.addMouseListener(this);
+        this.vis.btnTancarSessio.addMouseListener(this);
+        this.vis.btn_TancarSessio.addMouseListener(this);
        
         
     
@@ -98,6 +101,9 @@ public class ControladorMenu implements MouseListener  {
         vis.DashNouGrup.setVisible(false);
         vis.DashConfiguracio.setVisible(false); 
         vis.DashPerfilUsuari.setVisible(false);
+        vis.DashTriaTasca.setVisible(false);
+        vis.DashNovaTascaRepeticio.setVisible(false);
+        vis.DashInfoTascaRepeticio.setVisible(false);
        
         
        
@@ -122,6 +128,9 @@ public class ControladorMenu implements MouseListener  {
         vis.DashNouGrup.setVisible(false);
         vis.DashConfiguracio.setVisible(false);  
         vis.DashPerfilUsuari.setVisible(false);
+        vis.DashTriaTasca.setVisible(false);
+        vis.DashNovaTascaRepeticio.setVisible(false);
+        vis.DashInfoTascaRepeticio.setVisible(false);
     
     
     
@@ -152,9 +161,21 @@ public class ControladorMenu implements MouseListener  {
             vis.DashInfoUsuari.setVisible(false);
             vis.DashGrups.setVisible(false);
             vis.DashNouGrup.setVisible(false);
-            vis.DashConfiguracio.setVisible(false); 
+            vis.DashConfiguracio.setVisible(false);
+            vis.DashTriaTasca.setVisible(false);
+            vis.DashNovaTascaRepeticio.setVisible(false);
+            vis.DashInfoTascaRepeticio.setVisible(false);
             
             
+            
+            
+        }
+        
+        if (e.getSource() == vis.btnTancarSessio){
+            
+            vis.dispose();
+           
+           
             
             
         }
@@ -179,6 +200,9 @@ public class ControladorMenu implements MouseListener  {
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false); 
             vis.DashPerfilUsuari.setVisible(false);
+            vis.DashTriaTasca.setVisible(false);
+            vis.DashNovaTascaRepeticio.setVisible(false);
+            vis.DashInfoTascaRepeticio.setVisible(false);
         
         }
         
@@ -202,6 +226,9 @@ public class ControladorMenu implements MouseListener  {
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false);
             vis.DashPerfilUsuari.setVisible(false);
+            vis.DashTriaTasca.setVisible(false);
+        vis.DashNovaTascaRepeticio.setVisible(false);
+        vis.DashInfoTascaRepeticio.setVisible(false);
             
             
         
@@ -229,6 +256,9 @@ public class ControladorMenu implements MouseListener  {
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false);
             vis.DashPerfilUsuari.setVisible(false);
+            vis.DashTriaTasca.setVisible(false);
+        vis.DashNovaTascaRepeticio.setVisible(false);
+        vis.DashInfoTascaRepeticio.setVisible(false);
             
             
         
@@ -255,6 +285,9 @@ public class ControladorMenu implements MouseListener  {
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false);
             vis.DashPerfilUsuari.setVisible(false);
+            vis.DashTriaTasca.setVisible(false);
+        vis.DashNovaTascaRepeticio.setVisible(false);
+        vis.DashInfoTascaRepeticio.setVisible(false);
             
             
         
@@ -281,7 +314,9 @@ public class ControladorMenu implements MouseListener  {
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false);
             vis.DashPerfilUsuari.setVisible(false);
-            
+            vis.DashTriaTasca.setVisible(false);
+        vis.DashNovaTascaRepeticio.setVisible(false);
+        vis.DashInfoTascaRepeticio.setVisible(false);
             
         
         
@@ -307,6 +342,9 @@ public class ControladorMenu implements MouseListener  {
             vis.DashNouGrup.setVisible(false);
             vis.DashConfiguracio.setVisible(false);
             vis.DashPerfilUsuari.setVisible(false);
+            vis.DashTriaTasca.setVisible(false);
+        vis.DashNovaTascaRepeticio.setVisible(false);
+        vis.DashInfoTascaRepeticio.setVisible(false);
             
             
         
@@ -333,6 +371,9 @@ public class ControladorMenu implements MouseListener  {
             vis.DashGrups.setVisible(true);
             vis.DashNouGrup.setVisible(false);
             vis.DashPerfilUsuari.setVisible(false);
+            vis.DashTriaTasca.setVisible(false);
+        vis.DashNovaTascaRepeticio.setVisible(false);
+        vis.DashInfoTascaRepeticio.setVisible(false);
             
             
         
@@ -359,6 +400,9 @@ public class ControladorMenu implements MouseListener  {
             vis.DashGrups.setVisible(true);
             vis.DashNouGrup.setVisible(false);
             vis.DashPerfilUsuari.setVisible(false);
+            vis.DashTriaTasca.setVisible(false);
+        vis.DashNovaTascaRepeticio.setVisible(false);
+        vis.DashInfoTascaRepeticio.setVisible(false);
             
             
         

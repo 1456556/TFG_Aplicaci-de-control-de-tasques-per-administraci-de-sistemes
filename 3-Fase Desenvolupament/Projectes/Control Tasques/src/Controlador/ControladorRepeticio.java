@@ -7,6 +7,7 @@ package Controlador;
 
 import Model.ConsultesTasques;
 import Model.Tasques;
+import Model.ConsultesRepeticio;
 import Vista.JFPrincipal;
 import Vista.JFRepeticio;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,7 @@ public class ControladorRepeticio implements ActionListener{
   
     public JFRepeticio vis;
     public Tasques mod;
+    public ConsultesRepeticio modC;
     
       
     
@@ -32,6 +34,7 @@ public class ControladorRepeticio implements ActionListener{
         
         
         this.mod = mod;
+       
         this.vis = vis;
 
         this.vis.jButtonAceptar.addActionListener(this);
@@ -97,19 +100,48 @@ public class ControladorRepeticio implements ActionListener{
         
         if (e.getSource() == vis.jButtonAceptar){
             
+            int validacio = 0;
+            String dataFinal, data, hora, horaFinal;
+            
             if (vis.jRadioButtonDiari.isSelected()){
                 
-                if ( vis.jSpinner.getValue() != null || vis.dateTimePickerRepeticioFinal.getDatePicker() != null || 
-                        vis.dateTimePickerRepeticioFinal.getTimePicker() != null){
+                if (vis.jRadioButtonDataFinal.isSelected()){                  
+                    
+                    
+               if(vis.dateTimePickerRepeticioFinal.getTimePicker().toString().equals("")){
+               
+                   validacio++;
+               
+               }
+               if(vis.dateTimePickerRepeticioFinal.getDatePicker().toString().equals("")){
+               
+                   validacio++;
+               
+               }
+               if(vis.dateTimePickerRepeticio.getDatePicker().toString().equals("")){
+               
+                   validacio++;
+               
+               }
+                if(vis.dateTimePickerRepeticio.getTimePicker().toString().equals("")){
+               
+                   validacio++;
+               
+               }
+               
+                if (validacio == 0){     
                 
                 int repeticio = (Integer) vis.jSpinner.getValue();
                 if (repeticio > 0){
                 
-                    mod.setRepeticio(repeticio);
-                    mod.setData(vis.dateTimePickerRepeticioFinal.getDatePicker().toString());            
-                    mod.setHora(vis.dateTimePickerRepeticioFinal.getTimePicker().toString());
+                    mod.setRepeticio(repeticio);                    
+                    mod.setData(vis.dateTimePickerRepeticio.getDatePicker().toString());            
+                    mod.setHora(vis.dateTimePickerRepeticio.getTimePicker().toString());
+                    mod.setDataFinal(vis.dateTimePickerRepeticioFinal.getDatePicker().toString());            
+                    mod.setHoraFinal(vis.dateTimePickerRepeticioFinal.getTimePicker().toString());                    
+                    Natejar();
                     vis.setVisible(false);
-                
+                    JOptionPane.showMessageDialog(null, "Repeticio guardada correctament");    
                 
                 
                 }else{
@@ -126,6 +158,8 @@ public class ControladorRepeticio implements ActionListener{
                     
                 }
             
+            }
+                
             }
              
             
@@ -238,6 +272,20 @@ public class ControladorRepeticio implements ActionListener{
         
         
         
+    }
+    
+    
+    public void Natejar(){
+    
+    vis.dateTimePickerRepeticio.datePicker.setDate(null);
+    vis.dateTimePickerRepeticio.timePicker.setTime(null);
+    vis.dateTimePickerRepeticioFinal.datePicker.setDate(null);
+    vis.dateTimePickerRepeticioFinal.timePicker.setTime(null);
+    vis.jSpinner.setValue(0);
+    vis.jSpinnerAcabar.setValue(0);
+    
+    
+    
     }
     
 }

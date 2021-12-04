@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -162,6 +163,183 @@ public class ConsultesTasques extends Conexio {
 
     }
     
+    public void UsuariAssignat1(JFPrincipal vis, int i) {
+
+        try {
+
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select * from Usuaris");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                
+                if (i == 1){
+
+                vis.ComboUsuariAssignat3.addItem(rs.getString("usuari"));
+                }else{
+                
+                vis.ComboUsuariAssignat1.addItem(rs.getString("usuari"));
+                }
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al carregar el usuariAssignat");
+            //JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+
+    }
+    
+    
+    public int NovaTascaRepeticio(Tasques tas, JFPrincipal vis){
+    
+        int novaTasca = 0;
+        int validacio = 0;
+        int repeticio = 0;
+        String dataInici, horaInici, dataFinal, horaFinal, data, dataF, tipus;
+
+        dataInici = tas.getData();
+        horaInici = tas.getHora();
+        dataFinal = tas.getDataFinal();
+        horaFinal = tas.getHoraFinal();
+        repeticio = tas.getRepeticio();
+        tipus = tas.getTipus();
+        
+       
+        String titol,descripcio, usuari, estat, prioritat;
+        boolean notificacio;
+        
+        titol = tas.getTitol();
+        descripcio = tas.getDescripcio();
+        estat = tas.getEstat();
+        System.out.print("ESTAT: " + estat);
+        prioritat = tas.getPrioritat();
+        usuari = tas.getUsuariAssignat();       
+        notificacio = tas.getNotificacio();
+        
+        
+        
+         if (titol.equals("")) {
+            
+            validacio++;
+        }
+        if (usuari.equals("")) {
+
+            validacio++;
+        }        
+       
+        if (descripcio.equals("")) {
+            
+            validacio++;
+        }
+
+        if (dataInici.equals("")) {
+
+            validacio++;
+
+        }
+        if (horaInici.equals("")) {
+
+            validacio++;
+
+        }
+        if (dataFinal.equals("")) {
+
+            validacio++;
+
+        }
+        if (horaFinal.equals("")) {
+
+            validacio++;
+
+        }
+
+        if (validacio == 0) {
+
+            if (repeticio > 0) {
+
+                LocalDate datee = vis.dateTimePickerRepeticio.getDatePicker().getDate();
+                LocalDate dateFinall = vis.dateTimePickerRepeticioFinal.getDatePicker().getDate();
+
+                int result = datee.compareTo(dateFinall);
+
+                if (result < 0) {
+
+                    try {
+
+                        String day = dataInici.substring(8, 10);
+                        String month = dataInici.substring(5, 7);
+                        String year = dataInici.substring(0, 4);
+
+                        System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+                        dataInici = day + "-" + month + "-" + year;
+                        data = dataInici + " " + horaInici;
+
+                        String dayFinal = dataFinal.substring(8, 10);
+                        String monthFinal = dataFinal.substring(5, 7);
+                        String yearFinal = dataFinal.substring(0, 4);
+
+                        System.out.println("DAY" + dayFinal + "MONTH" + monthFinal + "YEAR" + yearFinal);
+                        dataFinal = dayFinal + "-" + monthFinal + "-" + yearFinal;
+                        dataF = dataFinal + " " + horaFinal;
+
+                        Connection cn2 = getConexio();
+                        PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, setNotificacio, repeticioInici, dataFinal, recurrent, tipus) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+                                
+                        
+                        pst2.setString(1, titol);
+                        pst2.setString(2, prioritat);
+                        pst2.setString(3, usuari);
+                        pst2.setString(4, data);
+                        pst2.setString(5, estat);
+                        pst2.setString(6, descripcio);                       
+                        pst2.setBoolean(7, notificacio);
+                        pst2.setInt(8, repeticio);
+                        pst2.setString(9, dataF);
+                        pst2.setBoolean(10, true);
+                        pst2.setString(11, tipus);
+                        pst2.executeUpdate();
+
+                        cn2.close();
+
+                        System.err.println("Tasca Repeticio creada correctament");
+                        novaTasca = 1;
+
+                    } catch (SQLException e) {
+                        novaTasca = 2;
+                        System.err.println("Error al crear la tasca" + e);
+
+                    }
+
+                } else {
+
+                    novaTasca = 3;
+                    System.err.println("La data d'inici ha de ser mes petita a la data final");
+
+                }
+
+            } else {
+
+                novaTasca = 4;
+                System.err.println("Els dies no poden ser iguals o menors a 0");
+
+            }
+
+        } else {
+
+            novaTasca = 5;
+            System.err.println("Has d'omplir tots els camps");
+
+        }
+
+       return novaTasca;
+    }
+    
+
     
     
     public int NovaTasca(Tasques tas) {
@@ -573,6 +751,16 @@ public class ConsultesTasques extends Conexio {
     }
     
     
+    public void GenerarTascaRecurrent(Tasques tas){
+    
+        
+    
+        
+    
+    
+    
+    
+    }
     
     
     public int informacioTasca(Tasques tas) {
@@ -593,8 +781,21 @@ public class ConsultesTasques extends Conexio {
                 tas.setData(rs.getString(5));
                 tas.setEstat(rs.getString(6));
                 tas.setDescripcio(rs.getString(7));
-                informacioTasca = 1;               
+                tas.setRecurrent(rs.getBoolean(13));
+                tas.setRepeticio(rs.getInt(10));
+                tas.setDataFinal(rs.getString(12));
+                tas.setTipus(rs.getString(14));
+                            
 
+            }
+            if (tas.isRecurrent() == true){
+            
+                informacioTasca = 2;
+            
+            }else{
+                
+                informacioTasca = 1;   
+            
             }
 
              System.out.println("ID" + tas.getId());

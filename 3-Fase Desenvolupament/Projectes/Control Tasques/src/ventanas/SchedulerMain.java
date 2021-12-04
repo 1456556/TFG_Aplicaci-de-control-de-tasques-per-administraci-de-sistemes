@@ -23,8 +23,13 @@ import javax.swing.JFileChooser;
 
 //Main class
 public class SchedulerMain {
+    
+   
 	public static void main(String args[]) throws InterruptedException {
 
+           
+          
+            
                 JFileChooser jf = new JFileChooser();
                 JFContrasenya contrasenya = new JFContrasenya();
                 JFRepeticio repeticio = new JFRepeticio();
@@ -54,5 +59,9 @@ public class SchedulerMain {
 				System.exit(0);
 			}
 		}
-	}
+	
+            
+        }    
+            
+        
 }

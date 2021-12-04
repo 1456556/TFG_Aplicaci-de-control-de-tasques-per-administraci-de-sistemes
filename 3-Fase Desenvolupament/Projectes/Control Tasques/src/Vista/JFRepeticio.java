@@ -49,7 +49,7 @@ public class JFRepeticio extends javax.swing.JFrame {
         jButtonCancelar = new javax.swing.JButton();
         jButtonAceptar = new javax.swing.JButton();
         jRadioButtonAnual = new javax.swing.JRadioButton();
-        dateTimePickerRepeticio1 = new com.github.lgooddatepicker.components.DateTimePicker();
+        dateTimePickerRepeticio = new com.github.lgooddatepicker.components.DateTimePicker();
         jLabelMesos = new javax.swing.JLabel();
         jLabelAnys = new javax.swing.JLabel();
         jRadioButtonDataFinal = new javax.swing.JRadioButton();
@@ -164,7 +164,7 @@ public class JFRepeticio extends javax.swing.JFrame {
         jRadioButtonAnual.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButtonAnual.setText("Anual");
         jPanel1.add(jRadioButtonAnual, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 72, -1));
-        jPanel1.add(dateTimePickerRepeticio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 320, -1));
+        jPanel1.add(dateTimePickerRepeticio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 320, -1));
 
         jLabelMesos.setBackground(new java.awt.Color(255, 255, 255));
         jLabelMesos.setForeground(new java.awt.Color(0, 0, 0));
@@ -243,7 +243,7 @@ public class JFRepeticio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public com.github.lgooddatepicker.components.DateTimePicker dateTimePickerRepeticio1;
+    public com.github.lgooddatepicker.components.DateTimePicker dateTimePickerRepeticio;
     public com.github.lgooddatepicker.components.DateTimePicker dateTimePickerRepeticioFinal;
     public javax.swing.JButton jButtonAceptar;
     public javax.swing.JButton jButtonCancelar;

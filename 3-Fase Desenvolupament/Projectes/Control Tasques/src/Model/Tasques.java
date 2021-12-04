@@ -18,6 +18,8 @@ public class Tasques {
    String prioritat;
    String usuariAssignat;
    String data;
+   String dataFinal;
+   String horaFinal;   
    String estat;
    String descripcio;
    String hora;
@@ -26,6 +28,41 @@ public class Tasques {
    int tasquesAssingades;
    int tasquesPendents;
    int repeticio;
+   boolean recurrent;
+   String tipus;
+
+    public String getTipus() {
+        return tipus;
+    }
+
+    public void setTipus(String tipus) {
+        this.tipus = tipus;
+    }
+   
+
+    public boolean isRecurrent() {
+        return recurrent;
+    }
+
+    public void setRecurrent(boolean recurrent) {
+        this.recurrent = recurrent;
+    }
+   
+   public String getDataFinal() {
+        return dataFinal;
+    }
+
+    public void setDataFinal(String dataFinal) {
+        this.dataFinal = dataFinal;
+    }
+
+    public String getHoraFinal() {
+        return horaFinal;
+    }
+
+    public void setHoraFinal(String horaFinal) {
+        this.horaFinal = horaFinal;
+    }
 
     public int getRepeticio() {
         return repeticio;

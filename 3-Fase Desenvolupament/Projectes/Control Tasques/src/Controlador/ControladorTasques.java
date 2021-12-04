@@ -6,6 +6,7 @@
 package Controlador;
 
 
+import Model.ConsultesRepeticio;
 import Model.ConsultesTasques;
 import Model.Login;
 import Model.Tasques;
@@ -80,6 +81,76 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         this.vis.jButtonRepeticio.addActionListener(this);        
         this.vis.jTable_Tasques.addMouseListener(this);        
         this.vis.txtBuscadorTasques.addKeyListener(this);
+        this.vis.jButtonTascaNormal.addActionListener(this);
+        this.vis.jButtonTascaRepetio.addActionListener(this);
+        
+        
+        this.vis.jButtonAceptar.addActionListener(this);
+        this.vis.jButtonCancelar.addActionListener(this);
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(this.vis.jRadioButtonDiari);
+        group.add(this.vis.jRadioButtonSetmanal);
+        group.add(this.vis.jRadioButtonMensual);
+        group.add(this.vis.jRadioButtonAnual);
+        
+        
+        ButtonGroup group3 = new ButtonGroup();
+        group3.add(this.vis.jRadioButtonDiari1);
+        group3.add(this.vis.jRadioButtonSetmanal1);
+        group3.add(this.vis.jRadioButtonMensual1);
+        group3.add(this.vis.jRadioButtonAnual1);
+        
+        
+        ButtonGroup group2 = new ButtonGroup();
+        group2.add(this.vis.jRadioButtonDataFinal);
+        group2.add(this.vis.jRadioButtonAcabar);
+        
+         ButtonGroup group4 = new ButtonGroup();
+        group4.add(this.vis.jRadioButtonDataFinal1);
+        group4.add(this.vis.jRadioButtonAcabar1);
+        
+        this.vis.jRadioButtonDataFinal.setSelected(true);
+        this.vis.dateTimePickerRepeticioFinal.setEnabled(true);
+        this.vis.jRadioButtonDiari.setSelected(true);
+        this.vis.jRadioButtonDiari.addActionListener(this);
+        this.vis.jRadioButtonSetmanal.addActionListener(this);
+        this.vis.jRadioButtonMensual.addActionListener(this);
+        this.vis.jRadioButtonAcabar.addActionListener(this);
+        this.vis.jRadioButtonDiari.addActionListener(this);
+        this.vis.jRadioButtonSetmanal.addActionListener(this);
+        this.vis.jRadioButtonAnual.addActionListener(this);
+        
+        this.vis.jRadioButtonDiari1.addActionListener(this);
+        this.vis.jRadioButtonSetmanal1.addActionListener(this);
+        this.vis.jRadioButtonMensual1.addActionListener(this);
+        this.vis.jRadioButtonAcabar1.addActionListener(this);
+        this.vis.jRadioButtonDiari1.addActionListener(this);
+        this.vis.jRadioButtonSetmanal1.addActionListener(this);
+        this.vis.jRadioButtonAnual1.addActionListener(this);
+        
+       
+        vis.jLabelMesos.setVisible(false);
+        vis.jLabelAnys.setVisible(false);
+        vis.jLabelSetmanes.setVisible(false);
+        vis.jCheckBoxDijous.setVisible(false);
+        vis.jCheckBoxDimecres.setVisible(false);
+        vis.jCheckBoxDivendres.setVisible(false);
+        vis.jCheckBoxDissabte.setVisible(false);
+        vis.jCheckBoxDiumenge.setVisible(false);
+        vis.jCheckBoxDilluns.setVisible(false);
+        vis.jCheckBoxDimarts.setVisible(false);
+        
+        vis.jLabelMesos1.setVisible(false);
+        vis.jLabelAnys1.setVisible(false);
+        vis.jLabelSetmanes1.setVisible(false);
+        vis.jCheckBoxDijous1.setVisible(false);
+        vis.jCheckBoxDimecres1.setVisible(false);
+        vis.jCheckBoxDivendres1.setVisible(false);
+        vis.jCheckBoxDissabte1.setVisible(false);
+        vis.jCheckBoxDiumenge1.setVisible(false);
+        vis.jCheckBoxDilluns1.setVisible(false);
+        vis.jCheckBoxDimarts1.setVisible(false);
         
        
         
@@ -111,63 +182,184 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     
        mod.setId(id);
        System.out.println("ID + Not:" + id);
-      if (modC.informacioTasca(mod) == 1){
-      
-             vis.txt_titolTasc2.setText(mod.getTitol());           
-             vis.ComboUsuariAssignat.removeAll();
-            modC.UsuariAssignat(vis,1);
-            AutoCompleteDecorator.decorate(ComboUsuariAssignat);
-             vis.txt_descripcioTasc2.setText(mod.getDescripcio());
-            
+       
+       switch (modC.informacioTasca(mod)){
+                
+                    case 0:
+                         JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");
+                         break;
+                     case 1:
+                         vis.txt_titolTasc2.setText(mod.getTitol());
+                         vis.ComboUsuariAssignat.removeAll();
+                         modC.UsuariAssignat(vis, 1);
+                         AutoCompleteDecorator.decorate(ComboUsuariAssignat);
+                         vis.txt_descripcioTasc2.setText(mod.getDescripcio());
 
-             String d = mod.getData();
-             String date = d.substring(0, 10);
-             String time = d.substring(11, 16);
-             String data = date.replace("-", "/");
+                         String d = mod.getData();
+                         String date = d.substring(0, 10);
+                         String time = d.substring(11, 16);
+                         String data = date.replace("-", "/");
 
-             System.out.println("DATAASAAAAAAAA:" + d);
-             System.out.println("sSubCadena:" + date);
-             System.out.println("sSubCadena:" + data);
-             System.out.println("sSubCadena:" + time);
+                         System.out.println("DATAASAAAAAAAA:" + d);
+                         System.out.println("sSubCadena:" + date);
+                         System.out.println("sSubCadena:" + data);
+                         System.out.println("sSubCadena:" + time);
 
-             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
-             DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
 
-             //convert String to LocalDate
-             LocalDate localDate = LocalDate.parse(data, formatter);
-             LocalTime localTime = LocalTime.parse(time, formatter2);
+                         //convert String to LocalDate
+                         LocalDate localDate = LocalDate.parse(data, formatter);
+                         LocalTime localTime = LocalTime.parse(time, formatter2);
 
-             //ControladorMenu cn = new ControladorMenu(vis);
-             //cn.notificacio();
-             
-             vis.dateTimePicker1.datePicker.setDate(localDate);
-             vis.dateTimePicker1.timePicker.setTime(localTime);
-             vis.ComboPrioritatTasc2.setSelectedItem(mod.getPrioritat());
-             vis.ComboEstatTasc2.setSelectedItem(mod.getEstat());
-             vis.txt_titolTasc2.setText(mod.getTitol());
-             vis.DashInfoTasca.setVisible(true);
-             vis.DashTasques.setVisible(false);
-             
-                    
-            vis.DashInfoUsuari.setVisible(false);
-            //vis.DashInfoTasca.setVisible(false);
-            vis.DashNovaTasca.setVisible(false);
-            vis.DashConfiguracio.setVisible(false);         
-            vis.DashNouUsuari.setVisible(false);
-            vis.DashNouElement.setVisible(false);
-            vis.DashUsuaris.setVisible(false);
-            vis.DashElements.setVisible(false);
-            vis.DashInfoElement.setVisible(false);
+                         //ControladorMenu cn = new ControladorMenu(vis);
+                         //cn.notificacio();
+                         vis.dateTimePicker1.datePicker.setDate(localDate);
+                         vis.dateTimePicker1.timePicker.setTime(localTime);
+                         vis.ComboPrioritatTasc2.setSelectedItem(mod.getPrioritat());
+                         vis.ComboEstatTasc2.setSelectedItem(mod.getEstat());
+                         vis.txt_titolTasc2.setText(mod.getTitol());
+                         vis.DashInfoTasca.setVisible(true);
+                         vis.DashTasques.setVisible(false);
 
-         } else {
+                         vis.DashInfoUsuari.setVisible(false);
+                         //vis.DashInfoTasca.setVisible(false);
+                         vis.DashNovaTasca.setVisible(false);
+                         vis.DashConfiguracio.setVisible(false);
+                         vis.DashNouUsuari.setVisible(false);
+                         vis.DashNouElement.setVisible(false);
+                         vis.DashUsuaris.setVisible(false);
+                         vis.DashElements.setVisible(false);
+                         vis.DashInfoElement.setVisible(false);
+                         break;
+                     case 2:
+                         vis.ComboUsuariAssignat3.removeAll();
+                         modC.UsuariAssignat1(vis, 1);
+                         AutoCompleteDecorator.decorate(ComboUsuariAssignat3);
 
-             JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");
+                         vis.txt_titolTasc3.setText(mod.getTitol());
+                         vis.ComboUsuariAssignat3.setSelectedItem(mod.getUsuariAssignat());
+                         vis.txt_descripcioTasc3.setText(mod.getDescripcio());
 
-         }
+                         String d2 = mod.getData();
+                         String date2 = d2.substring(0, 10);
+                         String time2 = d2.substring(11, 16);
+                         String data2 = date2.replace("-", "/");
+
+                         System.out.println("DATAASAAAAAAAA:" + d2);
+                         System.out.println("sSubCadena:" + date2);
+                         System.out.println("sSubCadena:" + data2);
+                         System.out.println("sSubCadena:" + time2);
+
+                         DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                         DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("HH:mm");
+
+                         //convert String to LocalDate
+                         LocalDate localDate1 = LocalDate.parse(data2, formatter3);
+                         LocalTime localTime1 = LocalTime.parse(time2, formatter4);
+                         
+                         String d3 = mod.getDataFinal();
+                         String date3 = d3.substring(0, 10);
+                         String time3 = d3.substring(11, 16);
+                         String data3 = date3.replace("-", "/");
+
+                         System.out.println("DATAASAAAAAAAA:" + d3);
+                         System.out.println("sSubCadena:" + date3);
+                         System.out.println("sSubCadena:" + data3);
+                         System.out.println("sSubCadena:" + time3);
+
+                         DateTimeFormatter formatter5 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                         DateTimeFormatter formatter6 = DateTimeFormatter.ofPattern("HH:mm");
+
+                         //convert String to LocalDate
+                         LocalDate localDate2 = LocalDate.parse(data3, formatter5);
+                         LocalTime localTime2 = LocalTime.parse(time3, formatter6);
+                         
+                         
+                         vis.dateTimePickerRepeticio1.datePicker.setDate(localDate1);
+                         vis.dateTimePickerRepeticio1.timePicker.setTime(localTime1);
+                        vis.dateTimePickerRepeticioFinal1.datePicker.setDate(localDate2);
+                         vis.dateTimePickerRepeticioFinal1.timePicker.setTime(localTime2);
+                         vis.ComboPrioritatTasc4.setSelectedItem(mod.getPrioritat());
+                         vis.ComboEstatTasc3.setSelectedItem(mod.getEstat());
+                         vis.txt_titolTasc3.setText(mod.getTitol());
+                         vis.jSpinner1.setValue(mod.getRepeticio());                        
+                         vis.DashInfoTascaRepeticio.setVisible(true);
+                         vis.DashTasques.setVisible(false);
+                         
+                         if (mod.getTipus().equals("Diari")){
+                             
+                            vis.jRadioButtonDiari1.setSelected(true);
+                            vis.jLabelSetmanes2.setVisible(false);
+                            vis.jLabelMesos1.setVisible(false);
+                            vis.jLabelAnys1.setVisible(false);                   
+                            
+                            if (mod.getDataFinal() != ""){
+                                
+                                if (mod.getRepeticio() != 0 && mod.getData()!= mod.getDataFinal()){
+                            
+                                
+                                localDate1 = localDate1.plusDays(mod.getRepeticio());
+                                String timeTest = localTime1.toString();
+                                String dataTest = localDate1.toString();
+                                
+                                String day = dataTest.substring(8, 10);
+                                String month = dataTest.substring(5, 7);
+                                String year = dataTest.substring(0, 4);
+
+                                System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+                                dataTest = day + "-" + month + "-" + year;
+                                dataTest = dataTest + " " + timeTest;
+                                System.out.println(dataTest);
+                                
+                                modC.GenerarTascaRecurrent(mod);
+                                
+                                }
+                                
+                                
+                            }else{
+                            
+                            
+                            
+                            }
+                         
+                         }
+                         
+                          if (mod.getDataFinal() != ""){
+                         
+                             vis.dateTimePickerRepeticioFinal1.setEnabled(true);
+                             vis.jRadioButtonDataFinal1.setSelected(true);
+                             vis.jSpinnerAcabar1.setEnabled(false);
+                             vis.jRadioButtonAcabar1.setSelected(false);
+                         
+                         }else{
+                         
+                             vis.dateTimePickerRepeticioFinal1.setEnabled(false);
+                             vis.jRadioButtonDataFinal1.setSelected(false);
+                             vis.jSpinnerAcabar1.setEnabled(true);
+                             vis.jRadioButtonAcabar1.setSelected(true);
+                         
+                         }
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         break;
+                     
+                     default:
+                         break;
+                         
+           
+
 
 
       
       }
+       
+     }
     
       
      
@@ -177,17 +369,19 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
        
         
         if (e.getSource() == vis.jButtonRepeticio){
+             
             
-             repeticio.setVisible(true);
+           
+             repeticio.setVisible(true);            
              ControladorRepeticio cr = new ControladorRepeticio(repeticio, mod);
              cr.inicialitza();
              
         }
         
-        if (e.getSource() == vis.jButtonNovaTasca){
-            
-            vis.DashTasques.setVisible(false);
-            vis.DashNovaTasca.setVisible(true);             
+        if (e.getSource() == vis.jButtonTascaNormal){
+        
+            vis.DashTriaTasca.setVisible(false);
+            vis.DashNovaTasca.setVisible(true);
             DefaultComboBoxModel mdl = new DefaultComboBoxModel();
             mdl.removeAllElements();
             vis.ComboUsuariAssignat.setModel(mdl);
@@ -195,7 +389,352 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             modC.UsuariAssignat(vis,0);
             AutoCompleteDecorator.decorate(vis.ComboUsuariAssignat);            
             natejar();
+        
+        
         }
+        
+        if (e.getSource() == vis.jButtonTascaRepetio){
+        
+            vis.DashTriaTasca.setVisible(false);
+            vis.DashNovaTascaRepeticio.setVisible(true);
+            DefaultComboBoxModel mdl = new DefaultComboBoxModel();
+            mdl.removeAllElements();
+            vis.ComboUsuariAssignat1.setModel(mdl);
+            vis.ComboUsuariAssignat1.setSelectedItem(Login.usuari);
+            modC.UsuariAssignat1(vis,0);
+            AutoCompleteDecorator.decorate(vis.ComboUsuariAssignat1);            
+            natejar();
+        
+        
+        }
+        
+         if (e.getSource() == vis.jButtonNovaTasca) {
+
+             vis.DashTasques.setVisible(false);
+             vis.DashTriaTasca.setVisible(true);
+             vis.dateTimePickerRepeticio.datePicker.setDateToToday();
+             vis.dateTimePickerRepeticio.timePicker.setTimeToNow();
+             vis.dateTimePickerRepeticioFinal.datePicker.setDateToToday();
+             vis.dateTimePickerRepeticioFinal.timePicker.setTimeToNow();
+
+         }
+
+         if (e.getSource() == vis.jButtonAceptar) {
+             
+            String prioritat_string = null, estat_string = null;
+            mod.setTitol(vis.txt_titolTasc1.getText().trim());
+            mod.setUsuariAssignat(vis.ComboUsuariAssignat1.getSelectedItem().toString());
+            mod.setData(vis.dateTimePickerRepeticio.getDatePicker().toString());
+            mod.setDescripcio(vis.txt_descripcioTasc1.getText().trim());
+            mod.setHora(vis.dateTimePickerRepeticio.getTimePicker().toString());
+            int estat = vis.ComboEstatTasc1.getSelectedIndex() + 1;            
+            int prioritat = vis.ComboPrioritatTasc3.getSelectedIndex() + 1;
+            mod.setRepeticio((Integer) vis.jSpinner.getValue());
+            boolean notificacio = false;
+
+            
+            if  (vis.jCheckBoxNotificacio1.isSelected()){
+            
+                notificacio = true;
+            }
+            
+            if (vis.jRadioButtonDiari.isSelected()){
+        
+               mod.setTipus("Diari");
+        
+            }
+            if (vis.jRadioButtonSetmanal.isSelected()){
+        
+               mod.setTipus("Setmanal");
+        
+            }
+            if (vis.jRadioButtonMensual.isSelected()){
+        
+               mod.setTipus("Mensual");
+        
+            }
+            if (vis.jRadioButtonAnual.isSelected()){
+        
+               mod.setTipus("Anual");
+        
+            }
+            
+
+            
+            if (estat == 1) {
+
+                estat_string = "Nova";
+            }
+
+            if (estat == 2) {
+
+                estat_string = "En espera";
+
+            }
+            if (estat == 3) {
+
+                estat_string = "En procés";
+
+            }
+            
+            if (prioritat == 1){
+            
+                prioritat_string = "Baixa";
+            }
+            if (prioritat == 2){
+            
+                prioritat_string = "Mitja";
+            }
+            if (prioritat == 3){
+            
+                prioritat_string = "Alta";
+                
+            }if (prioritat == 4){
+            
+                prioritat_string = "Urgent";
+            }
+            if (prioritat == 5){
+            
+                prioritat_string = "Prioritaria";
+            }
+                        
+            mod.setEstat(estat_string);
+            mod.setPrioritat(prioritat_string);
+            mod.setNotificacio(notificacio);
+
+           
+
+             if (vis.jRadioButtonDiari.isSelected()) {
+
+                 if (vis.jRadioButtonDataFinal.isSelected()) {
+
+                    
+                     mod.setDataFinal(vis.dateTimePickerRepeticioFinal.getDatePicker().toString());
+                     mod.setHoraFinal(vis.dateTimePickerRepeticioFinal.getTimePicker().toString());
+                    
+
+                     switch (modC.NovaTascaRepeticio(mod, vis)) {
+
+                         case 1:
+                             JOptionPane.showMessageDialog(null, "Repeticio guardada correctament");
+                             natejar();
+                             vis.DashNovaTascaRepeticio.setVisible(false);
+                             vis.DashTasques.setVisible(true);
+                             MostrarTaula(vis.jTable_Tasques);
+                             break;
+                         case 2:
+                             JOptionPane.showMessageDialog(null, "Error al crear la tasca. Contacti amb l'administrador");
+                             break;
+                         case 3:
+                              JOptionPane.showMessageDialog(null, "La data d'inici ha de ser mes petita a la data final");                    
+                             break;
+                         case 4:                             
+                              JOptionPane.showMessageDialog(null, "Els dies no poden ser iguals o menors a 0");
+                                                 
+                         case 5:                             
+                              JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+                         default:
+                             break;
+
+                     }
+
+                 }
+
+             }
+
+         }
+        
+        
+             if (e.getSource() == vis.jRadioButtonDataFinal){
+                 
+                 vis.dateTimePickerRepeticioFinal.setEnabled(true);
+                  vis.jSpinnerAcabar.setEnabled(false);
+             }
+             
+             if (e.getSource() == vis.jRadioButtonDataFinal1){
+                 
+                 vis.dateTimePickerRepeticioFinal1.setEnabled(true);
+                  vis.jSpinnerAcabar1.setEnabled(false);
+             }
+             
+             
+             if (e.getSource() == vis.jRadioButtonAcabar){
+                 
+                 vis.jSpinnerAcabar.setEnabled(true);
+                 vis.dateTimePickerRepeticioFinal.setEnabled(false);
+             }
+             
+              if (e.getSource() == vis.jRadioButtonAcabar1){
+                 
+                 vis.jSpinnerAcabar1.setEnabled(true);
+                 vis.dateTimePickerRepeticioFinal1.setEnabled(false);
+             }
+            
+                     
+          
+            
+            
+            
+            
+            if (e.getSource() == this.vis.jRadioButtonDiari){
+            
+                
+                vis.jLabelMesos.setVisible(false);
+                vis.jLabelAnys.setVisible(false);
+                vis.jLabelDias.setVisible(true);               
+                vis.jLabelSetmanes.setVisible(false);
+                vis.jCheckBoxDijous.setVisible(false);
+                vis.jCheckBoxDimecres.setVisible(false);
+                vis.jCheckBoxDivendres.setVisible(false);
+                vis.jCheckBoxDissabte.setVisible(false);
+                vis.jCheckBoxDiumenge.setVisible(false);
+                vis.jCheckBoxDilluns.setVisible(false);
+                vis.jCheckBoxDimarts.setVisible(false);
+
+            
+            
+            
+            
+            
+            }
+            
+            if (e.getSource() == this.vis.jRadioButtonDiari1){
+            
+                
+                vis.jLabelMesos1.setVisible(false);
+                vis.jLabelAnys1.setVisible(false);
+                vis.jLabelDias1.setVisible(true);               
+                vis.jLabelSetmanes1.setVisible(false);
+                vis.jCheckBoxDijous1.setVisible(false);
+                vis.jCheckBoxDimecres1.setVisible(false);
+                vis.jCheckBoxDivendres1.setVisible(false);
+                vis.jCheckBoxDissabte1.setVisible(false);
+                vis.jCheckBoxDiumenge1.setVisible(false);
+                vis.jCheckBoxDilluns1.setVisible(false);
+                vis.jCheckBoxDimarts1.setVisible(false);
+
+            
+            
+            
+            
+            
+            }
+            
+            if (e.getSource() == this.vis.jRadioButtonSetmanal){
+                
+               
+                vis.jLabelMesos.setVisible(false);
+                vis.jLabelAnys.setVisible(false);
+                vis.jLabelDias.setVisible(false);
+                vis.jLabelSetmanes.setVisible(true);
+                vis.jCheckBoxDijous.setVisible(true);
+                vis.jCheckBoxDimecres.setVisible(true);
+                vis.jCheckBoxDivendres.setVisible(true);
+                vis.jCheckBoxDissabte.setVisible(true);
+                vis.jCheckBoxDiumenge.setVisible(true);
+                vis.jCheckBoxDilluns.setVisible(true);
+                vis.jCheckBoxDimarts.setVisible(true);
+                vis.jLabelDias.setVisible(false);
+               
+                
+                
+                
+            }
+            
+            if (e.getSource() == this.vis.jRadioButtonSetmanal1){
+                
+               
+                vis.jLabelMesos1.setVisible(false);
+                vis.jLabelAnys1.setVisible(false);
+                vis.jLabelDias1.setVisible(false);
+                vis.jLabelSetmanes1.setVisible(true);
+                vis.jCheckBoxDijous1.setVisible(true);
+                vis.jCheckBoxDimecres1.setVisible(true);
+                vis.jCheckBoxDivendres1.setVisible(true);
+                vis.jCheckBoxDissabte1.setVisible(true);
+                vis.jCheckBoxDiumenge1.setVisible(true);
+                vis.jCheckBoxDilluns1.setVisible(true);
+                vis.jCheckBoxDimarts1.setVisible(true);
+                vis.jLabelDias1.setVisible(false);
+               
+                
+                
+                
+            }
+            
+             if (e.getSource() == this.vis.jRadioButtonMensual){
+                 
+                 vis.jLabelMesos.setVisible(true);
+                vis.jLabelAnys.setVisible(false);
+                vis.jLabelDias.setVisible(false);               
+                vis.jLabelSetmanes.setVisible(false);
+                vis.jCheckBoxDijous.setVisible(false);
+                vis.jCheckBoxDimecres.setVisible(false);
+                vis.jCheckBoxDivendres.setVisible(false);
+                vis.jCheckBoxDissabte.setVisible(false);
+                vis.jCheckBoxDiumenge.setVisible(false);
+                vis.jCheckBoxDilluns.setVisible(false);
+                vis.jCheckBoxDimarts.setVisible(false);
+                 
+                 
+                 
+             }
+             
+             if (e.getSource() == this.vis.jRadioButtonMensual1){
+                 
+                 vis.jLabelMesos1.setVisible(true);
+                vis.jLabelAnys1.setVisible(false);
+                vis.jLabelDias1.setVisible(false);               
+                vis.jLabelSetmanes1.setVisible(false);
+                vis.jCheckBoxDijous1.setVisible(false);
+                vis.jCheckBoxDimecres1.setVisible(false);
+                vis.jCheckBoxDivendres1.setVisible(false);
+                vis.jCheckBoxDissabte1.setVisible(false);
+                vis.jCheckBoxDiumenge1.setVisible(false);
+                vis.jCheckBoxDilluns1.setVisible(false);
+                vis.jCheckBoxDimarts1.setVisible(false);
+                 
+                 
+                 
+             }
+             
+             
+              if (e.getSource() == this.vis.jRadioButtonAnual){
+                 
+                vis.jLabelMesos.setVisible(false);
+                vis.jLabelAnys.setVisible(true);
+                vis.jLabelDias.setVisible(false);                
+                vis.jLabelSetmanes.setVisible(false);
+                vis.jCheckBoxDijous.setVisible(false);
+                vis.jCheckBoxDimecres.setVisible(false);
+                vis.jCheckBoxDivendres.setVisible(false);
+                vis.jCheckBoxDissabte.setVisible(false);
+                vis.jCheckBoxDiumenge.setVisible(false);
+                vis.jCheckBoxDilluns.setVisible(false);
+                vis.jCheckBoxDimarts.setVisible(false);
+                 
+                 
+                 
+             }
+              
+                if (e.getSource() == this.vis.jRadioButtonAnual1){
+                 
+                vis.jLabelMesos1.setVisible(false);
+                vis.jLabelAnys1.setVisible(true);
+                vis.jLabelDias1.setVisible(false);                
+                vis.jLabelSetmanes1.setVisible(false);
+                vis.jCheckBoxDijous1.setVisible(false);
+                vis.jCheckBoxDimecres1.setVisible(false);
+                vis.jCheckBoxDivendres1.setVisible(false);
+                vis.jCheckBoxDissabte1.setVisible(false);
+                vis.jCheckBoxDiumenge1.setVisible(false);
+                vis.jCheckBoxDilluns1.setVisible(false);
+                vis.jCheckBoxDimarts1.setVisible(false);
+                 
+                 
+                 
+             }
+            
         
         if (e.getSource() == vis.jButtonRegistarTasca){
             
@@ -297,6 +836,11 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             mod.setHora(vis.dateTimePicker1.getTimePicker().toString());            
             estat = vis.ComboEstatTasc2.getSelectedIndex() +1;
             prioritat = vis.ComboPrioritatTasc2.getSelectedIndex() + 1;
+            
+            
+            
+            
+            
 
             if (estat == 1) {
 
@@ -643,49 +1187,147 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 int id = (int) model_tasques3.getValueAt(trs.convertRowIndexToModel(fila_point), 6);
                 mod.setId(id);
                 System.out.println("INT_ID: " + mod.getId());
+               // NotificacioTasca(id);
                 
-                 
                 
-                if (modC.informacioTasca(mod) == 1) {  
+                switch (modC.informacioTasca(mod)){
+                
+                    case 0:
+                         JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");
+                         break;
+                     case 1:
+                         vis.ComboUsuariAssignat2.removeAll();
+                         modC.UsuariAssignat(vis, 1);
+                         AutoCompleteDecorator.decorate(ComboUsuariAssignat2);
+
+                         vis.txt_titolTasc2.setText(mod.getTitol());
+                         vis.ComboUsuariAssignat2.setSelectedItem(mod.getUsuariAssignat());
+                         vis.txt_descripcioTasc2.setText(mod.getDescripcio());
+
+                         String d = mod.getData();
+                         String date = d.substring(0, 10);
+                         String time = d.substring(11, 16);
+                         String data = date.replace("-", "/");
+
+                         System.out.println("DATAASAAAAAAAA:" + d);
+                         System.out.println("sSubCadena:" + date);
+                         System.out.println("sSubCadena:" + data);
+                         System.out.println("sSubCadena:" + time);
+
+                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+
+                         //convert String to LocalDate
+                         LocalDate localDate = LocalDate.parse(data, formatter);
+                         LocalTime localTime = LocalTime.parse(time, formatter2);
+                         
+                         
+                         
+
+                         vis.dateTimePicker1.datePicker.setDate(localDate);
+                         vis.dateTimePicker1.timePicker.setTime(localTime);
+                         vis.ComboPrioritatTasc2.setSelectedItem(mod.getPrioritat());
+                         vis.ComboEstatTasc2.setSelectedItem(mod.getEstat());
+                         vis.txt_titolTasc2.setText(mod.getTitol());
+                         vis.DashInfoTasca.setVisible(true);
+                         vis.DashTasques.setVisible(false);
+                         break;
+                     case 2:
+                         vis.ComboUsuariAssignat3.removeAll();
+                         modC.UsuariAssignat1(vis, 1);
+                         AutoCompleteDecorator.decorate(ComboUsuariAssignat3);
+
+                         vis.txt_titolTasc3.setText(mod.getTitol());
+                         vis.ComboUsuariAssignat3.setSelectedItem(mod.getUsuariAssignat());
+                         vis.txt_descripcioTasc3.setText(mod.getDescripcio());
+
+                         String d2 = mod.getData();
+                         String date2 = d2.substring(0, 10);
+                         String time2 = d2.substring(11, 16);
+                         String data2 = date2.replace("-", "/");
+
+                         System.out.println("DATAASAAAAAAAA:" + d2);
+                         System.out.println("sSubCadena:" + date2);
+                         System.out.println("sSubCadena:" + data2);
+                         System.out.println("sSubCadena:" + time2);
+
+                         DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                         DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("HH:mm");
+
+                         //convert String to LocalDate
+                         LocalDate localDate1 = LocalDate.parse(data2, formatter3);
+                         LocalTime localTime1 = LocalTime.parse(time2, formatter4);
+                         
+                         String d3 = mod.getDataFinal();
+                         String date3 = d3.substring(0, 10);
+                         String time3 = d3.substring(11, 16);
+                         String data3 = date3.replace("-", "/");
+
+                         System.out.println("DATAASAAAAAAAA:" + d3);
+                         System.out.println("sSubCadena:" + date3);
+                         System.out.println("sSubCadena:" + data3);
+                         System.out.println("sSubCadena:" + time3);
+
+                         DateTimeFormatter formatter5 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                         DateTimeFormatter formatter6 = DateTimeFormatter.ofPattern("HH:mm");
+
+                         //convert String to LocalDate
+                         LocalDate localDate2 = LocalDate.parse(data3, formatter5);
+                         LocalTime localTime2 = LocalTime.parse(time3, formatter6);
+                         
+                         //If de dies, setmanes, messos, anys
+                         vis.jRadioButtonDiari1.setSelected(true);
+                         vis.jLabelSetmanes2.setVisible(false);
+                         vis.jLabelMesos1.setVisible(false);
+                         vis.jLabelAnys1.setVisible(false);
+                         
+                         
+                         if (mod.getDataFinal() != ""){
+                         
+                             vis.dateTimePickerRepeticioFinal1.setEnabled(true);
+                             vis.jRadioButtonDataFinal1.setSelected(true);
+                             vis.jSpinnerAcabar1.setEnabled(false);
+                             vis.jRadioButtonAcabar1.setSelected(false);
+                         
+                         }else{
+                         
+                             vis.dateTimePickerRepeticioFinal1.setEnabled(false);
+                             vis.jRadioButtonDataFinal1.setSelected(false);
+                             vis.jSpinnerAcabar1.setEnabled(true);
+                             vis.jRadioButtonAcabar1.setSelected(true);
+                         
+                         }
+                         
+                         
+                         vis.dateTimePickerRepeticio1.datePicker.setDate(localDate1);
+                         vis.dateTimePickerRepeticio1.timePicker.setTime(localTime1);
+                        vis.dateTimePickerRepeticioFinal1.datePicker.setDate(localDate2);
+                         vis.dateTimePickerRepeticioFinal1.timePicker.setTime(localTime2);
+                         vis.ComboPrioritatTasc4.setSelectedItem(mod.getPrioritat());
+                         vis.ComboEstatTasc3.setSelectedItem(mod.getEstat());
+                         vis.txt_titolTasc3.setText(mod.getTitol());
+                         vis.jSpinner1.setValue(mod.getRepeticio());
+                         
+                         
+                         
+                         
+                         vis.DashInfoTascaRepeticio.setVisible(true);
+                         vis.DashTasques.setVisible(false);
+                         
+                         break;
+                     
+                     default:
+                         break;
+                
+                
+                
+                
+                
+                } 
                     
-                    vis.ComboUsuariAssignat2.removeAll();
-                    modC.UsuariAssignat(vis,1);
-                    AutoCompleteDecorator.decorate(ComboUsuariAssignat2);
                     
-                    vis.txt_titolTasc2.setText(mod.getTitol());
-                    vis.ComboUsuariAssignat2.setSelectedItem(mod.getUsuariAssignat());
-                    vis.txt_descripcioTasc2.setText(mod.getDescripcio());
 
-                    String d = mod.getData();
-                    String date = d.substring(0, 10);
-                    String time = d.substring(11, 16);
-                    String data = date.replace("-", "/");
-
-                    System.out.println("DATAASAAAAAAAA:" + d);
-                    System.out.println("sSubCadena:" + date);
-                    System.out.println("sSubCadena:" + data);
-                    System.out.println("sSubCadena:" + time);
-
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
-                    DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
-
-                    //convert String to LocalDate
-                    LocalDate localDate = LocalDate.parse(data, formatter);
-                    LocalTime localTime = LocalTime.parse(time, formatter2);
-
-                    vis.dateTimePicker1.datePicker.setDate(localDate);
-                    vis.dateTimePicker1.timePicker.setTime(localTime);
-                    vis.ComboPrioritatTasc2.setSelectedItem(mod.getPrioritat());
-                    vis.ComboEstatTasc2.setSelectedItem(mod.getEstat());
-                    vis.txt_titolTasc2.setText(mod.getTitol());
-                    vis.DashInfoTasca.setVisible(true);
-                    vis.DashTasques.setVisible(false);
-
-                } else {
-
-                    JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");
-
-                }
+             
 
             }
 

@@ -441,7 +441,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="com.github.lgooddatepicker.components.DateTimePicker" name="dateTimePickerRepeticio1">
+        <Component class="com.github.lgooddatepicker.components.DateTimePicker" name="dateTimePickerRepeticio">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
