@@ -292,38 +292,15 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                             vis.jRadioButtonDiari1.setSelected(true);
                             vis.jLabelSetmanes2.setVisible(false);
                             vis.jLabelMesos1.setVisible(false);
-                            vis.jLabelAnys1.setVisible(false);                   
-                            
-                            if (mod.getDataFinal() != ""){
-                                
-                                if (mod.getRepeticio() != 0 && mod.getData()!= mod.getDataFinal()){
-                            
-                                
-                                localDate1 = localDate1.plusDays(mod.getRepeticio());
-                                String timeTest = localTime1.toString();
-                                String dataTest = localDate1.toString();
-                                
-                                String day = dataTest.substring(8, 10);
-                                String month = dataTest.substring(5, 7);
-                                String year = dataTest.substring(0, 4);
-
-                                System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
-                                dataTest = day + "-" + month + "-" + year;
-                                dataTest = dataTest + " " + timeTest;
-                                System.out.println(dataTest);
-                                
-                                modC.GenerarTascaRecurrent(mod);
-                                
-                                }
-                                
-                                
-                            }else{
-                            
-                            
-                            
-                            }
-                         
+                            vis.jLabelAnys1.setVisible(false);  
                          }
+                                
+                               
+                                
+                                
+                           
+                         
+                         
                          
                           if (mod.getDataFinal() != ""){
                          
@@ -359,6 +336,129 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
       
       }
        
+     }
+     
+     
+     public void Recurrent(int id){
+         
+         mod.setId(id);
+         System.out.println("ID + Not:" + id);
+     
+         switch (modC.informacioTasca(mod)) {
+
+             case 0:
+                 break;
+
+             case 1:
+
+                 break;
+
+             case 2:
+                 if (mod.getTipus().equals("Diari")) {
+                     
+                     String d2, d3;
+                     
+                     if (mod.getDataProgres().isEmpty()) {
+
+                           d2 = mod.getData();
+                           d3 = mod.getDataFinal();
+
+                     } else {
+
+                          d2 = mod.getDataProgres();
+                           d3 = mod.getDataFinal();
+                     }
+
+                     
+                    
+                     String date2 = d2.substring(0, 10);
+                     String time2 = d2.substring(11, 16);
+                     String data2 = date2.replace("-", "/");
+                     
+                     String date3 = d3.substring(0, 10);
+                     String time3 = d3.substring(11, 16);
+                     String data3 = date3.replace("-", "/");
+
+                     System.out.println("DATAASAAAAAAAA:" + d2);
+                     System.out.println("sSubCadena:" + date2);
+                     System.out.println("sSubCadena:" + data2);
+                     System.out.println("sSubCadena:" + time2);
+
+                     DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                     DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("HH:mm");
+                     
+                     DateTimeFormatter formatter5 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                     DateTimeFormatter formatter6 = DateTimeFormatter.ofPattern("HH:mm");
+
+                     //convert String to LocalDate
+                     LocalDate localDate1 = LocalDate.parse(data2, formatter3);
+                     LocalTime localTime1 = LocalTime.parse(time2, formatter4);
+                     
+                     //convert String to LocalDate
+                     LocalDate localDate2 = LocalDate.parse(data3, formatter5);
+                     LocalTime localTime2 = LocalTime.parse(time3, formatter6);
+
+                     if (mod.getDataFinal() != "") {
+
+                         if (mod.getRepeticio() != 0) {
+
+                             //int result = localDate1.compareTo(localDate2);
+                             //int result2 = localTime1.compareTo(localTime2);
+
+                            // if ((result < 0) || (result == 0 && result2 <= 0)) {
+
+                                 localDate1 = localDate1.plusDays(mod.getRepeticio());
+                                 System.out.println("Data progress:" + localDate1);
+                                 String timeProgres = localTime1.toString();
+                                 String dataProgres = localDate1.toString();
+
+                                 String day = dataProgres.substring(8, 10);
+                                 String month = dataProgres.substring(5, 7);
+                                 String year = dataProgres.substring(0, 4);
+
+                                 System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+                                 dataProgres = day + "-" + month + "-" + year;
+                                 dataProgres = dataProgres + " " + timeProgres;
+                                 System.out.println(dataProgres);
+
+                                 Tasques tas = new Tasques();
+
+                                 tas.setDataProgres(dataProgres);
+                                 tas.setRepeticio(mod.getRepeticio());
+                                 tas.setTitol(mod.getTitol());
+                                 tas.setPrioritat(mod.getPrioritat());
+                                 tas.setUsuariAssignat(mod.getUsuariAssignat());
+                                 tas.setData(mod.getData());
+                                 tas.setEstat(mod.getEstat());
+                                 tas.setDescripcio(mod.getDescripcio());
+                                 // tas.setNotificacio(mod.getNotificacio());
+                                 tas.setDataFinal(mod.getDataFinal());
+                                 tas.setRecurrent(mod.isRecurrent());
+                                 tas.setTipus(mod.getTipus());
+
+                                 modC.GenerarTascaRecurrent(tas);
+                             } else {
+
+                                 //S'ha finalitzat la tasca recurrent.
+                             }
+
+                         //}
+
+                     } else {
+
+                     }
+                 }
+
+                 break;
+
+         }
+         
+     
+     
+     
+     
+     
+     
      }
     
       

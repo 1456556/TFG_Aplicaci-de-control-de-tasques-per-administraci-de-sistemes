@@ -17,56 +17,106 @@ import java.util.Date;
  */
 public class ConsultesNotificacio extends Conexio {
     
-    public int Notificacio(Notificacio not){
-        
-        int notificacio=0;
+    public int Notificacio(Notificacio not) {
+
+        int notificacio = 0;
         String d = not.getData();
-    
+
         try {
             Connection cn = getConexio();
             PreparedStatement pst = cn.prepareStatement("select * from Tasques where data = '" + d + "'");
             ResultSet rs = pst.executeQuery();
-            
-            
+
             if (rs.next()) {
-                
-                if (rs.getBoolean("setNotificacio") == true && rs.getBoolean("notificacio") == false){
-                    
-                    if (rs.getBoolean("recurrent")==true){
-                    
-                    not.idTasca = rs.getInt("id_tasca");
-                    not.data = rs.getString("data");
-                    not.titol = rs.getString("titol");
-                    not.usuari = rs.getString("usuari");
-                    not.descripcio = rs.getString("descripcio");
-                    not.estat = rs.getString("estat");
-                    not.prioritat = rs.getString("prioritat");
-                    not.data_final = rs.getString("dataFinal");
-                    not.repeticio = rs.getInt("repeticioInici");                   
-                    notificacio = 1;
-                    
-                    
-                    
+
+               
+
+                    if (rs.getBoolean("recurrent") == true && rs.getString("dataProgres").equals("") && rs.getBoolean("notificacio") == false) {
+
+                        not.setIdTasca(rs.getInt("id_tasca")); 
+                        not.setData(rs.getString("data")); 
+                        not.titol = rs.getString("titol");
+                        not.usuari = rs.getString("usuari");
+                        not.descripcio = rs.getString("descripcio");
+                        not.estat = rs.getString("estat");
+                        not.prioritat = rs.getString("prioritat");
+                        not.setData_final(rs.getString("dataFinal"));
+                        not.setDataProgres(rs.getString("dataProgres"));
+                        not.repeticio = rs.getInt("repeticioInici");
+                        not.setRecurrent(rs.getBoolean("recurrent"));
+                        notificacio = 1;
+
                     }else{
-               
-                if(rs.getInt("notificacio")==0){
-                
-                    not.idTasca = rs.getInt("id_tasca");
-                    not.data = rs.getString("data");
-                    not.titol = rs.getString("titol");
-                    not.usuari = rs.getString("usuari");
-                    not.descripcio = rs.getString("descripcio");
-                    not.estat = rs.getString("estat");
-                    not.prioritat = rs.getString("prioritat");
-                    notificacio = 1;
+                    
+                    if (rs.getBoolean("SetNotificacio") == true && rs.getBoolean("recurrent") == false) {
+
+                        not.setIdTasca(rs.getInt("id_tasca")); 
+                         not.setData(rs.getString("data")); 
+                        not.titol = rs.getString("titol");
+                        not.usuari = rs.getString("usuari");
+                        not.descripcio = rs.getString("descripcio");
+                        not.estat = rs.getString("estat");
+                        not.prioritat = rs.getString("prioritat");
+                         not.setRecurrent(rs.getBoolean("recurrent"));
+                        notificacio = 2;
+                        
+
+                    }
+                    
+                    }
+                    
+                    
+                    
+                    
+                    
+                    }
+
+            
+
                     
                 
-                }
-                    }
                 
-                }
-              
-               
+
+            
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al solicitar les dades" + e);
+            //JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+        
+        try {
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select * from Tasques where dataProgres = '" + d + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                if (rs.getBoolean("setNotificacio") == true && rs.getBoolean("notificacio") == false) {
+
+                    if (rs.getBoolean("recurrent") == true && !rs.getString("dataProgres").equals("")) {
+
+                        not.setIdTasca(rs.getInt("id_tasca")); 
+                        not.setData(rs.getString("data")); 
+                        not.titol = rs.getString("titol");
+                        not.usuari = rs.getString("usuari");
+                        not.descripcio = rs.getString("descripcio");
+                        not.estat = rs.getString("estat");
+                        not.prioritat = rs.getString("prioritat");
+                        not.setData_final(rs.getString("dataFinal"));
+                        not.setDataProgres(rs.getString("dataProgres"));
+                        not.repeticio = rs.getInt("repeticioInici");
+                        not.setRecurrent(rs.getBoolean("recurrent"));
+                        not.dataProgres = rs.getString("dataProgres");
+                        notificacio = 1;
+
+                    }
+
+                } 
+
             }
 
             cn.close();
@@ -79,7 +129,9 @@ public class ConsultesNotificacio extends Conexio {
         }
         
         
-        if (notificacio == 1) {
+        
+
+       
 
             try {
                 Connection cn = getConexio();
@@ -89,7 +141,6 @@ public class ConsultesNotificacio extends Conexio {
                 if (rs.next()) {
 
                     not.mail = rs.getString("email");
-                   
 
                 }
 
@@ -102,13 +153,10 @@ public class ConsultesNotificacio extends Conexio {
 
             }
 
-        }
+        
 
         return notificacio;
-    
-    
-    
-    
+
     }
     
     

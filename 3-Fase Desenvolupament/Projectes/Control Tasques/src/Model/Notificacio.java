@@ -24,6 +24,25 @@ public class Notificacio {
     int repeticio;
     String data_final;
     String tipus;
+    Boolean recurrent;
+    String dataProgres;
+
+    public String getDataProgres() {
+        return dataProgres;
+    }
+
+    public void setDataProgres(String dataProgres) {
+        this.dataProgres = dataProgres;
+    }
+
+    public Boolean getRecurrent() {
+        return recurrent;
+    }
+
+    public void setRecurrent(Boolean recurrent) {
+        this.recurrent = recurrent;
+    }
+    
 
     public String getTipus() {
         return tipus;

@@ -16,6 +16,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Model.Notificacio;
 import Vista.JFRepeticio;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import java.util.Properties;
@@ -71,42 +74,139 @@ public class ControladorNotificacio   {
                 case 0:                                                
                     break;                
                 case 1:
-                    EnviarCorreu();
-                    String[] botones = {"Veure Tasca", "Posposar 5min"};
-                    int ventana = JOptionPane.showOptionDialog(null, mod.getTitol(), "Notificacio Tasca", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
-                            botones, botones[0]);                    
-                    if (ventana == 0) {
-                        System.out.println("Veure Tasca");
-                        modC.ActualitzaNotificacio(mod);
-                        Tasques modTasques = new Tasques();
-                        ConsultesTasques modCTasques = new ConsultesTasques();                        
-                        ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis, repeticio); 
-                        con.NotificacioTasca(mod.getIdTasca());
-                    }else{
-                        long timeInSecs = date.getTime();
-                        Date afterAdding10Mins = new Date((1 * 60 * 1000) + timeInSecs);
-                        //String d = data.substring(14,16);
-                        System.out.println("Posposar 5min");
-                        DateFormat formatter2 = new SimpleDateFormat("dd-MM-yyyy HH:mm");
-                        String data = formatter2.format(afterAdding10Mins);
-                        System.out.println("DATAAAAAAAAA:" + data);
-                        mod.setData(data);
-                        modC.Posposar(mod);
-                        Tasques modTasques = new Tasques();
-                        ConsultesTasques modCTasques = new ConsultesTasques();
-                        //JFPrincipal vistPrincipal = new JFPrincipal(); 
-                        ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis, repeticio); 
-                        con.MostrarTaula(vis.jTable_Tasques);
-                        
-                    
+                    System.out.println("DATAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA:");
+                    //if (mod.getRecurrent() == true) {
+
+                       
+
+                    //}
+                    String d2,
+                     d3;
+
+                    if (mod.getDataProgres().isEmpty()) {
+
+                        d2 = mod.getData();
+                        d3 = mod.getData_final();
+
+                    } else {
+
+                        d2 = mod.getDataProgres();
+                        d3 = mod.getData_final();
                     }
-                    break;               
+
+                    String date2 = d2.substring(0, 10);
+                    String time2 = d2.substring(11, 16);
+                    String data2 = date2.replace("-", "/");
+
+                    String date3 = d3.substring(0, 10);
+                    String time3 = d3.substring(11, 16);
+                    String data3 = date3.replace("-", "/");
+
+                    System.out.println("DATAASAAAAAAAA:" + d2);
+                    System.out.println("sSubCadena:" + date2);
+                    System.out.println("sSubCadena:" + data2);
+                    System.out.println("sSubCadena:" + time2);
+
+                    DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                    DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("HH:mm");
+
+                    DateTimeFormatter formatter5 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                    DateTimeFormatter formatter6 = DateTimeFormatter.ofPattern("HH:mm");
+
+                    //convert String to LocalDate
+                    LocalDate localDate1 = LocalDate.parse(data2, formatter3);
+                    LocalTime localTime1 = LocalTime.parse(time2, formatter4);
+
+                    //convert String to LocalDate
+                    LocalDate localDate2 = LocalDate.parse(data3, formatter5);
+                    LocalTime localTime2 = LocalTime.parse(time3, formatter6);
+
+                    int result = localDate1.compareTo(localDate2);
+                    int result2 = localTime1.compareTo(localTime2);
+
+                    if ((result < 0) || (result == 0 && result2 <= 0)) {
+                         Tasques modTasques = new Tasques();
+                    ConsultesTasques modCTasques = new ConsultesTasques();
+                    ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis, repeticio);
+                        con.Recurrent(mod.getIdTasca());
+                        EnviarCorreu();
+                        String[] botones = {"Veure Tasca", "Posposar 5min"};
+                        int ventana = JOptionPane.showOptionDialog(null, mod.getTitol(), "Notificacio Tasca", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+                                botones, botones[0]);
+                        if (ventana == 0) {
+                            System.out.println("Veure Tasca");
+                            modC.ActualitzaNotificacio(mod);
+                            con.NotificacioTasca(mod.getIdTasca());
+                        } else {
+                            long timeInSecs = date.getTime();
+                            Date afterAdding10Mins = new Date((1 * 60 * 1000) + timeInSecs);
+                            //String d = data.substring(14,16);
+                            System.out.println("Posposar 5min");
+                            DateFormat formatter2 = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+                            String data = formatter2.format(afterAdding10Mins);
+                            System.out.println("DATAAAAAAAAA:" + data);
+                            mod.setData(data);
+                            modC.Posposar(mod);
+                            Tasques modTasques1 = new Tasques();
+                            ConsultesTasques modCTasques1 = new ConsultesTasques();
+                            //JFPrincipal vistPrincipal = new JFPrincipal(); 
+                            ControladorTasques con1 = new ControladorTasques(modTasques1, modCTasques1, vis, repeticio);
+                            con1.MostrarTaula(vis.jTable_Tasques);
+
+                        }
+
+                    }
+                    Natejar(mod);
+                    break;
+                    
+                case 2:
+                       /* Tasques modTasques2 = new Tasques();
+                        ConsultesTasques modCTasques2 = new ConsultesTasques();
+                        ControladorTasques con2 = new ControladorTasques(modTasques2, modCTasques2, vis, repeticio);
+                        EnviarCorreu();
+                        String[] botones = {"Veure Tasca", "Posposar 5min"};
+                        int ventana = JOptionPane.showOptionDialog(null, mod.getTitol(), "Notificacio Tasca", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+                                botones, botones[0]);
+                        if (ventana == 0) {
+                            System.out.println("Veure Tasca");
+                            modC.ActualitzaNotificacio(mod);
+                            con2.NotificacioTasca(mod.getIdTasca());
+                        } else {
+                            long timeInSecs = date.getTime();
+                            Date afterAdding10Mins = new Date((1 * 60 * 1000) + timeInSecs);
+                            //String d = data.substring(14,16);
+                            System.out.println("Posposar 5min");
+                            DateFormat formatter2 = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+                            String data = formatter2.format(afterAdding10Mins);
+                            System.out.println("DATAAAAAAAAA:" + data);
+                            mod.setData(data);
+                            modC.Posposar(mod);
+                            Tasques modTasques1 = new Tasques();
+                            ConsultesTasques modCTasques1 = new ConsultesTasques();
+                            //JFPrincipal vistPrincipal = new JFPrincipal(); 
+                            ControladorTasques con1 = new ControladorTasques(modTasques1, modCTasques1, vis, repeticio);
+                            con1.MostrarTaula(vis.jTable_Tasques);
+
+                        }
+
+                    
+                    Natejar(mod);
+                    break;*/
+                    
+                    
+                    
                 default:
                     break;                 
                     
             }
     
     
+    
+    }
+    
+    public void Natejar(Notificacio not){
+    
+        not.setRecurrent(false);
     
     }
     

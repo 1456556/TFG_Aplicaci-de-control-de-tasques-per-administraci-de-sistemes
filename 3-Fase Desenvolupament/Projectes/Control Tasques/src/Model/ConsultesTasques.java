@@ -394,16 +394,16 @@ public class ConsultesTasques extends Conexio {
                 data = date + " " + time;
 
                 Connection cn2 = getConexio();
-                PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques values (?,?,?,?,?,?,?,?,?)");
-                pst2.setInt(1, 0);
-                pst2.setString(2, titol);
-                pst2.setString(3, prioritat);
-                pst2.setString(4, usuari);
-                pst2.setString(5, data);
-                pst2.setString(6, estat);
-                pst2.setString(7, descripcio);
-                pst2.setInt(8, 0);
-                pst2.setBoolean(9, notificacio);
+                PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, notificacio,  setNotificacio) values (?,?,?,?,?,?,?,?)");
+                
+                pst2.setString(1, titol);
+                pst2.setString(2, prioritat);
+                pst2.setString(3, usuari);
+                pst2.setString(4, data);
+                pst2.setString(5, estat);
+                pst2.setString(6, descripcio);
+                pst2.setInt(7, 0);
+                pst2.setBoolean(8, notificacio);
                 pst2.executeUpdate();
                                                 
                 cn2.close();
@@ -754,11 +754,66 @@ public class ConsultesTasques extends Conexio {
     public void GenerarTascaRecurrent(Tasques tas){
     
         
-    
         
-    
-    
-    
+        int repeticio;      
+        String titol,descripcio, usuari, estat, prioritat, data, dataFinal, dataProgres, tipus;
+        boolean notificacio;
+        
+        tipus = tas.getTipus();
+        dataProgres = tas.getDataProgres();
+        repeticio = tas.getRepeticioProgres(); 
+        titol = tas.getTitol();
+        descripcio = tas.getDescripcio();
+        estat = tas.getEstat();
+        System.out.print("ESTAT: " + estat);
+        prioritat = tas.getPrioritat();
+        usuari = tas.getUsuariAssignat();       
+       // notificacio = tas.getNotificacio();
+        data = tas.getData();
+        dataFinal = tas.getDataFinal();
+        
+        
+        if (tipus.equals("Diari")){     
+            
+        
+            try {
+                Connection cn = getConexio();
+               
+                PreparedStatement pst = cn.prepareStatement("insert into Tasques (titol, prioritat, usuari, dataProgres, estat, descripcio, setNotificacio, repeticioInici, recurrent, tipus, data, dataFinal) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+               
+              
+                
+                
+                pst.setString(1, titol);
+                pst.setString(2, prioritat);
+                pst.setString(3, usuari);
+                pst.setString(4, dataProgres);
+                pst.setString(5, estat);
+                pst.setString(6, descripcio);
+                pst.setBoolean(7, true);
+                pst.setInt(8, repeticio);              
+                pst.setBoolean(9, true);
+                pst.setString(10, tipus);
+                pst.setString(11, data);
+                pst.setString(12, dataFinal);
+                
+
+
+
+                
+                pst.executeUpdate();
+               
+                
+                cn.close();
+
+            } catch (SQLException e) {
+
+                System.err.println("Error al modificar la notificacio" + e);
+
+            }      
+        
+        
+        }
     
     }
     
@@ -785,6 +840,8 @@ public class ConsultesTasques extends Conexio {
                 tas.setRepeticio(rs.getInt(10));
                 tas.setDataFinal(rs.getString(12));
                 tas.setTipus(rs.getString(14));
+                tas.setDataProgres(rs.getString(15));
+               
                             
 
             }

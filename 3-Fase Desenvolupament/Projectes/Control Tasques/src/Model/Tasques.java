@@ -30,6 +30,34 @@ public class Tasques {
    int repeticio;
    boolean recurrent;
    String tipus;
+   String dataProgres;
+   int repeticioProgres;
+   boolean progres;
+
+    public boolean isProgres() {
+        return progres;
+    }
+
+    public void setProgres(boolean progres) {
+        this.progres = progres;
+    }
+
+    public String getDataProgres() {
+        return dataProgres;
+    }
+
+    public void setDataProgres(String dataProgres) {
+        this.dataProgres = dataProgres;
+    }
+
+    public int getRepeticioProgres() {
+        return repeticioProgres;
+    }
+
+    public void setRepeticioProgres(int repeticioProgres) {
+        this.repeticioProgres = repeticioProgres;
+    }
+   
 
     public String getTipus() {
         return tipus;
