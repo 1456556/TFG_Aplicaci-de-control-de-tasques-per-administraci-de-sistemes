@@ -202,7 +202,7 @@ public class ConsultesTasques extends Conexio {
         int novaTasca = 0;
         int validacio = 0;
         int repeticio = 0;
-        String dataInici, horaInici, dataFinal, horaFinal, data, dataF, tipus;
+        String dataInici, horaInici, dataFinal, horaFinal, data, dataF, tipus, diesSetmana = "";
 
         dataInici = tas.getData();
         horaInici = tas.getHora();
@@ -210,6 +210,8 @@ public class ConsultesTasques extends Conexio {
         horaFinal = tas.getHoraFinal();
         repeticio = tas.getRepeticio();
         tipus = tas.getTipus();
+        diesSetmana = tas.getDiesSetmana();
+        
         
        
         String titol,descripcio, usuari, estat, prioritat;
@@ -225,7 +227,7 @@ public class ConsultesTasques extends Conexio {
         
         
         
-         if (titol.equals("")) {
+        if (titol.equals("")) {
             
             validacio++;
         }
@@ -289,7 +291,7 @@ public class ConsultesTasques extends Conexio {
                         dataF = dataFinal + " " + horaFinal;
 
                         Connection cn2 = getConexio();
-                        PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, setNotificacio, repeticioInici, dataFinal, recurrent, tipus) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+                        PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, setNotificacio, repeticioInici, dataFinal, recurrent, tipus, diesSetmana) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
                                 
                         
                         pst2.setString(1, titol);
@@ -303,6 +305,7 @@ public class ConsultesTasques extends Conexio {
                         pst2.setString(9, dataF);
                         pst2.setBoolean(10, true);
                         pst2.setString(11, tipus);
+                        pst2.setString(12, diesSetmana);
                         pst2.executeUpdate();
 
                         cn2.close();
@@ -809,7 +812,7 @@ public class ConsultesTasques extends Conexio {
         
         
         int repeticio;      
-        String titol,descripcio, usuari, estat, prioritat, data, dataFinal, dataProgres, tipus;
+        String titol,descripcio, usuari, estat, prioritat, data, dataFinal, dataProgres, tipus, diaSetmana;
         boolean notificacio;
         
         tipus = tas.getTipus();
@@ -824,15 +827,17 @@ public class ConsultesTasques extends Conexio {
        // notificacio = tas.getNotificacio();
         data = tas.getData();
         dataFinal = tas.getDataFinal();
+        diaSetmana = tas.getDiesSetmana();
         
         
-        if (tipus.equals("Diari")){     
+        
+       
             
         
             try {
                 Connection cn = getConexio();
                
-                PreparedStatement pst = cn.prepareStatement("insert into Tasques (titol, prioritat, usuari, dataProgres, estat, descripcio, setNotificacio, repeticioInici, recurrent, tipus, data, dataFinal) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+                PreparedStatement pst = cn.prepareStatement("insert into Tasques (titol, prioritat, usuari, dataProgres, estat, descripcio, setNotificacio, repeticioInici, recurrent, tipus, data, dataFinal, diesSetmana) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
                
               
                 
@@ -849,6 +854,7 @@ public class ConsultesTasques extends Conexio {
                 pst.setString(10, tipus);
                 pst.setString(11, data);
                 pst.setString(12, dataFinal);
+                pst.setString(13, diaSetmana);
                 
 
 
@@ -866,7 +872,7 @@ public class ConsultesTasques extends Conexio {
             }      
         
         
-        }
+        
     
     }
     
@@ -894,6 +900,7 @@ public class ConsultesTasques extends Conexio {
                 tas.setDataFinal(rs.getString(12));
                 tas.setTipus(rs.getString(14));
                 tas.setDataProgres(rs.getString(15));
+                tas.setDiesSetmana(rs.getString(16));
                
                             
 

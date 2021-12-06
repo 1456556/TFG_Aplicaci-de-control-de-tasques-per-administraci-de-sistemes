@@ -33,6 +33,15 @@ public class Tasques {
    String dataProgres;
    int repeticioProgres;
    boolean progres;
+   String diesSetmana;
+
+    public String getDiesSetmana() {
+        return diesSetmana;
+    }
+
+    public void setDiesSetmana(String diesSetmana) {
+        this.diesSetmana = diesSetmana;
+    }
 
     public boolean isProgres() {
         return progres;

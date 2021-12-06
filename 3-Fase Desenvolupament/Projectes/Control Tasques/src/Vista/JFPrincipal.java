@@ -470,6 +470,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jCheckBoxNotificacio1 = new javax.swing.JCheckBox();
         txt_descripcioTasc1 = new javax.swing.JTextField();
         jLabel77 = new javax.swing.JLabel();
+        ComboMesNumero = new javax.swing.JComboBox<>();
+        ComboMesDia = new javax.swing.JComboBox<>();
+        jRadioButtonEl = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -3155,9 +3158,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jCheckBoxDijous.setForeground(new java.awt.Color(0, 0, 0));
         DashNovaTascaRepeticio.add(jCheckBoxDijous, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, -1, -1));
 
-        jCheckBoxDilluns.setText("Dilluns");
         jCheckBoxDilluns.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxDilluns.setForeground(new java.awt.Color(0, 0, 0));
+        jCheckBoxDilluns.setText("Dilluns");
         DashNovaTascaRepeticio.add(jCheckBoxDilluns, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
         jCheckBoxDivendres.setText("Divendres");
@@ -3189,9 +3192,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel2.setText("Repetició");
         DashNovaTascaRepeticio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 84, -1));
 
-        jRadioButtonAcabar.setText("Acabar després de ");
         jRadioButtonAcabar.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButtonAcabar.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonAcabar.setText("Acabar després de ");
         DashNovaTascaRepeticio.add(jRadioButtonAcabar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
 
         jRadioButtonMensual.setText("Mensual");
@@ -3280,15 +3283,15 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel75.setText("Estat");
         DashNovaTascaRepeticio.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 30));
 
+        jLabel76.setText("Usuari Assignat");
         jLabel76.setBackground(new java.awt.Color(255, 153, 51));
         jLabel76.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel76.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel76.setText("Usuari Assignat");
-        DashNovaTascaRepeticio.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, 25));
+        DashNovaTascaRepeticio.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, 25));
 
         ComboUsuariAssignat1.setBackground(new java.awt.Color(255, 153, 51));
         ComboUsuariAssignat1.setForeground(new java.awt.Color(255, 255, 255));
-        DashNovaTascaRepeticio.add(ComboUsuariAssignat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 150, 26));
+        DashNovaTascaRepeticio.add(ComboUsuariAssignat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 150, 26));
 
         jCheckBoxNotificacio1.setText("Notificació");
         jCheckBoxNotificacio1.addActionListener(new java.awt.event.ActionListener() {
@@ -3307,6 +3310,26 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel77.setForeground(new java.awt.Color(0, 0, 0));
         jLabel77.setText("Descripció");
         DashNovaTascaRepeticio.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, 30));
+
+        ComboMesNumero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primer", "Segon", "Tercer", "Cuart", "Últim" }));
+        ComboMesNumero.setBackground(new java.awt.Color(255, 153, 51));
+        ComboMesNumero.setForeground(new java.awt.Color(255, 255, 255));
+        DashNovaTascaRepeticio.add(ComboMesNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 100, 26));
+
+        ComboMesDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge" }));
+        ComboMesDia.setBackground(new java.awt.Color(255, 153, 51));
+        ComboMesDia.setForeground(new java.awt.Color(255, 255, 255));
+        ComboMesDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboMesDiaActionPerformed(evt);
+            }
+        });
+        DashNovaTascaRepeticio.add(ComboMesDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 90, 26));
+
+        jRadioButtonEl.setText("El");
+        jRadioButtonEl.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButtonEl.setForeground(new java.awt.Color(0, 0, 0));
+        DashNovaTascaRepeticio.add(jRadioButtonEl, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
 
         javax.swing.GroupLayout DashBoardViewLayout = new javax.swing.GroupLayout(DashBoardView);
         DashBoardView.setLayout(DashBoardViewLayout);
@@ -3991,6 +4014,10 @@ public class JFPrincipal extends javax.swing.JFrame  {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxNotificacio2ActionPerformed
 
+    private void ComboMesDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboMesDiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboMesDiaActionPerformed
+
     
     public void inicialitzarNotificacio(Date date) throws MessagingException{
     
@@ -4172,6 +4199,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JComboBox<String> ComboEstatTasc1;
     public javax.swing.JComboBox<String> ComboEstatTasc2;
     public javax.swing.JComboBox<String> ComboEstatTasc3;
+    public javax.swing.JComboBox<String> ComboMesDia;
+    public javax.swing.JComboBox<String> ComboMesNumero;
     public javax.swing.JComboBox<String> ComboNivell;
     public javax.swing.JComboBox<String> ComboNivell1;
     public javax.swing.JComboBox<String> ComboPrioritatTasc1;
@@ -4423,6 +4452,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JRadioButton jRadioButtonDataFinal1;
     public javax.swing.JRadioButton jRadioButtonDiari;
     public javax.swing.JRadioButton jRadioButtonDiari1;
+    public javax.swing.JRadioButton jRadioButtonEl;
     public javax.swing.JRadioButton jRadioButtonElements;
     public javax.swing.JRadioButton jRadioButtonMensual;
     public javax.swing.JRadioButton jRadioButtonMensual1;

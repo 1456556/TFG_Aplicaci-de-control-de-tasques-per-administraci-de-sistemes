@@ -29,10 +29,16 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
+import static java.time.temporal.TemporalAdjusters.firstDayOfMonth;
+import static java.time.temporal.TemporalAdjusters.firstInMonth;
+import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Level;
@@ -120,6 +126,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         this.vis.jRadioButtonDiari.addActionListener(this);
         this.vis.jRadioButtonSetmanal.addActionListener(this);
         this.vis.jRadioButtonAnual.addActionListener(this);
+        this.vis.jRadioButtonEl.addActionListener(this);
         
         this.vis.jRadioButtonDiari1.addActionListener(this);
         this.vis.jRadioButtonSetmanal1.addActionListener(this);
@@ -130,6 +137,9 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         this.vis.jRadioButtonAnual1.addActionListener(this);
         
        
+        vis.jRadioButtonEl.setVisible(false);
+        vis.ComboMesNumero.setVisible(false);
+        vis.ComboMesDia.setVisible(false);
         vis.jLabelMesos.setVisible(false);
         vis.jLabelAnys.setVisible(false);
         vis.jLabelSetmanes.setVisible(false);
@@ -151,6 +161,10 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         vis.jCheckBoxDiumenge1.setVisible(false);
         vis.jCheckBoxDilluns1.setVisible(false);
         vis.jCheckBoxDimarts1.setVisible(false);
+        
+        
+        vis.ComboMesDia.setEnabled(false);
+        vis.ComboMesNumero.setEnabled(false);
         
        
         
@@ -354,7 +368,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                  break;
 
              case 2:
-                 if (mod.getTipus().equals("Diari")) {
+              
                      
                      String d2, d3;
                      
@@ -397,61 +411,247 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                      //convert String to LocalDate
                      LocalDate localDate2 = LocalDate.parse(data3, formatter5);
                      LocalTime localTime2 = LocalTime.parse(time3, formatter6);
+
+                     if (mod.getTipus().equals("Diari")){
                      
-                      if (mod.getDataProgres().isEmpty()) {
-                           
-                           localDate1 = localDate1.plusDays(mod.getRepeticio());
-                           
-                      }
+                          localDate1 = localDate1.plusDays(mod.getRepeticio());
 
-                     int result = localDate1.compareTo(localDate2);
-                     int result2 = localTime1.compareTo(localTime2);
+                         System.out.println("Data progresssss:" + localDate1);
+                         int result = localDate1.compareTo(localDate2);
+                         int result2 = localTime1.compareTo(localTime2);
 
-                     if ((result < 0) || (result == 0 && result2 <= 0)) {
-                         
-                          if (! mod.getDataProgres().isEmpty()) {
-                         localDate1 = localDate1.plusDays(mod.getRepeticio());
-                          }
-                         System.out.println("Data progress:" + localDate1);
-                         String timeProgres = localTime1.toString();
-                         String dataProgres = localDate1.toString();
+                         if ((result < 0) || (result == 0 && result2 <= 0)) {
 
-                         String day = dataProgres.substring(8, 10);
-                         String month = dataProgres.substring(5, 7);
-                         String year = dataProgres.substring(0, 4);
+                             if (!mod.getDataProgres().isEmpty()) {
 
-                         System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
-                         dataProgres = day + "-" + month + "-" + year;
-                         dataProgres = dataProgres + " " + timeProgres;
-                         System.out.println(dataProgres);
+                                 localDate1 = localDate1.plusDays(mod.getRepeticio());
 
-                         Tasques tas = new Tasques();
+                             }
 
-                         tas.setDataProgres(dataProgres);
-                         tas.setRepeticio(mod.getRepeticio());
-                          System.out.println("REPETICIO" + mod.getRepeticio());
-                         System.out.println("REPETICIO" + tas.getRepeticio());
-                         tas.setTitol(mod.getTitol());
-                         tas.setPrioritat(mod.getPrioritat());
-                         tas.setUsuariAssignat(mod.getUsuariAssignat());
-                         tas.setData(mod.getData());
-                         tas.setEstat(mod.getEstat());
-                         tas.setDescripcio(mod.getDescripcio());
-                         // tas.setNotificacio(mod.getNotificacio());
-                         tas.setDataFinal(mod.getDataFinal());
-                         tas.setRecurrent(mod.isRecurrent());
-                         tas.setTipus(mod.getTipus());
+                            
+                             System.out.println("Data progress:" + localDate1);
+                             String timeProgres = localTime1.toString();
+                             String dataProgres = localDate1.toString();
 
-                         modC.GenerarTascaRecurrent(tas);
-                     } else {
+                             String day = dataProgres.substring(8, 10);
+                             String month = dataProgres.substring(5, 7);
+                             String year = dataProgres.substring(0, 4);
 
-                         //S'ha finalitzat la tasca recurrent.
+                             System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+                             dataProgres = day + "-" + month + "-" + year;
+                             dataProgres = dataProgres + " " + timeProgres;
+                             System.out.println(dataProgres);
+
+                             Tasques tas = new Tasques();
+
+                             tas.setDataProgres(dataProgres);
+                             tas.setRepeticio(mod.getRepeticio());
+                             System.out.println("REPETICIO" + mod.getRepeticio());
+                             System.out.println("REPETICIO" + tas.getRepeticio());
+                             tas.setTitol(mod.getTitol());
+                             tas.setPrioritat(mod.getPrioritat());
+                             tas.setUsuariAssignat(mod.getUsuariAssignat());
+                             tas.setData(mod.getData());
+                             tas.setEstat(mod.getEstat());
+                             tas.setDescripcio(mod.getDescripcio());
+                             // tas.setNotificacio(mod.getNotificacio());
+                             tas.setDataFinal(mod.getDataFinal());
+                             tas.setRecurrent(mod.isRecurrent());
+                             tas.setTipus(mod.getTipus());
+
+                             modC.GenerarTascaRecurrent(tas);
+                         } else {
+
+                             //S'ha finalitzat la tasca recurrent.
+                         }
+                     
                      }
+                     if (mod.getTipus().equals("Setmanal")) {
+                         
+                        // if (mod.getDataProgres().isEmpty()) {
+                             
+                             System.out.println("Entra a Setmanal");
+                             localDate1 = localDate1.plusWeeks(mod.getRepeticio());
+                             String diesSetmana = mod.getDiesSetmana();
+                             int longitud = diesSetmana.length();
 
-                     //}
+                             for (int i = 0; i < longitud; i++) {
+
+                                 char dia = diesSetmana.charAt(i);
+                                 String d = String.valueOf(dia);
+                                 if (d.equals("L")) {
+
+                                     localDate1 = localDate1.with(DayOfWeek.MONDAY);
+                                     System.out.println("Dilluns:" + localDate1.with(DayOfWeek.MONDAY));
+                                     System.out.println("Dilluns:" + localDate1);
+
+                                 }
+                                 if (d.equals("M")) {
+
+                                     localDate1 = localDate1.with(DayOfWeek.TUESDAY);
+                                     System.out.println("Dimarts:" + localDate1.with(DayOfWeek.TUESDAY));
+                                     System.out.println("Dimarts:" + localDate1);
+
+                                 }
+                                 if (d.equals("X")) {
+
+                                     localDate1 = localDate1.with(DayOfWeek.WEDNESDAY);
+                                     System.out.println("Dimecres:" + localDate1.with(DayOfWeek.WEDNESDAY));
+                                     System.out.println("Dimecres:" + localDate1);
+
+                                 }
+                                 if (d.equals("J")) {
+
+                                     localDate1 = localDate1.with(DayOfWeek.THURSDAY);
+                                     System.out.println("Dijous:" + localDate1.with(DayOfWeek.THURSDAY));
+                                     System.out.println("Dijous:" + localDate1);
+
+                                 }
+                                 if (d.equals("V")) {
+
+                                     localDate1 = localDate1.with(DayOfWeek.FRIDAY);
+                                     System.out.println("Divendres:" + localDate1.with(DayOfWeek.FRIDAY));
+                                     System.out.println("Divendres:" + localDate1);
+
+                                 }
+                                 if (d.equals("S")) {
+
+                                     localDate1 = localDate1.with(DayOfWeek.SATURDAY);
+                                     System.out.println("Dissabte:" + localDate1.with(DayOfWeek.SATURDAY));
+                                     System.out.println("Dissabte:" + localDate1);
+
+                                 }
+                                 if (d.equals("D")) {
+
+                                     localDate1 = localDate1.with(DayOfWeek.SUNDAY);
+                                     System.out.println("Diumenge:" + localDate1.with(DayOfWeek.SUNDAY));
+                                     System.out.println("Diumenge:" + localDate1);
+
+                                 }
+
+                                 int result = localDate1.compareTo(localDate2);
+                                 int result2 = localTime1.compareTo(localTime2);
+
+                                 if ((result < 0) || (result == 0 && result2 <= 0)) {
+
+                                     System.out.println("Data progress:" + localDate1);
+                                     String timeProgres = localTime1.toString();
+                                     String dataProgres = localDate1.toString();
+
+                                     String day = dataProgres.substring(8, 10);
+                                     String month = dataProgres.substring(5, 7);
+                                     String year = dataProgres.substring(0, 4);
+
+                                     System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+                                     dataProgres = day + "-" + month + "-" + year;
+                                     dataProgres = dataProgres + " " + timeProgres;
+                                     System.out.println(dataProgres);
+
+                                     String di = localDate1.getDayOfWeek().toString();
+                                     di = diadelaSetmana(di);
+
+                                     Tasques tas = new Tasques();
+
+                                     tas.setDiesSetmana(di);
+                                     tas.setDataProgres(dataProgres);
+                                     tas.setRepeticio(mod.getRepeticio());
+                                     System.out.println("REPETICIO" + mod.getRepeticio());
+                                     System.out.println("REPETICIO" + tas.getRepeticio());
+                                     tas.setTitol(mod.getTitol());
+                                     tas.setPrioritat(mod.getPrioritat());
+                                     tas.setUsuariAssignat(mod.getUsuariAssignat());
+                                     tas.setData(mod.getData());
+                                     tas.setEstat(mod.getEstat());
+                                     tas.setDescripcio(mod.getDescripcio());
+                                     // tas.setNotificacio(mod.getNotificacio());
+                                     tas.setDataFinal(mod.getDataFinal());
+                                     tas.setRecurrent(mod.isRecurrent());
+                                     tas.setTipus(mod.getTipus());
+
+                                     modC.GenerarTascaRecurrent(tas);
+
+                                 }
+
+                             }
+
+                        // }
+                         
+                          
+                         
+                     }else{
+                         
+                         //Fin tasca
+                     
+                     } 
+                     
+                     if (mod.getTipus().equals("Mensual")){
+                         
+                         LocalDate start = localDate1.with(firstDayOfMonth());
+                         LocalDate end = localDate1.with(lastDayOfMonth());
+                         LocalDate S = localDate1.with(firstInMonth(DayOfWeek.MONDAY));                         
+                         LocalDate dsad = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(3, DayOfWeek.MONDAY));
+                         
+                         localDate1 = localDate1.plusMonths(mod.getRepeticio());
+
+                         System.out.println("Data progresssss:" + localDate1);
+                         int result = localDate1.compareTo(localDate2);
+                         int result2 = localTime1.compareTo(localTime2);
+
+                         if ((result < 0) || (result == 0 && result2 <= 0)) {
+
+                             if (!mod.getDataProgres().isEmpty()) {
+
+                                 localDate1 = localDate1.plusMonths(mod.getRepeticio());
+
+                             }
+
+                            
+                             System.out.println("Data progress:" + localDate1);
+                             String timeProgres = localTime1.toString();
+                             String dataProgres = localDate1.toString();
+
+                             String day = dataProgres.substring(8, 10);
+                             String month = dataProgres.substring(5, 7);
+                             String year = dataProgres.substring(0, 4);
+
+                             System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+                             dataProgres = day + "-" + month + "-" + year;
+                             dataProgres = dataProgres + " " + timeProgres;
+                             System.out.println(dataProgres);
+
+                             Tasques tas = new Tasques();
+                             
+                             tas.setDiesSetmana("");
+                             tas.setDataProgres(dataProgres);
+                             tas.setRepeticio(mod.getRepeticio());
+                             System.out.println("REPETICIO" + mod.getRepeticio());
+                             System.out.println("REPETICIO" + tas.getRepeticio());
+                             tas.setTitol(mod.getTitol());
+                             tas.setPrioritat(mod.getPrioritat());
+                             tas.setUsuariAssignat(mod.getUsuariAssignat());
+                             tas.setData(mod.getData());
+                             tas.setEstat(mod.getEstat());
+                             tas.setDescripcio(mod.getDescripcio());
+                             // tas.setNotificacio(mod.getNotificacio());
+                             tas.setDataFinal(mod.getDataFinal());
+                             tas.setRecurrent(mod.isRecurrent());
+                             tas.setTipus(mod.getTipus());
+
+                             modC.GenerarTascaRecurrent(tas);
+                         
+                         
+                         }     
+                         
+                         
+                     }
+                    
+
+                     
+
+                     
                      break;
 
-         }
+         
          
      
      
@@ -461,12 +661,71 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
      
      }
     
+     
+     public String diadelaSetmana(String dia){
+         
+         String letraD="";
+         
+         if (dia.equals("MONDAY")){
+         
+             letraD = "L";
+         }
+         if (dia.equals("TUESDAY")){
+         
+             letraD = "M";
+         }
+         if (dia.equals("WEDNESDAY")){
+         
+             letraD = "X";
+         }
+         if (dia.equals("THURSDAY")){
+         
+             letraD = "J";
+         }
+         if (dia.equals("FRIDAY")){
+         
+             letraD = "V";
+         }
+         if (dia.equals("SATURDAY")){
+         
+             letraD = "S";
+         }if (dia.equals("SUNDAY")){
+         
+             letraD = "D";
+         }
+        
+         
+
+        return letraD;  
+     
+     }
       
      
      @Override
     public void actionPerformed(ActionEvent e){
         
        
+        if (e.getSource() == vis.jRadioButtonEl){
+        
+            if(vis.jRadioButtonEl.isSelected()){
+            
+                vis.ComboMesNumero.setEnabled(true);
+                vis.ComboMesDia.setEnabled(true);
+            
+            
+            }else{
+                
+                 vis.ComboMesNumero.setEnabled(false);
+                vis.ComboMesDia.setEnabled(false);
+            
+            
+            }
+        
+        
+        
+        
+        }
+        
         
         if (e.getSource() == vis.jButtonRepeticio){
              
@@ -521,16 +780,14 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
          if (e.getSource() == vis.jButtonAceptar) {
              
-            String prioritat_string = null, estat_string = null;
-            mod.setTitol(vis.txt_titolTasc1.getText().trim());
-            mod.setUsuariAssignat(vis.ComboUsuariAssignat1.getSelectedItem().toString());
-            //mod.setData(vis.dateTimePickerRepeticio.getDatePicker().toString());
-            mod.setDescripcio(vis.txt_descripcioTasc1.getText().trim());
-            //mod.setHora(vis.dateTimePickerRepeticio.getTimePicker().toString());
-            int estat = vis.ComboEstatTasc1.getSelectedIndex() + 1;            
-            int prioritat = vis.ComboPrioritatTasc3.getSelectedIndex() + 1;
-            mod.setRepeticio((Integer) vis.jSpinner.getValue());
-            boolean notificacio = false;
+             String prioritat_string = null, estat_string = null, aux = " ";
+             mod.setTitol(vis.txt_titolTasc1.getText().trim());
+             mod.setUsuariAssignat(vis.ComboUsuariAssignat1.getSelectedItem().toString());
+             mod.setDescripcio(vis.txt_descripcioTasc1.getText().trim());
+             int estat = vis.ComboEstatTasc1.getSelectedIndex() + 1;
+             int prioritat = vis.ComboPrioritatTasc3.getSelectedIndex() + 1;
+             mod.setRepeticio((Integer) vis.jSpinner.getValue());
+             boolean notificacio = false;
 
             
             if  (vis.jCheckBoxNotificacio1.isSelected()){
@@ -559,6 +816,55 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         
             }
             
+            if (vis.jCheckBoxDilluns.isSelected()){
+        
+               String l = "L";
+               aux = l;
+               
+            }
+            if (vis.jCheckBoxDimarts.isSelected()){
+        
+               String m = "M";
+               aux = aux + m;
+               
+            }
+            if (vis.jCheckBoxDimecres.isSelected()){
+        
+               String x = "X";
+               aux = aux + x;
+               
+            }
+            if (vis.jCheckBoxDijous.isSelected()){
+        
+               String j = "J";
+               aux = aux + j;
+               
+            }
+            if (vis.jCheckBoxDivendres.isSelected()){
+        
+               String v = "V";
+               aux = aux + v;
+               
+            }
+            if (vis.jCheckBoxDissabte.isSelected()){
+        
+               String s = "S";
+               aux = aux + s;
+               
+            }
+            if (vis.jCheckBoxDimarts.isSelected()){
+        
+               String d = "D";
+               aux = aux + d;
+               
+            }
+            
+            
+        
+               mod.setDiesSetmana(aux);
+               
+            
+            
 
             
             if (estat == 1) {
@@ -566,83 +872,70 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 estat_string = "Nova";
             }
 
-            if (estat == 2) {
+             if (estat == 2) {
 
-                estat_string = "En espera";
+                 estat_string = "En espera";
 
-            }
-            if (estat == 3) {
+             }
+             if (estat == 3) {
 
-                estat_string = "En procés";
+                 estat_string = "En procés";
 
-            }
-            
-            if (prioritat == 1){
-            
-                prioritat_string = "Baixa";
-            }
-            if (prioritat == 2){
-            
-                prioritat_string = "Mitja";
-            }
-            if (prioritat == 3){
-            
-                prioritat_string = "Alta";
-                
-            }if (prioritat == 4){
-            
-                prioritat_string = "Urgent";
-            }
-            if (prioritat == 5){
-            
-                prioritat_string = "Prioritaria";
-            }
-                        
-            mod.setEstat(estat_string);
-            mod.setPrioritat(prioritat_string);
-            mod.setNotificacio(notificacio);
+             }
 
-           
+             if (prioritat == 1) {
 
-             if (vis.jRadioButtonDiari.isSelected()) {
+                 prioritat_string = "Baixa";
+             }
+             if (prioritat == 2) {
 
-                 if (vis.jRadioButtonDataFinal.isSelected()) {
-                     
-                    
-                     mod.setData(vis.dateTimePickerRepeticio.getDatePicker().toString());
-                     mod.setHora(vis.dateTimePickerRepeticio.getTimePicker().toString());
-                     mod.setDataFinal(vis.dateTimePickerRepeticioFinal.getDatePicker().toString());
-                     mod.setHoraFinal(vis.dateTimePickerRepeticioFinal.getTimePicker().toString());
-                    
+                 prioritat_string = "Mitja";
+             }
+             if (prioritat == 3) {
 
-                     switch (modC.NovaTascaRepeticio(mod)) {
+                 prioritat_string = "Alta";
 
-                         case 1:
-                             JOptionPane.showMessageDialog(null, "Repeticio guardada correctament");
-                             natejar();
-                             vis.DashNovaTascaRepeticio.setVisible(false);
-                             vis.DashTasques.setVisible(true);
-                             MostrarTaula(vis.jTable_Tasques);
-                             break;
-                         case 2:
-                             JOptionPane.showMessageDialog(null, "Error al crear la tasca. Contacti amb l'administrador");
-                             break;
-                         case 3:
-                              JOptionPane.showMessageDialog(null, "La data d'inici ha de ser mes petita a la data final");                    
-                              break;
-                         case 4:                             
-                              JOptionPane.showMessageDialog(null, "Els dies no poden ser iguals o menors a 0");
-                                                 
-                         case 5:                             
-                              JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
-                         default:
-                             break;
+             }
+             if (prioritat == 4) {
 
-                     }
+                 prioritat_string = "Urgent";
+             }
+             if (prioritat == 5) {
 
-                 }
-                     
-                
+                 prioritat_string = "Prioritaria";
+             }
+
+             mod.setEstat(estat_string);
+             mod.setPrioritat(prioritat_string);
+             mod.setNotificacio(notificacio);
+
+             mod.setData(vis.dateTimePickerRepeticio.getDatePicker().toString());
+             mod.setHora(vis.dateTimePickerRepeticio.getTimePicker().toString());
+             mod.setDataFinal(vis.dateTimePickerRepeticioFinal.getDatePicker().toString());
+             mod.setHoraFinal(vis.dateTimePickerRepeticioFinal.getTimePicker().toString());
+
+             switch (modC.NovaTascaRepeticio(mod)) {
+
+                 case 1:
+                     JOptionPane.showMessageDialog(null, "Repeticio guardada correctament");
+                     natejar();
+                     vis.DashNovaTascaRepeticio.setVisible(false);
+                     vis.DashTasques.setVisible(true);
+                     MostrarTaula(vis.jTable_Tasques);
+                     break;
+                 case 2:
+                     JOptionPane.showMessageDialog(null, "Error al crear la tasca. Contacti amb l'administrador");
+                     break;
+                 case 3:
+                     JOptionPane.showMessageDialog(null, "La data d'inici ha de ser mes petita a la data final");
+                     break;
+                 case 4:
+                     JOptionPane.showMessageDialog(null, "Els dies no poden ser iguals o menors a 0");
+
+                 case 5:
+                     JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+                 default:
+                     break;
 
              }
 
@@ -696,6 +989,9 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 vis.jCheckBoxDiumenge.setVisible(false);
                 vis.jCheckBoxDilluns.setVisible(false);
                 vis.jCheckBoxDimarts.setVisible(false);
+                vis.ComboMesNumero.setVisible(false);
+                vis.ComboMesDia.setVisible(false);
+                vis.jRadioButtonEl.setVisible(false);
 
             
             
@@ -718,7 +1014,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 vis.jCheckBoxDiumenge1.setVisible(false);
                 vis.jCheckBoxDilluns1.setVisible(false);
                 vis.jCheckBoxDimarts1.setVisible(false);
-
+                
             
             
             
@@ -741,6 +1037,9 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 vis.jCheckBoxDilluns.setVisible(true);
                 vis.jCheckBoxDimarts.setVisible(true);
                 vis.jLabelDias.setVisible(false);
+                vis.ComboMesNumero.setVisible(false);
+                vis.ComboMesDia.setVisible(false);
+                vis.jRadioButtonEl.setVisible(false);
                
                 
                 
@@ -762,29 +1061,29 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 vis.jCheckBoxDilluns1.setVisible(true);
                 vis.jCheckBoxDimarts1.setVisible(true);
                 vis.jLabelDias1.setVisible(false);
-               
-                
+             
                 
                 
             }
             
-             if (e.getSource() == this.vis.jRadioButtonMensual){
-                 
-                 vis.jLabelMesos.setVisible(true);
-                vis.jLabelAnys.setVisible(false);
-                vis.jLabelDias.setVisible(false);               
-                vis.jLabelSetmanes.setVisible(false);
-                vis.jCheckBoxDijous.setVisible(false);
-                vis.jCheckBoxDimecres.setVisible(false);
-                vis.jCheckBoxDivendres.setVisible(false);
-                vis.jCheckBoxDissabte.setVisible(false);
-                vis.jCheckBoxDiumenge.setVisible(false);
-                vis.jCheckBoxDilluns.setVisible(false);
-                vis.jCheckBoxDimarts.setVisible(false);
-                 
-                 
-                 
-             }
+         if (e.getSource() == this.vis.jRadioButtonMensual) {
+
+             vis.jLabelMesos.setVisible(true);
+             vis.jLabelAnys.setVisible(false);
+             vis.jLabelDias.setVisible(false);
+             vis.jLabelSetmanes.setVisible(false);
+             vis.jCheckBoxDijous.setVisible(false);
+             vis.jCheckBoxDimecres.setVisible(false);
+             vis.jCheckBoxDivendres.setVisible(false);
+             vis.jCheckBoxDissabte.setVisible(false);
+             vis.jCheckBoxDiumenge.setVisible(false);
+             vis.jCheckBoxDilluns.setVisible(false);
+             vis.jCheckBoxDimarts.setVisible(false);
+             vis.ComboMesNumero.setVisible(true);
+             vis.ComboMesDia.setVisible(true);
+             vis.jRadioButtonEl.setVisible(true);
+
+         }
              
              if (e.getSource() == this.vis.jRadioButtonMensual1){
                  
@@ -818,6 +1117,9 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 vis.jCheckBoxDiumenge.setVisible(false);
                 vis.jCheckBoxDilluns.setVisible(false);
                 vis.jCheckBoxDimarts.setVisible(false);
+                vis.ComboMesNumero.setVisible(false);
+                vis.ComboMesDia.setVisible(false);
+                vis.jRadioButtonEl.setVisible(false);
                  
                  
                  
