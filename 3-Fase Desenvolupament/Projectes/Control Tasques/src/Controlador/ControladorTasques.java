@@ -33,6 +33,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import static java.time.temporal.TemporalAdjusters.firstDayOfMonth;
@@ -137,6 +138,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         this.vis.jRadioButtonAnual1.addActionListener(this);
         
        
+        vis.ComboMes.setVisible(false);
         vis.jRadioButtonEl.setVisible(false);
         vis.ComboMesNumero.setVisible(false);
         vis.ComboMesDia.setVisible(false);
@@ -165,6 +167,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         
         vis.ComboMesDia.setEnabled(false);
         vis.ComboMesNumero.setEnabled(false);
+        vis.ComboMes.setEnabled(false);
         
        
         
@@ -590,8 +593,281 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                          LocalDate end = localDate1.with(lastDayOfMonth());
                          LocalDate S = localDate1.with(firstInMonth(DayOfWeek.MONDAY));                         
                          LocalDate dsad = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(3, DayOfWeek.MONDAY));
-                         
+                         System.out.println(dsad);
                          localDate1 = localDate1.plusMonths(mod.getRepeticio());
+                         
+                         String diesSetmana = mod.getDiesSetmana();                         
+                         String[] textoSeparado = diesSetmana.split(" ");
+                         int longitud = diesSetmana.length();
+                         
+                         if (longitud > 0){
+                         
+                         String numeros = textoSeparado[0];
+                         String dia = textoSeparado[1];
+                         int numeroInt=0;
+                         
+                         if (numeros.equals("Primer")){
+                         
+                             numeroInt = 1;
+                             
+                         }
+                         if (numeros.equals("Segon")){
+                         
+                             numeroInt = 2;
+                             
+                         }
+                         if (numeros.equals("Tercer")){
+                         
+                             numeroInt = 3;
+                             
+                         }
+                         if (numeros.equals("Cuart")){
+                         
+                             numeroInt = 4;
+                             
+                         }
+                         if (numeros.equals("Últim")){
+                         
+                             numeroInt = 5;
+                             
+                         }
+                         if (dia.equals("Dilluns")){
+                         
+                            localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.MONDAY));
+                             
+                         }
+                         if (dia.equals("Dimarts")){
+                         
+                            localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.TUESDAY));
+                             
+                         }
+                         if (dia.equals("Dimecres")){
+                         
+                            localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.WEDNESDAY));
+                             
+                         }
+                         if (dia.equals("Dijous")){
+                         
+                            localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.THURSDAY));
+                             
+                         }
+                         if (dia.equals("Divendres")){
+                         
+                             localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.FRIDAY));
+                             
+                         }
+                         if (dia.equals("Dissabte")){
+                         
+                             localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.SATURDAY));
+                             
+                         }
+                         if (dia.equals("Diumenge")){
+                         
+                            localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.SUNDAY));
+                             
+                         }
+                         
+                         }
+
+
+                     System.out.println("Data progresssss:" + localDate1);
+                     int result = localDate1.compareTo(localDate2);
+                     int result2 = localTime1.compareTo(localTime2);
+
+                     if ((result < 0) || (result == 0 && result2 <= 0)) {
+
+                         /* if (!mod.getDataProgres().isEmpty()) {
+
+                                 localDate1 = localDate1.plusMonths(mod.getRepeticio());
+
+                             }*/
+                         System.out.println("Data progress:" + localDate1);
+                         String timeProgres = localTime1.toString();
+                         String dataProgres = localDate1.toString();
+
+                         String day = dataProgres.substring(8, 10);
+                         String month = dataProgres.substring(5, 7);
+                         String year = dataProgres.substring(0, 4);
+
+                         System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+                         dataProgres = day + "-" + month + "-" + year;
+                         dataProgres = dataProgres + " " + timeProgres;
+                         System.out.println(dataProgres);
+
+                         Tasques tas = new Tasques();
+
+                         tas.setDiesSetmana(diesSetmana);
+                         tas.setDataProgres(dataProgres);
+                         tas.setRepeticio(mod.getRepeticio());
+                         System.out.println("REPETICIO" + mod.getRepeticio());
+                         System.out.println("REPETICIO" + tas.getRepeticio());
+                         tas.setTitol(mod.getTitol());
+                         tas.setPrioritat(mod.getPrioritat());
+                         tas.setUsuariAssignat(mod.getUsuariAssignat());
+                         tas.setData(mod.getData());
+                         tas.setEstat(mod.getEstat());
+                         tas.setDescripcio(mod.getDescripcio());
+                         // tas.setNotificacio(mod.getNotificacio());
+                         tas.setDataFinal(mod.getDataFinal());
+                         tas.setRecurrent(mod.isRecurrent());
+                         tas.setTipus(mod.getTipus());
+
+                         modC.GenerarTascaRecurrent(tas);
+
+                     }
+
+                 } else {
+
+                     //Fi de la tasca reccurent Menusal
+                 }
+
+                 if (mod.getTipus().equals("Anual")) {
+
+                     localDate1 = localDate1.plusYears(mod.getRepeticio());
+                     System.out.println("dies Setmanas" + mod.getDiesSetmana());
+                     String diesSetmana = "";
+                     if (!mod.getDiesSetmana().equals(" ")) {
+                         diesSetmana = mod.getDiesSetmana();
+                         String[] textoSeparado = diesSetmana.split(" ");
+                         int longitud = diesSetmana.length();
+
+                         String numeros = textoSeparado[0];
+                         String dia = textoSeparado[1];
+                         String mes = textoSeparado[2];
+                         int numeroInt = 0;
+                         
+                         if (mes.equals("Gener")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.JANUARY, localDate1.getDayOfMonth());
+
+                             }
+                             if (mes.equals("Febrer")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.FEBRUARY, localDate1.getDayOfMonth());
+
+                             }
+                             if (mes.equals("Març")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.MARCH, localDate1.getDayOfMonth());
+
+                             }
+                             if (mes.equals("Abril")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.APRIL, localDate1.getDayOfMonth());
+
+                             }
+                             if (mes.equals("Maig")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.MAY, localDate1.getDayOfMonth());
+
+                             }
+                             if (mes.equals("Juny")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.JUNE, localDate1.getDayOfMonth());
+
+                             }
+                             if (mes.equals("Juliol")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.JULY, localDate1.getDayOfMonth());
+
+                             }
+                             if (mes.equals("Agost")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.AUGUST, localDate1.getDayOfMonth());
+
+                             }
+                             if (mes.equals("Setembre")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.SEPTEMBER, localDate1.getDayOfMonth());
+
+                             }
+                             if (mes.equals("Octubre")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.OCTOBER, localDate1.getDayOfMonth());
+
+                             }
+                             if (mes.equals("Novembre")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.NOVEMBER, localDate1.getDayOfMonth());
+
+                             }
+                             if (mes.equals("Desembre")) {
+
+                                 localDate1 = localDate1.of(localDate1.getYear(), Month.DECEMBER, localDate1.getDayOfMonth());
+
+                             }
+
+                         if (numeros.equals("Primer")) {
+
+                             numeroInt = 1;
+
+                         }
+                         if (numeros.equals("Segon")) {
+
+                             numeroInt = 2;
+
+                         }
+                         if (numeros.equals("Tercer")) {
+
+                             numeroInt = 3;
+
+                         }
+                         if (numeros.equals("Cuart")) {
+
+                             numeroInt = 4;
+
+                         }
+                         if (numeros.equals("Últim")) {
+
+                             numeroInt = 5;
+
+                         }
+                         if (dia.equals("Dilluns")) {
+
+                             localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.MONDAY));
+
+                         }
+                         if (dia.equals("Dimarts")) {
+
+                             localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.TUESDAY));
+
+                         }
+                             if (dia.equals("Dimecres")) {
+
+                                 localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.WEDNESDAY));
+
+                             }
+                             if (dia.equals("Dijous")) {
+
+                                 localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.THURSDAY));
+
+                             }
+                             if (dia.equals("Divendres")) {
+
+                                 localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.FRIDAY));
+
+                             }
+                             if (dia.equals("Dissabte")) {
+
+                                 localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.SATURDAY));
+
+                             }
+                             if (dia.equals("Diumenge")) {
+
+                                 localDate1 = localDate1.with(TemporalAdjusters.dayOfWeekInMonth(numeroInt, DayOfWeek.SUNDAY));
+
+                             }
+                             
+                             System.out.println("Dia " + localDate1);
+                             
+                             
+                             
+                              System.out.println("Mes " + localDate1);
+                          
+                         }
+                         
+                         
+                         
 
                          System.out.println("Data progresssss:" + localDate1);
                          int result = localDate1.compareTo(localDate2);
@@ -599,11 +875,11 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
                          if ((result < 0) || (result == 0 && result2 <= 0)) {
 
-                             if (!mod.getDataProgres().isEmpty()) {
+                            /* if (!mod.getDataProgres().isEmpty()) {
 
                                  localDate1 = localDate1.plusMonths(mod.getRepeticio());
 
-                             }
+                             }*/
 
                             
                              System.out.println("Data progress:" + localDate1);
@@ -621,7 +897,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
                              Tasques tas = new Tasques();
                              
-                             tas.setDiesSetmana("");
+                             tas.setDiesSetmana(diesSetmana);
                              tas.setDataProgres(dataProgres);
                              tas.setRepeticio(mod.getRepeticio());
                              System.out.println("REPETICIO" + mod.getRepeticio());
@@ -642,8 +918,13 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                          
                          }     
                          
-                         
-                     }
+                          
+                          
+                      }else{
+                          
+                           //Fi de la tasca recurrent Anual
+                      
+                      }
                     
 
                      
@@ -706,6 +987,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         
        
         if (e.getSource() == vis.jRadioButtonEl){
+            
+            if (vis.jRadioButtonMensual.isSelected()){
         
             if(vis.jRadioButtonEl.isSelected()){
             
@@ -720,6 +1003,28 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             
             
             }
+        }
+            
+             if (vis.jRadioButtonAnual.isSelected()){
+        
+            if(vis.jRadioButtonEl.isSelected()){
+            
+                vis.ComboMesNumero.setEnabled(true);
+                vis.ComboMesDia.setEnabled(true);
+                vis.ComboMes.setEnabled(true);
+            
+            
+            }else{
+                
+                vis.ComboMesNumero.setEnabled(false);
+                vis.ComboMesDia.setEnabled(false);
+                vis.ComboMes.setEnabled(false);
+            
+            
+            }
+        }
+            
+            
         
         
         
@@ -859,6 +1164,26 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                
             }
             
+            if (vis.jRadioButtonEl.isSelected()){
+                
+                if (vis.jRadioButtonMensual.isSelected()){
+            
+                aux = (String) vis.ComboMesNumero.getSelectedItem();
+                aux = aux + " " + vis.ComboMesDia.getSelectedItem();
+                
+                }
+                
+               if (vis.jRadioButtonAnual.isSelected()){
+            
+                aux = (String) vis.ComboMesNumero.getSelectedItem();
+                aux = aux + " " + vis.ComboMesDia.getSelectedItem();
+                aux = aux + " " + vis.ComboMes.getSelectedItem();
+                
+                }
+            
+            
+            }
+            
             
         
                mod.setDiesSetmana(aux);
@@ -992,6 +1317,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 vis.ComboMesNumero.setVisible(false);
                 vis.ComboMesDia.setVisible(false);
                 vis.jRadioButtonEl.setVisible(false);
+                vis.ComboMes.setVisible(false);
 
             
             
@@ -1014,6 +1340,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 vis.jCheckBoxDiumenge1.setVisible(false);
                 vis.jCheckBoxDilluns1.setVisible(false);
                 vis.jCheckBoxDimarts1.setVisible(false);
+                vis.ComboMes.setVisible(false);
                 
             
             
@@ -1040,6 +1367,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 vis.ComboMesNumero.setVisible(false);
                 vis.ComboMesDia.setVisible(false);
                 vis.jRadioButtonEl.setVisible(false);
+                vis.ComboMes.setVisible(false);
                
                 
                 
@@ -1061,6 +1389,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 vis.jCheckBoxDilluns1.setVisible(true);
                 vis.jCheckBoxDimarts1.setVisible(true);
                 vis.jLabelDias1.setVisible(false);
+               
              
                 
                 
@@ -1082,6 +1411,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
              vis.ComboMesNumero.setVisible(true);
              vis.ComboMesDia.setVisible(true);
              vis.jRadioButtonEl.setVisible(true);
+             vis.ComboMes.setVisible(false);
 
          }
              
@@ -1117,9 +1447,12 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 vis.jCheckBoxDiumenge.setVisible(false);
                 vis.jCheckBoxDilluns.setVisible(false);
                 vis.jCheckBoxDimarts.setVisible(false);
-                vis.ComboMesNumero.setVisible(false);
-                vis.ComboMesDia.setVisible(false);
-                vis.jRadioButtonEl.setVisible(false);
+                vis.ComboMesNumero.setVisible(true);
+                vis.ComboMesDia.setVisible(true);
+                vis.jRadioButtonEl.setVisible(true);
+                vis.ComboMes.setVisible(true);
+                
+                
                  
                  
                  
@@ -1551,6 +1884,9 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
        
         vis.ComboEstatTasc2.setSelectedIndex(0);
         vis.ComboPrioritatTasc2.setSelectedIndex(0);
+        vis.ComboMesNumero.setSelectedIndex(0);
+        vis.ComboMes.setSelectedIndex(0);
+        vis.ComboMesDia.setSelectedIndex(0);
         
         
         vis.txt_descripcioTasc1.setText("");
