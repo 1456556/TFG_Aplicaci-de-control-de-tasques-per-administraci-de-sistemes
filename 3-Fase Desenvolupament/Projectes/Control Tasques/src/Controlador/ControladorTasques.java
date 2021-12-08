@@ -17,6 +17,8 @@ import com.github.lgooddatepicker.components.DatePicker;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
@@ -61,7 +63,7 @@ import org.jdesktop.swingx.autocomplete.ObjectToStringConverter;
  *
  * @author Victor
  */
-public class ControladorTasques extends JFPrincipal implements ActionListener, MouseListener, KeyListener  {
+public class ControladorTasques extends JFPrincipal implements ActionListener, MouseListener, KeyListener, ItemListener {
     
     public Tasques mod;
     public ConsultesTasques modC;
@@ -90,6 +92,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         this.vis.txtBuscadorTasques.addKeyListener(this);
         this.vis.jButtonTascaNormal.addActionListener(this);
         this.vis.jButtonTascaRepetio.addActionListener(this);
+        
+        this.vis.jComboBoxDashTasquesUsuari.addItemListener(this);
         
         
         this.vis.jButtonAceptar.addActionListener(this);
@@ -128,6 +132,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         this.vis.jRadioButtonSetmanal.addActionListener(this);
         this.vis.jRadioButtonAnual.addActionListener(this);
         this.vis.jRadioButtonEl.addActionListener(this);
+        this.vis.jButtonEditarTascaRecurrent.addActionListener(this);
         
         this.vis.jRadioButtonDiari1.addActionListener(this);
         this.vis.jRadioButtonSetmanal1.addActionListener(this);
@@ -164,7 +169,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         vis.jCheckBoxDilluns1.setVisible(false);
         vis.jCheckBoxDimarts1.setVisible(false);
         
-        
+         vis.ComboEstatTasc.setEnabled(false);
         vis.ComboMesDia.setEnabled(false);
         vis.ComboMesNumero.setEnabled(false);
         vis.ComboMes.setEnabled(false);
@@ -177,8 +182,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     public ControladorTasques(Tasques mod, ConsultesTasques modC, JFPrincipal vis){
     
         this.mod = mod;
-        this.modC = modC;
-       
+        this.modC = modC;       
         this.vis = vis;
     
     }
@@ -186,10 +190,51 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
      
     public void inicialitzar(){
         
-        
+      
         
                    
     
+    }
+    
+    
+     @Override
+    public void itemStateChanged(ItemEvent e) {
+        
+         DefaultComboBoxModel mdl = new DefaultComboBoxModel();
+            mdl.removeAllElements();
+            vis.jComboBoxDashTasquesUsuari.setModel(mdl);            
+            
+           vis.jComboBoxDashTasquesUsuari.setSelectedItem(Login.usuari);
+           modC.UsuariAssignat1(vis,2);
+            AutoCompleteDecorator.decorate(vis.jComboBoxDashTasquesUsuari);    
+        
+        
+        if (e.getSource() == vis.jComboBoxDashTasquesUsuari){
+        
+            String query = vis.jComboBoxDashTasquesUsuari.getSelectedItem().toString();
+           
+            
+             TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
+             trs = (TableRowSorter<DefaultTableModel>) vis.jTable_Tasques.getRowSorter();
+              DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();
+            
+             
+             if (query != " "){
+             
+                 trs.setRowFilter(RowFilter.regexFilter(query));
+             
+             
+             }else{
+             
+                 vis.jTable_Tasques.setRowSorter(trs);
+                 
+             }
+             
+             vis.jTable_Tasques.setModel(model_tasques3);         
+            
+        
+        }
+        
     }
 
 
@@ -446,7 +491,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                              System.out.println(dataProgres);
 
                              Tasques tas = new Tasques();
-
+                             
+                             tas.setDiesSetmana(mod.getDiesSetmana());
                              tas.setDataProgres(dataProgres);
                              tas.setRepeticio(mod.getRepeticio());
                              System.out.println("REPETICIO" + mod.getRepeticio());
@@ -456,8 +502,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                              tas.setUsuariAssignat(mod.getUsuariAssignat());
                              tas.setData(mod.getData());
                              tas.setEstat(mod.getEstat());
-                             tas.setDescripcio(mod.getDescripcio());
-                             // tas.setNotificacio(mod.getNotificacio());
+                             tas.setDescripcio(mod.getDescripcio());                            
+                             tas.setIdSubtasca(mod.getIdSubtasca());
                              tas.setDataFinal(mod.getDataFinal());
                              tas.setRecurrent(mod.isRecurrent());
                              tas.setTipus(mod.getTipus());
@@ -566,7 +612,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                                      tas.setData(mod.getData());
                                      tas.setEstat(mod.getEstat());
                                      tas.setDescripcio(mod.getDescripcio());
-                                     // tas.setNotificacio(mod.getNotificacio());
+                                    tas.setIdSubtasca(mod.getIdSubtasca());
                                      tas.setDataFinal(mod.getDataFinal());
                                      tas.setRecurrent(mod.isRecurrent());
                                      tas.setTipus(mod.getTipus());
@@ -707,7 +753,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                          tas.setData(mod.getData());
                          tas.setEstat(mod.getEstat());
                          tas.setDescripcio(mod.getDescripcio());
-                         // tas.setNotificacio(mod.getNotificacio());
+                         tas.setIdSubtasca(mod.getIdSubtasca());
                          tas.setDataFinal(mod.getDataFinal());
                          tas.setRecurrent(mod.isRecurrent());
                          tas.setTipus(mod.getTipus());
@@ -908,7 +954,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                              tas.setData(mod.getData());
                              tas.setEstat(mod.getEstat());
                              tas.setDescripcio(mod.getDescripcio());
-                             // tas.setNotificacio(mod.getNotificacio());
+                             tas.setIdSubtasca(mod.getIdSubtasca());
                              tas.setDataFinal(mod.getDataFinal());
                              tas.setRecurrent(mod.isRecurrent());
                              tas.setTipus(mod.getTipus());
@@ -986,6 +1032,11 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     public void actionPerformed(ActionEvent e){
         
        
+       
+        
+        
+        
+        
         if (e.getSource() == vis.jRadioButtonEl){
             
             if (vis.jRadioButtonMensual.isSelected()){
@@ -1242,6 +1293,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
              switch (modC.NovaTascaRepeticio(mod)) {
 
                  case 1:
+                     modC.GuardarIdSubtasca(mod);
                      JOptionPane.showMessageDialog(null, "Repeticio guardada correctament");
                      natejar();
                      vis.DashNovaTascaRepeticio.setVisible(false);
@@ -1566,6 +1618,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             
         }
         
+       
+        
         if (e.getSource() == vis.jButtonEditarTasca) {
 
             int prioritat, estat;
@@ -1679,6 +1733,222 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
              }
 
          }
+        
+        if (e.getSource() == vis.jButtonEditarTascaRecurrent) {
+            
+             String prioritat_string = null, estat_string = null, aux = " ";
+             mod.setTitol(vis.txt_titolTasc3.getText().trim());
+             mod.setUsuariAssignat(vis.ComboUsuariAssignat3.getSelectedItem().toString());
+             mod.setDescripcio(vis.txt_descripcioTasc3.getText().trim());
+             int estat = vis.ComboEstatTasc3.getSelectedIndex() + 1;
+             int prioritat = vis.ComboPrioritatTasc4.getSelectedIndex() + 1;
+             mod.setRepeticio((Integer) vis.jSpinner1.getValue());
+             boolean notificacio = false;
+
+            
+            if  (vis.jCheckBoxNotificacio2.isSelected()){
+            
+                notificacio = true;
+            }
+            
+            if (vis.jRadioButtonDiari1.isSelected()){
+        
+               mod.setTipus("Diari");
+        
+            }
+            if (vis.jRadioButtonSetmanal1.isSelected()){
+        
+               mod.setTipus("Setmanal");
+        
+            }
+            if (vis.jRadioButtonMensual1.isSelected()){
+        
+               mod.setTipus("Mensual");
+        
+            }
+            if (vis.jRadioButtonAnual1.isSelected()){
+        
+               mod.setTipus("Anual");
+        
+            }
+            
+            if (vis.jCheckBoxDilluns1.isSelected()){
+        
+               String l = "L";
+               aux = l;
+               
+            }
+            if (vis.jCheckBoxDimarts1.isSelected()){
+        
+               String m = "M";
+               aux = aux + m;
+               
+            }
+            if (vis.jCheckBoxDimecres1.isSelected()){
+        
+               String x = "X";
+               aux = aux + x;
+               
+            }
+            if (vis.jCheckBoxDijous1.isSelected()){
+        
+               String j = "J";
+               aux = aux + j;
+               
+            }
+            if (vis.jCheckBoxDivendres1.isSelected()){
+        
+               String v = "V";
+               aux = aux + v;
+               
+            }
+            if (vis.jCheckBoxDissabte1.isSelected()){
+        
+               String s = "S";
+               aux = aux + s;
+               
+            }
+            if (vis.jCheckBoxDimarts1.isSelected()){
+        
+               String d = "D";
+               aux = aux + d;
+               
+            }
+            
+            if (vis.jRadioButtonEl.isSelected()){
+                
+                if (vis.jRadioButtonMensual1.isSelected()){
+            
+                aux = (String) vis.ComboMesNumero1.getSelectedItem();
+                aux = aux + " " + vis.ComboMesDia1.getSelectedItem();
+                
+                }
+                
+               if (vis.jRadioButtonAnual1.isSelected()){
+            
+                aux = (String) vis.ComboMesNumero1.getSelectedItem();
+                aux = aux + " " + vis.ComboMesDia1.getSelectedItem();
+                aux = aux + " " + vis.ComboMes1.getSelectedItem();
+                
+                }
+            
+            
+            }
+            
+            
+        
+               mod.setDiesSetmana(aux);
+               
+            
+            
+
+            
+            if (estat == 1) {
+
+                estat_string = "Nova";
+            }
+
+             if (estat == 2) {
+
+                 estat_string = "En espera";
+
+             }
+             if (estat == 3) {
+
+                 estat_string = "En procés";
+
+             }
+
+             if (prioritat == 1) {
+
+                 prioritat_string = "Baixa";
+             }
+             if (prioritat == 2) {
+
+                 prioritat_string = "Mitja";
+             }
+             if (prioritat == 3) {
+
+                 prioritat_string = "Alta";
+
+             }
+             if (prioritat == 4) {
+
+                 prioritat_string = "Urgent";
+             }
+             if (prioritat == 5) {
+
+                 prioritat_string = "Prioritaria";
+             }
+             
+              if (estat_string == "Finalitzada") {
+
+                 Object[] options = {"Aceptar", "Cancelar"};
+                 int n = JOptionPane.showOptionDialog(vis.DashInfoTascaRepeticio, "Esteu segurs que voleu donada per finalitzada la tasca?", "",
+                         JOptionPane.YES_NO_OPTION,
+                         JOptionPane.INFORMATION_MESSAGE,
+                         null,
+                         options,
+                         options[0]);
+
+                 if (n == JOptionPane.YES_OPTION) {
+
+                     modC.FinalitzarTasca(mod);
+                     natejar();
+                     vis.DashInfoTascaRepeticio.setVisible(false);
+                     vis.DashTasques.setVisible(true);
+                     MostrarTaula(vis.jTable_Tasques);
+
+                 }
+
+             } 
+
+             mod.setEstat(estat_string);
+             mod.setPrioritat(prioritat_string);
+             mod.setNotificacio(notificacio);
+
+             mod.setData(vis.dateTimePickerRepeticio1.getDatePicker().toString());
+             mod.setHora(vis.dateTimePickerRepeticio1.getTimePicker().toString());
+             mod.setDataFinal(vis.dateTimePickerRepeticioFinal1.getDatePicker().toString());
+             mod.setHoraFinal(vis.dateTimePickerRepeticioFinal1.getTimePicker().toString());
+
+             switch (modC.EditarTascaRepeticio(mod)) {
+
+                 case 1:
+                     modC.GuardarIdSubtasca(mod);
+                     JOptionPane.showMessageDialog(null, "Repeticio guardada correctament");
+                     natejar();
+                     vis.DashNovaTascaRepeticio.setVisible(false);
+                     vis.DashTasques.setVisible(true);
+                     MostrarTaula(vis.jTable_Tasques);
+                     break;
+                 case 2:
+                     JOptionPane.showMessageDialog(null, "Error al crear la tasca. Contacti amb l'administrador");
+                     break;
+                 case 3:
+                     JOptionPane.showMessageDialog(null, "La data d'inici ha de ser mes petita a la data final");
+                     break;
+                 case 4:
+                     JOptionPane.showMessageDialog(null, "Els dies no poden ser iguals o menors a 0");
+
+                 case 5:
+                     JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+                 default:
+                     break;
+
+             }
+
+         }
+        
+    
+
+            
+
+            
+
+                
+
+         
        
          if (e.getSource() == vis.jButtonEliminarTasca) {
              
@@ -1686,13 +1956,12 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
              TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
              trs = (TableRowSorter<DefaultTableModel>) vis.jTable_Tasques.getRowSorter();
-             DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();
-
-            
+             DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();            
              int rows = trs.getViewRowCount();
              System.out.print("ROOOWS " + rows);
+             int j = rows -1;
 
-             for (int i = 0; i< rows; i++) {
+             for (int i = j; i >= 0; i--) {
 
                  Boolean checked = Boolean.valueOf(model_tasques3.getValueAt(trs.convertRowIndexToModel(i), 0).toString());
                   System.out.print("Boolean " + checked);
@@ -2127,6 +2396,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     public void keyPressed(KeyEvent e) {
         
     }
+
+   
 
     
 

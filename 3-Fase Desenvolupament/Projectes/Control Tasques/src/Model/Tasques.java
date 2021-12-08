@@ -34,6 +34,18 @@ public class Tasques {
    int repeticioProgres;
    boolean progres;
    String diesSetmana;
+   int idSubtasca;
+
+    public int getIdSubtasca() {
+        return idSubtasca;
+    }
+
+    public void setIdSubtasca(int idSubtasca) {
+        this.idSubtasca = idSubtasca;
+    }
+   
+   
+   
 
     public String getDiesSetmana() {
         return diesSetmana;

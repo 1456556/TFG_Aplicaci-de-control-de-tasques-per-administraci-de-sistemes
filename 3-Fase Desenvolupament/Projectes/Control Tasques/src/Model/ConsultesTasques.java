@@ -178,9 +178,14 @@ public class ConsultesTasques extends Conexio {
                 if (i == 1){
 
                 vis.ComboUsuariAssignat3.addItem(rs.getString("usuari"));
-                }else{
+                }
+                if (i == 0){
                 
                 vis.ComboUsuariAssignat1.addItem(rs.getString("usuari"));
+                }
+                if (i == 2){
+                
+                vis.jComboBoxDashTasquesUsuari.addItem(rs.getString("usuari"));
                 }
 
             }
@@ -196,6 +201,226 @@ public class ConsultesTasques extends Conexio {
 
     }
     
+    
+    
+    public void GuardarIdSubtasca(Tasques tas) {
+
+        int id = 0;
+
+        try {
+
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("SELECT MAX(id_tasca) AS id_tasca FROM Tasques");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                id = rs.getInt("id_tasca");
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al carregar el usuariAssignat");
+            //JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+
+        try {
+
+            Connection cn2 = getConexio();
+            PreparedStatement pst2 = cn2.prepareStatement("update Tasques set idSubtasca=? where id_tasca = '" + id + "'");
+
+            pst2.setInt(1, id);
+            pst2.executeUpdate();
+            cn2.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al crear el idseubtasca" + e);
+
+        }
+
+    }
+
+    
+    public int EditarTascaRepeticio(Tasques tas){
+    
+        int novaTasca = 0;
+        int validacio = 0;
+        int repeticio = 0;
+        String dataInici, horaInici, dataFinal, horaFinal, data, dataF, tipus, diesSetmana = "";
+
+        dataInici = tas.getData();
+        horaInici = tas.getHora();
+        dataFinal = tas.getDataFinal();
+        horaFinal = tas.getHoraFinal();
+        repeticio = tas.getRepeticio();
+        tipus = tas.getTipus();
+        diesSetmana = tas.getDiesSetmana();
+        
+        
+       
+        String titol,descripcio, usuari, estat, prioritat;
+        boolean notificacio;
+        
+        titol = tas.getTitol();
+        descripcio = tas.getDescripcio();
+        estat = tas.getEstat();
+        System.out.print("ESTAT: " + estat);
+        prioritat = tas.getPrioritat();
+        usuari = tas.getUsuariAssignat();       
+        notificacio = tas.getNotificacio();
+        
+        
+        
+        if (titol.equals("")) {
+            
+            validacio++;
+        }
+        if (usuari.equals("")) {
+
+            validacio++;
+        }        
+       
+        if (descripcio.equals("")) {
+            
+            validacio++;
+        }
+
+        if (dataInici.equals("")) {
+
+            validacio++;
+
+        }
+        if (horaInici.equals("")) {
+
+            validacio++;
+
+        }
+        if (dataFinal.equals("")) {
+
+            validacio++;
+
+        }
+        if (horaFinal.equals("")) {
+
+            validacio++;
+
+        }
+
+        if (validacio == 0) {
+
+            if (repeticio > 0) {              
+               
+                 LocalDate localDateInici = String2LocalDate(dataInici, horaInici);
+                 LocalDate localDateFinal = String2LocalDate(dataFinal, horaFinal);
+                 int result = localDateInici.compareTo(localDateFinal);
+
+                if (result < 0) {
+
+                    
+                    try {
+
+                        Connection cn2 = clases.Conexio.conectar();
+                        PreparedStatement pst2 = cn2.prepareStatement("Select idSubtasca from Tasques where id_tasca = '" + tas.getId() + "'");
+                        ResultSet rs = pst2.executeQuery();
+
+                        if (rs.next()) {
+
+                            //recurrent = rs.getBoolean(1);
+                            tas.setIdSubtasca(rs.getInt(1));
+                           // System.out.println(recurrent);
+                            System.out.println("Id subtasca" + tas.getIdSubtasca());
+
+                        }
+                        cn2.close();
+                        Connection cn3 = clases.Conexio.conectar();
+                        PreparedStatement pst3 = cn3.prepareStatement("DELETE from Tasques WHERE idSubtasca ='" + tas.getIdSubtasca() + "' AND id_tasca >  '"+tas.getId()+"'");
+                        pst3.executeUpdate();
+                        
+                    } catch (SQLException e) {
+
+                        System.err.println("Error al eeliminar tasca al editar la tascarecurrent" + e);
+                       // return false;
+                    }
+                    
+                    
+                    
+                    
+                    
+                    try {
+
+                        String day1 = dataInici.substring(8, 10);
+                        String month1 = dataInici.substring(5, 7);
+                        String year1 = dataInici.substring(0, 4);
+
+                        System.out.println("DAY" + day1 + "MONTH" + month1 + "YEAR" + year1);
+                        dataInici = day1 + "-" + month1 + "-" + year1;
+                        data = dataInici + " " + horaInici;
+
+                        String dayFinal1 = dataFinal.substring(8, 10);
+                        String monthFinal1 = dataFinal.substring(5, 7);
+                        String yearFinal1 = dataFinal.substring(0, 4);
+
+                        System.out.println("DAY" + dayFinal1 + "MONTH" + monthFinal1 + "YEAR" + yearFinal1);
+                        dataFinal = dayFinal1 + "-" + monthFinal1 + "-" + yearFinal1;
+                        dataF = dataFinal + " " + horaFinal;
+                        
+                       
+                        Connection cn2 = getConexio();
+                        PreparedStatement pst2 = cn2.prepareStatement("Update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=?, setNotificacio=?, repeticioInici=?, dataFinal=?, recurrent=?, tipus=?, diesSetmana=? where id_tasca = '" + tas.getId() + "'");
+
+                        pst2.setString(1, titol);
+                        pst2.setString(2, prioritat);
+                        pst2.setString(3, usuari);
+                        pst2.setString(4, data);
+                        pst2.setString(5, estat);
+                        pst2.setString(6, descripcio);
+                        pst2.setBoolean(7, notificacio);
+                        pst2.setInt(8, repeticio);
+                        pst2.setString(9, dataF);
+                        pst2.setBoolean(10, true);
+                        pst2.setString(11, tipus);
+                        pst2.setString(12, diesSetmana);
+                        pst2.executeUpdate();
+
+                        cn2.close();
+
+                        System.err.println("Tasca Repeticio Editada correctament");
+                        novaTasca = 1;
+
+                    } catch (SQLException e) {
+                        novaTasca = 2;
+                        System.err.println("Error al crear la tasca" + e);
+
+                    }
+
+                } else {
+
+                    novaTasca = 3;
+                    System.err.println("La data d'inici ha de ser mes petita a la data final");
+
+                }
+
+            } else {
+
+                novaTasca = 4;
+                System.err.println("Els dies no poden ser iguals o menors a 0");
+
+            }
+
+        } else {
+
+            novaTasca = 5;
+            System.err.println("Has d'omplir tots els camps");
+
+        }
+
+       return novaTasca;
+    }
     
     public int NovaTascaRepeticio(Tasques tas){
     
@@ -811,7 +1036,7 @@ public class ConsultesTasques extends Conexio {
     
         
         
-        int repeticio;      
+        int repeticio, idSubtasca;      
         String titol,descripcio, usuari, estat, prioritat, data, dataFinal, dataProgres, tipus, diaSetmana;
         boolean notificacio;
         
@@ -824,7 +1049,7 @@ public class ConsultesTasques extends Conexio {
         System.out.print("ESTAT: " + estat);
         prioritat = tas.getPrioritat();
         usuari = tas.getUsuariAssignat();       
-       // notificacio = tas.getNotificacio();
+        idSubtasca = tas.getIdSubtasca();
         data = tas.getData();
         dataFinal = tas.getDataFinal();
         diaSetmana = tas.getDiesSetmana();
@@ -837,7 +1062,7 @@ public class ConsultesTasques extends Conexio {
             try {
                 Connection cn = getConexio();
                
-                PreparedStatement pst = cn.prepareStatement("insert into Tasques (titol, prioritat, usuari, dataProgres, estat, descripcio, setNotificacio, repeticioInici, recurrent, tipus, data, dataFinal, diesSetmana) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                PreparedStatement pst = cn.prepareStatement("insert into Tasques (titol, prioritat, usuari, dataProgres, estat, descripcio, setNotificacio, repeticioInici, recurrent, tipus, data, dataFinal, diesSetmana, idSubtasca) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
                
               
                 
@@ -855,6 +1080,7 @@ public class ConsultesTasques extends Conexio {
                 pst.setString(11, data);
                 pst.setString(12, dataFinal);
                 pst.setString(13, diaSetmana);
+                pst.setInt(14, idSubtasca);
                 
 
 
@@ -901,6 +1127,7 @@ public class ConsultesTasques extends Conexio {
                 tas.setTipus(rs.getString(14));
                 tas.setDataProgres(rs.getString(15));
                 tas.setDiesSetmana(rs.getString(16));
+                tas.setIdSubtasca(rs.getInt(17));
                
                             
 
@@ -955,27 +1182,71 @@ public class ConsultesTasques extends Conexio {
     public boolean EliminarTasca(Tasques tas) {
 
         System.out.println(tas.getId());
-        
-        try {    
+        Boolean recurrent = false;
+
+        try {
 
             Connection cn2 = clases.Conexio.conectar();
-            PreparedStatement pst2 = cn2.prepareStatement("delete from Tasques where id_tasca='" + tas.getId() + "'");            
-            int i = pst2.executeUpdate();
-            if (i != 0) {
+            PreparedStatement pst2 = cn2.prepareStatement("Select recurrent,idSubtasca from Tasques where id_tasca = '" + tas.getId() + "'");
+            ResultSet rs = pst2.executeQuery();
 
-                return true;
+            if (rs.next()) {
 
-            } else {
+                recurrent = rs.getBoolean(1);
+                tas.setIdSubtasca(rs.getInt(2));
+                System.out.println(recurrent);
+                System.out.println("Id subtasca" + tas.getIdSubtasca());
 
-                return false;
             }
 
+           
         } catch (SQLException e) {
 
-            System.err.println("Error al eliminar tasca" + e);            
+            System.err.println("Error al eeliminar tasca" + e);
             return false;
         }
 
+        try {
+
+            Connection cn2 = clases.Conexio.conectar();
+            int j;
+
+            if (!recurrent) {
+                PreparedStatement pst3 = cn2.prepareStatement("delete from Tasques where id_tasca='" + tas.getId() + "'");
+                j = pst3.executeUpdate();
+                recurrent = true;
+            } else {
+                String[] botones = {"Aceptar", "Cancelar"};
+                int ventana = JOptionPane.showOptionDialog(null, "Si eleimines aquesta tasca recurrent, eliminaras totes les programades", "Notificacio Tasca", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+                        botones, botones[0]);
+                if (ventana == 0) {
+                    System.out.println(tas.getIdSubtasca());
+                    PreparedStatement pst = cn2.prepareStatement("DELETE from Tasques WHERE idSubtasca ='" + tas.getIdSubtasca() + "'");
+                    j = pst.executeUpdate();
+                    if (j != 0) {
+
+                        recurrent = true;
+
+                    } else {
+
+                        recurrent = false;
+                    }
+                }
+            }
+
+           
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al eliminar tasca recurrent" + e);
+            return false;
+        }
+
+        
+        return recurrent;
     }
+        
+
+    
     
 }
