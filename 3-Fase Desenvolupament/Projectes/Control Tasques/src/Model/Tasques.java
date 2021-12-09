@@ -35,6 +35,34 @@ public class Tasques {
    boolean progres;
    String diesSetmana;
    int idSubtasca;
+   String grupAfectat;
+    int idGrup;
+   String nom;
+
+    public int getIdGrup() {
+        return idGrup;
+    }
+
+    public void setIdGrup(int idGrup) {
+        this.idGrup = idGrup;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+  
+
+    public String getGrupAfectat() {
+        return grupAfectat;
+    }
+
+    public void setGrupAfectat(String grupAfectat) {
+        this.grupAfectat = grupAfectat;
+    }
 
     public int getIdSubtasca() {
         return idSubtasca;

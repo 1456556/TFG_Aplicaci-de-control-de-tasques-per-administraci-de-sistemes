@@ -48,6 +48,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
@@ -1102,7 +1103,19 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             vis.ComboUsuariAssignat.setModel(mdl);
             vis.ComboUsuariAssignat.setSelectedItem(Login.usuari);
             modC.UsuariAssignat(vis,0);
-            AutoCompleteDecorator.decorate(vis.ComboUsuariAssignat);            
+            AutoCompleteDecorator.decorate(vis.ComboUsuariAssignat);
+            
+            
+            DefaultComboBoxModel mdl2 = new DefaultComboBoxModel();
+            mdl2.removeAllElements();
+            vis.ComboGrupAfectat.setModel(mdl2);
+            //vis.ComboGrupAfectat.addItem("");
+             vis.ComboGrupAfectat.addItem("--------");
+            modC.GrupAfectat(vis,1);
+           // mdl2.addElement("--");
+          
+           vis.ComboGrupAfectat.setSelectedItem("--------");
+            AutoCompleteDecorator.decorate(vis.ComboGrupAfectat);    
             natejar();
         
         
@@ -1539,7 +1552,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             mod.setDescripcio(vis.txt_descripcioTasc.getText().trim());
             mod.setHora(vis.dateTimePicker.getTimePicker().toString());
             int estat = vis.ComboEstatTasc.getSelectedIndex() + 1;            
-            int prioritat = vis.ComboUsuariAssignat.getSelectedIndex() + 1;
+            int prioritat = vis.ComboPrioritatTasc1.getSelectedIndex() + 1;
+            mod.setGrupAfectat(vis.ComboGrupAfectat.getSelectedItem().toString());
             boolean notificacio = false;
 
             
@@ -1684,6 +1698,24 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
              mod.setEstat(estat_string);
              mod.setPrioritat(prioritat_string);
+             
+            int numRegistres = modC.MostrarGrups(mod).size();
+            System.out.println("Num: " + numRegistres);
+            DefaultTableModel model = new DefaultTableModel();
+            model = (DefaultTableModel) vis.jTableInfoTasca.getModel();
+            if (vis.jTableInfoTasca.isVisible()){
+            for (int i = 0; i < numRegistres; i++) {
+
+                if (model.getValueAt(i, 0).equals(true)) {
+                    
+                     int id = (int) model.getValueAt(i,2);
+                    
+                }
+
+               
+
+            }
+            }
 
              if (estat_string == "Finalitzada") {
 
@@ -2220,7 +2252,88 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                          JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");
                          break;
                      case 1:
-                         vis.ComboUsuariAssignat2.removeAll();
+                         vis.ComboGrupAfectat1.removeAllItems();
+                         modC.GrupAfectat(vis, 0);
+                         vis.ComboGrupAfectat1.addItem("--------");
+                         AutoCompleteDecorator.decorate(ComboGrupAfectat1);
+                         vis.ComboGrupAfectat1.setSelectedItem(mod.getGrupAfectat());
+                         
+                         if (mod.getGrupAfectat().equals("--------")){
+                         
+                             vis.jTableInfoTasca.setVisible(false);                         
+       
+                         } else {
+                             vis.jTableInfoTasca.setVisible(true); 
+                             DefaultListModel model = new DefaultListModel();
+                            // model =  (DefaultListModel) vis.jList1.getModel();
+                             
+                            
+                            
+
+                           /*  model.addColumn("Sleccionar");                          
+                             model.addColumn("Nom");
+                             model.addColumn("ID");
+
+                             Object[] columnes = new Object[3];*/
+
+                             int numRegistres = modC.MostrarGrups(mod).size();
+                             System.out.println("Num: " + numRegistres);
+                            
+
+                             for (int i = 0; i < numRegistres; i++) {
+                                  
+                                  model.add(i, modC.MostrarGrups(mod).get(i).getNom());
+                                /* columnes[1] = modC.MostrarGrups(mod).get(i).getNom();
+                                 columnes[2] = modC.MostrarGrups(mod).get(i).getIdGrup();
+                            
+                                 
+                                 model.addRow(columnes);*/
+
+                                 //mod.setId(modC.MostrarTasques().get(i).getId());
+                                 //modC.GuardarId(mod);
+
+                             }
+                             vis.jList1.setModel(model);
+                             // addCheckBox(0, vis.jTableInfoTasca);
+                            
+                             
+                            /* for (int i = 0; i < numRegistres; i++) {
+                                 
+                              
+                                 
+                                       model.setValueAt(false, i, 0);
+                             
+                                  
+                                  
+                                  
+                        
+                               
+                                 
+                                
+
+                             }
+
+                             vis.jTableInfoTasca.setModel(model);
+                             modelTasques = model;
+                             addCheckBox(0, vis.jTableInfoTasca);
+                             vis.jTableInfoTasca.removeColumn(vis.jTableInfoTasca.getColumnModel().getColumn(2));
+
+                             TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTableInfoTasca.getModel()));
+
+                             vis.jTableInfoTasca.setRowSorter(sorter);
+                             vis.jTableInfoTasca.getRowSorter().toggleSortOrder(1);*/
+
+
+                         }
+                         
+                         
+                         
+
+                         vis.txt_titolTasc2.setText(mod.getTitol());
+                         vis.ComboUsuariAssignat2.setSelectedItem(mod.getUsuariAssignat());
+                         
+                         
+                         vis.ComboUsuariAssignat2.removeAllItems();
                          modC.UsuariAssignat(vis, 1);
                          AutoCompleteDecorator.decorate(ComboUsuariAssignat2);
 
@@ -2257,9 +2370,10 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                          vis.DashTasques.setVisible(false);
                          break;
                      case 2:
-                         vis.ComboUsuariAssignat3.removeAll();
+                         vis.ComboUsuariAssignat3.removeAllItems();
                          modC.UsuariAssignat1(vis, 1);
                          AutoCompleteDecorator.decorate(ComboUsuariAssignat3);
+                         
 
                          vis.txt_titolTasc3.setText(mod.getTitol());
                          vis.ComboUsuariAssignat3.setSelectedItem(mod.getUsuariAssignat());

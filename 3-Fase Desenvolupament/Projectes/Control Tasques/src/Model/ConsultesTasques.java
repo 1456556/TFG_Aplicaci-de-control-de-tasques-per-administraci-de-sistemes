@@ -42,8 +42,71 @@ public class ConsultesTasques extends Conexio {
     
     
     
+    public ArrayList<Tasques> MostrarGrups(Tasques tas){
+        
+        ArrayList llistaTasques = new ArrayList();
+        int id_grup = 0;
+        
+        try{
+        
+            Connection cn = getConexio();
+             PreparedStatement pst = cn.prepareStatement("select id_grup from Grups where nom = '"+tas.getGrupAfectat()+"'");
+                ResultSet rs = pst.executeQuery();
+             
+                
+             if (rs.next()) {
+                    
+                   id_grup = rs.getInt(1);
+                    
+                    
+                }
+                 
+        
+        cn.close();
+        
+        }catch(SQLException e){
+        
+            System.err.println(e + "Error al buscar el id del grup per mostrar la taula a infotasques");
+        
+        }
+        
+       
+         try{
+        
+            Connection cn = getConexio();
+             PreparedStatement pst = cn.prepareStatement("select nomUsuari, id_usuari from GrupsUsuaris where id_grup = '"+id_grup+"'");
+                ResultSet rs = pst.executeQuery();
+             
+                
+             while (rs.next()) {
+                    
+                    tas = new Tasques();
+                    tas.setNom(rs.getString(1));
+                    tas.setIdGrup(rs.getInt(2));           
+                    llistaTasques.add(tas);
+                    
+                    
+                }
+                 
+        
+        cn.close();
+        
+        }catch(SQLException e){
+        
+              System.err.println(e + "Error al mostrar la taula de grups a infotasques");
+        
+        }
+        
+        return llistaTasques;
     
     
+    }
+        
+        
+        
+        
+    
+   
     
     
     public ArrayList<Tasques> MostrarTasques(){
@@ -134,6 +197,40 @@ public class ConsultesTasques extends Conexio {
     }
     
     
+    public void GrupAfectat(JFPrincipal vis, int i) {
+
+        try {
+
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select * from Grups");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                
+                if (i == 1){
+                //vis.ComboGrupAfectat.addItem("---");
+                vis.ComboGrupAfectat.addItem(rs.getString("nom"));
+               
+                }else{
+                
+                vis.ComboGrupAfectat1.addItem(rs.getString("nom"));
+                }
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al carregar el grupAfectat");
+            //JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
+
+        }
+
+    }
+    
+    
+    
     public void UsuariAssignat(JFPrincipal vis, int i) {
 
         try {
@@ -172,7 +269,7 @@ public class ConsultesTasques extends Conexio {
             Connection cn = getConexio();
             PreparedStatement pst = cn.prepareStatement("select * from Usuaris");
             ResultSet rs = pst.executeQuery();
-
+            
             while (rs.next()) {
                 
                 if (i == 1){
@@ -626,7 +723,7 @@ public class ConsultesTasques extends Conexio {
     public int NovaTasca(Tasques tas) {
         
         int novaTasca, validacio=0;
-        String titol,descripcio, data, usuari, estat, prioritat,date, time;
+        String titol,descripcio, data, usuari, estat, prioritat,date, time, grup;
         boolean notificacio;
         
         titol = tas.getTitol();
@@ -638,6 +735,7 @@ public class ConsultesTasques extends Conexio {
         date = tas.getData();
         time = tas.getHora();
         notificacio = tas.getNotificacio();
+        grup = tas.getGrupAfectat();
         
         
          if (titol.equals("")) {
@@ -675,7 +773,7 @@ public class ConsultesTasques extends Conexio {
                 data = date + " " + time;
 
                 Connection cn2 = getConexio();
-                PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, notificacio,  setNotificacio) values (?,?,?,?,?,?,?,?)");
+                PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, notificacio,  setNotificacio, grup) values (?,?,?,?,?,?,?,?,?)");
                 
                 pst2.setString(1, titol);
                 pst2.setString(2, prioritat);
@@ -685,6 +783,7 @@ public class ConsultesTasques extends Conexio {
                 pst2.setString(6, descripcio);
                 pst2.setInt(7, 0);
                 pst2.setBoolean(8, notificacio);
+                pst2.setString(9, grup);
                 pst2.executeUpdate();
                                                 
                 cn2.close();
@@ -1128,6 +1227,7 @@ public class ConsultesTasques extends Conexio {
                 tas.setDataProgres(rs.getString(15));
                 tas.setDiesSetmana(rs.getString(16));
                 tas.setIdSubtasca(rs.getInt(17));
+                tas.setGrupAfectat(rs.getString(18));
                
                             
 

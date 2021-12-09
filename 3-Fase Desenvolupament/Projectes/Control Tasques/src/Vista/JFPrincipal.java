@@ -214,6 +214,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jCheckBoxNotificacio = new javax.swing.JCheckBox();
         ComboPrioritatTasc1 = new javax.swing.JComboBox<>();
         jButtonRegistarTasca = new javax.swing.JButton();
+        ComboGrupAfectat = new javax.swing.JComboBox<>();
+        jLabel84 = new javax.swing.JLabel();
         DashNouGrup = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
@@ -371,6 +373,13 @@ public class JFPrincipal extends javax.swing.JFrame  {
         ComboPrioritatTasc2 = new javax.swing.JComboBox<>();
         dateTimePicker1 = new com.github.lgooddatepicker.components.DateTimePicker();
         ComboUsuariAssignat2 = new javax.swing.JComboBox<>();
+        ComboGrupAfectat1 = new javax.swing.JComboBox<>();
+        jLabel85 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableInfoTasca = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jCheckBox1 = new javax.swing.JCheckBox();
         DashGrups = new javax.swing.JPanel();
         Contador5 = new javax.swing.JPanel();
         jLabel64 = new javax.swing.JLabel();
@@ -1084,13 +1093,13 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel49.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 95, -1, -1));
 
-        jButtonRepeticio.setBackground(new java.awt.Color(255, 153, 51));
-        jButtonRepeticio.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRepeticio.setText("Repetició");
+        jButtonRepeticio.setBackground(new java.awt.Color(255, 153, 51));
         jButtonRepeticio.setBorder(null);
         jButtonRepeticio.setBorderPainted(false);
+        jButtonRepeticio.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRepeticio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel5.add(jButtonRepeticio, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 110, 20));
+        jPanel5.add(jButtonRepeticio, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 110, 20));
 
         jLabel55.setText("Titol");
         jLabel55.setBackground(new java.awt.Color(0, 0, 0));
@@ -1126,11 +1135,11 @@ public class JFPrincipal extends javax.swing.JFrame  {
         dateTimePicker.setForeground(new java.awt.Color(255, 153, 51));
         jPanel5.add(dateTimePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 350, 30));
 
-        jLabel63.setText("Usuari Assignat");
+        jLabel63.setText("Grup Afectat");
         jLabel63.setBackground(new java.awt.Color(255, 153, 51));
         jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel63.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 190, -1, 25));
+        jPanel5.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, 25));
 
         ComboEstatTasc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nova", "En espera", "En procés" }));
         ComboEstatTasc.setBackground(new java.awt.Color(255, 153, 51));
@@ -1143,7 +1152,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 jCheckBoxNotificacioActionPerformed(evt);
             }
         });
-        jPanel5.add(jCheckBoxNotificacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 100, 30));
+        jPanel5.add(jCheckBoxNotificacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 100, 30));
 
         ComboPrioritatTasc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitja", "Alta", "Urgent", "Prioritaria" }));
         ComboPrioritatTasc1.setBackground(new java.awt.Color(255, 153, 51));
@@ -1157,6 +1166,17 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jButtonRegistarTasca.setBorderPainted(false);
         jButtonRegistarTasca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel5.add(jButtonRegistarTasca, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 150, 30));
+
+        ComboGrupAfectat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+        ComboGrupAfectat.setBackground(new java.awt.Color(255, 153, 51));
+        ComboGrupAfectat.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(ComboGrupAfectat, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 150, 26));
+
+        jLabel84.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel84.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel84.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel84.setText("Usuari Assignat");
+        jPanel5.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 190, -1, 25));
 
         javax.swing.GroupLayout DashNovaTascaLayout = new javax.swing.GroupLayout(DashNovaTasca);
         DashNovaTasca.setLayout(DashNovaTascaLayout);
@@ -2597,50 +2617,92 @@ public class JFPrincipal extends javax.swing.JFrame  {
         ComboUsuariAssignat2.setBackground(new java.awt.Color(255, 153, 51));
         ComboUsuariAssignat2.setForeground(new java.awt.Color(255, 255, 255));
 
+        ComboGrupAfectat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+        ComboGrupAfectat1.setBackground(new java.awt.Color(255, 153, 51));
+        ComboGrupAfectat1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel85.setText("Grup Afectat");
+        jLabel85.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel85.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel85.setForeground(new java.awt.Color(0, 0, 0));
+
+        jTableInfoTasca.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableInfoTasca);
+
+        jScrollPane3.setViewportView(jList1);
+
+        jCheckBox1.setText("jCheckBox1");
+
         javax.swing.GroupLayout DashInfoTascaLayout = new javax.swing.GroupLayout(DashInfoTasca);
         DashInfoTasca.setLayout(DashInfoTascaLayout);
         DashInfoTascaLayout.setHorizontalGroup(
             DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DashInfoTascaLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashInfoTascaLayout.createSequentialGroup()
                 .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DashInfoTascaLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel57, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel62, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashInfoTascaLayout.createSequentialGroup()
+                                .addComponent(jLabel66)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_descripcioTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(65, 65, 65))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashInfoTascaLayout.createSequentialGroup()
+                                .addComponent(jButtonEditarTasca, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(167, 167, 167))))
+                    .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(DashInfoTascaLayout.createSequentialGroup()
-                                .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_titolTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ComboUsuariAssignat2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel57)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_titolTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(51, 51, 51)
-                                .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel60)
+                                .addGap(18, 18, 18)
+                                .addComponent(ComboPrioritatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                                .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                                        .addComponent(ComboUsuariAssignat2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(74, 74, 74)
                                         .addComponent(jLabel65)
                                         .addGap(18, 18, 18)
                                         .addComponent(ComboEstatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(DashInfoTascaLayout.createSequentialGroup()
-                                        .addComponent(jLabel60)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(ComboPrioritatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(dateTimePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashInfoTascaLayout.createSequentialGroup()
+                                        .addComponent(jLabel62)
+                                        .addGap(10, 10, 10)
+                                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(dateTimePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                                                .addComponent(jLabel85)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(ComboGrupAfectat1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(69, 69, 69)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(DashInfoTascaLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
                         .addComponent(Enrera2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(192, 192, 192)
-                        .addComponent(jLabel56))
-                    .addGroup(DashInfoTascaLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel66)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_descripcioTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(161, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashInfoTascaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonEditarTasca, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(306, 306, 306))
+                        .addComponent(jLabel56)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46))
         );
         DashInfoTascaLayout.setVerticalGroup(
             DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2648,36 +2710,48 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addGap(60, 60, 60)
                 .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel56)
-                    .addComponent(Enrera2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
+                    .addComponent(Enrera2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox1))
+                .addGap(49, 49, 49)
+                .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel60)
+                        .addComponent(ComboPrioritatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_titolTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel57)))
                 .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DashInfoTascaLayout.createSequentialGroup()
-                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel60)
-                            .addComponent(ComboPrioritatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
+                        .addGap(37, 37, 37)
                         .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel65)
-                            .addComponent(ComboEstatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(64, 64, 64)
-                        .addComponent(dateTimePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ComboEstatTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(DashInfoTascaLayout.createSequentialGroup()
-                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_titolTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel57))
-                        .addGap(48, 48, 48)
+                        .addGap(50, 50, 50)
                         .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel61)
                             .addComponent(ComboUsuariAssignat2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel62)))
-                .addGap(36, 36, 36)
+                        .addGap(18, 18, 18)
+                        .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel85)
+                            .addComponent(ComboGrupAfectat1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(31, 31, 31)
+                .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dateTimePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel62))
+                .addGap(27, 27, 27)
                 .addGroup(DashInfoTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_descripcioTasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel66))
-                .addGap(44, 44, 44)
+                .addGap(63, 63, 63)
                 .addComponent(jButtonEditarTasca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashInfoTascaLayout.createSequentialGroup()
+                .addContainerGap(117, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(216, 216, 216))
         );
 
         DashGrups.setBackground(new java.awt.Color(255, 255, 255));
@@ -4254,6 +4328,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JComboBox<String> ComboEstatTasc1;
     public javax.swing.JComboBox<String> ComboEstatTasc2;
     public javax.swing.JComboBox<String> ComboEstatTasc3;
+    public javax.swing.JComboBox<String> ComboGrupAfectat;
+    public javax.swing.JComboBox<String> ComboGrupAfectat1;
     public javax.swing.JComboBox<String> ComboMes;
     public javax.swing.JComboBox<String> ComboMes1;
     public javax.swing.JComboBox<String> ComboMesDia;
@@ -4382,6 +4458,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JButton jButtonRepeticio;
     public javax.swing.JButton jButtonTascaNormal;
     public javax.swing.JButton jButtonTascaRepetio;
+    private javax.swing.JCheckBox jCheckBox1;
     public javax.swing.JCheckBox jCheckBoxDijous;
     public javax.swing.JCheckBox jCheckBoxDijous1;
     public javax.swing.JCheckBox jCheckBoxDilluns;
@@ -4482,6 +4559,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel9;
     public javax.swing.JLabel jLabelAnys;
     public javax.swing.JLabel jLabelAnys1;
@@ -4495,6 +4574,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JLabel jLabelSetmanes1;
     public javax.swing.JLabel jLabelSetmanes2;
     public javax.swing.JLabel jLabelSetmanes3;
+    public javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -4519,7 +4599,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JRadioButton jRadioButtonSetmanal;
     public javax.swing.JRadioButton jRadioButtonSetmanal1;
     public javax.swing.JRadioButton jRadioButtonUsuaris;
+    public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JScrollPane jScrollPaneElements;
     public javax.swing.JScrollPane jScrollPaneUsuaris;
     public javax.swing.JScrollPane jScrollPane_Elements;
@@ -4532,6 +4614,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JSpinner jSpinnerAcabar1;
     public javax.swing.JTable jTableCrearGrupsElements;
     public javax.swing.JTable jTableCrearGrupsUsuaris;
+    public javax.swing.JTable jTableInfoTasca;
     public javax.swing.JTable jTable_Elements;
     public javax.swing.JTable jTable_Grups;
     public javax.swing.JTable jTable_Tasques;
