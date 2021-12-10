@@ -958,7 +958,7 @@ public class ConsultesTasques extends Conexio {
     public int EditarTasca(Tasques tas) {
 
         int editarTasca,id, validacio = 0;
-        String titol, descripcio, data, usuari, estat, prioritat, date, time;
+        String titol, descripcio, data, usuari, estat, prioritat, date, time, array;
         titol = tas.getTitol();
         descripcio = tas.getDescripcio();
         estat = tas.getEstat();
@@ -967,6 +967,7 @@ public class ConsultesTasques extends Conexio {
         date = tas.getData();
         time = tas.getHora();
         id = tas.getId();
+        array = tas.getArray();
         System.out.println("IDTASCA " + id);
         
 
@@ -997,7 +998,7 @@ public class ConsultesTasques extends Conexio {
 
                 
                     Connection cn2 = clases.Conexio.conectar();
-                    PreparedStatement pst2 = cn2.prepareStatement("update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=? where id_tasca = '" + tas.getId()  + "'");
+                    PreparedStatement pst2 = cn2.prepareStatement("update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=?, array=? where id_tasca = '" + tas.getId()  + "'");
 
                     String day = date.substring(8, 10);
                     String month = date.substring(5, 7);
@@ -1013,6 +1014,7 @@ public class ConsultesTasques extends Conexio {
                     pst2.setString(4, data);
                     pst2.setString(5, estat);
                     pst2.setString(6, descripcio);
+                    pst2.setString(7, array);
                     pst2.executeUpdate();
                     editarTasca = 1;
                     cn2.close();
@@ -1228,6 +1230,7 @@ public class ConsultesTasques extends Conexio {
                 tas.setDiesSetmana(rs.getString(16));
                 tas.setIdSubtasca(rs.getInt(17));
                 tas.setGrupAfectat(rs.getString(18));
+                tas.setArray(rs.getString(19));
                
                             
 

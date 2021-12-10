@@ -1703,18 +1703,34 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             System.out.println("Num: " + numRegistres);
             DefaultTableModel model = new DefaultTableModel();
             model = (DefaultTableModel) vis.jTableInfoTasca.getModel();
-            if (vis.jTableInfoTasca.isVisible()){
-            for (int i = 0; i < numRegistres; i++) {
+            String array = "";
+            System.out.print("MODEL"+ model.getValueAt(0, 0));
+            
+            if (vis.jTableInfoTasca.isVisible()) {
+                for (int i = 0; i < numRegistres; i++) {
+                    System.out.print("MODEL2"+ model.getValueAt(0, 0));
+                     System.out.print("VIS"+ vis.jTableInfoTasca.getValueAt(i, 0));
+                    Boolean value = (Boolean) vis.jTableInfoTasca.getValueAt(i, 0);
+                    if (value != null) {
+                        
+                        if (value == false){
 
-                if (model.getValueAt(i, 0).equals(true)) {
+                        array = array + 0 + ",";
+
+                    } else{
                     
-                     int id = (int) model.getValueAt(i,2);
                     
+
+                        array = array + 1 + ",";
+
+                    }
+                    }
+                    
+                    
+
                 }
-
-               
-
-            }
+                
+                mod.setArray(array);
             }
 
              if (estat_string == "Finalitzada") {
@@ -2264,67 +2280,117 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
        
                          } else {
                              vis.jTableInfoTasca.setVisible(true); 
-                             DefaultListModel model = new DefaultListModel();
+                             DefaultTableModel model = new DefaultTableModel();
                             // model =  (DefaultListModel) vis.jList1.getModel();
                              
                             
                             
 
-                           /*  model.addColumn("Sleccionar");                          
+                             model.addColumn("Sleccionar");                          
                              model.addColumn("Nom");
                              model.addColumn("ID");
 
-                             Object[] columnes = new Object[3];*/
+                             Object[] columnes = new Object[3];
 
                              int numRegistres = modC.MostrarGrups(mod).size();
                              System.out.println("Num: " + numRegistres);
                             
-
+                             //addCheckBox(0, vis.jTableInfoTasca);
+                             
+                              
+                              
                              for (int i = 0; i < numRegistres; i++) {
                                   
-                                  model.add(i, modC.MostrarGrups(mod).get(i).getNom());
-                                /* columnes[1] = modC.MostrarGrups(mod).get(i).getNom();
+                                  //model.add(i, modC.MostrarGrups(mod).get(i).getNom());
+                                 //columnes[0] = Boolean.TRUE;
+                                 columnes[1] = modC.MostrarGrups(mod).get(i).getNom();
                                  columnes[2] = modC.MostrarGrups(mod).get(i).getIdGrup();
                             
                                  
-                                 model.addRow(columnes);*/
+                                 model.addRow(columnes);
 
                                  //mod.setId(modC.MostrarTasques().get(i).getId());
                                  //modC.GuardarId(mod);
 
                              }
-                             vis.jList1.setModel(model);
-                             // addCheckBox(0, vis.jTableInfoTasca);
+                             vis.jTableInfoTasca.setModel(model);
+                               /*TableColumn tc = vis.jTableInfoTasca.getColumnModel().getColumn(0);
+                             tc.setCellEditor(vis.jTableInfoTasca.getDefaultEditor(Boolean.class));
+                             tc.setCellRenderer(vis.jTableInfoTasca.getDefaultRenderer(Boolean.class)); */                   
+                              addCheckBox(0, vis.jTableInfoTasca);
+                              String array = mod.getArray();
+                              System.out.println("Length" + array.length());
+                              array = array.replaceAll(",","");
+                              System.out.println("Length" + array.length());
+                              System.out.println(array);
+                              
+                            if (!array.equals(" ")){
+                             
+                             for (int i = 0; i < array.length(); i++) {
+                                 
+                             
+                                 System.out.println("Length2" + i);
+                                 char aux = array.charAt(i);
+                                 String aux2 = Character.toString(aux);
+                                 System.out.println("Cahr" + aux);
+                                 System.out.println("aux2" + aux2);
+                                 //model.setValueAt(true, i, 0);
+                                 
+                                 if (aux2.equals("1")) {
+                                      System.out.println("SOC 1");
+                                     model.setValueAt(true, i, 0);
+                                     //vis.jTableInfoTasca.setValueAt(true, i, 0);
+
+                                 } else {
+                                      System.out.println("SOC 2");
+                                     model.setValueAt(false, i, 0);
+                                 }
+                                 
+                             }
+                            
+                             vis.jTableInfoTasca.setModel(model);
+                             
+                               for (int i = 0; i < numRegistres; i++) {
+                                   System.out.println("Ha entrar");
+                                    Boolean value = (Boolean) vis.jTableInfoTasca.getValueAt(i, 0);
+                    
+                                   System.out.println("Ha entrar" + value);
+                                   if(value == false ){
+                                  System.out.println("Ha entrar");
+                                       columnes[0] = Boolean.FALSE;
+                                   }else{
+                                       System.out.println("Ha entrar");
+                                       columnes[0] = Boolean.TRUE;
+                                   
+                                   }
+                                   
+                                   
+                               }
+                               
+                            }
+                             
+                            
+                            vis.jTableInfoTasca.setModel(model);
+                              //fireTableCellUpdated();
                             
                              
-                            /* for (int i = 0; i < numRegistres; i++) {
-                                 
-                              
-                                 
-                                       model.setValueAt(false, i, 0);
                              
-                                  
-                                  
-                                  
-                        
-                               
-                                 
-                                
-
-                             }
-
-                             vis.jTableInfoTasca.setModel(model);
+                             
                              modelTasques = model;
-                             addCheckBox(0, vis.jTableInfoTasca);
+                             //addCheckBox(0, vis.jTableInfoTasca);
                              vis.jTableInfoTasca.removeColumn(vis.jTableInfoTasca.getColumnModel().getColumn(2));
 
                              TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTableInfoTasca.getModel()));
 
                              vis.jTableInfoTasca.setRowSorter(sorter);
-                             vis.jTableInfoTasca.getRowSorter().toggleSortOrder(1);*/
+                            //vis.jTableInfoTasca.getRowSorter().toggleSortOrder(1);              
+
+                             }
+
+                            
 
 
-                         }
+                         
                          
                          
                          

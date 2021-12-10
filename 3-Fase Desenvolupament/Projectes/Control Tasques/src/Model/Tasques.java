@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -38,6 +39,17 @@ public class Tasques {
    String grupAfectat;
     int idGrup;
    String nom;
+   String array;
+
+    public String getArray() {
+        return array;
+    }
+
+    public void setArray(String array) {
+        this.array = array;
+    }
+
+   
 
     public int getIdGrup() {
         return idGrup;
