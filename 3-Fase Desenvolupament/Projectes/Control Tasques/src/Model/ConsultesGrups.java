@@ -263,6 +263,7 @@ public class ConsultesGrups extends Conexio {
         int nouGrup=0, validacio=0;
         String nom;
         nom = gru.getNom();
+        boolean tipus = gru.getTipusGrup();
         
         
          if (nom.equals("")) {
@@ -286,12 +287,13 @@ public class ConsultesGrups extends Conexio {
                     System.out.println("ID:" + arrayID[i]);
 
                     Connection cn = getConexio();
-                    PreparedStatement pst = cn.prepareStatement("insert into GrupsUsuaris values (?,?,?,?)");
+                    PreparedStatement pst = cn.prepareStatement("insert into GrupsUsuaris values (?,?,?,?,?)");
 
                     pst.setInt(1, 0);
                     pst.setInt(2, arrayID[i]);
                     pst.setString(3, nom);
                     pst.setString(4, array[i]);
+                    pst.setBoolean(5, tipus);
 
                     pst.executeUpdate();
                     cn.close();
@@ -302,9 +304,10 @@ public class ConsultesGrups extends Conexio {
                 
 
                 Connection cn1 = getConexio();
-                PreparedStatement pst1 = cn1.prepareStatement("insert into Grups values (?,?)");
+                PreparedStatement pst1 = cn1.prepareStatement("insert into Grups values (?,?,?)");
                 pst1.setInt(1, 0);
                 pst1.setString(2, gru.getNom());
+                pst1.setBoolean(3,tipus);
                 pst1.executeUpdate();
                 cn1.close();
 
@@ -339,20 +342,98 @@ public class ConsultesGrups extends Conexio {
     }
     
     
+     public int informacioGrups(Grups gru) {
+
+        System.out.println("ID" + gru.getId());
+        int informacioGrups = 0;
+        try {
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select * from Grups where id_grup = '" + gru.getId() + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                gru.setNom(rs.getString(2));
+                gru.setTipusGrup(rs.getBoolean(3));
+
+            }
+
+            cn.close();
+
+            if (gru.getTipusGrup() == true) {
+
+                informacioGrups = 2;
+
+            } else {
+
+                informacioGrups = 1;
+
+            }
+
+        } catch (SQLException e) {
+
+            informacioGrups = 2;
+            System.err.println("Error al solicitar les dades" + e);
+
+        }
+
+        try {
+            Connection cn2 = getConexio();
+            PreparedStatement pst2 = cn2.prepareStatement("select id_usuari, nomUsuari from GrupsUsuaris where id_grup = '" + gru.getId() + "'");
+            ResultSet rs2 = pst2.executeQuery();
+            ArrayList<String> UsuariArrayList = new ArrayList<String>();
+            ArrayList<Integer> idArrayList = new ArrayList<Integer>();
+            gru.setUsuariArrayList(UsuariArrayList);
+            gru.setIdArrayList(idArrayList);
+            ArrayList<String> ElementArrayList = new ArrayList<String>();
+            ArrayList<Integer> idElementArrayList = new ArrayList<Integer>();
+            gru.setElementArrayList(ElementArrayList);
+            gru.setIdElementArrayList(idElementArrayList);
+
+            while (rs2.next()) {
+
+                if (gru.getTipusGrup() == true) {
+
+                    gru.getIdArrayList().add(rs2.getInt(1));
+                    gru.getUsuariArrayList().add(rs2.getString(2));
+
+                } else {
+
+                    gru.getIdElementArrayList().add(rs2.getInt(1));
+                    gru.getElementArrayList().add(rs2.getString(2));
+
+                }
+
+            }
+
+            cn2.close();
+
+            System.out.print("ArrayList" + gru.getUsuariArrayList());
+            System.out.print("ArrayList" + gru.getElementArrayList());
+
+        } catch (SQLException e) {
+
+            informacioGrups = 2;
+            System.err.println("Error al solicitar les dades de tipus de grup" + e);
+
+        }
+
+        return informacioGrups;
+    }
+
+
     public int NouElementGrup(Grups gru) {
-        
-        int nouGrup=0, validacio=0;
+
+        int nouGrup = 0, validacio = 0;
         String nom;
         nom = gru.getNom();
-        
-        
-         if (nom.equals("")) {
-            
+
+        if (nom.equals("")) {
+
             validacio++;
         }
-      
-        
-        
+
+
         if (validacio == 0) {
             
             

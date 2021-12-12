@@ -160,7 +160,8 @@ public class ConsultesUsuaris extends Conexio {
                 
                 Connection cn2 = clases.Conexio.conectar();
                 PreparedStatement pst2 = cn2.prepareStatement("update Usuaris set nom=?, cognom=?, telefon=?, email=?, usuari=?, contrassenya=?, nivell=?, estat=? where id_usuari = '" + usu.getId()  + "'");
-
+                
+                
                 pst2.setString(1, nom);
                 pst2.setString(2, cognom);
                 pst2.setString(3, telefon);
@@ -171,9 +172,16 @@ public class ConsultesUsuaris extends Conexio {
                 pst2.setString(8, estat);
                 pst2.executeUpdate();
                 cn2.close();
-                editarUsuari = 1;
+                
                 System.err.println("Usuari modificat");
                 
+                Connection cn3 = clases.Conexio.conectar();
+                PreparedStatement pst3 = cn3.prepareStatement("update GrupsUsuaris set nomUsuari=? where id_usuari = '" + usu.getId()  + "'");
+                pst3.setString(1, usuari);
+                pst3.executeUpdate();
+                cn3.close();
+                
+                editarUsuari = 1;
 
             } catch (SQLException e) {
                 editarUsuari = 2;
@@ -250,16 +258,15 @@ public class ConsultesUsuaris extends Conexio {
             try {
 
                 Connection cn = getConexio();              
-                PreparedStatement pst2 = cn.prepareStatement("insert into Usuaris values (?,?,?,?,?,?,?,?,?)");
-                pst2.setInt(1, 0);
-                pst2.setString(2, nom);
-                pst2.setString(3, cognom);
-                pst2.setString(4, telefon);
-                pst2.setString(5, mail);
-                pst2.setString(6, usuari);
-                pst2.setString(7, contrasenya);
-                pst2.setString(8, nivell);
-                pst2.setString(9, estat);
+                PreparedStatement pst2 = cn.prepareStatement("insert into Usuaris (nom, cognom, telefon, email, usuari, nivell, estat) values (?,?,?,?,?,?,?)");
+               
+                pst2.setString(1, nom);
+                pst2.setString(2, cognom);
+                pst2.setString(3, telefon);
+                pst2.setString(4, mail);
+                pst2.setString(5, usuari);                
+                pst2.setString(6, nivell);
+                pst2.setString(7, estat);
 
                 pst2.executeUpdate();
                 cn.close();

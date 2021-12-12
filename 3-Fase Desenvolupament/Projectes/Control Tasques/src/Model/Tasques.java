@@ -40,6 +40,15 @@ public class Tasques {
     int idGrup;
    String nom;
    String array;
+   Boolean tipusGrup;
+
+    public Boolean getTipusGrup() {
+        return tipusGrup;
+    }
+
+    public void setTipusGrup(Boolean tipusGrup) {
+        this.tipusGrup = tipusGrup;
+    }
 
     public String getArray() {
         return array;

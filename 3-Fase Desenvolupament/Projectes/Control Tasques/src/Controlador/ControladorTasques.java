@@ -6,10 +6,14 @@
 package Controlador;
 
 
+import Model.ConsultesElements;
 import Model.ConsultesRepeticio;
 import Model.ConsultesTasques;
+import Model.ConsultesUsuaris;
+import Model.Elements;
 import Model.Login;
 import Model.Tasques;
+import Model.Usuaris;
 import Vista.JFPrincipal;
 import Vista.JFRepeticio;
 import clases.Conexio;
@@ -85,16 +89,18 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         
         this.vis.jButtonNovaTasca.addActionListener(this);
         this.vis.jButtonRepeticio.addActionListener(this);
-         this.vis.jButtonRegistarTasca.addActionListener(this);
+        this.vis.jButtonRegistarTasca.addActionListener(this);
         this.vis.jButtonEditarTasca.addActionListener(this);
         this.vis.jButtonEliminarTasca.addActionListener(this);
         this.vis.jButtonRepeticio.addActionListener(this);        
-        this.vis.jTable_Tasques.addMouseListener(this);        
+        this.vis.jTable_Tasques.addMouseListener(this);
+        this.vis.jTableInfoTasca.addMouseListener(this);
+        this.vis.jTableInfoTasca1.addMouseListener(this);
         this.vis.txtBuscadorTasques.addKeyListener(this);
         this.vis.jButtonTascaNormal.addActionListener(this);
-        this.vis.jButtonTascaRepetio.addActionListener(this);
-        
+        this.vis.jButtonTascaRepetio.addActionListener(this);       
         this.vis.jComboBoxDashTasquesUsuari.addItemListener(this);
+        
         
         
         this.vis.jButtonAceptar.addActionListener(this);
@@ -143,6 +149,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         this.vis.jRadioButtonSetmanal1.addActionListener(this);
         this.vis.jRadioButtonAnual1.addActionListener(this);
         
+        
        
         vis.ComboMes.setVisible(false);
         vis.jRadioButtonEl.setVisible(false);
@@ -158,6 +165,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         vis.jCheckBoxDiumenge.setVisible(false);
         vis.jCheckBoxDilluns.setVisible(false);
         vis.jCheckBoxDimarts.setVisible(false);
+       
         
         vis.jLabelMesos1.setVisible(false);
         vis.jLabelAnys1.setVisible(false);
@@ -201,41 +209,41 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
      @Override
     public void itemStateChanged(ItemEvent e) {
         
-         DefaultComboBoxModel mdl = new DefaultComboBoxModel();
+        
+        
+        
+         if (e.getSource() == vis.jComboBoxDashTasquesUsuari) {
+             
+              DefaultComboBoxModel mdl = new DefaultComboBoxModel();
             mdl.removeAllElements();
             vis.jComboBoxDashTasquesUsuari.setModel(mdl);            
             
            vis.jComboBoxDashTasquesUsuari.setSelectedItem(Login.usuari);
            modC.UsuariAssignat1(vis,2);
             AutoCompleteDecorator.decorate(vis.jComboBoxDashTasquesUsuari);    
-        
-        
-        if (e.getSource() == vis.jComboBoxDashTasquesUsuari){
-        
-            String query = vis.jComboBoxDashTasquesUsuari.getSelectedItem().toString();
-           
-            
+
+             String query = vis.jComboBoxDashTasquesUsuari.getSelectedItem().toString();
+
              TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
              trs = (TableRowSorter<DefaultTableModel>) vis.jTable_Tasques.getRowSorter();
-              DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();
-            
-             
-             if (query != " "){
-             
+             DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();
+
+             if (query != "") {
+
                  trs.setRowFilter(RowFilter.regexFilter(query));
-             
-             
-             }else{
-             
+
+             } else {
+
                  vis.jTable_Tasques.setRowSorter(trs);
-                 
+
              }
-             
-             vis.jTable_Tasques.setModel(model_tasques3);         
-            
-        
-        }
-        
+
+             vis.jTable_Tasques.setModel(model_tasques3);
+
+         }
+
+         
+
     }
 
 
@@ -1130,8 +1138,18 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             vis.ComboUsuariAssignat1.setModel(mdl);
             vis.ComboUsuariAssignat1.setSelectedItem(Login.usuari);
             modC.UsuariAssignat1(vis,0);
-            AutoCompleteDecorator.decorate(vis.ComboUsuariAssignat1);            
+            AutoCompleteDecorator.decorate(vis.ComboUsuariAssignat1);
+
+            DefaultComboBoxModel mdl2 = new DefaultComboBoxModel();
+            mdl2.removeAllElements();
+            vis.ComboGrupAfectat2.setModel(mdl2);
+            vis.ComboGrupAfectat2.addItem("--------");
+            modC.GrupAfectat(vis, 1);
+            vis.ComboGrupAfectat2.setSelectedItem("--------");
+            AutoCompleteDecorator.decorate(vis.ComboGrupAfectat2);
             natejar();
+
+           
         
         
         }
@@ -1152,6 +1170,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
              String prioritat_string = null, estat_string = null, aux = " ";
              mod.setTitol(vis.txt_titolTasc1.getText().trim());
              mod.setUsuariAssignat(vis.ComboUsuariAssignat1.getSelectedItem().toString());
+             mod.setGrupAfectat(vis.ComboGrupAfectat2.getSelectedItem().toString());
              mod.setDescripcio(vis.txt_descripcioTasc1.getText().trim());
              int estat = vis.ComboEstatTasc1.getSelectedIndex() + 1;
              int prioritat = vis.ComboPrioritatTasc3.getSelectedIndex() + 1;
@@ -1640,7 +1659,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             String prioritat_string = null, estat_string = null;
 
             mod.setTitol(vis.txt_titolTasc2.getText().trim());
-            mod.setUsuariAssignat(vis.ComboUsuariAssignat2.getSelectedItem().toString());            
+            mod.setUsuariAssignat(vis.ComboUsuariAssignat2.getSelectedItem().toString());
+            mod.setGrupAfectat(vis.ComboGrupAfectat1.getSelectedItem().toString());  
             mod.setData(vis.dateTimePicker1.getDatePicker().toString());            
             mod.setHora(vis.dateTimePicker1.getTimePicker().toString());            
             estat = vis.ComboEstatTasc2.getSelectedIndex() +1;
@@ -1698,39 +1718,54 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
              mod.setEstat(estat_string);
              mod.setPrioritat(prioritat_string);
-             
-            int numRegistres = modC.MostrarGrups(mod).size();
-            System.out.println("Num: " + numRegistres);
+           
+            
             DefaultTableModel model = new DefaultTableModel();
+            
             model = (DefaultTableModel) vis.jTableInfoTasca.getModel();
+           
+            vis.jTableInfoTasca.revalidate();
             String array = "";
             System.out.print("MODEL"+ model.getValueAt(0, 0));
             
+           
+           
+            
+            int numRegistres = vis.jTableInfoTasca.getRowCount();
+                  
+            System.out.println("Num: " + numRegistres);
+            
+            
+            
             if (vis.jTableInfoTasca.isVisible()) {
                 for (int i = 0; i < numRegistres; i++) {
-                    System.out.print("MODEL2"+ model.getValueAt(0, 0));
-                     System.out.print("VIS"+ vis.jTableInfoTasca.getValueAt(i, 0));
-                    Boolean value = (Boolean) vis.jTableInfoTasca.getValueAt(i, 0);
+                    System.out.print("MODEL2" + model.getValueAt(0, 0));
+                    System.out.print("VIS" + this.vis.jTableInfoTasca.getValueAt(i, 0));
+                    Boolean value = (Boolean) model.getValueAt(i, 0);
                     if (value != null) {
-                        
-                        if (value == false){
 
-                        array = array + 0 + ",";
+                        if (value == true) {
 
-                    } else{
+                            array = array + 1 + ",";
+
+                        }
+                        if (value == false) {
+
+                            array = array + 0 + ",";
+
+                        }
+                    }else{
                     
+                    array = array + 0 + ",";
                     
-
-                        array = array + 1 + ",";
-
                     }
-                    }
-                    
-                    
 
                 }
-                
+
+            
+
                 mod.setArray(array);
+                vis.jTableInfoTasca.setModel(model);
             }
 
              if (estat_string == "Finalitzada") {
@@ -1787,6 +1822,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
              String prioritat_string = null, estat_string = null, aux = " ";
              mod.setTitol(vis.txt_titolTasc3.getText().trim());
              mod.setUsuariAssignat(vis.ComboUsuariAssignat3.getSelectedItem().toString());
+             mod.setGrupAfectat(vis.ComboGrupAfectat3.getSelectedItem().toString()); 
              mod.setDescripcio(vis.txt_descripcioTasc3.getText().trim());
              int estat = vis.ComboEstatTasc3.getSelectedIndex() + 1;
              int prioritat = vis.ComboPrioritatTasc4.getSelectedIndex() + 1;
@@ -1943,13 +1979,53 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
                      modC.FinalitzarTasca(mod);
                      natejar();
-                     vis.DashInfoTascaRepeticio.setVisible(false);
-                     vis.DashTasques.setVisible(true);
-                     MostrarTaula(vis.jTable_Tasques);
+                    vis.DashInfoTascaRepeticio.setVisible(false);
+                    vis.DashTasques.setVisible(true);
+                    MostrarTaula(vis.jTable_Tasques);
 
-                 }
+                }
 
-             } 
+            }
+
+            DefaultTableModel model = new DefaultTableModel();
+
+            model = (DefaultTableModel) vis.jTableInfoTasca1.getModel();
+
+            vis.jTableInfoTasca1.revalidate();
+            String array = "";
+            System.out.print("MODEL" + model.getValueAt(0, 0));
+            int numRegistres = vis.jTableInfoTasca1.getRowCount();
+
+            System.out.println("Num: " + numRegistres);
+
+            if (vis.jTableInfoTasca1.isVisible()) {
+                for (int i = 0; i < numRegistres; i++) {
+                    System.out.print("MODEL2" + model.getValueAt(0, 0));
+                    System.out.print("VIS" + this.vis.jTableInfoTasca1.getValueAt(i, 0));
+                    Boolean value = (Boolean) model.getValueAt(i, 0);
+                    if (value != null) {
+
+                        if (value == true) {
+
+                            array = array + 1 + ",";
+
+                        }
+                        if (value == false) {
+
+                            array = array + 0 + ",";
+
+                        }
+                    } else {
+
+                        array = array + 0 + ",";
+
+                    }
+
+                }
+                
+                mod.setArray(array);
+                
+            }
 
              mod.setEstat(estat_string);
              mod.setPrioritat(prioritat_string);
@@ -2111,53 +2187,6 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     @Override
     public void keyReleased(java.awt.event.KeyEvent evt) {
 
-        
-
-          /*  DefaultTableModel model_tasques = new DefaultTableModel();     
-            
-            
-            model_tasques.addColumn("Sleccionar");
-            model_tasques.addColumn("Titol");
-            model_tasques.addColumn("Prioritat");
-            model_tasques.addColumn("Usuari assignat");
-            model_tasques.addColumn("Data");
-            model_tasques.addColumn("Estat");
-            model_tasques.addColumn("ID");
-            
-
-            Object[] columna = new Object[7];
-            
-            System.out.print("Buscador" + vis.txtBuscadorTasques.getText());
-            System.out.println("Titol" + mod.getTitol());
-            
-            int numRegistres = modC.BuscarTasques(vis.txtBuscadorTasques.getText()).size();
-
-            for (int i = 0; i < numRegistres; i++) {
-
-                columna[1] = modC.BuscarTasques(vis.txtBuscadorTasques.getText()).get(i).getTitol();
-                columna[2] = modC.BuscarTasques(vis.txtBuscadorTasques.getText()).get(i).getPrioritat();
-                columna[3] = modC.BuscarTasques(vis.txtBuscadorTasques.getText()).get(i).getUsuariAssignat();
-                columna[4] = modC.BuscarTasques(vis.txtBuscadorTasques.getText()).get(i).getData();
-                columna[5] = modC.BuscarTasques(vis.txtBuscadorTasques.getText()).get(i).getEstat();
-                columna[6] = modC.BuscarTasques(vis.txtBuscadorTasques.getText()).get(i).getId();
-                model_tasques.addRow(columna);
-                System.out.println("Titol" + mod.getTitol());
-                mod.setId(modC.MostrarTasques().get(i).getId());
-                modC.GuardarId(mod);
-            }
-            
-            for (int i = 0; i < numRegistres; i++) {
-
-            model_tasques.setValueAt(false, i, 0);
-
-            }
-
-            
-            vis.jTable_Tasques.setModel(model_tasques);
-            
-            modelTasques = model_tasques;
-             addCheckBox(0, vis.jTable_Tasques);                      
-            vis.jTable_Tasques.removeColumn(vis.jTable_Tasques.getColumnModel().getColumn(6));*/
             
              TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Tasques.getModel()));
             sorter.setRowFilter(RowFilter.regexFilter(vis.txtBuscadorTasques.getText()));
@@ -2221,15 +2250,9 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        
+
         if (e.getSource() == vis.jTable_Tasques) {
 
-            
-            
-           //TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Tasques.getModel()));
-            //sorter.setRowFilter(RowFilter.regexFilter(vis.txtBuscadorTasques.getText()));
-           // vis.jTable_Tasques.setRowSorter(sorter);
-            
             int fila_point = vis.jTable_Tasques.rowAtPoint(e.getPoint());
             int columna_point = vis.jTable_Tasques.columnAtPoint(e.getPoint());
             int columna = 1;
@@ -2240,306 +2263,465 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             vis.jTable_Tasques.updateUI();
 
             if (fila_point > -1 && columna_point > 0) {
-                
-               // DefaultTableModel model_tasques2 = new DefaultTableModel(((TableRowSorter) vis.jTable_Tasques.getModel()));
-               // DefaultTableModel model_tasques2 = new DefaultTableModel();
-               // model_tasques2 = (DefaultTableModel) vis.jTable_Tasques.getModel();
-                
-                
+
                 TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
-                trs = (TableRowSorter<DefaultTableModel>) vis.jTable_Tasques.getRowSorter();               
+                trs = (TableRowSorter<DefaultTableModel>) vis.jTable_Tasques.getRowSorter();
                 DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();
-                
-                //System.out.println("SOORTER" + sorter.convertRowIndexToView(fila_point));
+
                 String titol = String.valueOf(model_tasques3.getValueAt(trs.convertRowIndexToModel(fila_point), columna));
                 System.out.println("Titol" + titol);
-                //String titol = model_tasques2.getValueAt(fila_point, columna).toString();
+
                 mod.setTitol(titol);
-                //int id  = (int) .getValueAt(fila_point,6);
+
                 int id = (int) model_tasques3.getValueAt(trs.convertRowIndexToModel(fila_point), 6);
                 mod.setId(id);
                 System.out.println("INT_ID: " + mod.getId());
-               // NotificacioTasca(id);
-                
-                
-                switch (modC.informacioTasca(mod)){
-                
+
+                switch (modC.informacioTasca(mod)) {
+
                     case 0:
-                         JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");
-                         break;
-                     case 1:
-                         vis.ComboGrupAfectat1.removeAllItems();
-                         modC.GrupAfectat(vis, 0);
-                         vis.ComboGrupAfectat1.addItem("--------");
-                         AutoCompleteDecorator.decorate(ComboGrupAfectat1);
-                         vis.ComboGrupAfectat1.setSelectedItem(mod.getGrupAfectat());
-                         
-                         if (mod.getGrupAfectat().equals("--------")){
-                         
-                             vis.jTableInfoTasca.setVisible(false);                         
-       
-                         } else {
-                             vis.jTableInfoTasca.setVisible(true); 
-                             DefaultTableModel model = new DefaultTableModel();
-                            // model =  (DefaultListModel) vis.jList1.getModel();
-                             
+                        JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");
+                        break;
+                    case 1:
+                        vis.ComboGrupAfectat1.removeAllItems();
+                        modC.GrupAfectat(vis, 0);
+                        vis.ComboGrupAfectat1.addItem("--------");
+                        AutoCompleteDecorator.decorate(ComboGrupAfectat1);
+                        vis.ComboGrupAfectat1.setSelectedItem(mod.getGrupAfectat());
+
+                        if (mod.getGrupAfectat().equals("--------")) {
+
+                            vis.jTableInfoTasca.setVisible(false);
+                            vis.jScrollPane1.setVisible(false);
+
+                        } else {
+                            vis.jScrollPane1.setVisible(true);
+                            vis.jTableInfoTasca.setVisible(true);
+
+                            DefaultTableModel model = new DefaultTableModel();
+
+                            model.addColumn("Sleccionar");
+                            model.addColumn("Nom");
+                            model.addColumn("ID");
+
+                            Object[] columnes = new Object[3];
+
+                            int numRegistres = modC.MostrarGrups(mod).size();
+                            System.out.println("Num: " + numRegistres);
+
+                            String array = mod.getArray();
+                            System.out.println("Length" + array.length());
+                            array = array.replaceAll(",", "");
+                            System.out.println("Length" + array.length());
+                            System.out.println(array);
                             
                             
 
-                             model.addColumn("Sleccionar");                          
-                             model.addColumn("Nom");
-                             model.addColumn("ID");
+                            for (int i = 0; i < numRegistres; i++) {
 
-                             Object[] columnes = new Object[3];
+                                if (!array.equals(" ") && (numRegistres == array.length()) ) {
+                                    System.out.println("Length2" + i);
+                                    char aux = array.charAt(i);
+                                    String aux2 = Character.toString(aux);
+                                    System.out.println("Cahr" + aux);
+                                    System.out.println("aux2" + aux2);
 
-                             int numRegistres = modC.MostrarGrups(mod).size();
-                             System.out.println("Num: " + numRegistres);
-                            
-                             //addCheckBox(0, vis.jTableInfoTasca);
-                             
-                              
-                              
-                             for (int i = 0; i < numRegistres; i++) {
-                                  
-                                  //model.add(i, modC.MostrarGrups(mod).get(i).getNom());
-                                 //columnes[0] = Boolean.TRUE;
-                                 columnes[1] = modC.MostrarGrups(mod).get(i).getNom();
-                                 columnes[2] = modC.MostrarGrups(mod).get(i).getIdGrup();
-                            
-                                 
-                                 model.addRow(columnes);
+                                    if (aux2.equals("1")) {
 
-                                 //mod.setId(modC.MostrarTasques().get(i).getId());
-                                 //modC.GuardarId(mod);
-
-                             }
-                             vis.jTableInfoTasca.setModel(model);
-                               /*TableColumn tc = vis.jTableInfoTasca.getColumnModel().getColumn(0);
-                             tc.setCellEditor(vis.jTableInfoTasca.getDefaultEditor(Boolean.class));
-                             tc.setCellRenderer(vis.jTableInfoTasca.getDefaultRenderer(Boolean.class)); */                   
-                              addCheckBox(0, vis.jTableInfoTasca);
-                              String array = mod.getArray();
-                              System.out.println("Length" + array.length());
-                              array = array.replaceAll(",","");
-                              System.out.println("Length" + array.length());
-                              System.out.println(array);
-                              
-                            if (!array.equals(" ")){
-                             
-                             for (int i = 0; i < array.length(); i++) {
-                                 
-                             
-                                 System.out.println("Length2" + i);
-                                 char aux = array.charAt(i);
-                                 String aux2 = Character.toString(aux);
-                                 System.out.println("Cahr" + aux);
-                                 System.out.println("aux2" + aux2);
-                                 //model.setValueAt(true, i, 0);
-                                 
-                                 if (aux2.equals("1")) {
-                                      System.out.println("SOC 1");
-                                     model.setValueAt(true, i, 0);
-                                     //vis.jTableInfoTasca.setValueAt(true, i, 0);
-
-                                 } else {
-                                      System.out.println("SOC 2");
-                                     model.setValueAt(false, i, 0);
-                                 }
-                                 
-                             }
-                            
-                             vis.jTableInfoTasca.setModel(model);
-                             
-                               for (int i = 0; i < numRegistres; i++) {
-                                   System.out.println("Ha entrar");
-                                    Boolean value = (Boolean) vis.jTableInfoTasca.getValueAt(i, 0);
-                    
-                                   System.out.println("Ha entrar" + value);
-                                   if(value == false ){
-                                  System.out.println("Ha entrar");
-                                       columnes[0] = Boolean.FALSE;
-                                   }else{
-                                       System.out.println("Ha entrar");
-                                       columnes[0] = Boolean.TRUE;
-                                   
-                                   }
-                                   
-                                   
-                               }
-                               
+                                        columnes[0] = Boolean.TRUE;
+                                    }
+                                    if (aux2.equals("0")) {
+                                        columnes[0] = Boolean.FALSE;
+                                    }
+                                }
+                                columnes[1] = modC.MostrarGrups(mod).get(i).getNom();
+                                columnes[2] = modC.MostrarGrups(mod).get(i).getIdGrup();
+                                model.addRow(columnes);
+                                System.out.println("ID GRUP" + modC.MostrarGrups(mod).get(i).getIdGrup());
+                                
                             }
-                             
+                            
+                            
+                            
                             
                             vis.jTableInfoTasca.setModel(model);
-                              //fireTableCellUpdated();
+                            addCheckBox(0, vis.jTableInfoTasca);
+                            //modelTasques = model;
+                            vis.jTableInfoTasca.removeColumn(vis.jTableInfoTasca.getColumnModel().getColumn(2));
+                            TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTableInfoTasca.getModel()));
+                            vis.jTableInfoTasca.setRowSorter(sorter);                                    
+
+                        }
+
+                        vis.txt_titolTasc2.setText(mod.getTitol());
+                        vis.ComboUsuariAssignat2.setSelectedItem(mod.getUsuariAssignat());
+
+                        vis.ComboUsuariAssignat2.removeAllItems();
+                        modC.UsuariAssignat(vis, 1);
+                        AutoCompleteDecorator.decorate(ComboUsuariAssignat2);
+
+                        vis.txt_titolTasc2.setText(mod.getTitol());
+                        vis.ComboUsuariAssignat2.setSelectedItem(mod.getUsuariAssignat());
+                        vis.txt_descripcioTasc2.setText(mod.getDescripcio());
+
+                        String d = mod.getData();
+                        String date = d.substring(0, 10);
+                        String time = d.substring(11, 16);
+                        String data = date.replace("-", "/");
+
+                        System.out.println("DATAASAAAAAAAA:" + d);
+                        System.out.println("sSubCadena:" + date);
+                        System.out.println("sSubCadena:" + data);
+                        System.out.println("sSubCadena:" + time);
+
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+
+                        //convert String to LocalDate
+                        LocalDate localDate = LocalDate.parse(data, formatter);
+                        LocalTime localTime = LocalTime.parse(time, formatter2);
+
+                        vis.dateTimePicker1.datePicker.setDate(localDate);
+                        vis.dateTimePicker1.timePicker.setTime(localTime);
+                        vis.ComboPrioritatTasc2.setSelectedItem(mod.getPrioritat());
+                        vis.ComboEstatTasc2.setSelectedItem(mod.getEstat());
+                        vis.txt_titolTasc2.setText(mod.getTitol());
+                        vis.DashInfoTasca.setVisible(true);
+                        vis.DashTasques.setVisible(false);
+                        break;
+                    case 2:
+                        vis.ComboUsuariAssignat3.removeAllItems();
+                        modC.UsuariAssignat1(vis, 1);
+                        AutoCompleteDecorator.decorate(ComboUsuariAssignat3);                 
+                        vis.ComboGrupAfectat3.removeAllItems();
+                        modC.GrupAfectat(vis, 0);
+                        vis.ComboGrupAfectat3.addItem("--------");
+                        AutoCompleteDecorator.decorate(ComboGrupAfectat3);
+                        vis.ComboGrupAfectat3.setSelectedItem(mod.getGrupAfectat());
+
+                        if (mod.getGrupAfectat().equals("--------")) {
+
+                            vis.jTableInfoTasca1.setVisible(false);
+                            vis.jScrollPane3.setVisible(false);
+
+                        } else {
+                            vis.jScrollPane3.setVisible(true);
+                            vis.jTableInfoTasca1.setVisible(true);
+
+                            DefaultTableModel model = new DefaultTableModel();
+
+                            model.addColumn("Sleccionar");
+                            model.addColumn("Nom");
+                            model.addColumn("ID");
+
+                            Object[] columnes = new Object[3];
+
+                            int numRegistres = modC.MostrarGrups(mod).size();
+                            System.out.println("Num: " + numRegistres);
+
+                            String array = mod.getArray();
+                            System.out.println("Length" + array.length());
+                            array = array.replaceAll(",", "");
+                            System.out.println("Length" + array.length());
+                            System.out.println(array);
                             
-                             
-                             
-                             
-                             modelTasques = model;
-                             //addCheckBox(0, vis.jTableInfoTasca);
-                             vis.jTableInfoTasca.removeColumn(vis.jTableInfoTasca.getColumnModel().getColumn(2));
-
-                             TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTableInfoTasca.getModel()));
-
-                             vis.jTableInfoTasca.setRowSorter(sorter);
-                            //vis.jTableInfoTasca.getRowSorter().toggleSortOrder(1);              
-
-                             }
-
                             
 
+                            for (int i = 0; i < numRegistres; i++) {
 
-                         
-                         
-                         
-                         
+                                if (!array.equals(" ") && (numRegistres == array.length()) ) {
+                                    System.out.println("Length2" + i);
+                                    char aux = array.charAt(i);
+                                    String aux2 = Character.toString(aux);
+                                    System.out.println("Cahr" + aux);
+                                    System.out.println("aux2" + aux2);
 
-                         vis.txt_titolTasc2.setText(mod.getTitol());
-                         vis.ComboUsuariAssignat2.setSelectedItem(mod.getUsuariAssignat());
-                         
-                         
-                         vis.ComboUsuariAssignat2.removeAllItems();
-                         modC.UsuariAssignat(vis, 1);
-                         AutoCompleteDecorator.decorate(ComboUsuariAssignat2);
+                                    if (aux2.equals("1")) {
 
-                         vis.txt_titolTasc2.setText(mod.getTitol());
-                         vis.ComboUsuariAssignat2.setSelectedItem(mod.getUsuariAssignat());
-                         vis.txt_descripcioTasc2.setText(mod.getDescripcio());
+                                        columnes[0] = Boolean.TRUE;
+                                    }
+                                    if (aux2.equals("0")) {
+                                        columnes[0] = Boolean.FALSE;
+                                    }
+                                }
+                                columnes[1] = modC.MostrarGrups(mod).get(i).getNom();
+                                columnes[2] = modC.MostrarGrups(mod).get(i).getIdGrup();
+                                model.addRow(columnes);
+                                System.out.println("ID GRUP" + modC.MostrarGrups(mod).get(i).getIdGrup());
+                                
+                            }
+                            
+                            
+                            
+                            
+                            vis.jTableInfoTasca1.setModel(model);
+                            addCheckBox(0, vis.jTableInfoTasca1);
+                            //modelTasques = model;
+                            vis.jTableInfoTasca1.removeColumn(vis.jTableInfoTasca1.getColumnModel().getColumn(2));
+                            TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTableInfoTasca1.getModel()));
+                            vis.jTableInfoTasca1.setRowSorter(sorter);                                    
 
-                         String d = mod.getData();
-                         String date = d.substring(0, 10);
-                         String time = d.substring(11, 16);
-                         String data = date.replace("-", "/");
+                        }
+                        
 
-                         System.out.println("DATAASAAAAAAAA:" + d);
-                         System.out.println("sSubCadena:" + date);
-                         System.out.println("sSubCadena:" + data);
-                         System.out.println("sSubCadena:" + time);
+                        vis.txt_titolTasc3.setText(mod.getTitol());
+                        vis.ComboUsuariAssignat3.setSelectedItem(mod.getUsuariAssignat());
+                        vis.txt_descripcioTasc3.setText(mod.getDescripcio());
 
-                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
-                         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+                        String d2 = mod.getData();
+                        String date2 = d2.substring(0, 10);
+                        String time2 = d2.substring(11, 16);
+                        String data2 = date2.replace("-", "/");
 
-                         //convert String to LocalDate
-                         LocalDate localDate = LocalDate.parse(data, formatter);
-                         LocalTime localTime = LocalTime.parse(time, formatter2);
-                         
-                         
-                         
+                        System.out.println("DATAASAAAAAAAA:" + d2);
+                        System.out.println("sSubCadena:" + date2);
+                        System.out.println("sSubCadena:" + data2);
+                        System.out.println("sSubCadena:" + time2);
 
-                         vis.dateTimePicker1.datePicker.setDate(localDate);
-                         vis.dateTimePicker1.timePicker.setTime(localTime);
-                         vis.ComboPrioritatTasc2.setSelectedItem(mod.getPrioritat());
-                         vis.ComboEstatTasc2.setSelectedItem(mod.getEstat());
-                         vis.txt_titolTasc2.setText(mod.getTitol());
-                         vis.DashInfoTasca.setVisible(true);
-                         vis.DashTasques.setVisible(false);
-                         break;
-                     case 2:
-                         vis.ComboUsuariAssignat3.removeAllItems();
-                         modC.UsuariAssignat1(vis, 1);
-                         AutoCompleteDecorator.decorate(ComboUsuariAssignat3);
-                         
+                        DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                        DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("HH:mm");
 
-                         vis.txt_titolTasc3.setText(mod.getTitol());
-                         vis.ComboUsuariAssignat3.setSelectedItem(mod.getUsuariAssignat());
-                         vis.txt_descripcioTasc3.setText(mod.getDescripcio());
+                        //convert String to LocalDate
+                        LocalDate localDate1 = LocalDate.parse(data2, formatter3);
+                        LocalTime localTime1 = LocalTime.parse(time2, formatter4);
 
-                         String d2 = mod.getData();
-                         String date2 = d2.substring(0, 10);
-                         String time2 = d2.substring(11, 16);
-                         String data2 = date2.replace("-", "/");
+                        String d3 = mod.getDataFinal();
+                        String date3 = d3.substring(0, 10);
+                        String time3 = d3.substring(11, 16);
+                        String data3 = date3.replace("-", "/");
 
-                         System.out.println("DATAASAAAAAAAA:" + d2);
-                         System.out.println("sSubCadena:" + date2);
-                         System.out.println("sSubCadena:" + data2);
-                         System.out.println("sSubCadena:" + time2);
+                        System.out.println("DATAASAAAAAAAA:" + d3);
+                        System.out.println("sSubCadena:" + date3);
+                        System.out.println("sSubCadena:" + data3);
+                        System.out.println("sSubCadena:" + time3);
 
-                         DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("d/MM/yyyy");
-                         DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("HH:mm");
+                        DateTimeFormatter formatter5 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                        DateTimeFormatter formatter6 = DateTimeFormatter.ofPattern("HH:mm");
 
-                         //convert String to LocalDate
-                         LocalDate localDate1 = LocalDate.parse(data2, formatter3);
-                         LocalTime localTime1 = LocalTime.parse(time2, formatter4);
-                         
-                         String d3 = mod.getDataFinal();
-                         String date3 = d3.substring(0, 10);
-                         String time3 = d3.substring(11, 16);
-                         String data3 = date3.replace("-", "/");
+                        //convert String to LocalDate
+                        LocalDate localDate2 = LocalDate.parse(data3, formatter5);
+                        LocalTime localTime2 = LocalTime.parse(time3, formatter6);
 
-                         System.out.println("DATAASAAAAAAAA:" + d3);
-                         System.out.println("sSubCadena:" + date3);
-                         System.out.println("sSubCadena:" + data3);
-                         System.out.println("sSubCadena:" + time3);
+                        //If de dies, setmanes, messos, anys
+                        vis.jRadioButtonDiari1.setSelected(true);
+                        vis.jLabelSetmanes2.setVisible(false);
+                        vis.jLabelMesos1.setVisible(false);
+                        vis.jLabelAnys1.setVisible(false);
 
-                         DateTimeFormatter formatter5 = DateTimeFormatter.ofPattern("d/MM/yyyy");
-                         DateTimeFormatter formatter6 = DateTimeFormatter.ofPattern("HH:mm");
+                        if (mod.getDataFinal() != "") {
 
-                         //convert String to LocalDate
-                         LocalDate localDate2 = LocalDate.parse(data3, formatter5);
-                         LocalTime localTime2 = LocalTime.parse(time3, formatter6);
-                         
-                         //If de dies, setmanes, messos, anys
-                         vis.jRadioButtonDiari1.setSelected(true);
-                         vis.jLabelSetmanes2.setVisible(false);
-                         vis.jLabelMesos1.setVisible(false);
-                         vis.jLabelAnys1.setVisible(false);
-                         
-                         
-                         if (mod.getDataFinal() != ""){
-                         
-                             vis.dateTimePickerRepeticioFinal1.setEnabled(true);
-                             vis.jRadioButtonDataFinal1.setSelected(true);
-                             vis.jSpinnerAcabar1.setEnabled(false);
-                             vis.jRadioButtonAcabar1.setSelected(false);
-                         
-                         }else{
-                         
-                             vis.dateTimePickerRepeticioFinal1.setEnabled(false);
-                             vis.jRadioButtonDataFinal1.setSelected(false);
-                             vis.jSpinnerAcabar1.setEnabled(true);
-                             vis.jRadioButtonAcabar1.setSelected(true);
-                         
-                         }
-                         
-                         
-                         vis.dateTimePickerRepeticio1.datePicker.setDate(localDate1);
-                         vis.dateTimePickerRepeticio1.timePicker.setTime(localTime1);
+                            vis.dateTimePickerRepeticioFinal1.setEnabled(true);
+                            vis.jRadioButtonDataFinal1.setSelected(true);
+                            vis.jSpinnerAcabar1.setEnabled(false);
+                            vis.jRadioButtonAcabar1.setSelected(false);
+
+                        } else {
+
+                            vis.dateTimePickerRepeticioFinal1.setEnabled(false);
+                            vis.jRadioButtonDataFinal1.setSelected(false);
+                            vis.jSpinnerAcabar1.setEnabled(true);
+                            vis.jRadioButtonAcabar1.setSelected(true);
+
+                        }
+
+                        vis.dateTimePickerRepeticio1.datePicker.setDate(localDate1);
+                        vis.dateTimePickerRepeticio1.timePicker.setTime(localTime1);
                         vis.dateTimePickerRepeticioFinal1.datePicker.setDate(localDate2);
-                         vis.dateTimePickerRepeticioFinal1.timePicker.setTime(localTime2);
-                         vis.ComboPrioritatTasc4.setSelectedItem(mod.getPrioritat());
-                         vis.ComboEstatTasc3.setSelectedItem(mod.getEstat());
-                         vis.txt_titolTasc3.setText(mod.getTitol());
-                         vis.jSpinner1.setValue(mod.getRepeticio());
-                         
-                         
-                         
-                         
-                         vis.DashInfoTascaRepeticio.setVisible(true);
-                         vis.DashTasques.setVisible(false);
-                         
-                         break;
-                     
-                     default:
-                         break;
-                
-                
-                
-                
-                
-                } 
-                    
-                    
+                        vis.dateTimePickerRepeticioFinal1.timePicker.setTime(localTime2);
+                        vis.ComboPrioritatTasc4.setSelectedItem(mod.getPrioritat());
+                        vis.ComboEstatTasc3.setSelectedItem(mod.getEstat());
+                        vis.txt_titolTasc3.setText(mod.getTitol());
+                        vis.jSpinner1.setValue(mod.getRepeticio());
 
-             
+                        vis.DashInfoTascaRepeticio.setVisible(true);
+                        vis.DashTasques.setVisible(false);
+
+                        break;
+
+                    default:
+                        break;
+
+                }
 
             }
 
         }
+     
+        if (e.getSource() == vis.jTableInfoTasca) {
 
+            int fila_point = vis.jTableInfoTasca.rowAtPoint(e.getPoint());
+            int columna_point = vis.jTableInfoTasca.columnAtPoint(e.getPoint());
+            int columna = 1;
+
+            System.out.println("Fila" + fila_point);
+            System.out.println("Columna" + columna_point);
+            vis.jTableInfoTasca.repaint();
+            vis.jTableInfoTasca.updateUI();
+
+            if (fila_point > -1 && columna_point > 0) {
+
+                TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
+                trs = (TableRowSorter<DefaultTableModel>) vis.jTableInfoTasca.getRowSorter();
+                DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTableInfoTasca.getModel();
+                String titol = String.valueOf(model_tasques3.getValueAt(trs.convertRowIndexToModel(fila_point), columna));
+                System.out.println("NOM" + titol);
+                int id = (int) model_tasques3.getValueAt(trs.convertRowIndexToModel(fila_point), 2);
+                System.out.println("INT_ID: " + id);
+                
+                if (mod.getTipusGrup() == true){
+                
+                Usuaris usu = new Usuaris();
+                usu.setId(id);
+                ConsultesUsuaris Cusu = new ConsultesUsuaris();
+                ControladorUsuaris Cousu = new ControladorUsuaris(usu, Cusu, vis);
+                Cusu.informacioUsuari(usu);
+
+                if (Cusu.informacioUsuari(usu) == 1) {
+
+                    vis.txt_nom.setText(usu.getNom());
+                    vis.txt_cognom.setText(usu.getCognom());
+                    vis.txt_usuari.setText(usu.getUsuari());
+                    vis.ComboNivell.setSelectedItem(usu.getNivell());
+                    vis.ComboEstat.setSelectedItem(usu.getEstat());
+                    vis.txt_telefon.setText(usu.getTelefon());
+                    vis.txt_email.setText(usu.getMail());
+                    vis.DashInfoUsuari.setVisible(true);
+                    vis.DashInfoTasca.setVisible(false);
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio");
+
+                }
+
+            }
+                
+            
+            
+             if (mod.getTipusGrup() == false){
+                 
+             
+                Elements elm = new Elements();
+                elm.setId(id);
+                ConsultesElements Celm = new ConsultesElements();
+                ControladorElements Cousu = new ControladorElements(elm, Celm, vis);
+                Celm.informacioElement(elm);
+                
+                if (Celm.informacioElement(elm) == 1) {                    
+                    
+                    vis.txt_nomElem2.setText(elm.getNom());
+                    vis.txt_usuariElem2.setText(elm.getUsuariAssignat());
+                    vis.txt_observacionsElem2.setText(elm.getObservacions());                  
+                    vis.ComboTipusElem2.setSelectedItem(elm.getTipus());
+                    vis.ComboEstatElem2.setSelectedItem(elm.getEstat());
+                    vis.txt_marcaElem2.setText(elm.getMarca());
+                    vis.txt_numeroserieElem2.setText(elm.getNumeroSerie());
+                    vis.txt_modelElem2.setText(elm.getModel());
+                    vis.DashInfoElement.setVisible(true);
+                    vis.DashInfoTasca.setVisible(false);
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");
+
+                }
+                 
+                 
+             }  
+                 
+                 
+             }
+
+        }
+        
+          if (e.getSource() == vis.jTableInfoTasca1) {
+
+            int fila_point = vis.jTableInfoTasca1.rowAtPoint(e.getPoint());
+            int columna_point = vis.jTableInfoTasca1.columnAtPoint(e.getPoint());
+            int columna = 1;
+
+            System.out.println("Fila" + fila_point);
+            System.out.println("Columna" + columna_point);
+            vis.jTableInfoTasca1.repaint();
+            vis.jTableInfoTasca1.updateUI();
+
+            if (fila_point > -1 && columna_point > 0) {
+
+                TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
+                trs = (TableRowSorter<DefaultTableModel>) vis.jTableInfoTasca1.getRowSorter();
+                DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTableInfoTasca1.getModel();
+                String titol = String.valueOf(model_tasques3.getValueAt(trs.convertRowIndexToModel(fila_point), columna));
+                System.out.println("NOM" + titol);
+                int id = (int) model_tasques3.getValueAt(trs.convertRowIndexToModel(fila_point), 2);
+                System.out.println("INT_ID: " + id);
+                
+                if (mod.getTipusGrup() == true){
+                
+                Usuaris usu = new Usuaris();
+                usu.setId(id);
+                ConsultesUsuaris Cusu = new ConsultesUsuaris();
+                ControladorUsuaris Cousu = new ControladorUsuaris(usu, Cusu, vis);
+                Cusu.informacioUsuari(usu);
+
+                if (Cusu.informacioUsuari(usu) == 1) {
+
+                    vis.txt_nom.setText(usu.getNom());
+                    vis.txt_cognom.setText(usu.getCognom());
+                    vis.txt_usuari.setText(usu.getUsuari());
+                    vis.ComboNivell.setSelectedItem(usu.getNivell());
+                    vis.ComboEstat.setSelectedItem(usu.getEstat());
+                    vis.txt_telefon.setText(usu.getTelefon());
+                    vis.txt_email.setText(usu.getMail());
+                    vis.DashInfoUsuari.setVisible(true);
+                    vis.DashInfoTascaRepeticio.setVisible(false);
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio");
+
+                }
+
+            }
+                
+            
+            
+             if (mod.getTipusGrup() == false){
+                 
+             
+                Elements elm = new Elements();
+                elm.setId(id);
+                ConsultesElements Celm = new ConsultesElements();
+                ControladorElements Cousu = new ControladorElements(elm, Celm, vis);
+                Celm.informacioElement(elm);
+                
+                if (Celm.informacioElement(elm) == 1) {                    
+                    
+                    vis.txt_nomElem2.setText(elm.getNom());
+                    vis.txt_usuariElem2.setText(elm.getUsuariAssignat());
+                    vis.txt_observacionsElem2.setText(elm.getObservacions());                  
+                    vis.ComboTipusElem2.setSelectedItem(elm.getTipus());
+                    vis.ComboEstatElem2.setSelectedItem(elm.getEstat());
+                    vis.txt_marcaElem2.setText(elm.getMarca());
+                    vis.txt_numeroserieElem2.setText(elm.getNumeroSerie());
+                    vis.txt_modelElem2.setText(elm.getModel());
+                    vis.DashInfoElement.setVisible(true);
+                    vis.DashInfoTascaRepeticio.setVisible(false);
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");
+
+                }
+                 
+                 
+             }  
+                 
+                 
+             }
+
+        }
+    
     }
-    
-    
     
     
 

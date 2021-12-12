@@ -48,6 +48,13 @@ public class ControladorUsuaris implements ActionListener, MouseListener, KeyLis
         this.vis.jButtonEditarUsuari.addActionListener(this);
         this.vis.txtBuscadorUsuaris.addKeyListener(this);
     }
+
+    ControladorUsuaris() {
+        
+        MouseEvent e = null;
+       // e.setSource(vis.jTableInfoTasca);
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
@@ -355,6 +362,13 @@ public class ControladorUsuaris implements ActionListener, MouseListener, KeyLis
     @Override
     public void mouseClicked(MouseEvent e) {
         
+         if (e.getSource() == null) {
+             
+             System.out.println("HOLITAA");
+             
+         }
+        
+        
         if (e.getSource() == vis.jTable_Usuaris) {
 
             DefaultTableModel model_usuaris2 = new DefaultTableModel();
@@ -398,8 +412,9 @@ public class ControladorUsuaris implements ActionListener, MouseListener, KeyLis
                 }
 
             }
-
         }
+
+      
         
     }
 

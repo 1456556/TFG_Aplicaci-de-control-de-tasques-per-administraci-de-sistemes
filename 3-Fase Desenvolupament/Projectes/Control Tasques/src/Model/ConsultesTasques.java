@@ -70,7 +70,7 @@ public class ConsultesTasques extends Conexio {
         
         }
         
-       
+       System.out.println("Grup Afectat" + id_grup);
          try{
         
             Connection cn = getConexio();
@@ -210,9 +210,10 @@ public class ConsultesTasques extends Conexio {
                 if (i == 1){
                 //vis.ComboGrupAfectat.addItem("---");
                 vis.ComboGrupAfectat.addItem(rs.getString("nom"));
+                vis.ComboGrupAfectat2.addItem(rs.getString("nom"));
                
                 }else{
-                
+                vis.ComboGrupAfectat3.addItem(rs.getString("nom"));
                 vis.ComboGrupAfectat1.addItem(rs.getString("nom"));
                 }
 
@@ -348,7 +349,7 @@ public class ConsultesTasques extends Conexio {
         int novaTasca = 0;
         int validacio = 0;
         int repeticio = 0;
-        String dataInici, horaInici, dataFinal, horaFinal, data, dataF, tipus, diesSetmana = "";
+        String dataInici, horaInici, dataFinal, horaFinal, data, dataF, tipus, grup,array, diesSetmana = "";
 
         dataInici = tas.getData();
         horaInici = tas.getHora();
@@ -357,6 +358,8 @@ public class ConsultesTasques extends Conexio {
         repeticio = tas.getRepeticio();
         tipus = tas.getTipus();
         diesSetmana = tas.getDiesSetmana();
+        grup = tas.getGrupAfectat();
+        array = tas.getArray();
         
         
        
@@ -468,7 +471,7 @@ public class ConsultesTasques extends Conexio {
                         
                        
                         Connection cn2 = getConexio();
-                        PreparedStatement pst2 = cn2.prepareStatement("Update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=?, setNotificacio=?, repeticioInici=?, dataFinal=?, recurrent=?, tipus=?, diesSetmana=? where id_tasca = '" + tas.getId() + "'");
+                        PreparedStatement pst2 = cn2.prepareStatement("Update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=?, setNotificacio=?, repeticioInici=?, dataFinal=?, recurrent=?, tipus=?, diesSetmana=?, grup=?, array=? where id_tasca = '" + tas.getId() + "'");
 
                         pst2.setString(1, titol);
                         pst2.setString(2, prioritat);
@@ -482,6 +485,8 @@ public class ConsultesTasques extends Conexio {
                         pst2.setBoolean(10, true);
                         pst2.setString(11, tipus);
                         pst2.setString(12, diesSetmana);
+                        pst2.setString(13, grup);
+                        pst2.setString(14, array);
                         pst2.executeUpdate();
 
                         cn2.close();
@@ -524,7 +529,7 @@ public class ConsultesTasques extends Conexio {
         int novaTasca = 0;
         int validacio = 0;
         int repeticio = 0;
-        String dataInici, horaInici, dataFinal, horaFinal, data, dataF, tipus, diesSetmana = "";
+        String dataInici, horaInici, dataFinal, horaFinal, data, dataF, tipus, grup, diesSetmana = "";
 
         dataInici = tas.getData();
         horaInici = tas.getHora();
@@ -533,6 +538,7 @@ public class ConsultesTasques extends Conexio {
         repeticio = tas.getRepeticio();
         tipus = tas.getTipus();
         diesSetmana = tas.getDiesSetmana();
+        grup = tas.getGrupAfectat();
         
         
        
@@ -613,7 +619,7 @@ public class ConsultesTasques extends Conexio {
                         dataF = dataFinal + " " + horaFinal;
 
                         Connection cn2 = getConexio();
-                        PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, setNotificacio, repeticioInici, dataFinal, recurrent, tipus, diesSetmana) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+                        PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, setNotificacio, repeticioInici, dataFinal, recurrent, tipus, diesSetmana, grup) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
                                 
                         
                         pst2.setString(1, titol);
@@ -628,6 +634,7 @@ public class ConsultesTasques extends Conexio {
                         pst2.setBoolean(10, true);
                         pst2.setString(11, tipus);
                         pst2.setString(12, diesSetmana);
+                        pst2.setString(13, grup);                        
                         pst2.executeUpdate();
 
                         cn2.close();
@@ -958,7 +965,7 @@ public class ConsultesTasques extends Conexio {
     public int EditarTasca(Tasques tas) {
 
         int editarTasca,id, validacio = 0;
-        String titol, descripcio, data, usuari, estat, prioritat, date, time, array;
+        String titol, descripcio, data, usuari, estat, prioritat, date, time, array, grup;
         titol = tas.getTitol();
         descripcio = tas.getDescripcio();
         estat = tas.getEstat();
@@ -968,6 +975,7 @@ public class ConsultesTasques extends Conexio {
         time = tas.getHora();
         id = tas.getId();
         array = tas.getArray();
+        grup = tas.getGrupAfectat();
         System.out.println("IDTASCA " + id);
         
 
@@ -998,7 +1006,7 @@ public class ConsultesTasques extends Conexio {
 
                 
                     Connection cn2 = clases.Conexio.conectar();
-                    PreparedStatement pst2 = cn2.prepareStatement("update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=?, array=? where id_tasca = '" + tas.getId()  + "'");
+                    PreparedStatement pst2 = cn2.prepareStatement("update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=?, array=?, grup=? where id_tasca = '" + tas.getId()  + "'");
 
                     String day = date.substring(8, 10);
                     String month = date.substring(5, 7);
@@ -1015,6 +1023,7 @@ public class ConsultesTasques extends Conexio {
                     pst2.setString(5, estat);
                     pst2.setString(6, descripcio);
                     pst2.setString(7, array);
+                    pst2.setString(8, grup);
                     pst2.executeUpdate();
                     editarTasca = 1;
                     cn2.close();
@@ -1235,6 +1244,14 @@ public class ConsultesTasques extends Conexio {
                             
 
             }
+            
+            cn.close();
+           
+            
+
+            
+            
+            
             if (tas.isRecurrent() == true){
             
                 informacioTasca = 2;
@@ -1262,8 +1279,12 @@ public class ConsultesTasques extends Conexio {
                  
                System.out.print("Repeticio" +tas.getRepeticio());
                
+               System.out.print("Nom Grup" +tas.getGrupAfectat());
                
-             cn.close();
+               
+             
+             
+             
 
         } catch (SQLException e) {
             
@@ -1272,6 +1293,28 @@ public class ConsultesTasques extends Conexio {
             
 
         }
+        
+        try {
+            Connection cn2 = getConexio();
+            PreparedStatement pst2 = cn2.prepareStatement("select tipus from Grups where nom = '" + tas.getGrupAfectat() + "'");
+            ResultSet rs2 = pst2.executeQuery();
+
+            if (rs2.next()) {              
+               
+                tas.setTipusGrup(rs2.getBoolean(1));
+                
+            }
+            
+             cn2.close();
+             
+              System.out.print("Tipus Grup" +tas.getTipusGrup());
+              
+            }catch (SQLException e) {
+            
+            informacioTasca = 2;
+            System.err.println("Error al solicitar les dades de tipus de grup" + e);
+                    
+         }
         
         return informacioTasca;
     }

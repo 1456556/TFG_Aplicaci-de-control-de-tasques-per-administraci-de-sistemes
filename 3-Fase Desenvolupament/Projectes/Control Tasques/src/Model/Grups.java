@@ -25,6 +25,51 @@ public class Grups {
     int idUsuari;
     String[] GrupUsuaris;
     int[] IdUsuaris;
+    Boolean tipusGrup;
+    ArrayList<String> UsuariArrayList;
+    ArrayList<Integer> idArrayList;
+    ArrayList<String> ElementArrayList;
+    ArrayList<Integer> idElementArrayList;
+
+    public ArrayList<String> getElementArrayList() {
+        return ElementArrayList;
+    }
+
+    public void setElementArrayList(ArrayList<String> ElementArrayList) {
+        this.ElementArrayList = ElementArrayList;
+    }
+
+    public ArrayList<Integer> getIdElementArrayList() {
+        return idElementArrayList;
+    }
+
+    public void setIdElementArrayList(ArrayList<Integer> idElementArrayList) {
+        this.idElementArrayList = idElementArrayList;
+    }
+
+    public ArrayList<String> getUsuariArrayList() {
+        return UsuariArrayList;
+    }
+
+    public void setUsuariArrayList(ArrayList<String> UsuariArrayList) {
+        this.UsuariArrayList = UsuariArrayList;
+    }
+
+    public ArrayList<Integer> getIdArrayList() {
+        return idArrayList;
+    }
+
+    public void setIdArrayList(ArrayList<Integer> idArrayList) {
+        this.idArrayList = idArrayList;
+    }
+
+    public Boolean getTipusGrup() {
+        return tipusGrup;
+    }
+
+    public void setTipusGrup(Boolean tipusGrup) {
+        this.tipusGrup = tipusGrup;
+    }
 
     public String getUsuariElement() {
         return usuariElement;
