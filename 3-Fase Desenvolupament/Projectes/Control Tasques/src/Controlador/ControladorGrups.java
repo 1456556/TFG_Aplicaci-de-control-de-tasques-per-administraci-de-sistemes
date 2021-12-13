@@ -65,6 +65,7 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
         this.vis.jButtonAfegir.addActionListener(this);
         this.vis.jButtonAfegir1.addActionListener(this);
         this.vis.jButtonAfegirElement.addActionListener(this);
+        this.vis.jButtonAfegirElement1.addActionListener(this);
         this.vis.jRadioButtonElements.addActionListener(this);
         this.vis.jRadioButtonUsuaris.addActionListener(this);
         this.vis.txt_cerca.addKeyListener(this);
@@ -241,6 +242,47 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        
+        if (e.getSource() == vis.jButtonEliminarGrup) {
+
+            TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
+            trs = (TableRowSorter<DefaultTableModel>) vis.jTable_Grups.getRowSorter();
+            DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Grups.getModel();
+            int rows = trs.getViewRowCount();
+            System.out.print("ROOOWS " + rows);
+            int j = rows - 1;
+
+            for (int i = j; i >= 0; i--) {
+
+                Boolean checked = Boolean.valueOf(model_tasques3.getValueAt(trs.convertRowIndexToModel(i), 0).toString());
+                System.out.print("Boolean " + checked);
+                //DISPLAY
+                if (checked) {
+                    System.out.print("ROW COUNT" + vis.jTable_Grups.getRowCount());
+                    int id = (int) model_tasques3.getValueAt(trs.convertRowIndexToModel(i), 2);
+                    mod.setId(id);
+                    model_tasques3.removeRow(i);
+                    if (modC.EliminarGrup(mod) == 2) {
+
+                        JOptionPane.showMessageDialog(null, "Error al eliminar el grup, contacti amb l'administrador");
+
+                    }
+                }
+            }
+            System.out.print("ROW COUNT TRS " + trs.getModelRowCount());
+            MostrarTaula();
+
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
 
         if (e.getSource() == vis.jButtonNouGrup) {
 
@@ -324,12 +366,14 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             trs = (TableRowSorter<DefaultTableModel>) vis.jTableCrearGrupsElements.getRowSorter();
             DefaultTableModel model3 = (DefaultTableModel) vis.jTableCrearGrupsElements.getModel();
             String line = "";
-            ArrayList<String> ElementArrayList = mod.getElementArrayList();
-            ArrayList<Integer> idElementArrayList = mod.getIdElementArrayList();
+            ArrayList<String> ElementArrayList = new ArrayList();
+            ArrayList<Integer> idElementArrayList = new ArrayList();
+            ElementArrayList = mod.getElementArrayList();
+            idElementArrayList = mod.getIdElementArrayList();
 
             for (int i = 0; i < vis.jTableCrearGrupsElements.getRowCount(); i++) {
 
-                String usuari = model3.getValueAt(trs.convertRowIndexToModel(i), 3).toString();
+                String usuari = model3.getValueAt(trs.convertRowIndexToModel(i), 1).toString();
                 int id = (int) model3.getValueAt(trs.convertRowIndexToModel(i), 4);
 
                 if (IsSelected(i, 0, vis.jTableCrearGrupsElements)) {
@@ -377,73 +421,64 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
              
             mod.setNom(vis.txt_nomGrup1.getText().trim());
             String text = (vis.jTextGrupUsuaris1.getText());
+            System.out.println("Actualitzar" + mod.getGrupUsuaris());
+            System.out.println("Actualitzar" + mod.getGrupElements());
 
-            if (!mod.getGrupUsuaris().equals(null)) {
-
+            if ((mod.getGrupUsuaris() != null) || (mod.getGrupElements() != null)){
                
-
                 switch (modC.EditarUserGrup(mod)) {
 
                     case 1:
-                        if (modC.NouGrup(mod) == 1) {
-
-                            JOptionPane.showMessageDialog(null, "Element Creat Correctament!");
-
-                        } else {
-
-                            JOptionPane.showMessageDialog(null, "Error al crear l'element2. Contacti amb l'administrador");
-
-                        }
+                        JOptionPane.showMessageDialog(null, "Grup modificat Correctament!");
                         Natejar();
-                        vis.DashNouGrup.setVisible(false);
+                        vis.DashInfoGrup.setVisible(false);
                         vis.DashGrups.setVisible(true);
-
                         MostrarTaula();
                         break;
                     case 2:
-                        JOptionPane.showMessageDialog(null, "Error al crear l'element. Contacti amb l'administrador");
+                        JOptionPane.showMessageDialog(null, "Error al modificar el grup. Contacti amb l'administrador");
                         break;
                     case 3:
                         JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
                         break;
                     default:
-                        break;
+                         break;
 
-                }
-            }
+                 }
+             }
 
-            if (!mod.getGrupElements().equals(null)) {
-                System.out.print("HOOOOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-                switch (modC.NouElementGrup(mod)) {
+            /* if (mod.getGrupElements() != null) {
 
-                    case 1:
-                        if (modC.NouGrup(mod) == 1) {
+                 switch (modC.NouElementGrup(mod)) {
 
-                            JOptionPane.showMessageDialog(null, "Element Creat Correctament!");
+                     case 1:
+                         if (modC.NouGrup(mod) == 1) {
 
-                        } else {
+                             JOptionPane.showMessageDialog(null, "Grup modificat Correctament!");
 
-                            JOptionPane.showMessageDialog(null, "Error al crear l'element2. Contacti amb l'administrador");
+                         } else {
 
-                        }
-                        Natejar();
-                        vis.DashNouGrup.setVisible(false);
-                        vis.DashGrups.setVisible(true);
+                             JOptionPane.showMessageDialog(null, "Error al modificar el grup. Contacti amb l'administrador");
 
-                        MostrarTaula();
-                        break;
-                    case 2:
-                        JOptionPane.showMessageDialog(null, "Error al crear l'element. Contacti amb l'administrador");
-                        break;
-                    case 3:
-                        JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
-                        break;
-                    default:
-                        break;
+                         }
+                         Natejar();
+                         vis.DashNouGrup.setVisible(false);
+                         vis.DashGrups.setVisible(true);
 
-                }
+                         MostrarTaula();
+                         break;
+                     case 2:
+                         JOptionPane.showMessageDialog(null, "Error al modificar el grup. Contacti amb l'administrador");
+                         break;
+                     case 3:
+                         JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+                         break;
+                     default:
+                         break;
 
-            }
+                 }
+
+             }*/
              
              
              
@@ -455,7 +490,7 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             mod.setNom(vis.txt_nomGrup.getText().trim());
             String text = (vis.jTextGrupUsuaris.getText());
 
-            if (!mod.getGrupUsuaris().equals(null)) {
+            if (mod.getGrupUsuaris() != null) {
 
                 boolean type = false;
                 if (vis.jRadioButtonUsuaris.isSelected()) {
@@ -495,7 +530,7 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
                 }
             }
 
-            if (!mod.getGrupElements().equals(null)) {
+            if (mod.getGrupElements() != null) {
                 System.out.print("HOOOOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 switch (modC.NouElementGrup(mod)) {
 
@@ -578,6 +613,63 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             String[] array = UsuariArrayList.toArray(new String[UsuariArrayList.size()]);
 
             for (int i = 0; i < mod.getUsuariArrayList().size(); i++) {
+
+                line = line + array[i] + "\n";
+            }
+            vis.jTextGrupUsuaris1.setText(line);
+
+        }
+        
+        
+        if (e.getSource() == vis.jButtonAfegirElement1) {
+
+            System.out.println("PRimer:" + mod.getUsuariArrayList());
+            TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
+            trs = (TableRowSorter<DefaultTableModel>) vis.jTableCrearGrups.getRowSorter();
+            DefaultTableModel model3 = (DefaultTableModel) vis.jTableCrearGrups.getModel();
+            String line = "";
+            ArrayList<String> ElementArrayList = mod.getElementArrayList();
+            ArrayList<Integer> idElementArrayList = mod.getIdElementArrayList();
+
+            for (int i = 0; i < vis.jTableCrearGrups.getRowCount(); i++) {
+
+                String usuari = model3.getValueAt(trs.convertRowIndexToModel(i), 1).toString();
+                int id = (int) model3.getValueAt(trs.convertRowIndexToModel(i), 4);
+
+                if (IsSelected(i, 0, vis.jTableCrearGrups)) {
+
+                    if (!ElementArrayList.contains(usuari)) {
+
+                        ElementArrayList.add(usuari);
+                        idElementArrayList.add(id);
+                        String[] array = ElementArrayList.toArray(new String[ElementArrayList.size()]);
+                        int[] arrayID = idElementArrayList.stream().mapToInt(Integer::intValue).toArray();
+                        mod.setGrupElements(array);
+                        System.out.println("mod.setGrupElements(array)" + mod.getGrupElements());
+                        mod.setIdElements(arrayID);
+
+                    }
+
+                } else {
+
+                    if (ElementArrayList.contains(usuari)) {
+                        ElementArrayList.remove(usuari);
+                        System.out.println(idElementArrayList);
+                        String idRemove = String.valueOf(id);
+                        idElementArrayList.remove(idRemove);
+
+                    }
+
+                }
+
+            }
+
+            mod.setElementArrayList(ElementArrayList);
+            mod.setIdElementArrayList(idElementArrayList);
+
+            String[] array = ElementArrayList.toArray(new String[ElementArrayList.size()]);
+
+            for (int i = 0; i < mod.getElementArrayList().size(); i++) {
 
                 line = line + array[i] + "\n";
             }
@@ -683,8 +775,8 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
                         DefaultTableModel model_grups2 = new DefaultTableModel();
                         model_grups2.addColumn("Seleccionar");
                         model_grups2.addColumn("Nom");
-                        model_grups2.addColumn("Cognom");
                         model_grups2.addColumn("Usuari");
+                        model_grups2.addColumn("Tipus");
                         model_grups2.addColumn("ID");
 
                         Object[] columnes2 = new Object[5];
@@ -694,9 +786,9 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
 
                         for (int i = 0; i < numRegistres2; i++) {
 
-                            String nomU = modC.MostrarGrupsUsuaris().get(i).getUsuari();
+                            String nomU = modC.MostrarGrupsElements().get(i).getNomElement();
                             System.out.println("Error" + nomU);
-                            System.out.println("Array" + mod.getUsuariArrayList());
+                            System.out.println("Array" + mod.getElementArrayList());
                             if (mod.getElementArrayList().contains(nomU)) {
 
                                 columnes2[0] = Boolean.TRUE;
@@ -714,9 +806,9 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
                             
                         }
                         String line2 = "";
-                        for (int i = 0; i < mod.getUsuariArrayList().size(); i++) {
+                        for (int i = 0; i < mod.getElementArrayList().size(); i++) {
 
-                           line2 = line2 + mod.getUsuariArrayList().get(i) + "\n";
+                           line2 = line2 + mod.getElementArrayList().get(i) + "\n";
                         }
                         vis.jTextGrupUsuaris1.setText(line2);
 
@@ -725,6 +817,8 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
                         vis.jTableCrearGrups.removeColumn(vis.jTableCrearGrups.getColumnModel().getColumn(4));
                         TableRowSorter<TableModel> sorter2 = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTableCrearGrups.getModel()));
                         vis.jTableCrearGrups.setRowSorter(sorter2);
+                        vis.jButtonAfegirElement1.setVisible(true);
+                        vis.jButtonAfegir1.setVisible(false);
                         vis.DashInfoGrup.setVisible(true);
                         vis.DashGrups.setVisible(false);
 
@@ -777,6 +871,8 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
                         vis.jTableCrearGrups.removeColumn(vis.jTableCrearGrups.getColumnModel().getColumn(4));
                         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTableCrearGrups.getModel()));
                         vis.jTableCrearGrups.setRowSorter(sorter);
+                        vis.jButtonAfegirElement1.setVisible(false);
+                        vis.jButtonAfegir1.setVisible(true);
                         vis.DashInfoGrup.setVisible(true);
                         vis.DashGrups.setVisible(false);
                         break;

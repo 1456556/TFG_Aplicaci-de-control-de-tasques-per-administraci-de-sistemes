@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -341,6 +342,127 @@ public class ConsultesGrups extends Conexio {
 
     }
     
+    
+     public int EditarUserGrup(Grups gru) {
+
+        int nouGrup = 0, validacio = 0;
+        String nom;
+        nom = gru.getNom();
+        boolean tipus = gru.getTipusGrup();
+        int lenght = 0;
+        String[] array;
+        int[] arrayID;
+
+        if (tipus == true) {
+
+            lenght = gru.getGrupUsuaris().length;
+            array = gru.getGrupUsuaris();
+            arrayID = gru.getIdUsuaris();
+
+        } else {
+
+            lenght = gru.getGrupElements().length;
+            array = gru.getGrupElements();
+            arrayID = gru.getIdElements();
+
+        }
+
+        if (nom.equals("")) {
+
+            validacio++;
+        }
+
+        if (validacio == 0) {
+
+            try {
+
+                Connection cn2 = getConexio();
+                PreparedStatement pst2 = cn2.prepareStatement("Delete from GrupsUsuaris where id_grup = '" + gru.getId() + "'");
+                pst2.executeUpdate();
+                cn2.close();
+
+                for (int i = 0; i < lenght; i++) {
+
+                   // System.out.println(gru.getGrupUsuaris().length);
+                    System.out.println("NOM:" + array[i]);
+                    System.out.println("ID:" + arrayID[i]);
+
+                    Connection cn = getConexio();
+                    PreparedStatement pst = cn.prepareStatement("insert into GrupsUsuaris values(?,?,?,?,?)");
+
+                    pst.setInt(1, gru.getId());
+                    pst.setInt(2, arrayID[i]);
+                    pst.setString(3, nom);
+                    pst.setString(4, array[i]);
+                    pst.setBoolean(5, tipus);
+                    pst.executeUpdate();
+                    cn.close();
+
+                }
+
+                System.err.println("Grup modificat correctament");
+
+                Connection cn1 = getConexio();
+                PreparedStatement pst1 = cn1.prepareStatement("Update Grups set nom=?, tipus=? where id_grup = '" + gru.getId() + "'");
+
+                pst1.setString(1, gru.getNom());
+                pst1.setBoolean(2, tipus);
+                pst1.executeUpdate();
+                cn1.close();
+
+                System.err.println("Grup modificat correctament");
+                nouGrup = 1;
+
+            } catch (SQLException e) {
+                nouGrup = 2;
+                System.err.println("Error al crear el grup d'usuaris" + e);
+
+            }
+
+        } else {
+            nouGrup = 3;
+            System.err.println("Has d'omplir tots els camps");
+
+        }
+
+        return nouGrup;
+
+    }
+    
+     
+     public int EliminarGrup(Grups gru) {
+
+        int eliminarGrup = 0;
+        System.out.println(gru.getId());
+
+        try {
+
+            Connection cn2 = clases.Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("delete from GrupsUsuaris where id_grup='" + gru.getId() + "'");
+            pst2.executeUpdate();
+            cn2.close();
+
+            Connection cn = clases.Conexio.conectar();
+            PreparedStatement pst = cn.prepareStatement("delete from Grups where id_grup='" + gru.getId() + "'");
+            pst.executeUpdate();
+            cn.close();
+            eliminarGrup = 1;
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al eeliminar el grup" + e);
+            eliminarGrup = 2;
+        }
+
+        return eliminarGrup;
+    }
+
+
+     
+     
+     
+     
+     
     
      public int informacioGrups(Grups gru) {
 

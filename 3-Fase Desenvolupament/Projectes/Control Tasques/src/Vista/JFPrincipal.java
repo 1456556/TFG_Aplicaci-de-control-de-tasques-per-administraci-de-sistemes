@@ -1269,11 +1269,11 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
         jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 110, 350));
 
-        jButtonAfegir1.setBackground(new java.awt.Color(255, 153, 51));
-        jButtonAfegir1.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAfegir1.setText("Afegir Usuari");
+        jButtonAfegir1.setBackground(new java.awt.Color(255, 153, 51));
         jButtonAfegir1.setBorder(null);
         jButtonAfegir1.setBorderPainted(false);
+        jButtonAfegir1.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAfegir1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel10.add(jButtonAfegir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 90, 30));
 
@@ -1283,11 +1283,11 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel90.setText("Nom Grup:");
         jPanel10.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 25));
 
-        jButtonAfegirElement1.setBackground(new java.awt.Color(255, 153, 51));
-        jButtonAfegirElement1.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAfegirElement1.setText("Afegir Element");
+        jButtonAfegirElement1.setBackground(new java.awt.Color(255, 153, 51));
         jButtonAfegirElement1.setBorder(null);
         jButtonAfegirElement1.setBorderPainted(false);
+        jButtonAfegirElement1.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAfegirElement1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel10.add(jButtonAfegirElement1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 90, 30));
 
