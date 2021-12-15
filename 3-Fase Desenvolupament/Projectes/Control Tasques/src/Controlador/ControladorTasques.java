@@ -379,10 +379,10 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                      String time3 = d3.substring(11, 16);
                      String data3 = date3.replace("-", "/");
 
-                     System.out.println("DATAASAAAAAAAA:" + d2);
-                     System.out.println("sSubCadena:" + date2);
-                     System.out.println("sSubCadena:" + data2);
-                     System.out.println("sSubCadena:" + time2);
+                     System.out.println("REcurrent DATAASAAAAAAAA:" + d2);
+                     System.out.println("REcurrent sSubCadena:" + date2);
+                     System.out.println("REcurrent sSubCadena:" + data2);
+                     System.out.println("REcurrent sSubCadena:" + time2);
 
                      DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("d/MM/yyyy");
                      DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("HH:mm");
@@ -397,65 +397,65 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                      //convert String to LocalDate
                      LocalDate localDate2 = LocalDate.parse(data3, formatter5);
                      LocalTime localTime2 = LocalTime.parse(time3, formatter6);
+                     
+                      if (mod.getDataProgres().isEmpty()) {
+                           
+                           localDate1 = localDate1.plusDays(mod.getRepeticio());
+                           
+                      }
 
-                     if (mod.getDataFinal() != "") {
+                     int result = localDate1.compareTo(localDate2);
+                     int result2 = localTime1.compareTo(localTime2);
 
-                         if (mod.getRepeticio() != 0) {
+                     if ((result < 0) || (result == 0 && result2 <= 0)) {
+                         
+                          if (! mod.getDataProgres().isEmpty()) {
+                         localDate1 = localDate1.plusDays(mod.getRepeticio());
+                          }
+                         System.out.println("Data progress:" + localDate1);
+                         String timeProgres = localTime1.toString();
+                         String dataProgres = localDate1.toString();
 
-                             //int result = localDate1.compareTo(localDate2);
-                             //int result2 = localTime1.compareTo(localTime2);
+                         String day = dataProgres.substring(8, 10);
+                         String month = dataProgres.substring(5, 7);
+                         String year = dataProgres.substring(0, 4);
 
-                            // if ((result < 0) || (result == 0 && result2 <= 0)) {
+                         System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+                         dataProgres = day + "-" + month + "-" + year;
+                         dataProgres = dataProgres + " " + timeProgres;
+                         System.out.println(dataProgres);
 
-                                 localDate1 = localDate1.plusDays(mod.getRepeticio());
-                                 System.out.println("Data progress:" + localDate1);
-                                 String timeProgres = localTime1.toString();
-                                 String dataProgres = localDate1.toString();
+                         Tasques tas = new Tasques();
 
-                                 String day = dataProgres.substring(8, 10);
-                                 String month = dataProgres.substring(5, 7);
-                                 String year = dataProgres.substring(0, 4);
+                         tas.setDataProgres(dataProgres);
+                         tas.setRepeticio(mod.getRepeticio());
+                          System.out.println("REPETICIO" + mod.getRepeticio());
+                         System.out.println("REPETICIO" + tas.getRepeticio());
+                         tas.setTitol(mod.getTitol());
+                         tas.setPrioritat(mod.getPrioritat());
+                         tas.setUsuariAssignat(mod.getUsuariAssignat());
+                         tas.setData(mod.getData());
+                         tas.setEstat(mod.getEstat());
+                         tas.setDescripcio(mod.getDescripcio());
+                         // tas.setNotificacio(mod.getNotificacio());
+                         tas.setDataFinal(mod.getDataFinal());
+                         tas.setRecurrent(mod.isRecurrent());
+                         tas.setTipus(mod.getTipus());
 
-                                 System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
-                                 dataProgres = day + "-" + month + "-" + year;
-                                 dataProgres = dataProgres + " " + timeProgres;
-                                 System.out.println(dataProgres);
-
-                                 Tasques tas = new Tasques();
-
-                                 tas.setDataProgres(dataProgres);
-                                 tas.setRepeticio(mod.getRepeticio());
-                                 tas.setTitol(mod.getTitol());
-                                 tas.setPrioritat(mod.getPrioritat());
-                                 tas.setUsuariAssignat(mod.getUsuariAssignat());
-                                 tas.setData(mod.getData());
-                                 tas.setEstat(mod.getEstat());
-                                 tas.setDescripcio(mod.getDescripcio());
-                                 // tas.setNotificacio(mod.getNotificacio());
-                                 tas.setDataFinal(mod.getDataFinal());
-                                 tas.setRecurrent(mod.isRecurrent());
-                                 tas.setTipus(mod.getTipus());
-
-                                 modC.GenerarTascaRecurrent(tas);
-                             } else {
-
-                                 //S'ha finalitzat la tasca recurrent.
-                             }
-
-                         //}
-
+                         modC.GenerarTascaRecurrent(tas);
                      } else {
 
+                         //S'ha finalitzat la tasca recurrent.
                      }
-                 }
 
-                 break;
+                     //}
+                     break;
 
          }
          
      
      
-     
+         }
      
      
      
@@ -524,9 +524,9 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             String prioritat_string = null, estat_string = null;
             mod.setTitol(vis.txt_titolTasc1.getText().trim());
             mod.setUsuariAssignat(vis.ComboUsuariAssignat1.getSelectedItem().toString());
-            mod.setData(vis.dateTimePickerRepeticio.getDatePicker().toString());
+            //mod.setData(vis.dateTimePickerRepeticio.getDatePicker().toString());
             mod.setDescripcio(vis.txt_descripcioTasc1.getText().trim());
-            mod.setHora(vis.dateTimePickerRepeticio.getTimePicker().toString());
+            //mod.setHora(vis.dateTimePickerRepeticio.getTimePicker().toString());
             int estat = vis.ComboEstatTasc1.getSelectedIndex() + 1;            
             int prioritat = vis.ComboPrioritatTasc3.getSelectedIndex() + 1;
             mod.setRepeticio((Integer) vis.jSpinner.getValue());
@@ -607,13 +607,15 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
              if (vis.jRadioButtonDiari.isSelected()) {
 
                  if (vis.jRadioButtonDataFinal.isSelected()) {
-
+                     
                     
+                     mod.setData(vis.dateTimePickerRepeticio.getDatePicker().toString());
+                     mod.setHora(vis.dateTimePickerRepeticio.getTimePicker().toString());
                      mod.setDataFinal(vis.dateTimePickerRepeticioFinal.getDatePicker().toString());
                      mod.setHoraFinal(vis.dateTimePickerRepeticioFinal.getTimePicker().toString());
                     
 
-                     switch (modC.NovaTascaRepeticio(mod, vis)) {
+                     switch (modC.NovaTascaRepeticio(mod)) {
 
                          case 1:
                              JOptionPane.showMessageDialog(null, "Repeticio guardada correctament");
@@ -627,7 +629,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                              break;
                          case 3:
                               JOptionPane.showMessageDialog(null, "La data d'inici ha de ser mes petita a la data final");                    
-                             break;
+                              break;
                          case 4:                             
                               JOptionPane.showMessageDialog(null, "Els dies no poden ser iguals o menors a 0");
                                                  
@@ -639,11 +641,15 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                      }
 
                  }
+                     
+                
 
              }
 
          }
-        
+         
+         
+              
         
              if (e.getSource() == vis.jRadioButtonDataFinal){
                  
@@ -1076,6 +1082,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     }
     
     
+   
     
     
     public void MostrarTaula(JTable JTable_Tasques){
@@ -1239,9 +1246,19 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         vis.txt_descripcioTasc2.setText("");
         //vis.txt_usuariTasc2.setText("");
         vis.txt_titolTasc2.setText("");
-        vis.txt_descripcioTasc2.setText("");
+       
         vis.ComboEstatTasc2.setSelectedIndex(0);
         vis.ComboPrioritatTasc2.setSelectedIndex(0);
+        
+        
+        vis.txt_descripcioTasc1.setText("");
+        vis.txt_titolTasc1.setText("");
+        vis.ComboEstatTasc1.setSelectedIndex(0);
+        vis.ComboPrioritatTasc3.setSelectedIndex(0);
+        vis.dateTimePickerRepeticio.datePicker.setDateToToday();
+        vis.dateTimePickerRepeticioFinal.timePicker.setTimeToNow();
+        vis.jSpinner.setValue(0);
+        vis.jCheckBoxNotificacio1.setSelected(false);
         
         
       

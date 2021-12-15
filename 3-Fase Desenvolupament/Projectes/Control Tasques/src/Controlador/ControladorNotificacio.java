@@ -74,12 +74,7 @@ public class ControladorNotificacio   {
                 case 0:                                                
                     break;                
                 case 1:
-                    System.out.println("DATAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA:");
-                    //if (mod.getRecurrent() == true) {
-
-                       
-
-                    //}
+                    System.out.println("DATAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA:");                    
                     String d2,
                      d3;
 

@@ -16,6 +16,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -195,7 +197,7 @@ public class ConsultesTasques extends Conexio {
     }
     
     
-    public int NovaTascaRepeticio(Tasques tas, JFPrincipal vis){
+    public int NovaTascaRepeticio(Tasques tas){
     
         int novaTasca = 0;
         int validacio = 0;
@@ -260,31 +262,30 @@ public class ConsultesTasques extends Conexio {
 
         if (validacio == 0) {
 
-            if (repeticio > 0) {
-
-                LocalDate datee = vis.dateTimePickerRepeticio.getDatePicker().getDate();
-                LocalDate dateFinall = vis.dateTimePickerRepeticioFinal.getDatePicker().getDate();
-
-                int result = datee.compareTo(dateFinall);
+            if (repeticio > 0) {              
+               
+                 LocalDate localDateInici = String2LocalDate(dataInici, horaInici);
+                 LocalDate localDateFinal = String2LocalDate(dataFinal, horaFinal);
+                 int result = localDateInici.compareTo(localDateFinal);
 
                 if (result < 0) {
 
                     try {
 
-                        String day = dataInici.substring(8, 10);
-                        String month = dataInici.substring(5, 7);
-                        String year = dataInici.substring(0, 4);
+                        String day1 = dataInici.substring(8, 10);
+                        String month1 = dataInici.substring(5, 7);
+                        String year1 = dataInici.substring(0, 4);
 
-                        System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
-                        dataInici = day + "-" + month + "-" + year;
+                        System.out.println("DAY" + day1 + "MONTH" + month1 + "YEAR" + year1);
+                        dataInici = day1 + "-" + month1 + "-" + year1;
                         data = dataInici + " " + horaInici;
 
-                        String dayFinal = dataFinal.substring(8, 10);
-                        String monthFinal = dataFinal.substring(5, 7);
-                        String yearFinal = dataFinal.substring(0, 4);
+                        String dayFinal1 = dataFinal.substring(8, 10);
+                        String monthFinal1 = dataFinal.substring(5, 7);
+                        String yearFinal1 = dataFinal.substring(0, 4);
 
-                        System.out.println("DAY" + dayFinal + "MONTH" + monthFinal + "YEAR" + yearFinal);
-                        dataFinal = dayFinal + "-" + monthFinal + "-" + yearFinal;
+                        System.out.println("DAY" + dayFinal1 + "MONTH" + monthFinal1 + "YEAR" + yearFinal1);
+                        dataFinal = dayFinal1 + "-" + monthFinal1 + "-" + yearFinal1;
                         dataF = dataFinal + " " + horaFinal;
 
                         Connection cn2 = getConexio();
@@ -339,7 +340,59 @@ public class ConsultesTasques extends Conexio {
        return novaTasca;
     }
     
+    
+    
+     public LocalDate String2LocalDate(String d, String h){
+    
+         String day = d.substring(8, 10);
+         String month = d.substring(5, 7);
+         String year = d.substring(0, 4);
 
+         System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+         String date = day + "-" + month + "-" + year;
+         String data = date + " " + h;
+
+         String date2 = data.substring(0, 10);
+         String time2 = data.substring(11, 16);
+         String data2 = date2.replace("-", "/");
+
+         System.out.println("sSubCadena:" + date2);
+         System.out.println("sSubCadena:" + data2);
+         System.out.println("sSubCadena:" + time2);
+
+         DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+         DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("HH:mm");
+
+         //convert String to LocalDate
+         LocalDate localDate1 = LocalDate.parse(data2, formatter3);
+         LocalTime localTime1 = LocalTime.parse(time2, formatter4);       
+       
+            
+        return localDate1;       
+    
+     }
+     
+     
+     public LocalTime String2LocalTime(String d, String h){
+    
+         String day = d.substring(8, 10);
+         String month = d.substring(5, 7);
+         String year = d.substring(0, 4);
+
+         System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+         d = day + "-" + month + "-" + year;
+         String data = d + " " + h;
+         
+         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+
+         //convert String to LocalTime         
+         LocalTime localTime = LocalTime.parse(data, formatter2);
+
+               
+        return localTime;
+    
+     }
+    
     
     
     public int NovaTasca(Tasques tas) {
@@ -761,7 +814,7 @@ public class ConsultesTasques extends Conexio {
         
         tipus = tas.getTipus();
         dataProgres = tas.getDataProgres();
-        repeticio = tas.getRepeticioProgres(); 
+        repeticio = tas.getRepeticio(); 
         titol = tas.getTitol();
         descripcio = tas.getDescripcio();
         estat = tas.getEstat();
@@ -868,6 +921,11 @@ public class ConsultesTasques extends Conexio {
                 System.out.print("Estat" +tas.getEstat());
                 
                  System.out.print("Prioritat" +tas.getPrioritat());
+                 
+                 
+               System.out.print("Repeticio" +tas.getRepeticio());
+               
+               
              cn.close();
 
         } catch (SQLException e) {
