@@ -5,11 +5,14 @@
  */
 package Visual;
 
+import Conexion.Conectar;
 import java.awt.HeadlessException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -101,82 +104,38 @@ public class Visual extends javax.swing.JFrame {
 
         FileWriter myWriter = null;
         try {
-            // new Exportar().setVisible(true);
-            
-            
-            
-            //String aux = "c:\\Users\\Backupsfichero.sql";
-            //System.out.println(aux.replace("\\", "/"));
-            
-            
-            
-            /* try{
-            String backus = "docker exec  844dbd5c0d67 ls";
-            //String backus = "docker exec 844dbd5c0d67 /usr/bin/mysqldump -u root --password=mypassword testdb > C:\\Users\\Víctor\\Desktop\\Backups\\test.sql";
-            //System.out.println(backus.replace("\\", "/"));
-            Runtime rt = Runtime.getRuntime();
-            rt.exec(backus);
-            //Runtime.getRuntime().exec("docker exec -u 0 844dbd5c0d67 /usr/bin/mysqldump -u root --password=mypassword testdb > C:\\Users\\Víctor\\Desktop\\Backups\\test.txt ");
-            JOptionPane.showMessageDialog(null, "Backus creado: ");
-            }catch(HeadlessException | IOException ex){
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-            }*/
-            File fichero = new File("C:/Users/Víctor/Desktop/test.sql");
-            
-            /* try {
-            // A partir del objeto File creamos el fichero físicamente
-            if (fichero.createNewFile()) {
-            System.out.println("El fichero se ha creado correctamente");
-            } else {
-            System.out.println("No ha podido ser creado el fichero");
-            }
-            } catch (IOException ioe) {
-            ioe.printStackTrace();
-            }*/
-            ProcessBuilder processBuilder = new ProcessBuilder();
-            processBuilder.command("docker", "exec", "844dbd5c0d67","/usr/bin/mysqldump", "-u", "root", "--password=mypassword", "-B", "testdb");
-            // processBuilder.command("docker exec 844dbd5c0d67 /usr/bin/mysqldump -u root --password=mypassword testdb > C:\\Users\\Víctor\\Desktop\\Backups\\test.sql");
-            myWriter = new FileWriter("C:/Users/Víctor/Desktop/test.sql");
-            
-           
 
-            
-            
-            
+            File fichero = new File("C:/Users/Víctor/Desktop/test.sql");
+            ProcessBuilder processBuilder = new ProcessBuilder();
+            processBuilder.command("docker", "exec", "db", "/usr/bin/mysqldump", "-u", "root", "--password=mypassword", "-B", "testdb");
+            myWriter = new FileWriter("C:/Users/Víctor/Desktop/test.sql");
+
             try {
 
                 Writer fstream = null;
                 BufferedWriter out = null;
-
-                fstream = new OutputStreamWriter(new FileOutputStream("C:/Users/Víctor/Desktop/test.sql"), "Cp1252");
-
+                fstream = new OutputStreamWriter(new FileOutputStream("C:/Users/Víctor/Desktop/test.sql"));
                 Process process = processBuilder.start();
-                //BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-
-                /*String line= reader.readLine();
-                System.out.println("HOLA1" + line);
-                while (line != null) {
-                System.out.println("HOLA" + line);
-                }*/
-                
                 BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
                 StringBuilder builder = new StringBuilder();
                 String line = null;
+
                 while ((line = reader.readLine()) != null) {
                     builder.append(line);
                     builder.append(System.getProperty("line.separator"));
                     System.out.println("DINS");
                 }
-                String result = builder.toString();
-               // myWriter.write(builder.toString().getBytes());
-                fstream.append(builder);
-                System.out.println("RESULT" + result);
-                
-                
-                
+                String result = builder.toString();                
+                fstream.write(result);               
+                System.out.println("RESULT" + builder);
+
+                try ( BufferedWriter writer = new BufferedWriter(new FileWriter(fichero))) {
+                    writer.write(builder.toString());
+                }
+
                 int exitCode = process.waitFor();
                 System.out.println("\nExited with error code : " + exitCode);
-                
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -190,14 +149,104 @@ public class Visual extends javax.swing.JFrame {
                 Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
- 
-       
-       
-        
+
+        try {
+
+            File inputFile = new File("C:/Users/Víctor/Desktop/test.sql");
+            File tempFile = new File("C:/Users/Víctor/Desktop/test1.sql");
+
+            String lineToRemove = "";
+            BufferedReader reader = null;
+            BufferedWriter writer = null;
+            reader = new BufferedReader(new FileReader(inputFile));
+            writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String currentLine;
+
+            lineToRemove = "USE `testdb`;";
+
+            while ((currentLine = reader.readLine()) != null) {
+                // trim newline when comparing with lineToRemove
+                String trimmedLine = currentLine.trim();
+                if (trimmedLine.equals(lineToRemove)) {
+                    continue;
+                }
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+
+            writer.close();
+            reader.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new Importar().setVisible(true);
+        //new Importar().setVisible(true);
+        
+       /* ProcessBuilder processBuilder2 = new ProcessBuilder();
+        processBuilder2
+            processBuilder2.command("cd ‪C:\\Users\\Víctor\\Desktop\\");
+      
+        try {
+             Process process2 = processBuilder2.start();
+                  int exitCode2 = process2.waitFor();
+                System.out.println("\nExited with error code : " + exitCode2);
+        } catch (IOException ex) {
+            Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+       
+        /*try{
+               String backus = "";
+                Runtime rt = Runtime.getRuntime();
+                //rt.exec(backus);
+                rt.exec("docker exec db /usr/bin/mysqldump -u root --password=mypassword testdb > backup.sql"); 
+
+                
+                //  Process process = processBuilder.start();
+                //  int exitCode = process.waitFor();
+               // System.out.println("\nExited with error code : " + exitCode);
+                
+                JOptionPane.showMessageDialog(null, "Backus Importado: ");
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }*/
+        
+        
+        
+     
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        // processBuilder.directory(new File("C:/Users/Víctor/Desktop/"));
+        //processBuilder.directory(new File("C:/Users/Víctor/Desktop/"));
+        //processBuilder.directory("C:/Users/Víctor/Desktop/Backup/backup.sql");
+       //System.out.println("Directoryy" +  processBuilder.directory() );
+       
+       //System.out.println("Directoryy" +  processBuilder.directory() );
+       //processBuilder.redirectErrorStream(true);
+           processBuilder.command("bash", "-c", "type" , "test1.sql", "|", "docker", "exec", "-i", "db", "/usr/bin/mysql", "-u" , "root", "--password=mypassword", "backupdb");
+       //processBuilder.command("docker", "exec", "db", "/usr/bin/mysqldump", "-u", "root", "--password=mypassword", "testdb", ">", "C:/Users/Víctor/Desktop/Backup/backup.sql");
+        
+        try{
+               //String backus = "cmd /c type ‪C:\\Users\\Víctor\\Desktop\\test.sql | docker exec -i db /usr/bin/mysql -u root --password=mypassword backupdb";
+                //Runtime rt = Runtime.getRuntime();
+                //rt.exec(backus);
+                
+                  Process process = processBuilder.start();
+                  int exitCode = process.waitFor();
+                System.out.println("\nExited with error code : " + exitCode);
+                
+                //JOptionPane.showMessageDialog(null, "Backus Importado: ");
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
