@@ -6,6 +6,10 @@
 package Visual;
 
 import Conexion.Conectar;
+import com.sun.tools.javac.util.StringUtils;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -19,6 +23,7 @@ public class Importar extends javax.swing.JFrame {
     /**
      * Creates new form Importar
      */
+    public String fitxer;
     public Importar() {
         initComponents();
     }
@@ -94,23 +99,67 @@ public class Importar extends javax.swing.JFrame {
         int se = ch.showSaveDialog(null);
         if(se == JFileChooser.APPROVE_OPTION){
             String ruta = ch.getSelectedFile().getPath();
+            fitxer =ch.getSelectedFile().getName();
+            System.out.println("Fitxer" + fitxer);
             txtruta.setText(ruta);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String ruta = txtruta.getText();
-        String backus = "";
-        if(ruta.trim().length()!=0){
-            try{
-                backus = "cmd /c mysql -u"+Conectar.getUs()+" -p"+Conectar.getPas()+" "+Conectar.getBd()+" < "+ruta;
-                Runtime rt = Runtime.getRuntime();
-                rt.exec(backus);
-                JOptionPane.showMessageDialog(null, "Backus Importado: "+ruta);
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, ex.getMessage());
+        System.out.println("Ruta" + ruta);
+        ruta = ruta.replace(fitxer.toString(), "");
+        System.out.println("Ruta" + ruta);
+        StringBuffer sb = new StringBuffer(ruta);
+        sb.deleteCharAt(sb.length() - 1);
+        String directori = sb.toString();
+        System.out.println("Ruta" + directori);
+        System.out.println("Fitxer" + fitxer);
+        System.out.println("Fitxer + Ruta" + ruta + fitxer);
+
+        if (ruta.trim().length() != 0) {
+
+            try {
+                String linea;
+                ProcessBuilder processBuilder = new ProcessBuilder("cp", "restore.bat", directori);
+                Process process = processBuilder.start();
+
+                BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                while ((linea = input.readLine()) != null) {
+                    System.out.println(linea);
+                }
+                input.close();
+            } catch (Exception err) {
+                err.printStackTrace();
             }
+
+            try {
+                String linea;
+                Process p = Runtime.getRuntime().exec(ruta + "restore.bat", null, new File(ruta));
+                BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                while ((linea = input.readLine()) != null) {
+                    System.out.println(linea);
+                }
+                input.close();
+            } catch (Exception err) {
+                err.printStackTrace();
+            }
+
+            try {
+                String linea;
+                Process pr = Runtime.getRuntime().exec("rm " + ruta + "restore.bat", null, new File(ruta));
+                BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+                while ((linea = input.readLine()) != null) {
+                    System.out.println(linea);
+                }
+                input.close();
+                JOptionPane.showMessageDialog(null, "Backup Importado: " + ruta + fitxer);
+            } catch (Exception err) {
+                JOptionPane.showMessageDialog(null, err.getMessage());
+            }
+
         }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

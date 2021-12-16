@@ -100,9 +100,9 @@ public class Visual extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+         new Exportar().setVisible(true);
 
-        FileWriter myWriter = null;
+        /*FileWriter myWriter = null;
         try {
 
             File fichero = new File("C:/Users/Víctor/Desktop/test.sql");
@@ -179,71 +179,54 @@ public class Visual extends javax.swing.JFrame {
 
         } catch (IOException ex) {
             Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //new Importar().setVisible(true);
+        new Importar().setVisible(true);
         
-       /* ProcessBuilder processBuilder2 = new ProcessBuilder();
-        processBuilder2
-            processBuilder2.command("cd ‪C:\\Users\\Víctor\\Desktop\\");
-      
-        try {
-             Process process2 = processBuilder2.start();
-                  int exitCode2 = process2.waitFor();
-                System.out.println("\nExited with error code : " + exitCode2);
-        } catch (IOException ex) {
-            Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-       
-        /*try{
-               String backus = "";
-                Runtime rt = Runtime.getRuntime();
-                //rt.exec(backus);
-                rt.exec("docker exec db /usr/bin/mysqldump -u root --password=mypassword testdb > backup.sql"); 
+        
+         
+   
+        /*try {
+            String linea;
+            ProcessBuilder processBuilder = new ProcessBuilder("cp", "hey.bat", "C:/Users/Víctor/Desktop");
+            Process process = processBuilder.start();
 
-                
-                //  Process process = processBuilder.start();
-                //  int exitCode = process.waitFor();
-               // System.out.println("\nExited with error code : " + exitCode);
-                
-                JOptionPane.showMessageDialog(null, "Backus Importado: ");
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, ex.getMessage());
-            }*/
-        
-        
-        
-     
-        ProcessBuilder processBuilder = new ProcessBuilder();
-        // processBuilder.directory(new File("C:/Users/Víctor/Desktop/"));
-        //processBuilder.directory(new File("C:/Users/Víctor/Desktop/"));
-        //processBuilder.directory("C:/Users/Víctor/Desktop/Backup/backup.sql");
-       //System.out.println("Directoryy" +  processBuilder.directory() );
-       
-       //System.out.println("Directoryy" +  processBuilder.directory() );
-       //processBuilder.redirectErrorStream(true);
-           processBuilder.command("bash", "-c", "type" , "test1.sql", "|", "docker", "exec", "-i", "db", "/usr/bin/mysql", "-u" , "root", "--password=mypassword", "backupdb");
-       //processBuilder.command("docker", "exec", "db", "/usr/bin/mysqldump", "-u", "root", "--password=mypassword", "testdb", ">", "C:/Users/Víctor/Desktop/Backup/backup.sql");
-        
-        try{
-               //String backus = "cmd /c type ‪C:\\Users\\Víctor\\Desktop\\test.sql | docker exec -i db /usr/bin/mysql -u root --password=mypassword backupdb";
-                //Runtime rt = Runtime.getRuntime();
-                //rt.exec(backus);
-                
-                  Process process = processBuilder.start();
-                  int exitCode = process.waitFor();
-                System.out.println("\nExited with error code : " + exitCode);
-                
-                //JOptionPane.showMessageDialog(null, "Backus Importado: ");
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, ex.getMessage());
+            BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            while ((linea = input.readLine()) != null) {
+                System.out.println(linea);
             }
+            input.close();
+        } catch (Exception err) {
+            err.printStackTrace();
+        }
+
+        try {
+            String linea;
+            Process p = Runtime.getRuntime().exec("C:/Users/Víctor/Desktop/hey.bat", null, new File("C:/Users/Víctor/Desktop/"));
+            BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            while ((linea = input.readLine()) != null) {
+                System.out.println(linea);
+            }
+            input.close();
+        } catch (Exception err) {
+            err.printStackTrace();
+        }
+
+        try {
+            String linea;
+            Process pr = Runtime.getRuntime().exec("rm C:/Users/Víctor/Desktop/hey.bat", null, new File("C:/Users/Víctor/Desktop/"));
+            BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+            while ((linea = input.readLine()) != null) {
+                System.out.println(linea);
+            }
+            input.close();
+        } catch (Exception err) {
+            err.printStackTrace();
+        }*/
         
         
         
