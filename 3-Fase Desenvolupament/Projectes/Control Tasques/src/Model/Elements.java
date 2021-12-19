@@ -10,7 +10,7 @@ package Model;
  * @author Victor
  */
 public class Elements {
-    
+
     String nom;
     String usuariAssignat;
     String tipus;
@@ -28,7 +28,6 @@ public class Elements {
     public void setId(int id) {
         this.id = id;
     }
-    
 
     public String getNom() {
         return nom;
@@ -93,6 +92,5 @@ public class Elements {
     public void setObservacions(String observacions) {
         this.observacions = observacions;
     }
-    
-    
+
 }

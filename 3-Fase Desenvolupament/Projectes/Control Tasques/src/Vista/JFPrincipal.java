@@ -6,43 +6,21 @@
 package Vista;
 
 import Controlador.ControladorNotificacio;
-import Controlador.ControladorTasques;
 import Model.ConsultesNotificacio;
-import Model.ConsultesTasques;
-import Model.Tasques;
-import clases.Conexio;
-import com.github.lgooddatepicker.components.DateTimePicker;
+import MVC.Conexio;
 import java.sql.*;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Image;
-
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.ArrayList;
-
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTable;
-import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import javax.swing.SwingUtilities;
 import java.util.Date;
-import ventanas.Contrasenya;
-import java.awt.event.*;
-import javax.swing.JButton;
+
 import Model.Notificacio;
 import javax.mail.MessagingException;
 
@@ -50,32 +28,30 @@ import javax.mail.MessagingException;
  *
  * @author Victor
  */
-public class JFPrincipal extends javax.swing.JFrame  {
+public class JFPrincipal extends javax.swing.JFrame {
 
     boolean a = true;
-   
+
     private int xMouse, yMouse;
-    
+
     public int id;
-    
+
     public int id_tasca = 0;
-    
-    public static String user_update="", element_update="", tasca_update = "";
-   
+
+    public static String user_update = "", element_update = "", tasca_update = "";
+
     public boolean jf = false;
-   
-    
+
     /**
      * Creates new form Ventana_Tasques2
      */
-    public JFPrincipal() {        
-        
+    public JFPrincipal() {
+
         initComponents();
 
         ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");
         Close.setIcon(delete_logo);
         this.repaint();
-        
 
         ImageIcon max_logo = new ImageIcon("src/images/full_screen_32px.png");
         Max.setIcon(max_logo);
@@ -108,8 +84,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         ImageIcon elements_grups = new ImageIcon("src/images/icons8-dog-tag-30.png");
         btnGrup.setIcon(elements_grups);
         this.repaint();
-              
-                
+
         ImageIcon tancarSessio = new ImageIcon("src/images/icons8-logout-30.png");
         btnTancarSessio.setIcon(tancarSessio);
         this.repaint();
@@ -117,22 +92,17 @@ public class JFPrincipal extends javax.swing.JFrame  {
         ImageIcon enrera_logo = new ImageIcon("src/images/icons8-left-35.png");
         Enrera.setIcon(enrera_logo);
         this.repaint();
-        
+
         ImageIcon logo = new ImageIcon("src/images/ezgif-com-gif-maker2.png");
         btnlogo.setIcon(logo);
         this.repaint();
-        
+
         ImageIcon iconUser = new ImageIcon("src/images/icons8-user-32.png");
         txt_fotoUsuari.setIcon(iconUser);
         this.repaint();
-        
-
 
     }
 
-   
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -201,7 +171,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
-        jButtonRepeticio = new javax.swing.JButton();
         jLabel55 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
         ComboUsuariAssignat = new javax.swing.JComboBox<>();
@@ -297,6 +266,10 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jScrollPane_Usuaris = new javax.swing.JScrollPane();
         jTable_Usuaris = new javax.swing.JTable();
         DashConfiguracio = new javax.swing.JPanel();
+        jLabel91 = new javax.swing.JLabel();
+        jButtonExportar = new javax.swing.JButton();
+        jButtonImportar = new javax.swing.JButton();
+        jCheckBoxSo = new javax.swing.JCheckBox();
         DashInfoUsuari = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         txt_telefon = new javax.swing.JTextField();
@@ -1078,9 +1051,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
         DashTriaTascaLayout.setHorizontalGroup(
             DashTriaTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashTriaTascaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 31, Short.MAX_VALUE))
         );
         DashTriaTascaLayout.setVerticalGroup(
             DashTriaTascaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1112,14 +1084,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel49.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 95, -1, -1));
-
-        jButtonRepeticio.setText("Repetició");
-        jButtonRepeticio.setBackground(new java.awt.Color(255, 153, 51));
-        jButtonRepeticio.setBorder(null);
-        jButtonRepeticio.setBorderPainted(false);
-        jButtonRepeticio.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRepeticio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel5.add(jButtonRepeticio, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 110, 20));
 
         jLabel55.setText("Titol");
         jLabel55.setBackground(new java.awt.Color(0, 0, 0));
@@ -1155,11 +1119,11 @@ public class JFPrincipal extends javax.swing.JFrame  {
         dateTimePicker.setForeground(new java.awt.Color(255, 153, 51));
         jPanel5.add(dateTimePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 350, 30));
 
+        jLabel63.setText("Grup Afectat");
         jLabel63.setBackground(new java.awt.Color(255, 153, 51));
         jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel63.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel63.setText("Grup Afectat");
-        jPanel5.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, 25));
+        jPanel5.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, 25));
 
         ComboEstatTasc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nova", "En espera", "En procés" }));
         ComboEstatTasc.setBackground(new java.awt.Color(255, 153, 51));
@@ -1172,7 +1136,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 jCheckBoxNotificacioActionPerformed(evt);
             }
         });
-        jPanel5.add(jCheckBoxNotificacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 100, 30));
+        jPanel5.add(jCheckBoxNotificacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 100, 30));
 
         ComboPrioritatTasc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Mitja", "Alta", "Urgent", "Prioritaria" }));
         ComboPrioritatTasc1.setBackground(new java.awt.Color(255, 153, 51));
@@ -1187,10 +1151,10 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jButtonRegistarTasca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel5.add(jButtonRegistarTasca, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 150, 30));
 
+        ComboGrupAfectat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         ComboGrupAfectat.setBackground(new java.awt.Color(255, 153, 51));
         ComboGrupAfectat.setForeground(new java.awt.Color(255, 255, 255));
-        ComboGrupAfectat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
-        jPanel5.add(ComboGrupAfectat, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 150, 26));
+        jPanel5.add(ComboGrupAfectat, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 150, 26));
 
         jLabel84.setBackground(new java.awt.Color(255, 153, 51));
         jLabel84.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1220,10 +1184,10 @@ public class JFPrincipal extends javax.swing.JFrame  {
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel88.setText("Nou Grup");
         jLabel88.setBackground(new java.awt.Color(255, 153, 51));
         jLabel88.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel88.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel88.setText("Nou Grup");
         jPanel10.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, 60));
 
         jButtonRegistarGrup1.setText("Actualitzar");
@@ -1421,7 +1385,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         DashNouGrup.setLayout(DashNouGrupLayout);
         DashNouGrupLayout.setHorizontalGroup(
             DashNouGrupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
         );
         DashNouGrupLayout.setVerticalGroup(
             DashNouGrupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1556,7 +1520,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                             .addGroup(Contador4Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addComponent(jTextFieldTasquesAssignades, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                                 .addComponent(jTextFieldTasquesPendents, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(97, 97, 97))))
                     .addGroup(Contador4Layout.createSequentialGroup()
@@ -1742,7 +1706,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                                 .addComponent(jLabel28)
                                 .addGap(56, 56, 56)
                                 .addComponent(jLabel26)))
-                        .addGap(0, 70, Short.MAX_VALUE))
+                        .addGap(0, 100, Short.MAX_VALUE))
                     .addGroup(Contador2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1936,7 +1900,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                                 .addComponent(jLabel23)
                                 .addGap(56, 56, 56)
                                 .addComponent(jLabel6)))
-                        .addGap(0, 70, Short.MAX_VALUE))
+                        .addGap(0, 100, Short.MAX_VALUE))
                     .addGroup(Contador1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1997,17 +1961,58 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addComponent(jScrollPane_Usuaris, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        DashConfiguracio.setBackground(new java.awt.Color(51, 255, 51));
+        DashConfiguracio.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel91.setText("Configuració");
+        jLabel91.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel91.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        jLabel91.setForeground(new java.awt.Color(255, 153, 51));
+
+        jButtonExportar.setText("Exportar BD");
+        jButtonExportar.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonExportar.setForeground(new java.awt.Color(255, 255, 255));
+
+        jButtonImportar.setText("Importar BD");
+        jButtonImportar.setBackground(new java.awt.Color(255, 153, 51));
+        jButtonImportar.setForeground(new java.awt.Color(255, 255, 255));
+
+        jCheckBoxSo.setText("Tó de notificació");
 
         javax.swing.GroupLayout DashConfiguracioLayout = new javax.swing.GroupLayout(DashConfiguracio);
         DashConfiguracio.setLayout(DashConfiguracioLayout);
         DashConfiguracioLayout.setHorizontalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 782, Short.MAX_VALUE)
+            .addGroup(DashConfiguracioLayout.createSequentialGroup()
+                .addGap(154, 154, 154)
+                .addGroup(DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashConfiguracioLayout.createSequentialGroup()
+                        .addComponent(jButtonImportar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(DashConfiguracioLayout.createSequentialGroup()
+                        .addComponent(jButtonExportar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashConfiguracioLayout.createSequentialGroup()
+                .addContainerGap(277, Short.MAX_VALUE)
+                .addGroup(DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashConfiguracioLayout.createSequentialGroup()
+                        .addComponent(jLabel91)
+                        .addGap(273, 273, 273))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashConfiguracioLayout.createSequentialGroup()
+                        .addComponent(jCheckBoxSo)
+                        .addGap(182, 182, 182))))
         );
         DashConfiguracioLayout.setVerticalGroup(
             DashConfiguracioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 716, Short.MAX_VALUE)
+            .addGroup(DashConfiguracioLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel91)
+                .addGap(97, 97, 97)
+                .addComponent(jButtonExportar)
+                .addGap(2, 2, 2)
+                .addComponent(jCheckBoxSo)
+                .addGap(5, 5, 5)
+                .addComponent(jButtonImportar)
+                .addContainerGap(264, Short.MAX_VALUE))
         );
 
         DashInfoUsuari.setBackground(new java.awt.Color(255, 255, 255));
@@ -2151,7 +2156,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                     .addGroup(DashInfoUsuariLayout.createSequentialGroup()
                         .addGap(272, 272, 272)
                         .addComponent(jButtonEditarUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         DashInfoUsuariLayout.setVerticalGroup(
             DashInfoUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2308,7 +2313,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                         .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(DashNouUsuariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2480,7 +2485,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
             DashNouElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashNouElementLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
                 .addGap(43, 43, 43))
         );
         DashNouElementLayout.setVerticalGroup(
@@ -2623,7 +2628,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                     .addGroup(DashInfoElementLayout.createSequentialGroup()
                         .addGap(272, 272, 272)
                         .addComponent(jButtonEditarElement, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
         DashInfoElementLayout.setVerticalGroup(
             DashInfoElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2996,7 +3001,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                                 .addComponent(jLabel69)
                                 .addGap(56, 56, 56)
                                 .addComponent(jLabel67)))
-                        .addGap(0, 70, Short.MAX_VALUE))
+                        .addGap(0, 100, Short.MAX_VALUE))
                     .addGroup(Contador5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -3604,7 +3609,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         DashBoardView.setLayout(DashBoardViewLayout);
         DashBoardViewLayout.setHorizontalGroup(
             DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DashConfiguracio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(DashBoardViewLayout.createSequentialGroup()
+                .addComponent(DashConfiguracio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 36, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(DashUsuaris, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3613,7 +3620,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(DashNouUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(102, Short.MAX_VALUE)))
+                    .addContainerGap(159, Short.MAX_VALUE)))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(DashElements, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3642,7 +3649,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addComponent(DashPerfilUsuari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashBoardViewLayout.createSequentialGroup()
-                    .addComponent(DashNovaTascaRepeticio, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                    .addComponent(DashNovaTascaRepeticio, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
@@ -3661,10 +3668,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
         );
         DashBoardViewLayout.setVerticalGroup(
             DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashBoardViewLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(DashConfiguracio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(DashBoardViewLayout.createSequentialGroup()
+                .addComponent(DashConfiguracio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 203, Short.MAX_VALUE))
             .addGroup(DashBoardViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addComponent(DashUsuaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3730,7 +3736,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
                 .addGroup(DashBoardViewLayout.createSequentialGroup()
                     .addGap(45, 45, 45)
                     .addComponent(DashInfoGrup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(45, Short.MAX_VALUE)))
+                    .addContainerGap(156, Short.MAX_VALUE)))
         );
 
         getContentPane().add(DashBoardView, java.awt.BorderLayout.CENTER);
@@ -3751,11 +3757,13 @@ public class JFPrincipal extends javax.swing.JFrame  {
         // TODO add your handling code here:
         changecolor(ButtonClose, new Color(255, 204, 102));
     }//GEN-LAST:event_CloseMouseEntered
+
     //Establir el color per defecte
     private void CloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseExited
         // TODO add your handling code here:
         changecolor(ButtonClose, new Color(255, 153, 0));
     }//GEN-LAST:event_CloseMouseExited
+
     //Establir l'accio al clickar el boto
     private void CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseClicked
         // TODO add your handling code here:
@@ -3837,7 +3845,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
             a = true;
         }
 
-
     }//GEN-LAST:event_MenuDesMouseClicked
 
     private void btnConfiguracioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfiguracioMouseEntered
@@ -3856,7 +3863,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void btnConfiguracioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfiguracioMouseClicked
         // TODO add your handling code here:
-
 
     }//GEN-LAST:event_btnConfiguracioMouseClicked
 
@@ -3887,7 +3893,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
         changecolor(N_Elements, new Color(255, 153, 0));
 
     }//GEN-LAST:event_btnElementsMouseExited
-
 
     private void btnUsuarisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarisMouseEntered
         // TODO add your handling code here:
@@ -3938,7 +3943,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
         changecolor(N_Elements, new Color(255, 153, 0));
         changecolor(Elements, new Color(255, 153, 0));
     }//GEN-LAST:event_btn_ElementsMouseExited
-
 
     private void btn_UsuarisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuarisMouseEntered
         // TODO add your handling code here:
@@ -3991,7 +3995,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void btn_ConfiguracioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseClicked
         // TODO add your handling code here:
 
-
     }//GEN-LAST:event_btn_ConfiguracioMouseClicked
 
     private void btn_ConfiguracioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseEntered
@@ -4003,7 +4006,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void btn_ConfiguracioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseExited
         // TODO add your handling code here:
-         changecolor(Configuracio, new Color(255, 153, 0));
+        changecolor(Configuracio, new Color(255, 153, 0));
         changecolor(N_Configuracio, new Color(255, 153, 0));
 
     }//GEN-LAST:event_btn_ConfiguracioMouseExited
@@ -4040,7 +4043,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void btnUsuarisMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarisMouseReleased
         // TODO add your handling code here:
 
-
     }//GEN-LAST:event_btnUsuarisMouseReleased
 
     private void txtBuscadorUsuarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscadorUsuarisActionPerformed
@@ -4054,7 +4056,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void jButtonEditarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarUsuariActionPerformed
         // TODO add your handling code here:
 
-
     }//GEN-LAST:event_jButtonEditarUsuariActionPerformed
 
     private void txt_cognomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cognomActionPerformed
@@ -4064,7 +4065,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void ContrasenyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenyaActionPerformed
         // TODO add your handling code here:
 
-        new Contrasenya().setVisible(true);
     }//GEN-LAST:event_ContrasenyaActionPerformed
 
     private void jButtonEliminarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuariActionPerformed
@@ -4079,10 +4079,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
         return checked;
 
     }*/
-
     private void jButtonEliminarUsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuariMouseClicked
         // TODO add your handling code here:
-
 
     }//GEN-LAST:event_jButtonEliminarUsuariMouseClicked
 
@@ -4101,22 +4099,20 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void jButtonEditarUsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarUsuariMouseClicked
         // TODO add your handling code here:
 
-
     }//GEN-LAST:event_jButtonEditarUsuariMouseClicked
 
     private void jButtonEliminarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarElementMouseClicked
         // TODO add your handling code here:
-
 
     }//GEN-LAST:event_jButtonEliminarElementMouseClicked
 
     private void jButtonEliminarElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarElementActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEliminarElementActionPerformed
+
     //Crear Elements
     private void jButtonRegistarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistarElementMouseClicked
         // TODO add your handling code here:
-
 
     }//GEN-LAST:event_jButtonRegistarElementMouseClicked
 
@@ -4127,7 +4123,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     //Modificacio ELements
     private void jButtonEditarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarElementMouseClicked
         // TODO add your handling code here:
-
 
     }//GEN-LAST:event_jButtonEditarElementMouseClicked
 
@@ -4148,9 +4143,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void jButtonEliminarTascaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarTascaMouseClicked
         // TODO add your handling code here:
 
-
     }//GEN-LAST:event_jButtonEliminarTascaMouseClicked
-
 
     private void jButtonEliminarTasca(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarTasca
         // TODO add your handling code here:
@@ -4158,7 +4151,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     //Modificar Tasca
     private void jButtonEditarTascaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarTascaMouseClicked
-
 
     }//GEN-LAST:event_jButtonEditarTascaMouseClicked
 
@@ -4169,12 +4161,12 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void jButtonNomUsuariMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNomUsuariMouseEntered
         // TODO add your handling code here:
         changecolor(N_Usuari, new Color(255, 204, 102));
-        
+
     }//GEN-LAST:event_jButtonNomUsuariMouseEntered
 
     private void jButtonNomUsuariMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNomUsuariMouseExited
         // TODO add your handling code here:
-         
+
         changecolor(N_Usuari, new Color(255, 153, 0));
     }//GEN-LAST:event_jButtonNomUsuariMouseExited
 
@@ -4208,20 +4200,17 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void btn_TasquesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TasquesMouseEntered
         // TODO add your handling code here:
-         changecolor(Tasques, new Color(255, 204, 102));
+        changecolor(Tasques, new Color(255, 204, 102));
         changecolor(N_Tasques, new Color(255, 204, 102));
-        
+
     }//GEN-LAST:event_btn_TasquesMouseEntered
 
     private void btn_TasquesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TasquesMouseExited
         // TODO add your handling code here:
-        
-      changecolor(Tasques, new Color(255, 153, 0));
+
+        changecolor(Tasques, new Color(255, 153, 0));
         changecolor(N_Tasques, new Color(255, 153, 0));
-        
-        
-        
-        
+
     }//GEN-LAST:event_btn_TasquesMouseExited
 
     private void N_GrupsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_GrupsMouseEntered
@@ -4258,12 +4247,12 @@ public class JFPrincipal extends javax.swing.JFrame  {
         // TODO add your handling code here:
         changecolor(TancarSessio, new Color(255, 204, 102));
         changecolor(N_TancarSessio, new Color(255, 204, 102));
-        
+
     }//GEN-LAST:event_btnTancarSessioMouseEntered
 
     private void btnTancarSessioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTancarSessioMouseExited
         // TODO add your handling code here:
-        
+
         changecolor(TancarSessio, new Color(255, 153, 0));
         changecolor(N_TancarSessio, new Color(255, 153, 0));
     }//GEN-LAST:event_btnTancarSessioMouseExited
@@ -4274,14 +4263,14 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void btn_TancarSessioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TancarSessioMouseEntered
         // TODO add your handling code here:
-        
-         changecolor(TancarSessio, new Color(255, 204, 102));
+
+        changecolor(TancarSessio, new Color(255, 204, 102));
         changecolor(N_TancarSessio, new Color(255, 204, 102));
     }//GEN-LAST:event_btn_TancarSessioMouseEntered
 
     private void btn_TancarSessioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TancarSessioMouseExited
         // TODO add your handling code here:
-         changecolor(TancarSessio, new Color(255, 153, 0));
+        changecolor(TancarSessio, new Color(255, 153, 0));
         changecolor(N_TancarSessio, new Color(255, 153, 0));
     }//GEN-LAST:event_btn_TancarSessioMouseExited
 
@@ -4309,17 +4298,15 @@ public class JFPrincipal extends javax.swing.JFrame  {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboMes1ActionPerformed
 
-    
-    public void inicialitzarNotificacio(Date date) throws MessagingException{
-    
+    public void inicialitzarNotificacio(Date date) throws MessagingException {
+
         Notificacio n = new Notificacio();
         ConsultesNotificacio cn = new ConsultesNotificacio();
-        ControladorNotificacio con = new ControladorNotificacio(n,cn,this);
+        ControladorNotificacio con = new ControladorNotificacio(n, cn, this);
         con.Notificacio(date);
-        
-    
+
     }
-    
+
     public void recordatori(Date date) throws InterruptedException, ParseException {
 
         DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
@@ -4430,9 +4417,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         }
 
     }
-      
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -4470,9 +4455,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFPrincipal().setVisible(true);        
+                new JFPrincipal().setVisible(true);
 
-		
             }
         });
     }
@@ -4612,7 +4596,9 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JButton jButtonEliminarGrup;
     public javax.swing.JButton jButtonEliminarTasca;
     public javax.swing.JButton jButtonEliminarUsuari;
+    public javax.swing.JButton jButtonExportar;
     public javax.swing.JButton jButtonGuardarFoto;
+    public javax.swing.JButton jButtonImportar;
     public javax.swing.JLabel jButtonNomUsuari;
     public javax.swing.JButton jButtonNouElement;
     public javax.swing.JButton jButtonNouGrup;
@@ -4623,7 +4609,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JButton jButtonRegistarGrup1;
     public javax.swing.JButton jButtonRegistarTasca;
     public javax.swing.JButton jButtonRegistarUsuari;
-    public javax.swing.JButton jButtonRepeticio;
     public javax.swing.JButton jButtonTascaNormal;
     public javax.swing.JButton jButtonTascaRepetio;
     public javax.swing.JCheckBox jCheckBoxDijous;
@@ -4643,6 +4628,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JCheckBox jCheckBoxNotificacio;
     public javax.swing.JCheckBox jCheckBoxNotificacio1;
     public javax.swing.JCheckBox jCheckBoxNotificacio2;
+    public javax.swing.JCheckBox jCheckBoxSo;
     public javax.swing.JComboBox<String> jComboBoxDashTasquesUsuari;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -4734,6 +4720,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
     public javax.swing.JLabel jLabelAnys;
     public javax.swing.JLabel jLabelAnys1;
     public javax.swing.JLabel jLabelDias;
@@ -4845,5 +4832,4 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JTextField txt_usuariassignat;
     // End of variables declaration//GEN-END:variables
 
-        
 }

@@ -7,27 +7,16 @@ package Controlador;
 
 import Model.ConsultesGrups;
 import Model.ConsultesTasques;
-import Model.ConsultesUsuaris;
 import Model.Grups;
 import Model.Tasques;
-import Model.Usuaris;
 import Vista.JFPrincipal;
-import static com.sun.tools.attach.VirtualMachine.list;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.lang.reflect.Array;
-import static java.nio.file.Files.list;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import static java.util.Collections.list;
-import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -36,7 +25,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
  *
@@ -130,8 +118,8 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
         modelGrups = model_grups;
         addCheckBox(0, vis.jTable_Grups);
         vis.jTable_Grups.removeColumn(vis.jTable_Grups.getColumnModel().getColumn(2));
-        
-         TableRowSorter<TableModel> sorter3 = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Grups.getModel()));
+
+        TableRowSorter<TableModel> sorter3 = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Grups.getModel()));
         vis.jTable_Grups.setRowSorter(sorter3);
 
     }
@@ -242,8 +230,7 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        
+
         if (e.getSource() == vis.jButtonEliminarGrup) {
 
             TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
@@ -274,15 +261,6 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             MostrarTaula();
 
         }
-
-        
-        
-        
-        
-        
-        
-        
-        
 
         if (e.getSource() == vis.jButtonNouGrup) {
 
@@ -416,16 +394,15 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
 
         }
 
-        
-         if (e.getSource() == vis.jButtonRegistarGrup1) {
-             
+        if (e.getSource() == vis.jButtonRegistarGrup1) {
+
             mod.setNom(vis.txt_nomGrup1.getText().trim());
             String text = (vis.jTextGrupUsuaris1.getText());
             System.out.println("Actualitzar" + mod.getGrupUsuaris());
             System.out.println("Actualitzar" + mod.getGrupElements());
 
-            if ((mod.getGrupUsuaris() != null) || (mod.getGrupElements() != null)){
-               
+            if ((mod.getGrupUsuaris() != null) || (mod.getGrupElements() != null)) {
+
                 switch (modC.EditarUserGrup(mod)) {
 
                     case 1:
@@ -442,10 +419,10 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
                         JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
                         break;
                     default:
-                         break;
+                        break;
 
-                 }
-             }
+                }
+            }
 
             /* if (mod.getGrupElements() != null) {
 
@@ -479,12 +456,8 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
                  }
 
              }*/
-             
-             
-             
-         }
-        
-        
+        }
+
         if (e.getSource() == vis.jButtonRegistarGrup) {
 
             mod.setNom(vis.txt_nomGrup.getText().trim());
@@ -564,7 +537,7 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             }
 
         }
-        
+
         if (e.getSource() == vis.jButtonAfegir1) {
 
             System.out.println("PRimer:" + mod.getUsuariArrayList());
@@ -619,8 +592,7 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             vis.jTextGrupUsuaris1.setText(line);
 
         }
-        
-        
+
         if (e.getSource() == vis.jButtonAfegirElement1) {
 
             System.out.println("PRimer:" + mod.getUsuariArrayList());
@@ -676,8 +648,6 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             vis.jTextGrupUsuaris1.setText(line);
 
         }
-        
-        
 
         if (e.getSource() == vis.jRadioButtonUsuaris) {
 
@@ -729,8 +699,8 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
             vis.jTableCrearGrupsElements.setRowSorter(sorter2);
 
         }
-        
-         if (evt.getSource() == vis.txtBuscadorTasques1) {
+
+        if (evt.getSource() == vis.txtBuscadorTasques1) {
 
             TableRowSorter<TableModel> sorter3 = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Grups.getModel()));
             sorter3.setRowFilter(RowFilter.regexFilter(vis.txtBuscadorTasques1.getText()));
@@ -739,10 +709,10 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
         }
 
     }
-    
-      @Override
+
+    @Override
     public void mouseClicked(MouseEvent e) {
-     if (e.getSource() == vis.jTable_Grups) {
+        if (e.getSource() == vis.jTable_Grups) {
 
             int fila_point = vis.jTable_Grups.rowAtPoint(e.getPoint());
             int columna_point = vis.jTable_Grups.columnAtPoint(e.getPoint());
@@ -803,12 +773,12 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
                             columnes2[3] = modC.MostrarGrupsElements().get(i).getTipusElement();
                             columnes2[4] = modC.MostrarGrupsElements().get(i).getIdElement();
                             model_grups2.addRow(columnes2);
-                            
+
                         }
                         String line2 = "";
                         for (int i = 0; i < mod.getElementArrayList().size(); i++) {
 
-                           line2 = line2 + mod.getElementArrayList().get(i) + "\n";
+                            line2 = line2 + mod.getElementArrayList().get(i) + "\n";
                         }
                         vis.jTextGrupUsuaris1.setText(line2);
 
@@ -824,7 +794,7 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
 
                         break;
                     case 2:
-                        
+
                         vis.txt_nomGrup1.setText(mod.getNom());
                         DefaultTableModel model_grups = new DefaultTableModel();
                         model_grups.addColumn("Seleccionar");
@@ -857,12 +827,12 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
                             columnes[3] = modC.MostrarGrupsUsuaris().get(i).getUsuari();
                             columnes[4] = modC.MostrarGrupsUsuaris().get(i).getIdUsuari();
                             model_grups.addRow(columnes);
-                            
+
                         }
                         String line = "";
                         for (int i = 0; i < mod.getUsuariArrayList().size(); i++) {
 
-                           line = line + mod.getUsuariArrayList().get(i) + "\n";
+                            line = line + mod.getUsuariArrayList().get(i) + "\n";
                         }
                         vis.jTextGrupUsuaris1.setText(line);
 
@@ -881,15 +851,12 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
 
                         break;
 
-                
+                }
 
             }
 
         }
-    
-     }
 
-   
     }
 
     @Override

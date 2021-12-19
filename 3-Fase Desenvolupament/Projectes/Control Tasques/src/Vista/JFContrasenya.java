@@ -5,9 +5,6 @@
  */
 package Vista;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-
 /**
  *
  * @author Victor
@@ -19,11 +16,10 @@ public class JFContrasenya extends javax.swing.JFrame {
      */
     public JFContrasenya() {
         initComponents();
-        
-     
-      setLocation(20,500);
-      setLocationRelativeTo(null);
-      
+
+        setLocation(20, 500);
+        setLocationRelativeTo(null);
+
     }
 
     /**

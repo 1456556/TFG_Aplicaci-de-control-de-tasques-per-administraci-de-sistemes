@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Victor
  */
 public class Grups {
-    
+
     String nomUsuari;
     String nomElement;
     int idElement;
@@ -78,7 +78,6 @@ public class Grups {
     public void setUsuariElement(String usuariElement) {
         this.usuariElement = usuariElement;
     }
-   
 
     public String getNomElement() {
         return nomElement;
@@ -119,8 +118,6 @@ public class Grups {
     public void setIdElements(int[] IdElements) {
         this.IdElements = IdElements;
     }
-    
-    
 
     public int[] getIdUsuaris() {
         return IdUsuaris;
@@ -137,12 +134,9 @@ public class Grups {
     public void setGrupUsuaris(String[] GrupUsuaris) {
         this.GrupUsuaris = GrupUsuaris;
     }
- 
 
     String cognom;
     String usuari;
-
-    
 
     public int getIdUsuari() {
         return idUsuari;
@@ -151,7 +145,6 @@ public class Grups {
     public void setIdUsuari(int idUsuari) {
         this.idUsuari = idUsuari;
     }
-   
 
     public String getNomUsuari() {
         return nomUsuari;
@@ -160,7 +153,6 @@ public class Grups {
     public void setNomUsuari(String nomUsuari) {
         this.nomUsuari = nomUsuari;
     }
-     
 
     public String getNom() {
         return nom;
@@ -177,8 +169,6 @@ public class Grups {
     public void setId(int id) {
         this.id = id;
     }
-    
-   
 
     public String getCognom() {
         return cognom;
@@ -196,6 +186,4 @@ public class Grups {
         this.usuari = usuari;
     }
 
-    
-    
 }

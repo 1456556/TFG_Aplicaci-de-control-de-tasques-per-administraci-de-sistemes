@@ -6,185 +6,138 @@
 package Model;
 
 import Vista.JFPrincipal;
-import static Vista.JFPrincipal.tasca_update;
-import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.RowSorter.SortKey;
-import javax.swing.SortOrder;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author Victor
  */
 public class ConsultesTasques extends Conexio {
-    
+
     String tasques;
     public static String tasca_update = "";
-    
-       
-    
-    
-    
-    public ArrayList<Tasques> MostrarGrups(Tasques tas){
-        
+
+    public ArrayList<Tasques> MostrarGrups(Tasques tas) {
+
         ArrayList llistaTasques = new ArrayList();
         int id_grup = 0;
-        
-        try{
-        
-            Connection cn = getConexio();
-             PreparedStatement pst = cn.prepareStatement("select id_grup from Grups where nom = '"+tas.getGrupAfectat()+"'");
-                ResultSet rs = pst.executeQuery();
-             
-                
-             if (rs.next()) {
-                    
-                   id_grup = rs.getInt(1);
-                    
-                    
-                }
-                 
-        
-        cn.close();
-        
-        }catch(SQLException e){
-        
-            System.err.println(e + "Error al buscar el id del grup per mostrar la taula a infotasques");
-        
-        }
-        
-       System.out.println("Grup Afectat" + id_grup);
-         try{
-        
-            Connection cn = getConexio();
-             PreparedStatement pst = cn.prepareStatement("select nomUsuari, id_usuari from GrupsUsuaris where id_grup = '"+id_grup+"'");
-                ResultSet rs = pst.executeQuery();
-             
-                
-             while (rs.next()) {
-                    
-                    tas = new Tasques();
-                    tas.setNom(rs.getString(1));
-                    tas.setIdGrup(rs.getInt(2));           
-                    llistaTasques.add(tas);
-                    
-                    
-                }
-                 
-        
-        cn.close();
-        
-        }catch(SQLException e){
-        
-              System.err.println(e + "Error al mostrar la taula de grups a infotasques");
-        
-        }
-        
-        return llistaTasques;
-    
-    
-    }
-        
-        
-        
-        
-    
-   
-    
-    
-    public ArrayList<Tasques> MostrarTasques(){
-    
-        ArrayList llistaTasques = new ArrayList();
-        Tasques tas;
-        
-        try{
-        
-            Connection cn = getConexio();
-             PreparedStatement pst = cn.prepareStatement("select titol, prioritat, usuari, data, estat, id_tasca from Tasques");
-                ResultSet rs = pst.executeQuery();
-             
-                
-             while (rs.next()) {
-                    
-                    tas = new Tasques();
-                    tas.setTitol(rs.getString(1));
-                    tas.setPrioritat(rs.getString(2));
-                    tas.setUsuariAssignat(rs.getString(3));
-                    tas.setData(rs.getString(4));
-                    tas.setEstat(rs.getString(5));
-                    tas.setId(rs.getInt(6));
-                    llistaTasques.add(tas);
-                    
-                    
-                }
-                 
-        
-        cn.close();
-        
-        }catch(SQLException e){
-        
-        
-        
-        }
-        
-        return llistaTasques;
-    
-    
-    }
-    
-    
-        
-    public ArrayList<Tasques> BuscarTasques(String buscarTasc){  
-
-        
-              ArrayList llistaTasques = new ArrayList();
-              Tasques tas;   
 
         try {
 
-                                 
-                Connection cn = getConexio();
-                PreparedStatement pst = cn.prepareStatement("select * from Tasques where titol like '%" + buscarTasc + "%' or prioritat like '%" + buscarTasc + "%'"
-                        + "or usuari like '%" + buscarTasc + "%' or data like '%" + buscarTasc + "%' or estat like '%" + buscarTasc + "%'");
-                ResultSet rs = pst.executeQuery();               
-                
-                
-                
-                while (rs.next()) {
-                    
-                    tas = new Tasques();
-                    tas.setTitol(rs.getString(2));
-                    tas.setPrioritat(rs.getString(3));
-                    tas.setUsuariAssignat(rs.getString(4));
-                    tas.setData(rs.getString(5));
-                    tas.setEstat(rs.getString(6));
-                    tas.setId(rs.getInt(1));
-                    llistaTasques.add(tas);
-                    
-                }
-                
-                cn.close();
-                
-            
-            
-             
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select id_grup from Grups where nom = '" + tas.getGrupAfectat() + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                id_grup = rs.getInt(1);
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println(e + "Error al buscar el id del grup per mostrar la taula a infotasques");
+
+        }
+
+        System.out.println("Grup Afectat" + id_grup);
+        try {
+
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select nomUsuari, id_usuari from GrupsUsuaris where id_grup = '" + id_grup + "'");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                tas = new Tasques();
+                tas.setNom(rs.getString(1));
+                tas.setIdGrup(rs.getInt(2));
+                llistaTasques.add(tas);
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println(e + "Error al mostrar la taula de grups a infotasques");
+
+        }
+
+        return llistaTasques;
+
+    }
+
+    public ArrayList<Tasques> MostrarTasques() {
+
+        ArrayList llistaTasques = new ArrayList();
+        Tasques tas;
+
+        try {
+
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select titol, prioritat, usuari, data, estat, id_tasca from Tasques");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                tas = new Tasques();
+                tas.setTitol(rs.getString(1));
+                tas.setPrioritat(rs.getString(2));
+                tas.setUsuariAssignat(rs.getString(3));
+                tas.setData(rs.getString(4));
+                tas.setEstat(rs.getString(5));
+                tas.setId(rs.getInt(6));
+                llistaTasques.add(tas);
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+        }
+
+        return llistaTasques;
+
+    }
+
+    public ArrayList<Tasques> BuscarTasques(String buscarTasc) {
+
+        ArrayList llistaTasques = new ArrayList();
+        Tasques tas;
+
+        try {
+
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select * from Tasques where titol like '%" + buscarTasc + "%' or prioritat like '%" + buscarTasc + "%'"
+                    + "or usuari like '%" + buscarTasc + "%' or data like '%" + buscarTasc + "%' or estat like '%" + buscarTasc + "%'");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                tas = new Tasques();
+                tas.setTitol(rs.getString(2));
+                tas.setPrioritat(rs.getString(3));
+                tas.setUsuariAssignat(rs.getString(4));
+                tas.setData(rs.getString(5));
+                tas.setEstat(rs.getString(6));
+                tas.setId(rs.getInt(1));
+                llistaTasques.add(tas);
+
+            }
+
+            cn.close();
 
         } catch (SQLException e) {
 
@@ -192,11 +145,10 @@ public class ConsultesTasques extends Conexio {
             JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
 
         }
-        
+
         return llistaTasques;
     }
-    
-    
+
     public void GrupAfectat(JFPrincipal vis, int i) {
 
         try {
@@ -206,15 +158,15 @@ public class ConsultesTasques extends Conexio {
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
-                
-                if (i == 1){
-                //vis.ComboGrupAfectat.addItem("---");
-                vis.ComboGrupAfectat.addItem(rs.getString("nom"));
-                vis.ComboGrupAfectat2.addItem(rs.getString("nom"));
-               
-                }else{
-                vis.ComboGrupAfectat3.addItem(rs.getString("nom"));
-                vis.ComboGrupAfectat1.addItem(rs.getString("nom"));
+
+                if (i == 1) {
+                    //vis.ComboGrupAfectat.addItem("---");
+                    vis.ComboGrupAfectat.addItem(rs.getString("nom"));
+                    vis.ComboGrupAfectat2.addItem(rs.getString("nom"));
+
+                } else {
+                    vis.ComboGrupAfectat3.addItem(rs.getString("nom"));
+                    vis.ComboGrupAfectat1.addItem(rs.getString("nom"));
                 }
 
             }
@@ -229,9 +181,7 @@ public class ConsultesTasques extends Conexio {
         }
 
     }
-    
-    
-    
+
     public void UsuariAssignat(JFPrincipal vis, int i) {
 
         try {
@@ -241,13 +191,13 @@ public class ConsultesTasques extends Conexio {
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
-                
-                if (i == 1){
 
-                vis.ComboUsuariAssignat2.addItem(rs.getString("usuari"));
-                }else{
-                
-                vis.ComboUsuariAssignat.addItem(rs.getString("usuari"));
+                if (i == 1) {
+
+                    vis.ComboUsuariAssignat2.addItem(rs.getString("usuari"));
+                } else {
+
+                    vis.ComboUsuariAssignat.addItem(rs.getString("usuari"));
                 }
 
             }
@@ -262,7 +212,7 @@ public class ConsultesTasques extends Conexio {
         }
 
     }
-    
+
     public void UsuariAssignat1(JFPrincipal vis, int i) {
 
         try {
@@ -270,20 +220,20 @@ public class ConsultesTasques extends Conexio {
             Connection cn = getConexio();
             PreparedStatement pst = cn.prepareStatement("select * from Usuaris");
             ResultSet rs = pst.executeQuery();
-            
-            while (rs.next()) {
-                
-                if (i == 1){
 
-                vis.ComboUsuariAssignat3.addItem(rs.getString("usuari"));
+            while (rs.next()) {
+
+                if (i == 1) {
+
+                    vis.ComboUsuariAssignat3.addItem(rs.getString("usuari"));
                 }
-                if (i == 0){
-                
-                vis.ComboUsuariAssignat1.addItem(rs.getString("usuari"));
+                if (i == 0) {
+
+                    vis.ComboUsuariAssignat1.addItem(rs.getString("usuari"));
                 }
-                if (i == 2){
-                
-                vis.jComboBoxDashTasquesUsuari.addItem(rs.getString("usuari"));
+                if (i == 2) {
+
+                    vis.jComboBoxDashTasquesUsuari.addItem(rs.getString("usuari"));
                 }
 
             }
@@ -298,9 +248,7 @@ public class ConsultesTasques extends Conexio {
         }
 
     }
-    
-    
-    
+
     public void GuardarIdSubtasca(Tasques tas) {
 
         int id = 0;
@@ -343,13 +291,12 @@ public class ConsultesTasques extends Conexio {
 
     }
 
-    
-    public int EditarTascaRepeticio(Tasques tas){
-    
+    public int EditarTascaRepeticio(Tasques tas) {
+
         int novaTasca = 0;
         int validacio = 0;
         int repeticio = 0;
-        String dataInici, horaInici, dataFinal, horaFinal, data, dataF, tipus, grup,array, diesSetmana = "";
+        String dataInici, horaInici, dataFinal, horaFinal, data, dataF, tipus, grup, array, diesSetmana = "";
 
         dataInici = tas.getData();
         horaInici = tas.getHora();
@@ -360,33 +307,29 @@ public class ConsultesTasques extends Conexio {
         diesSetmana = tas.getDiesSetmana();
         grup = tas.getGrupAfectat();
         array = tas.getArray();
-        
-        
-       
-        String titol,descripcio, usuari, estat, prioritat;
+
+        String titol, descripcio, usuari, estat, prioritat;
         boolean notificacio;
-        
+
         titol = tas.getTitol();
         descripcio = tas.getDescripcio();
         estat = tas.getEstat();
         System.out.print("ESTAT: " + estat);
         prioritat = tas.getPrioritat();
-        usuari = tas.getUsuariAssignat();       
+        usuari = tas.getUsuariAssignat();
         notificacio = tas.getNotificacio();
-        
-        
-        
+
         if (titol.equals("")) {
-            
+
             validacio++;
         }
         if (usuari.equals("")) {
 
             validacio++;
-        }        
-       
+        }
+
         if (descripcio.equals("")) {
-            
+
             validacio++;
         }
 
@@ -413,18 +356,17 @@ public class ConsultesTasques extends Conexio {
 
         if (validacio == 0) {
 
-            if (repeticio > 0) {              
-               
-                 LocalDate localDateInici = String2LocalDate(dataInici, horaInici);
-                 LocalDate localDateFinal = String2LocalDate(dataFinal, horaFinal);
-                 int result = localDateInici.compareTo(localDateFinal);
+            if (repeticio > 0) {
+
+                LocalDate localDateInici = String2LocalDate(dataInici, horaInici);
+                LocalDate localDateFinal = String2LocalDate(dataFinal, horaFinal);
+                int result = localDateInici.compareTo(localDateFinal);
 
                 if (result < 0) {
 
-                    
                     try {
 
-                        Connection cn2 = clases.Conexio.conectar();
+                        Connection cn2 = MVC.Conexio.conectar();
                         PreparedStatement pst2 = cn2.prepareStatement("Select idSubtasca from Tasques where id_tasca = '" + tas.getId() + "'");
                         ResultSet rs = pst2.executeQuery();
 
@@ -432,25 +374,21 @@ public class ConsultesTasques extends Conexio {
 
                             //recurrent = rs.getBoolean(1);
                             tas.setIdSubtasca(rs.getInt(1));
-                           // System.out.println(recurrent);
+                            // System.out.println(recurrent);
                             System.out.println("Id subtasca" + tas.getIdSubtasca());
 
                         }
                         cn2.close();
-                        Connection cn3 = clases.Conexio.conectar();
-                        PreparedStatement pst3 = cn3.prepareStatement("DELETE from Tasques WHERE idSubtasca ='" + tas.getIdSubtasca() + "' AND id_tasca >  '"+tas.getId()+"'");
+                        Connection cn3 = MVC.Conexio.conectar();
+                        PreparedStatement pst3 = cn3.prepareStatement("DELETE from Tasques WHERE idSubtasca ='" + tas.getIdSubtasca() + "' AND id_tasca >  '" + tas.getId() + "'");
                         pst3.executeUpdate();
-                        
+
                     } catch (SQLException e) {
 
                         System.err.println("Error al eeliminar tasca al editar la tascarecurrent" + e);
-                       // return false;
+                        // return false;
                     }
-                    
-                    
-                    
-                    
-                    
+
                     try {
 
                         String day1 = dataInici.substring(8, 10);
@@ -468,8 +406,7 @@ public class ConsultesTasques extends Conexio {
                         System.out.println("DAY" + dayFinal1 + "MONTH" + monthFinal1 + "YEAR" + yearFinal1);
                         dataFinal = dayFinal1 + "-" + monthFinal1 + "-" + yearFinal1;
                         dataF = dataFinal + " " + horaFinal;
-                        
-                       
+
                         Connection cn2 = getConexio();
                         PreparedStatement pst2 = cn2.prepareStatement("Update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=?, setNotificacio=?, repeticioInici=?, dataFinal=?, recurrent=?, tipus=?, diesSetmana=?, grup=?, array=? where id_tasca = '" + tas.getId() + "'");
 
@@ -521,11 +458,11 @@ public class ConsultesTasques extends Conexio {
 
         }
 
-       return novaTasca;
+        return novaTasca;
     }
-    
-    public int NovaTascaRepeticio(Tasques tas){
-    
+
+    public int NovaTascaRepeticio(Tasques tas) {
+
         int novaTasca = 0;
         int validacio = 0;
         int repeticio = 0;
@@ -539,33 +476,29 @@ public class ConsultesTasques extends Conexio {
         tipus = tas.getTipus();
         diesSetmana = tas.getDiesSetmana();
         grup = tas.getGrupAfectat();
-        
-        
-       
-        String titol,descripcio, usuari, estat, prioritat;
+
+        String titol, descripcio, usuari, estat, prioritat;
         boolean notificacio;
-        
+
         titol = tas.getTitol();
         descripcio = tas.getDescripcio();
         estat = tas.getEstat();
         System.out.print("ESTAT: " + estat);
         prioritat = tas.getPrioritat();
-        usuari = tas.getUsuariAssignat();       
+        usuari = tas.getUsuariAssignat();
         notificacio = tas.getNotificacio();
-        
-        
-        
+
         if (titol.equals("")) {
-            
+
             validacio++;
         }
         if (usuari.equals("")) {
 
             validacio++;
-        }        
-       
+        }
+
         if (descripcio.equals("")) {
-            
+
             validacio++;
         }
 
@@ -592,11 +525,11 @@ public class ConsultesTasques extends Conexio {
 
         if (validacio == 0) {
 
-            if (repeticio > 0) {              
-               
-                 LocalDate localDateInici = String2LocalDate(dataInici, horaInici);
-                 LocalDate localDateFinal = String2LocalDate(dataFinal, horaFinal);
-                 int result = localDateInici.compareTo(localDateFinal);
+            if (repeticio > 0) {
+
+                LocalDate localDateInici = String2LocalDate(dataInici, horaInici);
+                LocalDate localDateFinal = String2LocalDate(dataFinal, horaFinal);
+                int result = localDateInici.compareTo(localDateFinal);
 
                 if (result < 0) {
 
@@ -620,21 +553,20 @@ public class ConsultesTasques extends Conexio {
 
                         Connection cn2 = getConexio();
                         PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, setNotificacio, repeticioInici, dataFinal, recurrent, tipus, diesSetmana, grup) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                                
-                        
+
                         pst2.setString(1, titol);
                         pst2.setString(2, prioritat);
                         pst2.setString(3, usuari);
                         pst2.setString(4, data);
                         pst2.setString(5, estat);
-                        pst2.setString(6, descripcio);                       
+                        pst2.setString(6, descripcio);
                         pst2.setBoolean(7, notificacio);
                         pst2.setInt(8, repeticio);
                         pst2.setString(9, dataF);
                         pst2.setBoolean(10, true);
                         pst2.setString(11, tipus);
                         pst2.setString(12, diesSetmana);
-                        pst2.setString(13, grup);                        
+                        pst2.setString(13, grup);
                         pst2.executeUpdate();
 
                         cn2.close();
@@ -669,70 +601,63 @@ public class ConsultesTasques extends Conexio {
 
         }
 
-       return novaTasca;
+        return novaTasca;
     }
-    
-    
-    
-     public LocalDate String2LocalDate(String d, String h){
-    
-         String day = d.substring(8, 10);
-         String month = d.substring(5, 7);
-         String year = d.substring(0, 4);
 
-         System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
-         String date = day + "-" + month + "-" + year;
-         String data = date + " " + h;
+    public LocalDate String2LocalDate(String d, String h) {
 
-         String date2 = data.substring(0, 10);
-         String time2 = data.substring(11, 16);
-         String data2 = date2.replace("-", "/");
+        String day = d.substring(8, 10);
+        String month = d.substring(5, 7);
+        String year = d.substring(0, 4);
 
-         System.out.println("sSubCadena:" + date2);
-         System.out.println("sSubCadena:" + data2);
-         System.out.println("sSubCadena:" + time2);
+        System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+        String date = day + "-" + month + "-" + year;
+        String data = date + " " + h;
 
-         DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("d/MM/yyyy");
-         DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("HH:mm");
+        String date2 = data.substring(0, 10);
+        String time2 = data.substring(11, 16);
+        String data2 = date2.replace("-", "/");
 
-         //convert String to LocalDate
-         LocalDate localDate1 = LocalDate.parse(data2, formatter3);
-         LocalTime localTime1 = LocalTime.parse(time2, formatter4);       
-       
-            
-        return localDate1;       
-    
-     }
-     
-     
-     public LocalTime String2LocalTime(String d, String h){
-    
-         String day = d.substring(8, 10);
-         String month = d.substring(5, 7);
-         String year = d.substring(0, 4);
+        System.out.println("sSubCadena:" + date2);
+        System.out.println("sSubCadena:" + data2);
+        System.out.println("sSubCadena:" + time2);
 
-         System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
-         d = day + "-" + month + "-" + year;
-         String data = d + " " + h;
-         
-         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+        DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("HH:mm");
 
-         //convert String to LocalTime         
-         LocalTime localTime = LocalTime.parse(data, formatter2);
+        //convert String to LocalDate
+        LocalDate localDate1 = LocalDate.parse(data2, formatter3);
+        LocalTime localTime1 = LocalTime.parse(time2, formatter4);
 
-               
+        return localDate1;
+
+    }
+
+    public LocalTime String2LocalTime(String d, String h) {
+
+        String day = d.substring(8, 10);
+        String month = d.substring(5, 7);
+        String year = d.substring(0, 4);
+
+        System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+        d = day + "-" + month + "-" + year;
+        String data = d + " " + h;
+
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+
+        //convert String to LocalTime         
+        LocalTime localTime = LocalTime.parse(data, formatter2);
+
         return localTime;
-    
-     }
-    
-    
-    
+
+    }
+
     public int NovaTasca(Tasques tas) {
-        
-        int novaTasca, validacio=0;
-        String titol,descripcio, data, usuari, estat, prioritat,date, time, grup;
+
+        int novaTasca, validacio = 0;
+        String titol, descripcio, data, usuari, estat, prioritat, date, time, grup;
         boolean notificacio;
-        
+
         titol = tas.getTitol();
         descripcio = tas.getDescripcio();
         estat = tas.getEstat();
@@ -743,32 +668,30 @@ public class ConsultesTasques extends Conexio {
         time = tas.getHora();
         notificacio = tas.getNotificacio();
         grup = tas.getGrupAfectat();
-        
-        
-         if (titol.equals("")) {
-            
+
+        if (titol.equals("")) {
+
             validacio++;
         }
         if (usuari.equals("")) {
 
             validacio++;
-        }        
+        }
         if (date.equals("")) {
-            
+
             validacio++;
         }
         if (time.equals("")) {
-            
+
             validacio++;
         }
         if (descripcio.equals("")) {
-            
+
             validacio++;
         }
-        
-        
+
         if (validacio == 0) {
-        
+
             try {
 
                 String day = date.substring(8, 10);
@@ -781,7 +704,7 @@ public class ConsultesTasques extends Conexio {
 
                 Connection cn2 = getConexio();
                 PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, notificacio,  setNotificacio, grup) values (?,?,?,?,?,?,?,?,?)");
-                
+
                 pst2.setString(1, titol);
                 pst2.setString(2, prioritat);
                 pst2.setString(3, usuari);
@@ -792,7 +715,7 @@ public class ConsultesTasques extends Conexio {
                 pst2.setBoolean(8, notificacio);
                 pst2.setString(9, grup);
                 pst2.executeUpdate();
-                                                
+
                 cn2.close();
 
                 System.err.println("Tasca creada correctament");
@@ -804,8 +727,6 @@ public class ConsultesTasques extends Conexio {
 
             }
 
-            
-
         } else {
             novaTasca = 3;
             System.err.println("Has d'omplir tots els camps");
@@ -815,15 +736,12 @@ public class ConsultesTasques extends Conexio {
         return novaTasca;
 
     }
-    
 
     public void contadorTasques(Tasques tas) {
 
-        
-
         try {
 
-            Connection cn2 = clases.Conexio.conectar();
+            Connection cn2 = MVC.Conexio.conectar();
             PreparedStatement pst2 = cn2.prepareStatement("SELECT count(id_tasca) FROM Tasques");
             ResultSet rs = pst2.executeQuery();
 
@@ -833,18 +751,18 @@ public class ConsultesTasques extends Conexio {
 
             }
 
-           cn2.close();
+            cn2.close();
 
         } catch (SQLException e) {
-            
+
             System.err.println("Error al contar les tasques totals" + e);
 
         }
-        
+
         try {
 
-            Connection cn2 = clases.Conexio.conectar();
-            PreparedStatement pst2 = cn2.prepareStatement("SELECT count(id_tasca) FROM Tasques WHERE usuari = '" + Login.usuari  +  "'");
+            Connection cn2 = MVC.Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("SELECT count(id_tasca) FROM Tasques WHERE usuari = '" + Login.usuari + "'");
             ResultSet rs = pst2.executeQuery();
 
             if (rs.next()) {
@@ -853,18 +771,18 @@ public class ConsultesTasques extends Conexio {
 
             }
 
-           cn2.close();
+            cn2.close();
 
         } catch (SQLException e) {
-            
+
             System.err.println("Error al contar les tasques assignades" + e);
 
         }
-        
+
         try {
             String proces = "En procés", espera = "En espera";
-            Connection cn2 = clases.Conexio.conectar();
-            PreparedStatement pst2 = cn2.prepareStatement("SELECT count(id_tasca) FROM Tasques WHERE usuari = '" + Login.usuari  + "' AND estat = '" + proces + "' OR estat = '" + espera  + "'");
+            Connection cn2 = MVC.Conexio.conectar();
+            PreparedStatement pst2 = cn2.prepareStatement("SELECT count(id_tasca) FROM Tasques WHERE usuari = '" + Login.usuari + "' AND estat = '" + proces + "' OR estat = '" + espera + "'");
             ResultSet rs = pst2.executeQuery();
 
             if (rs.next()) {
@@ -873,19 +791,16 @@ public class ConsultesTasques extends Conexio {
 
             }
 
-           cn2.close();
+            cn2.close();
 
         } catch (SQLException e) {
-            
+
             System.err.println("Error al contar les tasques pendents" + e);
 
         }
-        
 
     }
-    
-    
-    
+
     public void FinalitzarTasca(Tasques tas) {
 
         int editarTasca, id, validacio = 0;
@@ -925,7 +840,7 @@ public class ConsultesTasques extends Conexio {
 
             try {
 
-                Connection cn2 = clases.Conexio.conectar();
+                Connection cn2 = MVC.Conexio.conectar();
                 PreparedStatement pst2 = cn2.prepareStatement("update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=? where id_tasca = '" + tas.getId() + "'");
 
                 String day = date.substring(8, 10);
@@ -960,11 +875,10 @@ public class ConsultesTasques extends Conexio {
         }
 
     }
-    
-    
+
     public int EditarTasca(Tasques tas) {
 
-        int editarTasca,id, validacio = 0;
+        int editarTasca, id, validacio = 0;
         String titol, descripcio, data, usuari, estat, prioritat, date, time, array, grup;
         titol = tas.getTitol();
         descripcio = tas.getDescripcio();
@@ -977,7 +891,6 @@ public class ConsultesTasques extends Conexio {
         array = tas.getArray();
         grup = tas.getGrupAfectat();
         System.out.println("IDTASCA " + id);
-        
 
         if (titol.equals("")) {
 
@@ -1004,32 +917,29 @@ public class ConsultesTasques extends Conexio {
 
             try {
 
-                
-                    Connection cn2 = clases.Conexio.conectar();
-                    PreparedStatement pst2 = cn2.prepareStatement("update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=?, array=?, grup=? where id_tasca = '" + tas.getId()  + "'");
+                Connection cn2 = MVC.Conexio.conectar();
+                PreparedStatement pst2 = cn2.prepareStatement("update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=?, array=?, grup=? where id_tasca = '" + tas.getId() + "'");
 
-                    String day = date.substring(8, 10);
-                    String month = date.substring(5, 7);
-                    String year = date.substring(0, 4);
+                String day = date.substring(8, 10);
+                String month = date.substring(5, 7);
+                String year = date.substring(0, 4);
 
-                    System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
-                    date = day + "-" + month + "-" + year;
-                    data = date + " " + time;
+                System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
+                date = day + "-" + month + "-" + year;
+                data = date + " " + time;
 
-                    pst2.setString(1, titol);
-                    pst2.setString(2, prioritat);
-                    pst2.setString(3, usuari);
-                    pst2.setString(4, data);
-                    pst2.setString(5, estat);
-                    pst2.setString(6, descripcio);
-                    pst2.setString(7, array);
-                    pst2.setString(8, grup);
-                    pst2.executeUpdate();
-                    editarTasca = 1;
-                    cn2.close();
-                    System.err.println("Tasca modificada");
-
-                
+                pst2.setString(1, titol);
+                pst2.setString(2, prioritat);
+                pst2.setString(3, usuari);
+                pst2.setString(4, data);
+                pst2.setString(5, estat);
+                pst2.setString(6, descripcio);
+                pst2.setString(7, array);
+                pst2.setString(8, grup);
+                pst2.executeUpdate();
+                editarTasca = 1;
+                cn2.close();
+                System.err.println("Tasca modificada");
 
             } catch (SQLException e) {
                 editarTasca = 2;
@@ -1047,14 +957,12 @@ public class ConsultesTasques extends Conexio {
         return editarTasca;
     }
 
-    
-    
-    public void GuardarId(Tasques tas){
-    
+    public void GuardarId(Tasques tas) {
+
         String tasca = tas.getTitol();
         System.out.print("TITOL" + tasca);
         System.out.println("ID" + tas.getId());
-        
+
         try {
             Connection cn = getConexio();
             PreparedStatement pst = cn.prepareStatement("select id_tasca from Tasques where id_tasca = '" + tas.getId() + "'");
@@ -1071,39 +979,36 @@ public class ConsultesTasques extends Conexio {
 
         } catch (SQLException e) {
 
-           System.err.println("Error al crear el id de la tasca" + e);
+            System.err.println("Error al crear el id de la tasca" + e);
 
         }
     }
 
-     public int Notificacio(Tasques tas){
-        
-        int notificacio=0;
+    public int Notificacio(Tasques tas) {
+
+        int notificacio = 0;
         String d = tas.getData();
-    
+
         try {
             Connection cn = getConexio();
             PreparedStatement pst = cn.prepareStatement("select id_tasca, notificacio, titol, data from Tasques where data = '" + d + "'");
             ResultSet rs = pst.executeQuery();
-            
-            
+
             if (rs.next()) {
-               
-                if(rs.getInt("notificacio")==0){
-                
+
+                if (rs.getInt("notificacio") == 0) {
+
                     tas.id = rs.getInt("id_tasca");
                     tas.data = rs.getString("data");
-                    tas.titol = rs.getString("titol");  
+                    tas.titol = rs.getString("titol");
                     notificacio = 1;
                     /*id_tasca = rs.getInt("id_tasca");
                     String titol = rs.getString("titol");
                     String data = rs.getString("data");
                     recordatori(titol, date);*/
-                
-                
-                }      
-              
-               
+
+                }
+
             }
 
             cn.close();
@@ -1113,19 +1018,14 @@ public class ConsultesTasques extends Conexio {
             System.err.println("Error al solicitar les dades" + e);
             //JOptionPane.showMessageDialog(null, "Error al mostrar la informacio, contacti amb l'administrador");
 
-        }    
-    
+        }
+
         return notificacio;
-    
-    
-    
-    
+
     }
-    
-    
-    public void ActualitzaNotificacio(Tasques tas){
-    
-    
+
+    public void ActualitzaNotificacio(Tasques tas) {
+
         try {
             Connection cn = getConexio();
             PreparedStatement pst = cn.prepareStatement("update Tasques set notificacio=? where id_tasca = '" + tas.getId() + "'");
@@ -1140,91 +1040,70 @@ public class ConsultesTasques extends Conexio {
         }
 
     }
-    
-    
-    public void GenerarTascaRecurrent(Tasques tas){
-    
-        
-        
-        int repeticio, idSubtasca;      
-        String titol,descripcio, usuari, estat, prioritat, data, dataFinal, dataProgres, tipus, diaSetmana;
+
+    public void GenerarTascaRecurrent(Tasques tas) {
+
+        int repeticio, idSubtasca;
+        String titol, descripcio, usuari, estat, prioritat, data, dataFinal, dataProgres, tipus, diaSetmana;
         boolean notificacio;
-        
+
         tipus = tas.getTipus();
         dataProgres = tas.getDataProgres();
-        repeticio = tas.getRepeticio(); 
+        repeticio = tas.getRepeticio();
         titol = tas.getTitol();
         descripcio = tas.getDescripcio();
         estat = tas.getEstat();
         System.out.print("ESTAT: " + estat);
         prioritat = tas.getPrioritat();
-        usuari = tas.getUsuariAssignat();       
+        usuari = tas.getUsuariAssignat();
         idSubtasca = tas.getIdSubtasca();
         data = tas.getData();
         dataFinal = tas.getDataFinal();
         diaSetmana = tas.getDiesSetmana();
-        
-        
-        
-       
-            
-        
-            try {
-                Connection cn = getConexio();
-               
-                PreparedStatement pst = cn.prepareStatement("insert into Tasques (titol, prioritat, usuari, dataProgres, estat, descripcio, setNotificacio, repeticioInici, recurrent, tipus, data, dataFinal, diesSetmana, idSubtasca) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-               
-              
-                
-                
-                pst.setString(1, titol);
-                pst.setString(2, prioritat);
-                pst.setString(3, usuari);
-                pst.setString(4, dataProgres);
-                pst.setString(5, estat);
-                pst.setString(6, descripcio);
-                pst.setBoolean(7, true);
-                pst.setInt(8, repeticio);              
-                pst.setBoolean(9, true);
-                pst.setString(10, tipus);
-                pst.setString(11, data);
-                pst.setString(12, dataFinal);
-                pst.setString(13, diaSetmana);
-                pst.setInt(14, idSubtasca);
-                
 
+        try {
+            Connection cn = getConexio();
 
+            PreparedStatement pst = cn.prepareStatement("insert into Tasques (titol, prioritat, usuari, dataProgres, estat, descripcio, setNotificacio, repeticioInici, recurrent, tipus, data, dataFinal, diesSetmana, idSubtasca) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-                
-                pst.executeUpdate();
-               
-                
-                cn.close();
+            pst.setString(1, titol);
+            pst.setString(2, prioritat);
+            pst.setString(3, usuari);
+            pst.setString(4, dataProgres);
+            pst.setString(5, estat);
+            pst.setString(6, descripcio);
+            pst.setBoolean(7, true);
+            pst.setInt(8, repeticio);
+            pst.setBoolean(9, true);
+            pst.setString(10, tipus);
+            pst.setString(11, data);
+            pst.setString(12, dataFinal);
+            pst.setString(13, diaSetmana);
+            pst.setInt(14, idSubtasca);
 
-            } catch (SQLException e) {
+            pst.executeUpdate();
 
-                System.err.println("Error al modificar la notificacio" + e);
+            cn.close();
 
-            }      
-        
-        
-        
-    
+        } catch (SQLException e) {
+
+            System.err.println("Error al modificar la notificacio" + e);
+
+        }
+
     }
-    
-    
+
     public int informacioTasca(Tasques tas) {
 
-        
-         System.out.println("ID" + tas.getId());  
+        System.out.println("ID" + tas.getId());
         int informacioTasca = 0;
         try {
             Connection cn = getConexio();
             PreparedStatement pst = cn.prepareStatement("select * from Tasques where id_tasca = '" + tas.getId() + "'");
             ResultSet rs = pst.executeQuery();
 
-            if (rs.next()) {              
-               
+            if (rs.next()) {
+
                 tas.setTitol(rs.getString(2));
                 tas.setPrioritat(rs.getString(3));
                 tas.setUsuariAssignat(rs.getString(4));
@@ -1240,91 +1119,71 @@ public class ConsultesTasques extends Conexio {
                 tas.setIdSubtasca(rs.getInt(17));
                 tas.setGrupAfectat(rs.getString(18));
                 tas.setArray(rs.getString(19));
-               
-                            
 
             }
-            
+
             cn.close();
-           
-            
 
-            
-            
-            
-            if (tas.isRecurrent() == true){
-            
+            if (tas.isRecurrent() == true) {
+
                 informacioTasca = 2;
-            
-            }else{
-                
-                informacioTasca = 1;   
-            
+
+            } else {
+
+                informacioTasca = 1;
+
             }
 
-             System.out.println("ID" + tas.getId());
-             
-            System.out.println("TITOL" +tas.getTitol());
-            
-             System.out.println("Usuari" +tas.getUsuariAssignat());
-             
-              System.out.println("Data" +tas.getData());
-              
-               System.out.print("Descripcio" +tas.getDescripcio());
-               
-                System.out.print("Estat" +tas.getEstat());
-                
-                 System.out.print("Prioritat" +tas.getPrioritat());
-                 
-                 
-               System.out.print("Repeticio" +tas.getRepeticio());
-               
-               System.out.print("Nom Grup" +tas.getGrupAfectat());
-               
-               
-             
-             
-             
+            System.out.println("ID" + tas.getId());
+
+            System.out.println("TITOL" + tas.getTitol());
+
+            System.out.println("Usuari" + tas.getUsuariAssignat());
+
+            System.out.println("Data" + tas.getData());
+
+            System.out.print("Descripcio" + tas.getDescripcio());
+
+            System.out.print("Estat" + tas.getEstat());
+
+            System.out.print("Prioritat" + tas.getPrioritat());
+
+            System.out.print("Repeticio" + tas.getRepeticio());
+
+            System.out.print("Nom Grup" + tas.getGrupAfectat());
 
         } catch (SQLException e) {
-            
+
             informacioTasca = 2;
             System.err.println("Error al solicitar les dades" + e);
-            
 
         }
-        
+
         try {
             Connection cn2 = getConexio();
             PreparedStatement pst2 = cn2.prepareStatement("select tipus from Grups where nom = '" + tas.getGrupAfectat() + "'");
             ResultSet rs2 = pst2.executeQuery();
 
-            if (rs2.next()) {              
-               
+            if (rs2.next()) {
+
                 tas.setTipusGrup(rs2.getBoolean(1));
-                
+
             }
-            
-             cn2.close();
-             
-              System.out.print("Tipus Grup" +tas.getTipusGrup());
-              
-            }catch (SQLException e) {
-            
+
+            cn2.close();
+
+            System.out.print("Tipus Grup" + tas.getTipusGrup());
+
+        } catch (SQLException e) {
+
             informacioTasca = 2;
             System.err.println("Error al solicitar les dades de tipus de grup" + e);
-                    
-         }
-        
+
+        }
+
         return informacioTasca;
     }
-    
-    
-    
-    
-    
-    
-    
+
     public boolean EliminarTasca(Tasques tas) {
 
         System.out.println(tas.getId());
@@ -1332,7 +1191,7 @@ public class ConsultesTasques extends Conexio {
 
         try {
 
-            Connection cn2 = clases.Conexio.conectar();
+            Connection cn2 = MVC.Conexio.conectar();
             PreparedStatement pst2 = cn2.prepareStatement("Select recurrent,idSubtasca from Tasques where id_tasca = '" + tas.getId() + "'");
             ResultSet rs = pst2.executeQuery();
 
@@ -1345,7 +1204,6 @@ public class ConsultesTasques extends Conexio {
 
             }
 
-           
         } catch (SQLException e) {
 
             System.err.println("Error al eeliminar tasca" + e);
@@ -1354,7 +1212,7 @@ public class ConsultesTasques extends Conexio {
 
         try {
 
-            Connection cn2 = clases.Conexio.conectar();
+            Connection cn2 = MVC.Conexio.conectar();
             int j;
 
             if (!recurrent) {
@@ -1380,19 +1238,13 @@ public class ConsultesTasques extends Conexio {
                 }
             }
 
-           
-
         } catch (SQLException e) {
 
             System.err.println("Error al eliminar tasca recurrent" + e);
             return false;
         }
 
-        
         return recurrent;
     }
-        
 
-    
-    
 }

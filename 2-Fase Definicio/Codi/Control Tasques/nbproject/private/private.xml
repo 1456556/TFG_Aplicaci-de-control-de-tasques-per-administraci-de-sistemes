@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
+        <file>
+            <url>src/Controlador/ControladorTasques.java</url>
+            <bookmark id="2">
+                <name/>
+                <line>2074</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/Model/ConsultesTasques.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>40</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/ConsultesRepeticio.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/Registre.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/ventanas/ScheduledTask.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/ConsultesNotificacio.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/Login.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/Elements.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/Usuaris.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Controlador/ControladorElements.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/ConsultesRegistre.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Vista/JFRegistre.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/Grups.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Controlador/ControladorMenu.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/clases/Conexio.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Controlador/ControladorConfiguracio.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/ConsultesTasques.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Vista/CircleBorder.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Controlador/ControladorNotificacio.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Vista/JFLogin.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/ventanas/SchedulerMain.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/ventanas/Notificacio.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/Tasques.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Vista/JFPrincipal2.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Controlador/ControladorPerfil.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Vista/JFExportar.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/Notificacio.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Vista/CLabel.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Vista/JFImportar.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Vista/JFRepeticio.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Vista/JFPrincipal.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/ConsultesGrups.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/ConsultesLogin.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/ventanas/Contrasenya.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Controlador/ControladorTasques.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Controlador/ControladorUsuaris.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Vista/JFContrasenya.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/ConsultesUsuaris.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/ConsultesPerfil.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/Perfil.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Controlador/ControladorRepeticio.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/Configuracio.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Controlador/ControladorGrups.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/ConsultesConfiguracio.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Controlador/ControladorRegistre.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Controlador/ControladorLogin.java</file>
+            <file>file:/E:/NEW%20VICTOR/Uni/TFG/TFG_Aplicaci-de-control-de-tasques-per-administraci-de-sistemes/3-Fase%20Desenvolupament/Projectes/Control%20Tasques/src/Model/ConsultesElements.java</file>
+        </group>
+    </open-files>
+</project-private>

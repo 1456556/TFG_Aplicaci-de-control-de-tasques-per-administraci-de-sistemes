@@ -10,7 +10,7 @@ package Model;
  * @author Victor
  */
 public class Usuaris {
-    
+
     int id;
     String nom;
     String cognom;
@@ -92,9 +92,5 @@ public class Usuaris {
     public void setEstat(String estat) {
         this.estat = estat;
     }
-    
-    
-    
-    
-    
+
 }

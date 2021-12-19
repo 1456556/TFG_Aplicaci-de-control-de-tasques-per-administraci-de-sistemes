@@ -10,8 +10,7 @@ package Model;
  * @author Victor
  */
 public class Perfil {
-    
-    
+
     String contrasenya1;
     String contrasenya2;
 
@@ -31,5 +30,4 @@ public class Perfil {
         this.contrasenya1 = contrasenya1;
     }
 
-  
 }
