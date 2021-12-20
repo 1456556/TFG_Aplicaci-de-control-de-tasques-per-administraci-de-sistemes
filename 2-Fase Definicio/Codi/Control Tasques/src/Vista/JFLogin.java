@@ -6,16 +6,8 @@
 package Vista;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Image;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.sql.*;
-import MVC.Conexio;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,30 +18,29 @@ public class JFLogin extends javax.swing.JFrame {
     boolean a = true;
     public static String usuari = "";
     String contraseña = "";
-    private int xMouse,yMouse;
-    
+    private int xMouse, yMouse;
+
     /**
      * Creates new form JFPrincipal
      */
     public JFLogin() {
         initComponents();
-        ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");        
+        ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");
         Close.setIcon(delete_logo);
         this.repaint();
-        
-        ImageIcon max_logo = new ImageIcon("src/images/full_screen_32px.png");        
+
+        ImageIcon max_logo = new ImageIcon("src/images/full_screen_32px.png");
         Max.setIcon(max_logo);
         this.repaint();
-        
-        ImageIcon min_logo = new ImageIcon("src/images/icons8-compress-30.png");        
+
+        ImageIcon min_logo = new ImageIcon("src/images/icons8-compress-30.png");
         Min.setIcon(min_logo);
-        this.repaint();   
-        
-        ImageIcon logo_logo = new ImageIcon("src/images/ezgif.com-gif-maker.png");        
+        this.repaint();
+
+        ImageIcon logo_logo = new ImageIcon("src/images/ezgif.com-gif-maker.png");
         logo.setIcon(logo_logo);
         this.repaint();
-        
-      
+
     }
 
     /**
@@ -334,85 +325,40 @@ public class JFLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistreActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
-        /*usuari = txtUsuari.getText().trim();
-        contraseña = txtContrasenya.getText().trim();
 
-        if (usuari.equals("") || !contraseña.equals("")){
-
-            try{
-                Connection cn = Conexio.conectar();
-                PreparedStatement pst = cn.prepareStatement(
-                    "select nivell from Usuaris where usuari = '" + usuari + " ' and contrassenya = '" + contraseña + "'");
-
-                ResultSet rs = pst.executeQuery();
-
-                if (rs.next()){
-
-                    String nivell = rs.getString("nivell");
-                    if (nivell.equalsIgnoreCase("Administrador")){
-                        this.dispose();
-                        JFPrincipal s = new JFPrincipal();
-                        s.DashTasques();
-                        s.setVisible(true);
-                         
-                        
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Dades d'inici de sessió incorrectes");
-                        txtUsuari.setText("");
-                        txtContrasenya.setText("");
-
-                    };
-                      
-                }else{
-                    JOptionPane.showMessageDialog(null, "Dades d'inici de sessió incorrectes");
-                    txtUsuari.setText("");
-                    txtContrasenya.setText("");
-
-                }
-
-            }catch(SQLException e){
-                System.err.println("Error en el boto ENTRAR" + e);
-                JOptionPane.showMessageDialog(null, "Error d'inici de sessió. Contacta amb l'administrador");
-            }
-
-        }else{
-            JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
-        }*/
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void HeaderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMousePressed
         // TODO add your handling code here:
-        xMouse=evt.getX();
-        yMouse=evt.getY();
+        xMouse = evt.getX();
+        yMouse = evt.getY();
 
     }//GEN-LAST:event_HeaderMousePressed
 
     private void HeaderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMouseDragged
         // TODO add your handling code here:
-        int x=evt.getXOnScreen();
-        int y=evt.getYOnScreen();
-        setLocation(x-xMouse,y-yMouse);
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - xMouse, y - yMouse);
 
     }//GEN-LAST:event_HeaderMouseDragged
 
     private void MaxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseExited
         // TODO add your handling code here:
-        changecolor(ButtonMax, new Color (255,153,0));
+        changecolor(ButtonMax, new Color(255, 153, 0));
     }//GEN-LAST:event_MaxMouseExited
 
     private void MaxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseEntered
         // TODO add your handling code here:
-        changecolor(ButtonMax, new Color (255,204,102));
+        changecolor(ButtonMax, new Color(255, 204, 102));
     }//GEN-LAST:event_MaxMouseEntered
 
     private void MaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseClicked
         // TODO add your handling code here:
-        if(this.getExtendedState()!= JFPrincipal.MAXIMIZED_BOTH){
+        if (this.getExtendedState() != JFPrincipal.MAXIMIZED_BOTH) {
             this.setExtendedState(JFPrincipal.MAXIMIZED_BOTH);
 
-        }else{
+        } else {
             this.setExtendedState(JFPrincipal.NORMAL);
 
         }
@@ -420,12 +366,12 @@ public class JFLogin extends javax.swing.JFrame {
 
     private void CloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseExited
         // TODO add your handling code here:
-        changecolor(ButtonClose, new Color (255,153,0));
+        changecolor(ButtonClose, new Color(255, 153, 0));
     }//GEN-LAST:event_CloseMouseExited
 
     private void CloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseEntered
         // TODO add your handling code here:
-        changecolor(ButtonClose, new Color (255,204,102));
+        changecolor(ButtonClose, new Color(255, 204, 102));
     }//GEN-LAST:event_CloseMouseEntered
 
     private void CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseClicked
@@ -435,34 +381,28 @@ public class JFLogin extends javax.swing.JFrame {
 
     private void MinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseEntered
         // TODO add your handling code here:
-        
-         changecolor(ButtonMin, new Color (255,204,102));
+
+        changecolor(ButtonMin, new Color(255, 204, 102));
     }//GEN-LAST:event_MinMouseEntered
 
     private void MinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseExited
         // TODO add your handling code here:
-        changecolor(ButtonMin, new Color (255,153,0));
-        
+        changecolor(ButtonMin, new Color(255, 153, 0));
+
     }//GEN-LAST:event_MinMouseExited
 
     private void MinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseClicked
         // TODO add your handling code here:
-       this.setExtendedState(ICONIFIED);
+        this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_MinMouseClicked
-    
+
     //Canviar el color de les icones
-    public void changecolor(JPanel hover, Color rand){
-        
+    public void changecolor(JPanel hover, Color rand) {
+
         hover.setBackground(rand);
-    
+
     }
-    
-    
-    
-   
-    
-   
-    
+
     /**
      * @param args the command line arguments
      */

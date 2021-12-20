@@ -5,14 +5,12 @@
  */
 package Model;
 
-import java.util.Date;
-
 /**
  *
  * @author Victor
  */
 public class Notificacio {
-    
+
     int idTasca;
     String titol;
     String data;
@@ -42,7 +40,6 @@ public class Notificacio {
     public void setRecurrent(Boolean recurrent) {
         this.recurrent = recurrent;
     }
-    
 
     public String getTipus() {
         return tipus;
@@ -51,8 +48,6 @@ public class Notificacio {
     public void setTipus(String tipus) {
         this.tipus = tipus;
     }
-    
-    
 
     public int getRepeticio() {
         return repeticio;
@@ -85,7 +80,6 @@ public class Notificacio {
     public void setPrioritat(String prioritat) {
         this.prioritat = prioritat;
     }
-    
 
     public String getDescripcio() {
         return descripcio;
@@ -135,8 +129,4 @@ public class Notificacio {
         this.titol = titol;
     }
 
-   
-    
-   
-    
 }

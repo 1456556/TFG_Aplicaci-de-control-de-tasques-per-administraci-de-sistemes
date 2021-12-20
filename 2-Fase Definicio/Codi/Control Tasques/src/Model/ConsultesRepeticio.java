@@ -10,39 +10,37 @@ package Model;
  * @author Victor
  */
 public class ConsultesRepeticio {
-    
-    
-    public void RepeticioDia(Tasques tas){
-    
+
+    public void RepeticioDia(Tasques tas) {
+
         int validacio = 0;
         String dataInici, dataFinal, horaInici, horaFinal;
         dataInici = tas.getData();
         dataFinal = tas.getDataFinal();
         horaInici = tas.getHora();
         horaFinal = tas.getHoraFinal();
-        
-        if (dataInici.equals("")){
-        
+
+        if (dataInici.equals("")) {
+
             validacio++;
-        
+
         }
-         if (dataFinal.equals("")){
-        
+        if (dataFinal.equals("")) {
+
             validacio++;
-        
-        } if (horaInici.equals("")){
-        
-            validacio++;
-        
+
         }
-         if (horaFinal.equals("")){
-        
+        if (horaInici.equals("")) {
+
             validacio++;
-        
+
         }
-         
-       
-       
+        if (horaFinal.equals("")) {
+
+            validacio++;
+
+        }
+
     }
-    
+
 }

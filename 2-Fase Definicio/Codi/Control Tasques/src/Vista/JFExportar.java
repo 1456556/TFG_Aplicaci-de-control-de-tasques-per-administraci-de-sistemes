@@ -5,9 +5,7 @@
  */
 package Vista;
 
-
 import Controlador.ControladorConfiguracio;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -101,11 +99,11 @@ public class JFExportar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         JFileChooser ch = new JFileChooser();
         ch.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int se = ch.showSaveDialog(null);
-        if(se == JFileChooser.APPROVE_OPTION){
+        if (se == JFileChooser.APPROVE_OPTION) {
             String ruta = ch.getSelectedFile().getPath();
             txtruta.setText(ruta);
         }
@@ -113,125 +111,108 @@ public class JFExportar extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String ruta = txtruta.getText();
-        System.out.println("Ruta"+ruta);
+        System.out.println("Ruta" + ruta);
         String name = "backup.sql";
-       
-        if(ruta.trim().length()!=0){
-           /* try{
-                backus = "docker exec c95b62aa59f9 /usr/bin/mysqldump --opt -u"+Conectar.getUs()+" -p"+Conectar.getPas()+" -B "+Conectar.getBd()+" -r "+ruta+name;
-                //backus = "docker exec c95b62aa59f9 /usr/bin/mysqldump --opt -u root --password=mypassword testdb >  -r "+ruta+name;
-                Runtime rt = Runtime.getRuntime();
-                rt.exec(backus);
-                JOptionPane.showMessageDialog(null, "Backus creado: "+ruta);
-            }catch(HeadlessException | IOException ex){
-                JOptionPane.showMessageDialog(null, ex.getMessage());
-            }
-        }*/
-       
-       
-       FileWriter myWriter = null;
-        try {
 
-            File fichero = new File(ruta+"/temp.sql");
-            ProcessBuilder processBuilder = new ProcessBuilder();
-            processBuilder.command("docker", "exec", "db", "/usr/bin/mysqldump", "-u", "root", "--password=mypassword", "-B", "testdb");
-            myWriter = new FileWriter(ruta+"/temp.sql");
+        if (ruta.trim().length() != 0) {
+
+            FileWriter myWriter = null;
+            try {
+
+                File fichero = new File(ruta + "/temp.sql");
+                ProcessBuilder processBuilder = new ProcessBuilder();
+                processBuilder.command("docker", "exec", "db", "/usr/bin/mysqldump", "-u", "root", "--password=mypassword", "-B", "testdb");
+                myWriter = new FileWriter(ruta + "/temp.sql");
+
+                try {
+
+                    Writer fstream = null;
+                    fstream = new OutputStreamWriter(new FileOutputStream(ruta + "/temp.sql"));
+                    Process process = processBuilder.start();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                    StringBuilder builder = new StringBuilder();
+                    String line = null;
+
+                    while ((line = reader.readLine()) != null) {
+                        builder.append(line);
+                        builder.append(System.getProperty("line.separator"));
+                        System.out.println("DINS");
+                    }
+                    String result = builder.toString();
+                    fstream.write(result);
+                    System.out.println("RESULT" + builder);
+
+                    try ( BufferedWriter writer = new BufferedWriter(new FileWriter(fichero))) {
+                        writer.write(builder.toString());
+                    }
+
+                    int exitCode = process.waitFor();
+                    System.out.println("\n Exited with error code : " + exitCode);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } catch (IOException ex) {
+                Logger.getLogger(ControladorConfiguracio.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    myWriter.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(ControladorConfiguracio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
 
             try {
 
-                Writer fstream = null;                
-                fstream = new OutputStreamWriter(new FileOutputStream(ruta+"/temp.sql"));
-                Process process = processBuilder.start();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                StringBuilder builder = new StringBuilder();
-                String line = null;
+                File inputFile = new File(ruta + "/temp.sql");
+                File tempFile = new File(ruta + "/" + name);
 
-                while ((line = reader.readLine()) != null) {
-                    builder.append(line);
-                    builder.append(System.getProperty("line.separator"));
-                    System.out.println("DINS");
+                String lineToRemove = "";
+                BufferedReader reader = null;
+                BufferedWriter writer = null;
+                reader = new BufferedReader(new FileReader(inputFile));
+                writer = new BufferedWriter(new FileWriter(tempFile));
+
+                String currentLine;
+
+                lineToRemove = "USE `testdb`;";
+
+                while ((currentLine = reader.readLine()) != null) {
+
+                    String trimmedLine = currentLine.trim();
+                    if (trimmedLine.equals(lineToRemove)) {
+                        continue;
+                    }
+                    writer.write(currentLine + System.getProperty("line.separator"));
                 }
-                String result = builder.toString();                
-                fstream.write(result);               
-                System.out.println("RESULT" + builder);
 
-                try ( BufferedWriter writer = new BufferedWriter(new FileWriter(fichero))) {
-                    writer.write(builder.toString());
-                }
+                writer.close();
+                reader.close();
 
-                int exitCode = process.waitFor();
-                System.out.println("\n Exited with error code : " + exitCode);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        } catch (IOException ex) {
-            Logger.getLogger(ControladorConfiguracio.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                myWriter.close();
             } catch (IOException ex) {
                 Logger.getLogger(ControladorConfiguracio.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
 
-        try {
+            try {
 
-            File inputFile = new File(ruta+"/temp.sql");
-            File tempFile = new File(ruta+"/"+name);
-
-            String lineToRemove = "";
-            BufferedReader reader = null;
-            BufferedWriter writer = null;
-            reader = new BufferedReader(new FileReader(inputFile));
-            writer = new BufferedWriter(new FileWriter(tempFile));
-
-            String currentLine;
-
-            lineToRemove = "USE `testdb`;";
-
-            while ((currentLine = reader.readLine()) != null) {
-                
-                String trimmedLine = currentLine.trim();
-                if (trimmedLine.equals(lineToRemove)) {
-                    continue;
-                }
-                writer.write(currentLine + System.getProperty("line.separator"));
-            }
-            
-            writer.close();
-            reader.close();
-           
-       
-
-        } catch (IOException ex) {
-            Logger.getLogger(ControladorConfiguracio.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
-       try {
-                 
                 String linea;
-                Runtime.getRuntime().exec("rm -f temp.sql", null, new File(ruta+"/"));
-               
-               /* BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));      
+                Runtime.getRuntime().exec("rm -f temp.sql", null, new File(ruta + "/"));
+
+                /* BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream()));      
                
                while ((linea = input.readLine()) != null) {
                    System.out.println(linea);
                }*/
-           
                 JOptionPane.showMessageDialog(null, "Backup Exportat: " + ruta + name);
-               // Runtime.getRuntime().exec("rm -f temp.sql", null, new File(ruta+"/"));
+                // Runtime.getRuntime().exec("rm -f temp.sql", null, new File(ruta+"/"));
             } catch (Exception err) {
                 JOptionPane.showMessageDialog(null, err.getMessage());
             }
-        
+
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-   
-    
-    
     /**
      * @param args the command line arguments
      */

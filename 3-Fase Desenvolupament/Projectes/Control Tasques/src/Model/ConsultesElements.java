@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Vista.JFPrincipal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +22,7 @@ public class ConsultesElements extends Conexio {
     public int NouElement(Elements elm) {
 
         int nouElement, validacio = 0;
-        String nom, observacions, usuari, estat, tipus, marca, model, numeroSerie;
+        String nom, observacions, usuari, estat, tipus, marca, model, numeroSerie, data, adquisicio, element;
         nom = elm.getNom();
         observacions = elm.getObservacions();
         estat = elm.getEstat();
@@ -30,6 +31,19 @@ public class ConsultesElements extends Conexio {
         marca = elm.getMarca();
         numeroSerie = elm.getNumeroSerie();
         model = elm.getModel();
+        data = elm.getData();
+        adquisicio = elm.getAdquisicio();
+        element = "Ordinador";
+
+        if (adquisicio.equals("")) {
+
+            validacio++;
+        }
+
+        if (data.equals("")) {
+
+            validacio++;
+        }
 
         if (nom.equals("")) {
 
@@ -69,16 +83,19 @@ public class ConsultesElements extends Conexio {
             try {
 
                 Connection cn = getConexio();
-                PreparedStatement pst2 = cn.prepareStatement("insert into Elements values (?,?,?,?,?,?,?,?,?)");
-                pst2.setInt(1, 0);
-                pst2.setString(2, nom);
-                pst2.setString(3, usuari);
-                pst2.setString(4, tipus);
-                pst2.setString(5, marca);
-                pst2.setString(6, model);
-                pst2.setString(7, numeroSerie);
-                pst2.setString(8, estat);
-                pst2.setString(9, observacions);
+                PreparedStatement pst2 = cn.prepareStatement("insert into Elements (nom,usuari,tipus,marca,model,numero_serie,estat,observacions,adquisicio,data_ingres,element) values (?,?,?,?,?,?,?,?,?,?,?)");
+
+                pst2.setString(1, nom);
+                pst2.setString(2, usuari);
+                pst2.setString(3, tipus);
+                pst2.setString(4, marca);
+                pst2.setString(5, model);
+                pst2.setString(6, numeroSerie);
+                pst2.setString(7, estat);
+                pst2.setString(8, observacions);
+                pst2.setString(9, adquisicio);
+                pst2.setString(10, data);
+                pst2.setString(11, element);
 
                 pst2.executeUpdate();
                 cn.close();
@@ -182,6 +199,30 @@ public class ConsultesElements extends Conexio {
         }
 
         return editarElement;
+    }
+
+    public void UsuariAssignat(JFPrincipal vis) {
+
+        try {
+
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select * from Usuaris");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                vis.ComboUsuariAssignatOrdinador.addItem(rs.getString("usuari"));
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println("Error al carregar el usuariAssignat");
+
+        }
+
     }
 
     public boolean EliminarElement(Elements elm) {

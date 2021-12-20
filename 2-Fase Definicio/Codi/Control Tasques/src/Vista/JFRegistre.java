@@ -5,46 +5,43 @@
  */
 package Vista;
 
-import MVC.Conexio;
 import java.awt.Color;
-import java.sql.*;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
 /**
  *
  * @author Victor
  */
 public class JFRegistre extends javax.swing.JFrame {
 
-    
-    private int xMouse,yMouse;
-    
+    private int xMouse, yMouse;
+
     /**
      * Creates new form Registre
      */
     public JFRegistre() {
         initComponents();
-        ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");        
+        ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");
         Close.setIcon(delete_logo);
         this.repaint();
-        
-        ImageIcon max_logo = new ImageIcon("src/images/full_screen_32px.png");        
+
+        ImageIcon max_logo = new ImageIcon("src/images/full_screen_32px.png");
         Max.setIcon(max_logo);
         this.repaint();
-        
-        ImageIcon min_logo = new ImageIcon("src/images/icons8-compress-30.png");        
+
+        ImageIcon min_logo = new ImageIcon("src/images/icons8-compress-30.png");
         Min.setIcon(min_logo);
-        this.repaint();   
-        
-        ImageIcon logo_logo = new ImageIcon("src/images/ezgif.com-gif-maker.png");        
+        this.repaint();
+
+        ImageIcon logo_logo = new ImageIcon("src/images/ezgif.com-gif-maker.png");
         logo.setIcon(logo_logo);
         this.repaint();
-                
+
         ImageIcon back_logo = new ImageIcon("src/images/icons8-back-32.png");
         jLabelFletxa.setIcon(back_logo);
         this.repaint();
-     
+
     }
 
     /**
@@ -387,13 +384,12 @@ public class JFRegistre extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-       public void changecolor(JPanel hover, Color rand){
-        
+    public void changecolor(JPanel hover, Color rand) {
+
         hover.setBackground(rand);
-    
+
     }
-    
-    
+
     private void CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseClicked
         // TODO add your handling code here:
         System.exit(0);
@@ -401,20 +397,20 @@ public class JFRegistre extends javax.swing.JFrame {
 
     private void CloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseEntered
         // TODO add your handling code here:
-        changecolor(ButtonClose, new Color (255,204,102));
+        changecolor(ButtonClose, new Color(255, 204, 102));
     }//GEN-LAST:event_CloseMouseEntered
 
     private void CloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseExited
         // TODO add your handling code here:
-        changecolor(ButtonClose, new Color (255,153,0));
+        changecolor(ButtonClose, new Color(255, 153, 0));
     }//GEN-LAST:event_CloseMouseExited
 
     private void MaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseClicked
         // TODO add your handling code here:
-        if(this.getExtendedState()!= JFPrincipal.MAXIMIZED_BOTH){
+        if (this.getExtendedState() != JFPrincipal.MAXIMIZED_BOTH) {
             this.setExtendedState(JFPrincipal.MAXIMIZED_BOTH);
 
-        }else{
+        } else {
             this.setExtendedState(JFPrincipal.NORMAL);
 
         }
@@ -422,12 +418,12 @@ public class JFRegistre extends javax.swing.JFrame {
 
     private void MaxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseEntered
         // TODO add your handling code here:
-        changecolor(ButtonMax, new Color (255,204,102));
+        changecolor(ButtonMax, new Color(255, 204, 102));
     }//GEN-LAST:event_MaxMouseEntered
 
     private void MaxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaxMouseExited
         // TODO add your handling code here:
-        changecolor(ButtonMax, new Color (255,153,0));
+        changecolor(ButtonMax, new Color(255, 153, 0));
     }//GEN-LAST:event_MaxMouseExited
 
     private void MinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseClicked
@@ -438,26 +434,26 @@ public class JFRegistre extends javax.swing.JFrame {
     private void MinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseEntered
         // TODO add your handling code here:
 
-        changecolor(ButtonMin, new Color (255,204,102));
+        changecolor(ButtonMin, new Color(255, 204, 102));
     }//GEN-LAST:event_MinMouseEntered
 
     private void MinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinMouseExited
         // TODO add your handling code here:
-        changecolor(ButtonMin, new Color (255,153,0));
+        changecolor(ButtonMin, new Color(255, 153, 0));
 
     }//GEN-LAST:event_MinMouseExited
 
     private void HeaderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMouseDragged
         // TODO add your handling code here:
-        int x=evt.getXOnScreen();
-        int y=evt.getYOnScreen();
-        setLocation(x-xMouse,y-yMouse);
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_HeaderMouseDragged
 
     private void HeaderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMousePressed
         // TODO add your handling code here:
-        xMouse=evt.getX();
-        yMouse=evt.getY();
+        xMouse = evt.getX();
+        yMouse = evt.getY();
     }//GEN-LAST:event_HeaderMousePressed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -637,10 +633,5 @@ public class JFRegistre extends javax.swing.JFrame {
     public javax.swing.JTextField txtTelefon;
     public javax.swing.JTextField txtUsuari;
     // End of variables declaration//GEN-END:variables
-
-
-
-
-
 
 }

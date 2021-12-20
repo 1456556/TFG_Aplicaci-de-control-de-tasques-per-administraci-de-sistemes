@@ -5,31 +5,18 @@
  */
 package Controlador;
 
-import Model.ConsultesNotificacio;
 import Model.ConsultesPerfil;
-import Model.ConsultesTasques;
-import Model.Notificacio;
 import Model.Perfil;
-import Model.Tasques;
 import Vista.JFContrasenya;
 import Vista.JFPrincipal;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.event.AncestorListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -38,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Victor
  */
 public class ControladorPerfil implements ActionListener {
-    
+
     public JFContrasenya contrasenya;
     public Perfil mod;
     public ConsultesPerfil modC;
@@ -47,9 +34,9 @@ public class ControladorPerfil implements ActionListener {
     public DefaultTableModel modelTasques;
     public JFileChooser jf;
     public File file, ruta;
-    
-    public ControladorPerfil(Perfil mod, ConsultesPerfil modC, JFPrincipal vis, JFContrasenya contrasenya,  JFileChooser jf){
-    
+
+    public ControladorPerfil(Perfil mod, ConsultesPerfil modC, JFPrincipal vis, JFContrasenya contrasenya, JFileChooser jf) {
+
         this.mod = mod;
         this.modC = modC;
         this.vis = vis;
@@ -61,78 +48,56 @@ public class ControladorPerfil implements ActionListener {
         this.vis.jButtonCanviarFoto.addActionListener(this);
         this.vis.jButtonGuardarFoto.addActionListener(this);
         this.vis.txtNomImatge.setVisible(false);
-             
+
         this.jf.setFileFilter(new FileNameExtensionFilter("Formatos de archivos JPEG (*.JPG,*.JPEG)", "jpg", "jpeg"));
         this.jf.setDialogTitle("Abrir archiu");
         File ruta = new File("C:/Users/Víctor/Desktop");
-        
-       
-        
-    }
-    
-    
-    
-    public void inicialitzar(){
-    
-        
-    
-    
+
     }
 
-    
-    
+    public void inicialitzar() {
+
+    }
+
     @Override
-    public void actionPerformed(ActionEvent e){       
-  
+    public void actionPerformed(ActionEvent e) {
+
         if (e.getSource() == vis.jButtonCanviarContrasenya) {
-            
+
             contrasenya.setVisible(true);
 
         }
-        
 
-         if (e.getSource() == vis.jButtonCanviarFoto) {
-                           
-      
-                
-              
-            
+        if (e.getSource() == vis.jButtonCanviarFoto) {
+
             this.jf.setCurrentDirectory(ruta);
-            int respuesta  = this.jf.showOpenDialog(null);       
-           
-            
-            if (respuesta == JFileChooser.APPROVE_OPTION){
-                
+            int respuesta = this.jf.showOpenDialog(null);
+
+            if (respuesta == JFileChooser.APPROVE_OPTION) {
+
                 file = this.jf.getSelectedFile();
                 vis.txtNomImatge.setText(String.valueOf(file));
-                Image foto = Toolkit.getDefaultToolkit().getImage(vis.txtNomImatge.getText().trim());              
+                Image foto = Toolkit.getDefaultToolkit().getImage(vis.txtNomImatge.getText().trim());
                 foto = foto.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
                 vis.cLabelFoto.setIcon(new ImageIcon(foto));
                 JOptionPane.showMessageDialog(null, "Foto de perfil canviada correctament");
-                
-            
+
             }
-                
+
         }
-            
-         
-        
-        
-        
-        
+
         if (e.getSource() == vis.jButtonGuardarFoto) {
-            
-           
-                modC.GuardarFoto(vis);
-                modC.CargarImatge(vis);
-           
+
+            modC.GuardarFoto(vis);
+            modC.CargarImatge(vis);
+
         }
-        
-         if (e.getSource() == contrasenya.CancelarContrasenya) {
-             
-             this.contrasenya.setVisible(false);
-             
-         }
+
+        if (e.getSource() == contrasenya.CancelarContrasenya) {
+
+            this.contrasenya.setVisible(false);
+
+        }
 
         if (e.getSource() == contrasenya.GuardarContrasenya) {
 
@@ -175,8 +140,4 @@ public class ControladorPerfil implements ActionListener {
 
     }
 
-  
-
 }
-    
-

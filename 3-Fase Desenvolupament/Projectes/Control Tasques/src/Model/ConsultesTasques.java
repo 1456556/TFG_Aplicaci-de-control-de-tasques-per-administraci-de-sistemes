@@ -86,19 +86,72 @@ public class ConsultesTasques extends Conexio {
         try {
 
             Connection cn = getConexio();
-            PreparedStatement pst = cn.prepareStatement("select titol, prioritat, usuari, data, estat, id_tasca from Tasques");
+            PreparedStatement pst = cn.prepareStatement("select titol, prioritat, usuari, data, estat, id_tasca, dataProgres,recurrent from Tasques");
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
 
-                tas = new Tasques();
-                tas.setTitol(rs.getString(1));
-                tas.setPrioritat(rs.getString(2));
-                tas.setUsuariAssignat(rs.getString(3));
-                tas.setData(rs.getString(4));
-                tas.setEstat(rs.getString(5));
-                tas.setId(rs.getInt(6));
-                llistaTasques.add(tas);
+                if (rs.getBoolean(8) == true) {
+
+                    if (rs.getString(7).isEmpty()) {
+
+                        tas = new Tasques();
+                        tas.setTitol(rs.getString(1));
+                        tas.setPrioritat(rs.getString(2));
+                        tas.setUsuariAssignat(rs.getString(3));
+                        tas.setData(rs.getString(4));
+                        tas.setEstat(rs.getString(5));
+                        tas.setId(rs.getInt(6));
+                        llistaTasques.add(tas);
+                    } else {
+
+                        String d2 = rs.getString(7);
+                        String date2 = d2.substring(0, 10);
+                        String time2 = d2.substring(11, 16);
+                        String data2 = date2.replace("-", "/");
+
+                        System.out.println("DATAASAAAAAAAA:" + d2);
+                        System.out.println("sSubCadena:" + date2);
+                        System.out.println("sSubCadena:" + data2);
+                        System.out.println("sSubCadena:" + time2);
+
+                        DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                        DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("HH:mm");
+
+                        //convert String to LocalDate
+                        LocalDate localDate1 = LocalDate.parse(data2, formatter3);
+                        LocalTime localTime1 = LocalTime.parse(time2, formatter4);
+
+                        LocalDate date = LocalDate.now();
+
+                        int result = localDate1.compareTo(date);
+
+                        if (result == 0) {
+
+                            tas = new Tasques();
+                            tas.setTitol(rs.getString(1));
+                            tas.setPrioritat(rs.getString(2));
+                            tas.setUsuariAssignat(rs.getString(3));
+                            tas.setData(rs.getString(4));
+                            tas.setEstat(rs.getString(5));
+                            tas.setId(rs.getInt(6));
+                            llistaTasques.add(tas);
+
+                        }
+
+                    }
+                } else {
+
+                    tas = new Tasques();
+                    tas.setTitol(rs.getString(1));
+                    tas.setPrioritat(rs.getString(2));
+                    tas.setUsuariAssignat(rs.getString(3));
+                    tas.setData(rs.getString(4));
+                    tas.setEstat(rs.getString(5));
+                    tas.setId(rs.getInt(6));
+                    llistaTasques.add(tas);
+
+                }
 
             }
 

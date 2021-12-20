@@ -19,6 +19,24 @@ public class Elements {
     String numeroSerie;
     String estat;
     String observacions;
+    String adquisicio;
+
+    public String getAdquisicio() {
+        return adquisicio;
+    }
+
+    public void setAdquisicio(String adquisicio) {
+        this.adquisicio = adquisicio;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+    String data;
     int id;
 
     public int getId() {

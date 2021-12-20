@@ -7,11 +7,11 @@ package Model;
 
 /**
  *
+ *
  * @author Victor
  */
 public class Registre {
-    
-    
+
     String usuari;
     String contrasenya;
     String correu;
@@ -36,8 +36,6 @@ public class Registre {
     public void setEstat(String estat) {
         this.estat = estat;
     }
-    
-    
 
     public String getUsuari() {
         return usuari;
@@ -86,8 +84,5 @@ public class Registre {
     public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
-    
-    
-       
-    
+
 }

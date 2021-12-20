@@ -10,7 +10,7 @@ package Model;
  * @author Victor
  */
 public class Configuracio {
-    
+
     Boolean so;
 
     public Boolean getSo() {
@@ -20,8 +20,5 @@ public class Configuracio {
     public void setSo(Boolean so) {
         this.so = so;
     }
-    
-    
-    
-    
+
 }

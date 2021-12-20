@@ -5,7 +5,6 @@
  */
 package Vista;
 
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
@@ -23,6 +22,7 @@ public class JFImportar extends javax.swing.JFrame {
      * Creates new form JFImportar
      */
     public String fitxer;
+
     public JFImportar() {
         initComponents();
     }
@@ -93,12 +93,12 @@ public class JFImportar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFileChooser ch = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("SQL","sql");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("SQL", "sql");
         ch.setFileFilter(fil);
         int se = ch.showSaveDialog(null);
-        if(se == JFileChooser.APPROVE_OPTION){
+        if (se == JFileChooser.APPROVE_OPTION) {
             String ruta = ch.getSelectedFile().getPath();
-            fitxer =ch.getSelectedFile().getName();
+            fitxer = ch.getSelectedFile().getName();
             System.out.println("Fitxer" + fitxer);
             txtruta.setText(ruta);
         }
@@ -197,6 +197,7 @@ public class JFImportar extends javax.swing.JFrame {
                 new JFImportar().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

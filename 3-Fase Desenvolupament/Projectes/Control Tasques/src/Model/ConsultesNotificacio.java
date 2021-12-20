@@ -28,24 +28,26 @@ public class ConsultesNotificacio extends Conexio {
 
             if (rs.next()) {
 
-                if (rs.getBoolean("recurrent") == true && rs.getString("dataProgres").equals("") && rs.getBoolean("notificacio") == false) {
+                if (rs.getBoolean("SetNotificacio")) {
 
-                    not.setIdTasca(rs.getInt("id_tasca"));
-                    not.setData(rs.getString("data"));
-                    not.titol = rs.getString("titol");
-                    not.usuari = rs.getString("usuari");
-                    not.descripcio = rs.getString("descripcio");
-                    not.estat = rs.getString("estat");
-                    not.prioritat = rs.getString("prioritat");
-                    not.setData_final(rs.getString("dataFinal"));
-                    not.setDataProgres(rs.getString("dataProgres"));
-                    not.repeticio = rs.getInt("repeticioInici");
-                    not.setRecurrent(rs.getBoolean("recurrent"));
-                    notificacio = 1;
+                    if (rs.getBoolean("recurrent") == true && rs.getString("dataProgres").equals("") && rs.getBoolean("notificacio") == false) {
 
-                } else {
+                        not.setIdTasca(rs.getInt("id_tasca"));
+                        not.setData(rs.getString("data"));
+                        not.titol = rs.getString("titol");
+                        not.usuari = rs.getString("usuari");
+                        not.descripcio = rs.getString("descripcio");
+                        not.estat = rs.getString("estat");
+                        not.prioritat = rs.getString("prioritat");
+                        not.setData_final(rs.getString("dataFinal"));
+                        not.setDataProgres(rs.getString("dataProgres"));
+                        not.repeticio = rs.getInt("repeticioInici");
+                        not.setRecurrent(rs.getBoolean("recurrent"));
+                        notificacio = 1;
 
-                    if (rs.getBoolean("SetNotificacio") == true && rs.getBoolean("recurrent") == false) {
+                    }
+
+                    if (rs.getBoolean("recurrent") == false && rs.getBoolean("notificacio") == false) {
 
                         not.setIdTasca(rs.getInt("id_tasca"));
                         not.setData(rs.getString("data"));

@@ -115,7 +115,9 @@ public class ControladorNotificacio {
                     ConsultesTasques modCTasques = new ConsultesTasques();
                     ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis);
                     con.Recurrent(mod.getIdTasca());
-                    EnviarCorreu();
+                    if (ControladorConfiguracio.enviarCorreu == true) {
+                        EnviarCorreu();
+                    }
                     if (ControladorConfiguracio.so == true) {
                         ReproduirSoroll();
                     }
@@ -152,7 +154,9 @@ public class ControladorNotificacio {
                 Tasques modTasques2 = new Tasques();
                 ConsultesTasques modCTasques2 = new ConsultesTasques();
                 ControladorTasques con2 = new ControladorTasques(modTasques2, modCTasques2, vis);
-                EnviarCorreu();
+                if (ControladorConfiguracio.enviarCorreu == true) {
+                    EnviarCorreu();
+                }
                 if (ControladorConfiguracio.so == true) {
                     ReproduirSoroll();
                 }

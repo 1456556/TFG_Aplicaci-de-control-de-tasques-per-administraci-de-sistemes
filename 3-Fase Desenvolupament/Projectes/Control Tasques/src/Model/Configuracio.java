@@ -12,6 +12,15 @@ package Model;
 public class Configuracio {
 
     Boolean so;
+    Boolean enviarCorreu;
+
+    public Boolean getEnviarCorreu() {
+        return enviarCorreu;
+    }
+
+    public void setEnviarCorreu(Boolean enviarCorreu) {
+        this.enviarCorreu = enviarCorreu;
+    }
 
     public Boolean getSo() {
         return so;

@@ -156,6 +156,24 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     }*/
     public void inicialitzar() {
 
+        MostrarTaula(vis.jTable_Tasques);
+
+        DefaultComboBoxModel mdl = new DefaultComboBoxModel();
+        mdl.removeAllElements();
+        vis.jComboBoxDashTasquesUsuari.setModel(mdl);
+        modC.UsuariAssignat1(vis, 2);
+        //vis.jComboBoxDashTasquesUsuari.setSelectedItem(Login.usuari);
+        mdl.setSelectedItem(Login.usuari);
+
+        // AutoCompleteDecorator.decorate(vis.jComboBoxDashTasquesUsuari);
+        // String query = vis.jComboBoxDashTasquesUsuari.getSelectedItem().toString();
+        // System.out.print("UsariAssignat" + query);
+        //TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Tasques.getModel()));
+        //String query = vis.jComboBoxDashTasquesUsuari.getSelectedItem().toString();
+        // if (query != "") {
+        // sorter.setRowFilter(RowFilter.regexFilter(query));
+        // vis.jTable_Tasques.setRowSorter(sorter);
+        // }
     }
 
     @Override
@@ -163,34 +181,30 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
         if (e.getSource() == vis.jComboBoxDashTasquesUsuari) {
 
-            DefaultComboBoxModel mdl = new DefaultComboBoxModel();
-            mdl.removeAllElements();
-            vis.jComboBoxDashTasquesUsuari.setModel(mdl);
-
-            vis.jComboBoxDashTasquesUsuari.setSelectedItem(Login.usuari);
-            modC.UsuariAssignat1(vis, 2);
-            AutoCompleteDecorator.decorate(vis.jComboBoxDashTasquesUsuari);
-
+            //DefaultComboBoxModel mdl = new DefaultComboBoxModel();
+            //mdl.removeAllElements();
+            //vis.jComboBoxDashTasquesUsuari.setModel(mdl);
+            //vis.jComboBoxDashTasquesUsuari.setSelectedItem(Login.usuari);
+            // modC.UsuariAssignat1(vis, 2);
+            //AutoCompleteDecorator.decorate(vis.jComboBoxDashTasquesUsuari);
             String query = vis.jComboBoxDashTasquesUsuari.getSelectedItem().toString();
+            System.out.print("UsariAssignat" + query);
 
-            TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
+            /*TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
             trs = (TableRowSorter<DefaultTableModel>) vis.jTable_Tasques.getRowSorter();
-            DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();
+            DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();*/
+            TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Tasques.getModel()));
 
             if (query != "") {
 
-                trs.setRowFilter(RowFilter.regexFilter(query));
-
-            } else {
-
-                vis.jTable_Tasques.setRowSorter(trs);
+                // trs.setRowFilter(RowFilter.regexFilter(query));
+                sorter.setRowFilter(RowFilter.regexFilter(query));
 
             }
 
-            vis.jTable_Tasques.setModel(model_tasques3);
-
+            //vis.jTable_Tasques.setModel(model_tasques3);
+            vis.jTable_Tasques.setRowSorter(sorter);
         }
-
     }
 
     public void NotificacioTasca(int id) {
@@ -242,10 +256,10 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 vis.DashNovaTasca.setVisible(false);
                 vis.DashConfiguracio.setVisible(false);
                 vis.DashNouUsuari.setVisible(false);
-                vis.DashNouElement.setVisible(false);
+                vis.DashNouOrdinador.setVisible(false);
                 vis.DashUsuaris.setVisible(false);
-                vis.DashElements.setVisible(false);
-                vis.DashInfoElement.setVisible(false);
+                vis.DashOrdinadors.setVisible(false);
+                vis.DashInfoOrdinador.setVisible(false);
                 break;
             case 2:
                 vis.ComboUsuariAssignat3.removeAll();
@@ -2350,7 +2364,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                         vis.txt_marcaElem2.setText(elm.getMarca());
                         vis.txt_numeroserieElem2.setText(elm.getNumeroSerie());
                         vis.txt_modelElem2.setText(elm.getModel());
-                        vis.DashInfoElement.setVisible(true);
+                        vis.DashInfoOrdinador.setVisible(true);
                         vis.DashInfoTasca.setVisible(false);
 
                     } else {
@@ -2432,7 +2446,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                         vis.txt_marcaElem2.setText(elm.getMarca());
                         vis.txt_numeroserieElem2.setText(elm.getNumeroSerie());
                         vis.txt_modelElem2.setText(elm.getModel());
-                        vis.DashInfoElement.setVisible(true);
+                        vis.DashInfoOrdinador.setVisible(true);
                         vis.DashInfoTascaRepeticio.setVisible(false);
 
                     } else {

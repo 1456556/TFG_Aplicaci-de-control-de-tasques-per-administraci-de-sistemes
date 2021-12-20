@@ -10,7 +10,7 @@ package Model;
  * @author Victor
  */
 public class Login {
-    
+
     public static String usuari;
     String contrasenya;
 
@@ -29,5 +29,5 @@ public class Login {
     public void setContrasenya(String contrasenya) {
         this.contrasenya = contrasenya;
     }
-    
+
 }

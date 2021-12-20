@@ -5,42 +5,38 @@
  */
 package Model;
 
-import java.util.ArrayList;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Victor
  */
 public class Tasques {
-    
-   String titol;
-   String prioritat;
-   String usuariAssignat;
-   String data;
-   String dataFinal;
-   String horaFinal;   
-   String estat;
-   String descripcio;
-   String hora;
-   Boolean notificacio;
-   int tasquesTotals;
-   int tasquesAssingades;
-   int tasquesPendents;
-   int repeticio;
-   boolean recurrent;
-   String tipus;
-   String dataProgres;
-   int repeticioProgres;
-   boolean progres;
-   String diesSetmana;
-   int idSubtasca;
-   String grupAfectat;
+
+    String titol;
+    String prioritat;
+    String usuariAssignat;
+    String data;
+    String dataFinal;
+    String horaFinal;
+    String estat;
+    String descripcio;
+    String hora;
+    Boolean notificacio;
+    int tasquesTotals;
+    int tasquesAssingades;
+    int tasquesPendents;
+    int repeticio;
+    boolean recurrent;
+    String tipus;
+    String dataProgres;
+    int repeticioProgres;
+    boolean progres;
+    String diesSetmana;
+    int idSubtasca;
+    String grupAfectat;
     int idGrup;
-   String nom;
-   String array;
-   Boolean tipusGrup;
+    String nom;
+    String array;
+    Boolean tipusGrup;
 
     public Boolean getTipusGrup() {
         return tipusGrup;
@@ -58,8 +54,6 @@ public class Tasques {
         this.array = array;
     }
 
-   
-
     public int getIdGrup() {
         return idGrup;
     }
@@ -75,7 +69,6 @@ public class Tasques {
     public void setNom(String nom) {
         this.nom = nom;
     }
-  
 
     public String getGrupAfectat() {
         return grupAfectat;
@@ -92,9 +85,6 @@ public class Tasques {
     public void setIdSubtasca(int idSubtasca) {
         this.idSubtasca = idSubtasca;
     }
-   
-   
-   
 
     public String getDiesSetmana() {
         return diesSetmana;
@@ -127,7 +117,6 @@ public class Tasques {
     public void setRepeticioProgres(int repeticioProgres) {
         this.repeticioProgres = repeticioProgres;
     }
-   
 
     public String getTipus() {
         return tipus;
@@ -136,7 +125,6 @@ public class Tasques {
     public void setTipus(String tipus) {
         this.tipus = tipus;
     }
-   
 
     public boolean isRecurrent() {
         return recurrent;
@@ -145,8 +133,8 @@ public class Tasques {
     public void setRecurrent(boolean recurrent) {
         this.recurrent = recurrent;
     }
-   
-   public String getDataFinal() {
+
+    public String getDataFinal() {
         return dataFinal;
     }
 
@@ -193,7 +181,6 @@ public class Tasques {
     public void setTasquesPendents(int tasquesPendents) {
         this.tasquesPendents = tasquesPendents;
     }
-   
 
     public Boolean getNotificacio() {
         return notificacio;
@@ -210,7 +197,6 @@ public class Tasques {
     public void setHora(String hora) {
         this.hora = hora;
     }
-   
 
     public String getDescripcio() {
         return descripcio;
@@ -219,8 +205,8 @@ public class Tasques {
     public void setDescripcio(String descripcio) {
         this.descripcio = descripcio;
     }
-   
-   int id;
+
+    int id;
 
     public int getId() {
         return id;
@@ -229,7 +215,6 @@ public class Tasques {
     public void setId(int id) {
         this.id = id;
     }
-   
 
     public String getTitol() {
         return titol;
@@ -270,8 +255,5 @@ public class Tasques {
     public void setEstat(String estat) {
         this.estat = estat;
     }
-    
-    
-    
-    
+
 }

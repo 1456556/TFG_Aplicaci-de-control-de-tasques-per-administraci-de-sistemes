@@ -6,43 +6,21 @@
 package Vista;
 
 import Controlador.ControladorNotificacio;
-import Controlador.ControladorTasques;
 import Model.ConsultesNotificacio;
-import Model.ConsultesTasques;
-import Model.Tasques;
 import MVC.Conexio;
-import com.github.lgooddatepicker.components.DateTimePicker;
 import java.sql.*;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Image;
-
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.ArrayList;
-
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTable;
-import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import javax.swing.SwingUtilities;
 import java.util.Date;
 
-import java.awt.event.*;
-import javax.swing.JButton;
 import Model.Notificacio;
 import javax.mail.MessagingException;
 
@@ -50,32 +28,30 @@ import javax.mail.MessagingException;
  *
  * @author Victor
  */
-public class JFPrincipal extends javax.swing.JFrame  {
+public class JFPrincipal extends javax.swing.JFrame {
 
     boolean a = true;
-   
+
     private int xMouse, yMouse;
-    
+
     public int id;
-    
+
     public int id_tasca = 0;
-    
-    public static String user_update="", element_update="", tasca_update = "";
-   
+
+    public static String user_update = "", element_update = "", tasca_update = "";
+
     public boolean jf = false;
-   
-    
+
     /**
      * Creates new form Ventana_Tasques2
      */
-    public JFPrincipal() {        
-        
+    public JFPrincipal() {
+
         initComponents();
 
         ImageIcon delete_logo = new ImageIcon("src/images/delete_32px.png");
         Close.setIcon(delete_logo);
         this.repaint();
-        
 
         ImageIcon max_logo = new ImageIcon("src/images/full_screen_32px.png");
         Max.setIcon(max_logo);
@@ -108,8 +84,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         ImageIcon elements_grups = new ImageIcon("src/images/icons8-dog-tag-30.png");
         btnGrup.setIcon(elements_grups);
         this.repaint();
-              
-                
+
         ImageIcon tancarSessio = new ImageIcon("src/images/icons8-logout-30.png");
         btnTancarSessio.setIcon(tancarSessio);
         this.repaint();
@@ -117,22 +92,17 @@ public class JFPrincipal extends javax.swing.JFrame  {
         ImageIcon enrera_logo = new ImageIcon("src/images/icons8-left-35.png");
         Enrera.setIcon(enrera_logo);
         this.repaint();
-        
+
         ImageIcon logo = new ImageIcon("src/images/ezgif-com-gif-maker2.png");
         btnlogo.setIcon(logo);
         this.repaint();
-        
+
         ImageIcon iconUser = new ImageIcon("src/images/icons8-user-32.png");
         txt_fotoUsuari.setIcon(iconUser);
         this.repaint();
-        
-
 
     }
 
-   
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -3787,11 +3757,13 @@ public class JFPrincipal extends javax.swing.JFrame  {
         // TODO add your handling code here:
         changecolor(ButtonClose, new Color(255, 204, 102));
     }//GEN-LAST:event_CloseMouseEntered
+
     //Establir el color per defecte
     private void CloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseExited
         // TODO add your handling code here:
         changecolor(ButtonClose, new Color(255, 153, 0));
     }//GEN-LAST:event_CloseMouseExited
+
     //Establir l'accio al clickar el boto
     private void CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseClicked
         // TODO add your handling code here:
@@ -3873,7 +3845,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
             a = true;
         }
 
-
     }//GEN-LAST:event_MenuDesMouseClicked
 
     private void btnConfiguracioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfiguracioMouseEntered
@@ -3892,7 +3863,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void btnConfiguracioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfiguracioMouseClicked
         // TODO add your handling code here:
-
 
     }//GEN-LAST:event_btnConfiguracioMouseClicked
 
@@ -3923,7 +3893,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
         changecolor(N_Elements, new Color(255, 153, 0));
 
     }//GEN-LAST:event_btnElementsMouseExited
-
 
     private void btnUsuarisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarisMouseEntered
         // TODO add your handling code here:
@@ -3974,7 +3943,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
         changecolor(N_Elements, new Color(255, 153, 0));
         changecolor(Elements, new Color(255, 153, 0));
     }//GEN-LAST:event_btn_ElementsMouseExited
-
 
     private void btn_UsuarisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuarisMouseEntered
         // TODO add your handling code here:
@@ -4027,7 +3995,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void btn_ConfiguracioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseClicked
         // TODO add your handling code here:
 
-
     }//GEN-LAST:event_btn_ConfiguracioMouseClicked
 
     private void btn_ConfiguracioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseEntered
@@ -4039,7 +4006,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void btn_ConfiguracioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfiguracioMouseExited
         // TODO add your handling code here:
-         changecolor(Configuracio, new Color(255, 153, 0));
+        changecolor(Configuracio, new Color(255, 153, 0));
         changecolor(N_Configuracio, new Color(255, 153, 0));
 
     }//GEN-LAST:event_btn_ConfiguracioMouseExited
@@ -4076,7 +4043,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void btnUsuarisMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarisMouseReleased
         // TODO add your handling code here:
 
-
     }//GEN-LAST:event_btnUsuarisMouseReleased
 
     private void txtBuscadorUsuarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscadorUsuarisActionPerformed
@@ -4090,7 +4056,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void jButtonEditarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarUsuariActionPerformed
         // TODO add your handling code here:
 
-
     }//GEN-LAST:event_jButtonEditarUsuariActionPerformed
 
     private void txt_cognomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cognomActionPerformed
@@ -4100,7 +4065,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void ContrasenyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenyaActionPerformed
         // TODO add your handling code here:
 
-      
     }//GEN-LAST:event_ContrasenyaActionPerformed
 
     private void jButtonEliminarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuariActionPerformed
@@ -4115,10 +4079,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
         return checked;
 
     }*/
-
     private void jButtonEliminarUsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuariMouseClicked
         // TODO add your handling code here:
-
 
     }//GEN-LAST:event_jButtonEliminarUsuariMouseClicked
 
@@ -4137,22 +4099,20 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void jButtonEditarUsuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarUsuariMouseClicked
         // TODO add your handling code here:
 
-
     }//GEN-LAST:event_jButtonEditarUsuariMouseClicked
 
     private void jButtonEliminarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarElementMouseClicked
         // TODO add your handling code here:
-
 
     }//GEN-LAST:event_jButtonEliminarElementMouseClicked
 
     private void jButtonEliminarElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarElementActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEliminarElementActionPerformed
+
     //Crear Elements
     private void jButtonRegistarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistarElementMouseClicked
         // TODO add your handling code here:
-
 
     }//GEN-LAST:event_jButtonRegistarElementMouseClicked
 
@@ -4163,7 +4123,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
     //Modificacio ELements
     private void jButtonEditarElementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarElementMouseClicked
         // TODO add your handling code here:
-
 
     }//GEN-LAST:event_jButtonEditarElementMouseClicked
 
@@ -4184,9 +4143,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void jButtonEliminarTascaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarTascaMouseClicked
         // TODO add your handling code here:
 
-
     }//GEN-LAST:event_jButtonEliminarTascaMouseClicked
-
 
     private void jButtonEliminarTasca(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarTasca
         // TODO add your handling code here:
@@ -4194,7 +4151,6 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     //Modificar Tasca
     private void jButtonEditarTascaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarTascaMouseClicked
-
 
     }//GEN-LAST:event_jButtonEditarTascaMouseClicked
 
@@ -4205,12 +4161,12 @@ public class JFPrincipal extends javax.swing.JFrame  {
     private void jButtonNomUsuariMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNomUsuariMouseEntered
         // TODO add your handling code here:
         changecolor(N_Usuari, new Color(255, 204, 102));
-        
+
     }//GEN-LAST:event_jButtonNomUsuariMouseEntered
 
     private void jButtonNomUsuariMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNomUsuariMouseExited
         // TODO add your handling code here:
-         
+
         changecolor(N_Usuari, new Color(255, 153, 0));
     }//GEN-LAST:event_jButtonNomUsuariMouseExited
 
@@ -4244,20 +4200,17 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void btn_TasquesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TasquesMouseEntered
         // TODO add your handling code here:
-         changecolor(Tasques, new Color(255, 204, 102));
+        changecolor(Tasques, new Color(255, 204, 102));
         changecolor(N_Tasques, new Color(255, 204, 102));
-        
+
     }//GEN-LAST:event_btn_TasquesMouseEntered
 
     private void btn_TasquesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TasquesMouseExited
         // TODO add your handling code here:
-        
-      changecolor(Tasques, new Color(255, 153, 0));
+
+        changecolor(Tasques, new Color(255, 153, 0));
         changecolor(N_Tasques, new Color(255, 153, 0));
-        
-        
-        
-        
+
     }//GEN-LAST:event_btn_TasquesMouseExited
 
     private void N_GrupsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_N_GrupsMouseEntered
@@ -4294,12 +4247,12 @@ public class JFPrincipal extends javax.swing.JFrame  {
         // TODO add your handling code here:
         changecolor(TancarSessio, new Color(255, 204, 102));
         changecolor(N_TancarSessio, new Color(255, 204, 102));
-        
+
     }//GEN-LAST:event_btnTancarSessioMouseEntered
 
     private void btnTancarSessioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTancarSessioMouseExited
         // TODO add your handling code here:
-        
+
         changecolor(TancarSessio, new Color(255, 153, 0));
         changecolor(N_TancarSessio, new Color(255, 153, 0));
     }//GEN-LAST:event_btnTancarSessioMouseExited
@@ -4310,14 +4263,14 @@ public class JFPrincipal extends javax.swing.JFrame  {
 
     private void btn_TancarSessioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TancarSessioMouseEntered
         // TODO add your handling code here:
-        
-         changecolor(TancarSessio, new Color(255, 204, 102));
+
+        changecolor(TancarSessio, new Color(255, 204, 102));
         changecolor(N_TancarSessio, new Color(255, 204, 102));
     }//GEN-LAST:event_btn_TancarSessioMouseEntered
 
     private void btn_TancarSessioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TancarSessioMouseExited
         // TODO add your handling code here:
-         changecolor(TancarSessio, new Color(255, 153, 0));
+        changecolor(TancarSessio, new Color(255, 153, 0));
         changecolor(N_TancarSessio, new Color(255, 153, 0));
     }//GEN-LAST:event_btn_TancarSessioMouseExited
 
@@ -4345,17 +4298,15 @@ public class JFPrincipal extends javax.swing.JFrame  {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboMes1ActionPerformed
 
-    
-    public void inicialitzarNotificacio(Date date) throws MessagingException{
-    
+    public void inicialitzarNotificacio(Date date) throws MessagingException {
+
         Notificacio n = new Notificacio();
         ConsultesNotificacio cn = new ConsultesNotificacio();
-        ControladorNotificacio con = new ControladorNotificacio(n,cn,this);
+        ControladorNotificacio con = new ControladorNotificacio(n, cn, this);
         con.Notificacio(date);
-        
-    
+
     }
-    
+
     public void recordatori(Date date) throws InterruptedException, ParseException {
 
         DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
@@ -4466,9 +4417,7 @@ public class JFPrincipal extends javax.swing.JFrame  {
         }
 
     }
-      
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -4506,9 +4455,8 @@ public class JFPrincipal extends javax.swing.JFrame  {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFPrincipal().setVisible(true);        
+                new JFPrincipal().setVisible(true);
 
-		
             }
         });
     }
@@ -4884,5 +4832,4 @@ public class JFPrincipal extends javax.swing.JFrame  {
     public javax.swing.JTextField txt_usuariassignat;
     // End of variables declaration//GEN-END:variables
 
-        
 }
