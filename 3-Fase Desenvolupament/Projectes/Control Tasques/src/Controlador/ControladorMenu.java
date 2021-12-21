@@ -95,6 +95,8 @@ public class ControladorMenu implements MouseListener {
         vis.DashTriaElement.setVisible(false);
         vis.DashOrdinadors.setVisible(false);
         vis.DashTelefons.setVisible(false);
+        vis.DashInfoTelefon.setVisible(false);
+        vis.DashNouTelefon.setVisible(false);
 
     }
 
@@ -120,6 +122,8 @@ public class ControladorMenu implements MouseListener {
         vis.DashTriaElement.setVisible(false);
         vis.DashOrdinadors.setVisible(false);
         vis.DashTelefons.setVisible(false);
+        vis.DashInfoTelefon.setVisible(false);
+        vis.DashNouTelefon.setVisible(false);
 
     }
 
@@ -153,6 +157,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(false);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 
@@ -184,6 +190,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(false);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 
@@ -215,6 +223,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(false);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 
@@ -245,6 +255,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(true);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 
@@ -275,6 +287,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(true);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 
@@ -305,6 +319,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(false);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 
@@ -335,6 +351,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(false);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 
@@ -365,6 +383,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(false);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 
@@ -395,6 +415,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(false);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 
@@ -425,6 +447,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(false);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 
@@ -455,6 +479,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(false);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 
@@ -493,6 +519,8 @@ public class ControladorMenu implements MouseListener {
             vis.DashTriaElement.setVisible(false);
             vis.DashOrdinadors.setVisible(false);
             vis.DashTelefons.setVisible(false);
+            vis.DashInfoTelefon.setVisible(false);
+            vis.DashNouTelefon.setVisible(false);
 
         }
 

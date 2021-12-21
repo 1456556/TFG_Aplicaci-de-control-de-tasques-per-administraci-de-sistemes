@@ -119,10 +119,10 @@ public class ConsultesElements extends Conexio {
 
     }
 
-    public int EditarElement(Elements elm) {
+    public int NouTelefon(Elements elm) {
 
-        int editarElement, validacio = 0;
-        String nom, observacions, usuari, estat, tipus, marca, model, numeroSerie;
+        int nouElement, validacio = 0, numTel = 0;
+        String nom, observacions, usuari, estat, tipus, marca, model, numeroSerie, data, adquisicio, element;
         nom = elm.getNom();
         observacions = elm.getObservacions();
         estat = elm.getEstat();
@@ -131,6 +131,120 @@ public class ConsultesElements extends Conexio {
         marca = elm.getMarca();
         numeroSerie = elm.getNumeroSerie();
         model = elm.getModel();
+        data = elm.getData();
+        adquisicio = elm.getAdquisicio();
+        numTel = elm.getNumeroTel();
+        element = "Telefon";
+
+        if (adquisicio.equals("")) {
+
+            validacio++;
+        }
+
+        if (data.equals("")) {
+
+            validacio++;
+        }
+
+        if (nom.equals("")) {
+
+            validacio++;
+        }
+        if (observacions.equals("")) {
+
+            validacio++;
+        }
+        if (estat.equals("")) {
+
+            validacio++;
+        }
+        if (tipus.equals("")) {
+
+            validacio++;
+        }
+        if (usuari.equals("")) {
+
+            validacio++;
+        }
+        if (marca.equals("")) {
+
+            validacio++;
+        }
+        if (numeroSerie.equals("")) {
+
+            validacio++;
+        }
+        if (model.equals("")) {
+
+            validacio++;
+        }
+
+        if (validacio == 0) {
+
+            try {
+
+                Connection cn = getConexio();
+                PreparedStatement pst2 = cn.prepareStatement("insert into Elements (nom,usuari,tipus,marca,model,numero_serie,estat,observacions,adquisicio,data_ingres,element, numtel) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                pst2.setString(1, nom);
+                pst2.setString(2, usuari);
+                pst2.setString(3, tipus);
+                pst2.setString(4, marca);
+                pst2.setString(5, model);
+                pst2.setString(6, numeroSerie);
+                pst2.setString(7, estat);
+                pst2.setString(8, observacions);
+                pst2.setString(9, adquisicio);
+                pst2.setString(10, data);
+                pst2.setString(11, element);
+                pst2.setInt(12, numTel);
+
+                pst2.executeUpdate();
+                cn.close();
+
+                System.err.println("Element creat correctament");
+                nouElement = 1;
+
+            } catch (SQLException e) {
+                nouElement = 2;
+                System.err.println("Error al crear l'element" + e);
+
+            }
+
+        } else {
+            nouElement = 3;
+            System.err.println("Has d'omplir tots els camps");
+
+        }
+
+        return nouElement;
+
+    }
+
+    public int EditarElement(Elements elm) {
+
+        int editarElement, validacio = 0;
+        String nom, observacions, usuari, estat, tipus, marca, model, numeroSerie, data, adquisicio;
+        nom = elm.getNom();
+        observacions = elm.getObservacions();
+        estat = elm.getEstat();
+        tipus = elm.getTipus();
+        usuari = elm.getUsuariAssignat();
+        marca = elm.getMarca();
+        numeroSerie = elm.getNumeroSerie();
+        model = elm.getModel();
+        data = elm.getData();
+        adquisicio = elm.getAdquisicio();
+
+        if (adquisicio.equals("")) {
+
+            validacio++;
+        }
+
+        if (data.equals("")) {
+
+            validacio++;
+        }
 
         if (nom.equals("")) {
 
@@ -170,7 +284,7 @@ public class ConsultesElements extends Conexio {
             try {
 
                 Connection cn2 = MVC.Conexio.conectar();
-                PreparedStatement pst2 = cn2.prepareStatement("update Elements set nom=?, usuari=?, tipus=?, marca=?, model=?, numero_serie=?, estat=?, observacions=? where id_element = '" + elm.getId() + "'");
+                PreparedStatement pst2 = cn2.prepareStatement("update Elements set nom=?, usuari=?, tipus=?, marca=?, model=?, numero_serie=?, estat=?, observacions=?, data_ingres=?,adquisicio=? where id_element = '" + elm.getId() + "'");
 
                 pst2.setString(1, nom);
                 pst2.setString(2, usuari);
@@ -180,6 +294,107 @@ public class ConsultesElements extends Conexio {
                 pst2.setString(6, numeroSerie);
                 pst2.setString(7, estat);
                 pst2.setString(8, observacions);
+                pst2.setString(9, data);
+                pst2.setString(10, adquisicio);
+                pst2.executeUpdate();
+                cn2.close();
+                editarElement = 1;
+                System.err.println("Element modificat");
+
+            } catch (SQLException e) {
+                editarElement = 2;
+                System.err.println("Error al modificar l'element" + e);
+
+            }
+
+        } else {
+
+            editarElement = 3;
+            System.err.println("Has d'omplir tots els camps");
+
+        }
+
+        return editarElement;
+    }
+
+    public int EditarTelefon(Elements elm) {
+
+        int editarElement, validacio = 0, numTel = 0;
+        String nom, observacions, usuari, estat, tipus, marca, model, numeroSerie, data, adquisicio, element;
+        nom = elm.getNom();
+        observacions = elm.getObservacions();
+        estat = elm.getEstat();
+        tipus = elm.getTipus();
+        usuari = elm.getUsuariAssignat();
+        marca = elm.getMarca();
+        numeroSerie = elm.getNumeroSerie();
+        model = elm.getModel();
+        data = elm.getData();
+        adquisicio = elm.getAdquisicio();
+        numTel = elm.getNumeroTel();
+        element = "Telefon";
+
+        if (adquisicio.equals("")) {
+
+            validacio++;
+        }
+
+        if (data.equals("")) {
+
+            validacio++;
+        }
+
+        if (nom.equals("")) {
+
+            validacio++;
+        }
+        if (observacions.equals("")) {
+
+            validacio++;
+        }
+        if (estat.equals("")) {
+
+            validacio++;
+        }
+        if (tipus.equals("")) {
+
+            validacio++;
+        }
+        if (usuari.equals("")) {
+
+            validacio++;
+        }
+        if (marca.equals("")) {
+
+            validacio++;
+        }
+        if (numeroSerie.equals("")) {
+
+            validacio++;
+        }
+        if (model.equals("")) {
+
+            validacio++;
+        }
+
+        if (validacio == 0) {
+
+            try {
+
+                Connection cn2 = MVC.Conexio.conectar();
+                PreparedStatement pst2 = cn2.prepareStatement("update Elements set nom=?, usuari=?, tipus=?, marca=?, model=?, numero_serie=?, estat=?, observacions=?, data_ingres=?,adquisicio=?, numTel=? where id_element = '" + elm.getId() + "'");
+
+                pst2.setString(1, nom);
+                pst2.setString(2, usuari);
+                pst2.setString(3, tipus);
+                pst2.setString(4, marca);
+                pst2.setString(5, model);
+                pst2.setString(6, numeroSerie);
+                pst2.setString(7, estat);
+                pst2.setString(8, observacions);
+                pst2.setString(9, data);
+                pst2.setString(10, adquisicio);
+                pst2.setInt(11, numTel);
                 pst2.executeUpdate();
                 cn2.close();
                 editarElement = 1;
@@ -212,6 +427,8 @@ public class ConsultesElements extends Conexio {
             while (rs.next()) {
 
                 vis.ComboUsuariAssignatOrdinador.addItem(rs.getString("usuari"));
+                vis.ComboUsuariAssignatOrdinador1.addItem(rs.getString("usuari"));
+                vis.ComboUsuariAssignatTel.addItem(rs.getString("usuari"));
 
             }
 
@@ -259,7 +476,41 @@ public class ConsultesElements extends Conexio {
         try {
 
             Connection cn = getConexio();
-            PreparedStatement pst = cn.prepareStatement("select nom, usuari, tipus, marca, estat, id_element from Elements");
+            PreparedStatement pst = cn.prepareStatement("select nom, usuari, tipus, marca, estat, id_element from Elements where element = 'Ordinador'");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                elm = new Elements();
+                elm.setNom(rs.getString(1));
+                elm.setUsuariAssignat(rs.getString(2));
+                elm.setTipus(rs.getString(3));
+                elm.setMarca(rs.getString(4));
+                elm.setEstat(rs.getString(5));
+                elm.setId(rs.getInt(6));
+                llistaElements.add(elm);
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+        }
+
+        return llistaElements;
+
+    }
+
+    public ArrayList<Elements> MostrarTelefons() {
+
+        ArrayList llistaElements = new ArrayList();
+        Elements elm;
+
+        try {
+
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select nom, usuari, tipus, marca, estat, id_element from Elements where element = 'Telefon'");
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
@@ -344,6 +595,14 @@ public class ConsultesElements extends Conexio {
                 elm.setModel(rs.getString(7));
                 elm.setNumeroSerie(rs.getString(8));
                 elm.setObservacions(rs.getString(9));
+                elm.setAdquisicio(rs.getString(10));
+                elm.setData(rs.getString(11));
+                elm.setElement(rs.getString(12));
+                if (elm.getElement() == "Telefon") {
+
+                    elm.setNumeroTel(rs.getInt(13));
+
+                }
                 informacioElement = 1;
 
             }

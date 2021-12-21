@@ -2356,7 +2356,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
                     if (Celm.informacioElement(elm) == 1) {
 
-                        vis.txt_nomElem2.setText(elm.getNom());
+                        //Haure de sabe rel tipus
+                        /*vis.txt_nomElem2.setText(elm.getNom());
                         vis.txt_usuariElem2.setText(elm.getUsuariAssignat());
                         vis.txt_observacionsElem2.setText(elm.getObservacions());
                         vis.ComboTipusElem2.setSelectedItem(elm.getTipus());
@@ -2365,8 +2366,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                         vis.txt_numeroserieElem2.setText(elm.getNumeroSerie());
                         vis.txt_modelElem2.setText(elm.getModel());
                         vis.DashInfoOrdinador.setVisible(true);
-                        vis.DashInfoTasca.setVisible(false);
-
+                        vis.DashInfoTasca.setVisible(false);*/
                     } else {
 
                         JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");
@@ -2438,7 +2438,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
                     if (Celm.informacioElement(elm) == 1) {
 
-                        vis.txt_nomElem2.setText(elm.getNom());
+                        //Haure de saber el 
+                        /* vis.txt_nomElem2.setText(elm.getNom());
                         vis.txt_usuariElem2.setText(elm.getUsuariAssignat());
                         vis.txt_observacionsElem2.setText(elm.getObservacions());
                         vis.ComboTipusElem2.setSelectedItem(elm.getTipus());
@@ -2447,8 +2448,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                         vis.txt_numeroserieElem2.setText(elm.getNumeroSerie());
                         vis.txt_modelElem2.setText(elm.getModel());
                         vis.DashInfoOrdinador.setVisible(true);
-                        vis.DashInfoTascaRepeticio.setVisible(false);
-
+                        vis.DashInfoTascaRepeticio.setVisible(false);*/
                     } else {
 
                         JOptionPane.showMessageDialog(null, "Error al mostrar l'informacio, contacti amb l'administrador");

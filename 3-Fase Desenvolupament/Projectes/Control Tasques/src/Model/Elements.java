@@ -20,6 +20,24 @@ public class Elements {
     String estat;
     String observacions;
     String adquisicio;
+    int numeroTel;
+    String element;
+
+    public String getElement() {
+        return element;
+    }
+
+    public void setElement(String element) {
+        this.element = element;
+    }
+
+    public int getNumeroTel() {
+        return numeroTel;
+    }
+
+    public void setNumeroTel(int numeroTel) {
+        this.numeroTel = numeroTel;
+    }
 
     public String getAdquisicio() {
         return adquisicio;
