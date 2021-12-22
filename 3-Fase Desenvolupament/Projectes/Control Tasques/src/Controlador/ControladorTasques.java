@@ -32,9 +32,11 @@ import static java.time.temporal.TemporalAdjusters.firstInMonth;
 import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
@@ -67,8 +69,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         this.vis.jTableInfoTasca.addMouseListener(this);
         this.vis.jTableInfoTasca1.addMouseListener(this);
         this.vis.txtBuscadorTasques.addKeyListener(this);
-        this.vis.jButtonTascaNormal.addActionListener(this);
-        this.vis.jButtonTascaRepetio.addActionListener(this);
+        this.vis.jButtonTascaNormal.addMouseListener(this);
+        this.vis.jButtonTascaRepeticio.addMouseListener(this);
         this.vis.jComboBoxDashTasquesUsuari.addItemListener(this);
         this.vis.jButtonAceptar.addActionListener(this);
         this.vis.jButtonCancelar.addActionListener(this);
@@ -978,53 +980,6 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
                 }
             }
-
-        }
-
-        if (e.getSource() == vis.jButtonTascaNormal) {
-
-            vis.DashTriaTasca.setVisible(false);
-            vis.DashNovaTasca.setVisible(true);
-            DefaultComboBoxModel mdl = new DefaultComboBoxModel();
-            mdl.removeAllElements();
-            vis.ComboUsuariAssignat.setModel(mdl);
-            vis.ComboUsuariAssignat.setSelectedItem(Login.usuari);
-            modC.UsuariAssignat(vis, 0);
-            AutoCompleteDecorator.decorate(vis.ComboUsuariAssignat);
-
-            DefaultComboBoxModel mdl2 = new DefaultComboBoxModel();
-            mdl2.removeAllElements();
-            vis.ComboGrupAfectat.setModel(mdl2);
-            //vis.ComboGrupAfectat.addItem("");
-            vis.ComboGrupAfectat.addItem("--------");
-            modC.GrupAfectat(vis, 1);
-            // mdl2.addElement("--");
-
-            vis.ComboGrupAfectat.setSelectedItem("--------");
-            AutoCompleteDecorator.decorate(vis.ComboGrupAfectat);
-            natejar();
-
-        }
-
-        if (e.getSource() == vis.jButtonTascaRepetio) {
-
-            vis.DashTriaTasca.setVisible(false);
-            vis.DashNovaTascaRepeticio.setVisible(true);
-            DefaultComboBoxModel mdl = new DefaultComboBoxModel();
-            mdl.removeAllElements();
-            vis.ComboUsuariAssignat1.setModel(mdl);
-            vis.ComboUsuariAssignat1.setSelectedItem(Login.usuari);
-            modC.UsuariAssignat1(vis, 0);
-            AutoCompleteDecorator.decorate(vis.ComboUsuariAssignat1);
-
-            DefaultComboBoxModel mdl2 = new DefaultComboBoxModel();
-            mdl2.removeAllElements();
-            vis.ComboGrupAfectat2.setModel(mdl2);
-            vis.ComboGrupAfectat2.addItem("--------");
-            modC.GrupAfectat(vis, 1);
-            vis.ComboGrupAfectat2.setSelectedItem("--------");
-            AutoCompleteDecorator.decorate(vis.ComboGrupAfectat2);
-            natejar();
 
         }
 
@@ -1941,6 +1896,15 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
         vis.jTable_Tasques.setModel(model_tasques);
         modelTasques = model_tasques;
+
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        for (int i = 0; i < vis.jTable_Tasques.getColumnCount(); i++) {
+
+            vis.jTable_Tasques.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+
+        }
+
         addCheckBox(0, vis.jTable_Tasques);
         vis.jTable_Tasques.removeColumn(vis.jTable_Tasques.getColumnModel().getColumn(6));
 
@@ -2458,6 +2422,53 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 }
 
             }
+
+        }
+
+        if (e.getSource() == vis.jButtonTascaNormal) {
+
+            vis.DashTriaTasca.setVisible(false);
+            vis.DashNovaTasca.setVisible(true);
+            DefaultComboBoxModel mdl = new DefaultComboBoxModel();
+            mdl.removeAllElements();
+            vis.ComboUsuariAssignat.setModel(mdl);
+            vis.ComboUsuariAssignat.setSelectedItem(Login.usuari);
+            modC.UsuariAssignat(vis, 0);
+            AutoCompleteDecorator.decorate(vis.ComboUsuariAssignat);
+
+            DefaultComboBoxModel mdl2 = new DefaultComboBoxModel();
+            mdl2.removeAllElements();
+            vis.ComboGrupAfectat.setModel(mdl2);
+            //vis.ComboGrupAfectat.addItem("");
+            vis.ComboGrupAfectat.addItem("--------");
+            modC.GrupAfectat(vis, 1);
+            // mdl2.addElement("--");
+
+            vis.ComboGrupAfectat.setSelectedItem("--------");
+            AutoCompleteDecorator.decorate(vis.ComboGrupAfectat);
+            natejar();
+
+        }
+
+        if (e.getSource() == vis.jButtonTascaRepeticio) {
+
+            vis.DashTriaTasca.setVisible(false);
+            vis.DashNovaTascaRepeticio.setVisible(true);
+            DefaultComboBoxModel mdl = new DefaultComboBoxModel();
+            mdl.removeAllElements();
+            vis.ComboUsuariAssignat1.setModel(mdl);
+            vis.ComboUsuariAssignat1.setSelectedItem(Login.usuari);
+            modC.UsuariAssignat1(vis, 0);
+            AutoCompleteDecorator.decorate(vis.ComboUsuariAssignat1);
+
+            DefaultComboBoxModel mdl2 = new DefaultComboBoxModel();
+            mdl2.removeAllElements();
+            vis.ComboGrupAfectat2.setModel(mdl2);
+            vis.ComboGrupAfectat2.addItem("--------");
+            modC.GrupAfectat(vis, 1);
+            vis.ComboGrupAfectat2.setSelectedItem("--------");
+            AutoCompleteDecorator.decorate(vis.ComboGrupAfectat2);
+            natejar();
 
         }
 

@@ -59,14 +59,14 @@ class ControladorElements implements ActionListener, MouseListener, KeyListener 
         this.vis.jTable_Ordinadors.addMouseListener(this);
         this.vis.jButtonEliminarOrdinadors.addActionListener(this);
         this.vis.txtBuscadorOrdinadors.addKeyListener(this);
-        this.vis.jButtonOrdinadors.addActionListener(this);
-        this.vis.jButtonTelefons.addActionListener(this);
+        this.vis.jButtonOrdinadors.addMouseListener(this);
+        this.vis.jButtonTelefons.addMouseListener(this);
         this.vis.jButtonNouTelefon.addActionListener(this);
         this.vis.jButtonRegistarTelefon.addActionListener(this);
         this.vis.jButtonEditarTelefon.addActionListener(this);
-        this.vis.jButtonImpresores.addActionListener(this);
-        this.vis.jButtonServidors.addActionListener(this);
-        this.vis.jButtonXarxa.addActionListener(this);
+        this.vis.jButtonImpresores.addMouseListener(this);
+        this.vis.jButtonServidors.addMouseListener(this);
+        this.vis.jButtonDispositiusXarxa.addMouseListener(this);
         this.vis.jButtonEliminarTelefons.addActionListener(this);
         this.vis.jTable_Telefons.addMouseListener(this);
 
@@ -89,13 +89,6 @@ class ControladorElements implements ActionListener, MouseListener, KeyListener 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == vis.jButtonOrdinadors) {
-
-            vis.DashOrdinadors.setVisible(true);
-            vis.DashTriaElement.setVisible(false);
-            MostrarTaulaOrdinadors();
-        }
-
         if (e.getSource() == vis.jButtonNouOrdinador) {
 
             vis.DashNouOrdinador.setVisible(true);
@@ -108,13 +101,6 @@ class ControladorElements implements ActionListener, MouseListener, KeyListener 
             modC.UsuariAssignat(vis);
             AutoCompleteDecorator.decorate(vis.ComboUsuariAssignatOrdinador);
 
-        }
-
-        if (e.getSource() == vis.jButtonTelefons) {
-
-            vis.DashTelefons.setVisible(true);
-            vis.DashTriaElement.setVisible(false);
-            MostrarTaulaTelefons();
         }
 
         if (e.getSource() == vis.jButtonNouTelefon) {
@@ -137,7 +123,7 @@ class ControladorElements implements ActionListener, MouseListener, KeyListener 
             vis.DashNouOrdinador.setVisible(true);
         }
 
-        if (e.getSource() == vis.jButtonXarxa) {
+        if (e.getSource() == vis.jButtonDispositiusXarxa) {
 
             vis.DashOrdinadors.setVisible(false);
             vis.DashNouOrdinador.setVisible(true);
@@ -856,6 +842,20 @@ class ControladorElements implements ActionListener, MouseListener, KeyListener 
 
             }
 
+        }
+
+        if (e.getSource() == vis.jButtonOrdinadors) {
+
+            vis.DashOrdinadors.setVisible(true);
+            vis.DashTriaElement.setVisible(false);
+            MostrarTaulaOrdinadors();
+        }
+
+        if (e.getSource() == vis.jButtonTelefons) {
+
+            vis.DashTelefons.setVisible(true);
+            vis.DashTriaElement.setVisible(false);
+            MostrarTaulaTelefons();
         }
 
     }
