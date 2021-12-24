@@ -20,6 +20,15 @@ public class Registre {
     String telefon;
     String nivell;
     String estat;
+    String ConfirmarContrasenya;
+
+    public String getConfirmarContrasenya() {
+        return ConfirmarContrasenya;
+    }
+
+    public void setConfirmarContrasenya(String ConfirmarContrasenya) {
+        this.ConfirmarContrasenya = ConfirmarContrasenya;
+    }
 
     public String getNivell() {
         return nivell;

@@ -60,7 +60,7 @@ public class ControladorLogin extends JFPrincipal implements ActionListener {
             //Login exitós
             if (modC.login(mod) == 0) {
 
-                JOptionPane.showMessageDialog(null, "Inici de Sessió Correcte");
+                //JOptionPane.showMessageDialog(null, "Inici de Sessió Correcte");
                 natejar();
                 vis.dispose();
 

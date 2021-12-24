@@ -64,6 +64,7 @@ public class ControladorRegistre implements ActionListener, MouseListener {
             mod.setCorreu(vis.txtCorreu.getText().trim());
             mod.setUsuari(vis.txtUsuari.getText().trim());
             mod.setContrasenya(String.valueOf(vis.txtContrasenya.getPassword()).trim());
+            mod.setConfirmarContrasenya(String.valueOf(vis.txtContrasenya1.getPassword()).trim());
 
             try {
                 switch (modC.registre(mod)) {
@@ -110,6 +111,18 @@ public class ControladorRegistre implements ActionListener, MouseListener {
                                 + "> 8 Caràcters de longitud <br><br><p>";
                         JOptionPane.showMessageDialog(null, String.format(contrasenya, 300, 300));
                         vis.txtContrasenya.setText(null);
+                        vis.txtContrasenya1.setText(null);
+                        break;
+                    case 7:
+                        String contrasenya2 = "<html><body width='%1s'><h1>Les contrasenyes han de concidir</h1>"
+                                + "<p> Ha de contenir com a miním:<br><br>"
+                                + "> 1 Majuscula <br>"
+                                + "> 1 Numero <br>"
+                                + "> 1 Caràcter especial <br>"
+                                + "> 8 Caràcters de longitud <br><br><p>";
+                        JOptionPane.showMessageDialog(null, String.format(contrasenya2, 300, 300));
+                        vis.txtContrasenya.setText(null);
+                        vis.txtContrasenya1.setText(null);
                         break;
                     default:
                         break;
@@ -130,6 +143,7 @@ public class ControladorRegistre implements ActionListener, MouseListener {
         vis.txtCorreu.setText(null);
         vis.txtTelefon.setText(null);
         vis.txtCognom.setText(null);
+        vis.txtContrasenya1.setText(null);
 
     }
 

@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Victor
@@ -37,6 +39,15 @@ public class Tasques {
     String nom;
     String array;
     Boolean tipusGrup;
+    ArrayList<String> UsuariArrayList;
+
+    public ArrayList<String> getUsuariArrayList() {
+        return UsuariArrayList;
+    }
+
+    public void setUsuariArrayList(ArrayList<String> UsuariArrayList) {
+        this.UsuariArrayList = UsuariArrayList;
+    }
 
     public Boolean getTipusGrup() {
         return tipusGrup;

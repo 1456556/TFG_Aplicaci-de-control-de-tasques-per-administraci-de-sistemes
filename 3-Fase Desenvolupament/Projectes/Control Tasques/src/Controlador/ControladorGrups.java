@@ -18,9 +18,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
@@ -116,6 +118,15 @@ public class ControladorGrups implements ActionListener, MouseListener, KeyListe
 
         vis.jTable_Grups.setModel(model_grups);
         modelGrups = model_grups;
+
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        for (int i = 0; i < vis.jTable_Grups.getColumnCount(); i++) {
+
+            vis.jTable_Grups.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+
+        }
+
         addCheckBox(0, vis.jTable_Grups);
         vis.jTable_Grups.removeColumn(vis.jTable_Grups.getColumnModel().getColumn(2));
 

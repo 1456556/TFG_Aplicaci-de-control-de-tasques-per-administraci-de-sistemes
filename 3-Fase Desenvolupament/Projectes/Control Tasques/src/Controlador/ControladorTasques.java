@@ -30,6 +30,7 @@ import java.time.temporal.TemporalAdjusters;
 import static java.time.temporal.TemporalAdjusters.firstDayOfMonth;
 import static java.time.temporal.TemporalAdjusters.firstInMonth;
 import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
+import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
@@ -74,6 +75,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         this.vis.jComboBoxDashTasquesUsuari.addItemListener(this);
         this.vis.jButtonAceptar.addActionListener(this);
         this.vis.jButtonCancelar.addActionListener(this);
+        this.vis.jButtonAfegirUsuari.addActionListener(this);
+        this.vis.jButtonAfegirUsuari1.addActionListener(this);
 
         ButtonGroup group = new ButtonGroup();
         group.add(this.vis.jRadioButtonDiari);
@@ -142,7 +145,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         vis.jCheckBoxDilluns1.setVisible(false);
         vis.jCheckBoxDimarts1.setVisible(false);
 
-        vis.ComboEstatTasc.setEnabled(false);
+        //vis.ComboEstatTasc.setEnabled(false);
         vis.ComboMesDia.setEnabled(false);
         vis.ComboMesNumero.setEnabled(false);
         vis.ComboMes.setEnabled(false);
@@ -164,18 +167,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         mdl.removeAllElements();
         vis.jComboBoxDashTasquesUsuari.setModel(mdl);
         modC.UsuariAssignat1(vis, 2);
-        //vis.jComboBoxDashTasquesUsuari.setSelectedItem(Login.usuari);
         mdl.setSelectedItem(Login.usuari);
 
-        // AutoCompleteDecorator.decorate(vis.jComboBoxDashTasquesUsuari);
-        // String query = vis.jComboBoxDashTasquesUsuari.getSelectedItem().toString();
-        // System.out.print("UsariAssignat" + query);
-        //TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Tasques.getModel()));
-        //String query = vis.jComboBoxDashTasquesUsuari.getSelectedItem().toString();
-        // if (query != "") {
-        // sorter.setRowFilter(RowFilter.regexFilter(query));
-        // vis.jTable_Tasques.setRowSorter(sorter);
-        // }
     }
 
     @Override
@@ -183,28 +176,17 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
         if (e.getSource() == vis.jComboBoxDashTasquesUsuari) {
 
-            //DefaultComboBoxModel mdl = new DefaultComboBoxModel();
-            //mdl.removeAllElements();
-            //vis.jComboBoxDashTasquesUsuari.setModel(mdl);
-            //vis.jComboBoxDashTasquesUsuari.setSelectedItem(Login.usuari);
-            // modC.UsuariAssignat1(vis, 2);
-            //AutoCompleteDecorator.decorate(vis.jComboBoxDashTasquesUsuari);
             String query = vis.jComboBoxDashTasquesUsuari.getSelectedItem().toString();
             System.out.print("UsariAssignat" + query);
 
-            /*TableRowSorter<DefaultTableModel> trs = new TableRowSorter();
-            trs = (TableRowSorter<DefaultTableModel>) vis.jTable_Tasques.getRowSorter();
-            DefaultTableModel model_tasques3 = (DefaultTableModel) vis.jTable_Tasques.getModel();*/
             TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Tasques.getModel()));
 
             if (query != "") {
 
-                // trs.setRowFilter(RowFilter.regexFilter(query));
                 sorter.setRowFilter(RowFilter.regexFilter(query));
 
             }
 
-            //vis.jTable_Tasques.setModel(model_tasques3);
             vis.jTable_Tasques.setRowSorter(sorter);
         }
     }
@@ -947,6 +929,48 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        if (e.getSource() == vis.jButtonAfegirUsuari) {
+
+            String usuari = (String) vis.ComboUsuariAssignat.getSelectedItem();
+            ArrayList<String> UsuariArrayList = mod.getUsuariArrayList();
+            String line = "";
+
+            if (!UsuariArrayList.contains(usuari)) {
+
+                UsuariArrayList.add(usuari);
+                mod.setUsuariArrayList(UsuariArrayList);
+                for (int i = 0; i < mod.getUsuariArrayList().size(); i++) {
+
+                    line = line + mod.getUsuariArrayList().get(i) + "\n";
+                }
+
+                vis.jTextUsuariAssignat.setText(line);
+
+            }
+
+        }
+
+        if (e.getSource() == vis.jButtonAfegirUsuari1) {
+
+            String usuari = (String) vis.ComboUsuariAssignat1.getSelectedItem();
+            ArrayList<String> UsuariArrayList = mod.getUsuariArrayList();
+            String line = "";
+
+            if (!UsuariArrayList.contains(usuari)) {
+
+                UsuariArrayList.add(usuari);
+                mod.setUsuariArrayList(UsuariArrayList);
+                for (int i = 0; i < mod.getUsuariArrayList().size(); i++) {
+
+                    line = line + mod.getUsuariArrayList().get(i) + "\n";
+                }
+
+                vis.jTextUsuariAssignat1.setText(line);
+
+            }
+
+        }
+
         if (e.getSource() == vis.jRadioButtonEl) {
 
             if (vis.jRadioButtonMensual.isSelected()) {
@@ -991,6 +1015,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             vis.dateTimePickerRepeticio.timePicker.setTimeToNow();
             vis.dateTimePickerRepeticioFinal.datePicker.setDateToToday();
             vis.dateTimePickerRepeticioFinal.timePicker.setTimeToNow();
+            ArrayList<String> UsuariArrayList = new ArrayList<String>();
+            mod.setUsuariArrayList(UsuariArrayList);
 
         }
 
@@ -1147,7 +1173,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
                 case 1:
                     modC.GuardarIdSubtasca(mod);
-                    JOptionPane.showMessageDialog(null, "Repeticio guardada correctament");
+                    //JOptionPane.showMessageDialog(null, "Repeticio guardada correctament");
                     natejar();
                     vis.DashNovaTascaRepeticio.setVisible(false);
                     vis.DashTasques.setVisible(true);
@@ -1163,7 +1189,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                     JOptionPane.showMessageDialog(null, "Els dies no poden ser iguals o menors a 0");
 
                 case 5:
-                    JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+                // JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
                 default:
                     break;
 
@@ -1351,7 +1377,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             mod.setData(vis.dateTimePicker.getDatePicker().toString());
             mod.setDescripcio(vis.txt_descripcioTasc.getText().trim());
             mod.setHora(vis.dateTimePicker.getTimePicker().toString());
-            int estat = vis.ComboEstatTasc.getSelectedIndex() + 1;
+            int estat = 1;
             int prioritat = vis.ComboPrioritatTasc1.getSelectedIndex() + 1;
             mod.setGrupAfectat(vis.ComboGrupAfectat.getSelectedItem().toString());
             boolean notificacio = false;
@@ -1364,17 +1390,6 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             if (estat == 1) {
 
                 estat_string = "Nova";
-            }
-
-            if (estat == 2) {
-
-                estat_string = "En espera";
-
-            }
-            if (estat == 3) {
-
-                estat_string = "En procés";
-
             }
 
             if (prioritat == 1) {
@@ -1406,7 +1421,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             switch (modC.NovaTasca(mod)) {
 
                 case 1:
-                    JOptionPane.showMessageDialog(null, "Tasca Creada Correctament!");
+                    //JOptionPane.showMessageDialog(null, "Tasca Creada Correctament!");
                     natejar();
                     vis.DashNovaTasca.setVisible(false);
                     vis.DashTasques.setVisible(true);
@@ -1564,7 +1579,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                         JOptionPane.showMessageDialog(null, "Error al modificar la tasca. Contacti amb l'administrador");
                         break;
                     case 3:
-                        JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+                        //JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
                         break;
                     default:
                         break;
@@ -1790,7 +1805,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
                 case 1:
                     modC.GuardarIdSubtasca(mod);
-                    JOptionPane.showMessageDialog(null, "Repeticio guardada correctament");
+                    //JOptionPane.showMessageDialog(null, "Repeticio guardada correctament");
                     natejar();
                     vis.DashNovaTascaRepeticio.setVisible(false);
                     vis.DashTasques.setVisible(true);
@@ -1806,7 +1821,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                     JOptionPane.showMessageDialog(null, "Els dies no poden ser iguals o menors a 0");
 
                 case 5:
-                    JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
+                // JOptionPane.showMessageDialog(null, "Has d'omplir tots els camps");
                 default:
                     break;
 
@@ -1875,9 +1890,14 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
         for (int i = 0; i < numRegistres; i++) {
 
+            int lenght = modC.MostrarTasques().get(i).getUsuariArrayList().size();
+            ArrayList<String> len = modC.MostrarTasques().get(i).getUsuariArrayList();
+            System.out.println("ArrayList" + len);
+            //for (int j = 0; j < lenght; j++) {
+
             columna[1] = modC.MostrarTasques().get(i).getTitol();
             columna[2] = modC.MostrarTasques().get(i).getPrioritat();
-            columna[3] = modC.MostrarTasques().get(i).getUsuariAssignat();
+            columna[3] = modC.MostrarTasques().get(i).getUsuariArrayList().get(i);
             columna[4] = modC.MostrarTasques().get(i).getData();
             columna[5] = modC.MostrarTasques().get(i).getEstat();
             columna[6] = modC.MostrarTasques().get(i).getId();
@@ -1886,8 +1906,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             mod.setId(modC.MostrarTasques().get(i).getId());
             modC.GuardarId(mod);
 
+            //}
         }
-
         for (int i = 0; i < numRegistres; i++) {
 
             model_tasques.setValueAt(false, i, 0);
@@ -1895,6 +1915,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         }
 
         vis.jTable_Tasques.setModel(model_tasques);
+
         modelTasques = model_tasques;
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -1909,7 +1930,7 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         vis.jTable_Tasques.removeColumn(vis.jTable_Tasques.getColumnModel().getColumn(6));
 
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) vis.jTable_Tasques.getModel()));
-        //sorter.setRowFilter(RowFilter.regexFilter(vis.txtBuscadorTasques.getText()));
+        sorter.setRowFilter(RowFilter.regexFilter(Login.usuari));
         vis.jTable_Tasques.setRowSorter(sorter);
         vis.jTable_Tasques.getRowSorter().toggleSortOrder(4);
 
@@ -1927,8 +1948,11 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
     public void addCheckBox(int column, JTable table) {
 
         TableColumn tc = table.getColumnModel().getColumn(column);
-        tc.setCellEditor(table.getDefaultEditor(Boolean.class));
-        tc.setCellRenderer(table.getDefaultRenderer(Boolean.class));
+        tc
+                .setCellEditor(table.getDefaultEditor(Boolean.class
+                ));
+        tc.setCellRenderer(table.getDefaultRenderer(Boolean.class
+        ));
 
     }
 
@@ -1942,15 +1966,17 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
         mod.setId(0);
         mod.setDescripcio("");
         mod.setUsuariAssignat("");
+        //mod.setUsuariArrayList(null);
 
         vis.txt_titolTasc.setText("");
         //vis.txt_usuariassignatTasc.setText("");        
         vis.dateTimePicker.datePicker.setDateToToday();
         vis.dateTimePicker.timePicker.setTimeToNow();
         vis.txt_descripcioTasc.setText("");
-        vis.ComboEstatTasc.setSelectedIndex(0);
+        //vis.ComboEstatTasc.setSelectedIndex(0);
         // vis.ComboUsuariAssignat.setSelectedIndex(0);
         vis.jCheckBoxNotificacio.setSelected(false);
+        vis.jTextUsuariAssignat.setText("");
 
         vis.txt_descripcioTasc2.setText("");
         //vis.txt_usuariTasc2.setText("");
@@ -2083,7 +2109,18 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                         vis.txt_titolTasc2.setText(mod.getTitol());
                         vis.ComboUsuariAssignat2.setSelectedItem(mod.getUsuariAssignat());
                         vis.txt_descripcioTasc2.setText(mod.getDescripcio());
+                        String text = "";
+                        String part = "";
+                        System.out.println("DATAASAAAAAAAA:" + mod.getUsuariArrayList().size());
 
+                        String string = mod.getUsuariArrayList().get(0);
+                        String[] parts = string.split(",");
+                        for (int i = 0; i < parts.length; i++) {
+
+                            text = text + parts[i] + "\n";
+
+                        }
+                        vis.jTextUsuariAssignat1.setText(text);
                         String d = mod.getData();
                         String date = d.substring(0, 10);
                         String time = d.substring(11, 16);

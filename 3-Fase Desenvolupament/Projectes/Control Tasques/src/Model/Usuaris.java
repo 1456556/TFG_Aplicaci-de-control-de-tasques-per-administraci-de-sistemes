@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Victor
@@ -20,6 +22,7 @@ public class Usuaris {
     String contrasenya;
     String nivell;
     String estat;
+    
 
     public int getId() {
         return id;

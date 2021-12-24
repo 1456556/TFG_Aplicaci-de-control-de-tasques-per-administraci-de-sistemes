@@ -29,10 +29,16 @@ public class ConsultesRegistre extends Conexio {
         String correu = reg.getCorreu();
         String usuari = reg.getUsuari();
         String contrasenya = reg.getContrasenya();
+        String contrasenya2 = reg.getConfirmarContrasenya();
         reg.setNivell("Administrador");
         reg.setEstat("Actiu");
         String estat = reg.getEstat();
         String nivell = reg.getNivell();
+
+        if (contrasenya2.equals("")) {
+
+            validacio++;
+        }
 
         if (correu.equals("")) {
 
@@ -84,6 +90,7 @@ public class ConsultesRegistre extends Conexio {
 
                         Pattern pattern3 = Pattern.compile("^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,20}$");
                         Matcher matcher3 = pattern3.matcher(contrasenya);
+                        Matcher matcher4 = pattern3.matcher(contrasenya2);
 
                         if (mather.find() == false) {
 
@@ -96,6 +103,14 @@ public class ConsultesRegistre extends Conexio {
                         } else if (!matcher3.matches()) {
 
                             registre = 6;
+
+                        } else if (!matcher4.matches()) {
+
+                            registre = 6;
+
+                        } else if (!contrasenya.equals(contrasenya2)) {
+
+                            registre = 7;
 
                         } else {
 

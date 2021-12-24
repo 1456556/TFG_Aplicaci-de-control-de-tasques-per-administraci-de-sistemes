@@ -23,9 +23,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
@@ -568,6 +570,15 @@ class ControladorElements implements ActionListener, MouseListener, KeyListener 
 
         vis.jTable_Ordinadors.setModel(model_elements);
         modelElements = model_elements;
+
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        for (int i = 0; i < vis.jTable_Ordinadors.getColumnCount(); i++) {
+
+            vis.jTable_Ordinadors.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+
+        }
+
         addCheckBox(0, vis.jTable_Ordinadors);
         vis.jTable_Ordinadors.removeColumn(vis.jTable_Ordinadors.getColumnModel().getColumn(6));
 
@@ -651,6 +662,15 @@ class ControladorElements implements ActionListener, MouseListener, KeyListener 
 
         vis.jTable_Telefons.setModel(model_elements);
         modelElements = model_elements;
+
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        for (int i = 0; i < vis.jTable_Telefons.getColumnCount(); i++) {
+
+            vis.jTable_Telefons.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+
+        }
+
         addCheckBox(0, vis.jTable_Telefons);
         vis.jTable_Telefons.removeColumn(vis.jTable_Telefons.getColumnModel().getColumn(6));
 

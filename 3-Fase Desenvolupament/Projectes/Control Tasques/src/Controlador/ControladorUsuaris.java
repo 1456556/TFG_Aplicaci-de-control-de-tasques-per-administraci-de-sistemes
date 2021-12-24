@@ -16,8 +16,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -111,6 +113,15 @@ public class ControladorUsuaris implements ActionListener, MouseListener, KeyLis
 
         vis.jTable_Usuaris.setModel(model_usuaris);
         modelUsuaris = model_usuaris;
+
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        for (int i = 0; i < vis.jTable_Usuaris.getColumnCount(); i++) {
+
+            vis.jTable_Usuaris.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+
+        }
+
         addCheckBox(0, vis.jTable_Usuaris);
         vis.jTable_Usuaris.removeColumn(vis.jTable_Usuaris.getColumnModel().getColumn(6));
 

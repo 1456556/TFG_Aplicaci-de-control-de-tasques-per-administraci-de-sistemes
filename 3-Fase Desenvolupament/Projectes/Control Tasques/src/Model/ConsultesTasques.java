@@ -81,6 +81,7 @@ public class ConsultesTasques extends Conexio {
     public ArrayList<Tasques> MostrarTasques() {
 
         ArrayList llistaTasques = new ArrayList();
+        ArrayList usuari = new ArrayList();
         Tasques tas;
 
         try {
@@ -98,7 +99,8 @@ public class ConsultesTasques extends Conexio {
                         tas = new Tasques();
                         tas.setTitol(rs.getString(1));
                         tas.setPrioritat(rs.getString(2));
-                        tas.setUsuariAssignat(rs.getString(3));
+                        usuari.add(rs.getString(3));
+                        tas.setUsuariArrayList(usuari);
                         tas.setData(rs.getString(4));
                         tas.setEstat(rs.getString(5));
                         tas.setId(rs.getInt(6));
@@ -131,7 +133,8 @@ public class ConsultesTasques extends Conexio {
                             tas = new Tasques();
                             tas.setTitol(rs.getString(1));
                             tas.setPrioritat(rs.getString(2));
-                            tas.setUsuariAssignat(rs.getString(3));
+                            usuari.add(rs.getString(3));
+                            tas.setUsuariArrayList(usuari);
                             tas.setData(rs.getString(4));
                             tas.setEstat(rs.getString(5));
                             tas.setId(rs.getInt(6));
@@ -145,7 +148,8 @@ public class ConsultesTasques extends Conexio {
                     tas = new Tasques();
                     tas.setTitol(rs.getString(1));
                     tas.setPrioritat(rs.getString(2));
-                    tas.setUsuariAssignat(rs.getString(3));
+                    usuari.add(rs.getString(3));
+                    tas.setUsuariArrayList(usuari);
                     tas.setData(rs.getString(4));
                     tas.setEstat(rs.getString(5));
                     tas.setId(rs.getInt(6));
@@ -710,26 +714,30 @@ public class ConsultesTasques extends Conexio {
         int novaTasca, validacio = 0;
         String titol, descripcio, data, usuari, estat, prioritat, date, time, grup;
         boolean notificacio;
-
+        ArrayList<String> UsuariArrayList = new ArrayList<String>();
+        UsuariArrayList = tas.getUsuariArrayList();
         titol = tas.getTitol();
         descripcio = tas.getDescripcio();
         estat = tas.getEstat();
         System.out.print("ESTAT: " + estat);
         prioritat = tas.getPrioritat();
-        usuari = tas.getUsuariAssignat();
+        usuari = "";
         date = tas.getData();
         time = tas.getHora();
         notificacio = tas.getNotificacio();
         grup = tas.getGrupAfectat();
 
+        if (UsuariArrayList.isEmpty()) {
+
+            validacio++;
+
+        }
+
         if (titol.equals("")) {
 
             validacio++;
         }
-        if (usuari.equals("")) {
 
-            validacio++;
-        }
         if (date.equals("")) {
 
             validacio++;
@@ -754,6 +762,12 @@ public class ConsultesTasques extends Conexio {
                 System.out.println("DAY" + day + "MONTH" + month + "YEAR" + year);
                 date = day + "-" + month + "-" + year;
                 data = date + " " + time;
+
+                for (int i = 0; i < UsuariArrayList.size(); i++) {
+
+                    usuari = usuari + UsuariArrayList.get(i) + ",";
+
+                }
 
                 Connection cn2 = getConexio();
                 PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, notificacio,  setNotificacio, grup) values (?,?,?,?,?,?,?,?,?)");
@@ -1149,6 +1163,7 @@ public class ConsultesTasques extends Conexio {
     public int informacioTasca(Tasques tas) {
 
         System.out.println("ID" + tas.getId());
+        ArrayList usuari = new ArrayList();
         int informacioTasca = 0;
         try {
             Connection cn = getConexio();
@@ -1159,6 +1174,8 @@ public class ConsultesTasques extends Conexio {
 
                 tas.setTitol(rs.getString(2));
                 tas.setPrioritat(rs.getString(3));
+                usuari.add(rs.getString(4));
+                tas.setUsuariArrayList(usuari);
                 tas.setUsuariAssignat(rs.getString(4));
                 tas.setData(rs.getString(5));
                 tas.setEstat(rs.getString(6));
@@ -1273,22 +1290,22 @@ public class ConsultesTasques extends Conexio {
                 j = pst3.executeUpdate();
                 recurrent = true;
             } else {
-                String[] botones = {"Aceptar", "Cancelar"};
+                /*String[] botones = {"Aceptar", "Cancelar"};
                 int ventana = JOptionPane.showOptionDialog(null, "Si eleimines aquesta tasca recurrent, eliminaras totes les programades", "Notificacio Tasca", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
                         botones, botones[0]);
-                if (ventana == 0) {
-                    System.out.println(tas.getIdSubtasca());
-                    PreparedStatement pst = cn2.prepareStatement("DELETE from Tasques WHERE idSubtasca ='" + tas.getIdSubtasca() + "'");
-                    j = pst.executeUpdate();
-                    if (j != 0) {
+                if (ventana == 0) {*/
+                System.out.println(tas.getIdSubtasca());
+                PreparedStatement pst = cn2.prepareStatement("DELETE from Tasques WHERE idSubtasca ='" + tas.getIdSubtasca() + "'");
+                j = pst.executeUpdate();
+                if (j != 0) {
 
-                        recurrent = true;
+                    recurrent = true;
 
-                    } else {
+                } else {
 
-                        recurrent = false;
-                    }
+                    recurrent = false;
                 }
+                //}
             }
 
         } catch (SQLException e) {
