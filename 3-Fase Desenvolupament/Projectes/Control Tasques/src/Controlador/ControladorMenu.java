@@ -70,7 +70,7 @@ public class ControladorMenu implements MouseListener {
         ConsultesTasques modCTasques = new ConsultesTasques();
         ControladorTasques con = new ControladorTasques(modTasques, modCTasques, vis);
         con.inicialitzar();
-        con.MostrarTaula(vis.jTable_Tasques);
+        // con.MostrarTaula(vis.jTable_Tasques);
 
         ConsultesPerfil modCPerfil = new ConsultesPerfil();
         modCPerfil.CargarImatge(vis);

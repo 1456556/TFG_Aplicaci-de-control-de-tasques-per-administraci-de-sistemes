@@ -186,8 +186,26 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
                 sorter.setRowFilter(RowFilter.regexFilter(query));
 
             }
-
+            //DefaultTableModel mo = new DefaultTableModel();
+            sorter.setModel(modelTasques);
+            System.out.println("VIW COUNT" + sorter.getViewRowCount());
+            System.out.println("Model COUNT" + sorter.getModel());
+            System.out.println("Column COUNT" + vis.jTable_Tasques.getRowCount());
             vis.jTable_Tasques.setRowSorter(sorter);
+            //vis.jTable_Tasques.setModel(sorter.getModel());
+            for (int i = 0; i < vis.jTable_Tasques.getRowCount(); i++) {
+
+                System.out.println("SORT KEY" + vis.jTable_Tasques.getModel().getValueAt(i, 1));
+                String usuaris = (String) vis.jTable_Tasques.getValueAt(i, 3);
+                String[] parts = usuaris.split("<br>");
+                int aux = 40;
+                for (int j = 1; j < parts.length; j++) {
+                    vis.jTable_Tasques.setRowHeight(i, aux);
+                    aux = aux + 15;
+
+                }
+
+            }
         }
     }
 
@@ -952,7 +970,8 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
         if (e.getSource() == vis.jButtonAfegirUsuari1) {
 
-            String usuari = (String) vis.ComboUsuariAssignat1.getSelectedItem();
+            System.out.println("Usari:" + vis.ComboUsuariAssignat2.getSelectedItem());
+            String usuari = (String) vis.ComboUsuariAssignat2.getSelectedItem();
             ArrayList<String> UsuariArrayList = mod.getUsuariArrayList();
             String line = "";
 
@@ -1897,7 +1916,11 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
 
             columna[1] = modC.MostrarTasques().get(i).getTitol();
             columna[2] = modC.MostrarTasques().get(i).getPrioritat();
-            columna[3] = modC.MostrarTasques().get(i).getUsuariArrayList().get(i);
+            String usuari = modC.MostrarTasques().get(i).getUsuariArrayList().get(i);
+            String sinSaltos = usuari.replaceAll("\n", "<br> ");
+            usuari = "<HTML> " + sinSaltos + " </HTML>";
+            System.out.print("UASUARI HTLM: " + usuari);
+            columna[3] = usuari;
             columna[4] = modC.MostrarTasques().get(i).getData();
             columna[5] = modC.MostrarTasques().get(i).getEstat();
             columna[6] = modC.MostrarTasques().get(i).getId();
@@ -1906,7 +1929,6 @@ public class ControladorTasques extends JFPrincipal implements ActionListener, M
             mod.setId(modC.MostrarTasques().get(i).getId());
             modC.GuardarId(mod);
 
-            //}
         }
         for (int i = 0; i < numRegistres; i++) {
 

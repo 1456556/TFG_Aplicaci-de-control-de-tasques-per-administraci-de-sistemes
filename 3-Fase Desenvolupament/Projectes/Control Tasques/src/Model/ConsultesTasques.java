@@ -765,10 +765,21 @@ public class ConsultesTasques extends Conexio {
 
                 for (int i = 0; i < UsuariArrayList.size(); i++) {
 
-                    usuari = usuari + UsuariArrayList.get(i) + ",";
+                    if (i == UsuariArrayList.size() - 1) {
+
+                        usuari = usuari + UsuariArrayList.get(i) + " ";
+
+                    } else {
+
+                        usuari = usuari + UsuariArrayList.get(i) + " " + "\n";
+
+                    }
 
                 }
 
+                //String sinSaltos = usuari.replaceAll("\n", "<br> ");
+                //usuari = "<HTML> " + sinSaltos + " </HTML>";
+                //System.out.print("UASUARI HTLM: " + usuari);
                 Connection cn2 = getConexio();
                 PreparedStatement pst2 = cn2.prepareStatement("insert into Tasques (titol, prioritat, usuari, data, estat, descripcio, notificacio,  setNotificacio, grup) values (?,?,?,?,?,?,?,?,?)");
 
@@ -947,26 +958,32 @@ public class ConsultesTasques extends Conexio {
 
         int editarTasca, id, validacio = 0;
         String titol, descripcio, data, usuari, estat, prioritat, date, time, array, grup;
+        ArrayList<String> UsuariArrayList = new ArrayList<String>();
+        UsuariArrayList = tas.getUsuariArrayList();
         titol = tas.getTitol();
         descripcio = tas.getDescripcio();
         estat = tas.getEstat();
         prioritat = tas.getPrioritat();
-        usuari = tas.getUsuariAssignat();
+        usuari = "";
         date = tas.getData();
         time = tas.getHora();
         id = tas.getId();
         array = tas.getArray();
         grup = tas.getGrupAfectat();
         System.out.println("IDTASCA " + id);
+        System.out.println("IDTASCA " + UsuariArrayList);
+
+        if (UsuariArrayList.isEmpty()) {
+
+            validacio++;
+
+        }
 
         if (titol.equals("")) {
 
             validacio++;
         }
-        if (usuari.equals("")) {
 
-            validacio++;
-        }
         if (date.equals("")) {
 
             validacio++;
@@ -983,6 +1000,20 @@ public class ConsultesTasques extends Conexio {
         if (validacio == 0) {
 
             try {
+
+                for (int i = 0; i < UsuariArrayList.size(); i++) {
+
+                    if (i == UsuariArrayList.size() - 1) {
+
+                        usuari = usuari + UsuariArrayList.get(i) + " ";
+
+                    } else {
+
+                        usuari = usuari + UsuariArrayList.get(i) + " " + "\n";
+
+                    }
+
+                }
 
                 Connection cn2 = MVC.Conexio.conectar();
                 PreparedStatement pst2 = cn2.prepareStatement("update Tasques set titol=?, prioritat=?, usuari=?, data=?, estat=?, descripcio=?, array=?, grup=? where id_tasca = '" + tas.getId() + "'");
