@@ -45,7 +45,10 @@ public class JFPrincipal2 extends javax.swing.JFrame {
 
     public boolean jf = false;
 
+    Resaltador resaltado;
+
     public JFPrincipal2() {
+
         initComponents();
 
         jTable_Tasques.getTableHeader().setOpaque(false);

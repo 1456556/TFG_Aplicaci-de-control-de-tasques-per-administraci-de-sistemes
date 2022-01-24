@@ -14,6 +14,7 @@ import Model.Tasques;
 import Model.Usuaris;
 import Vista.Home;
 import Vista.JFPrincipal2;
+import Vista.Resaltador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -76,6 +77,7 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
         this.vis.jButtonTascaNormal.addMouseListener(this);
         this.vis.jButtonTascaRepeticio.addMouseListener(this);
         this.vis.jComboBoxDashTasquesUsuari.addItemListener(this);
+
         this.vis.jButtonAceptar.addActionListener(this);
         this.vis.jButtonAfegirUsuari.addActionListener(this);
         this.vis.jButtonAfegirUsuari1.addActionListener(this);
@@ -172,6 +174,13 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
 
     }
 
+    public void controlarNotificacioXat() {
+
+        // int idTascaXat = modC.ControladorXat();
+        //if (idTascaXat != 0) {
+        // }
+    }
+
     @Override
     public void itemStateChanged(ItemEvent e) {
 
@@ -208,6 +217,7 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
 
             }
         }
+
     }
 
     public void NotificacioTasca(int id) {
@@ -2259,6 +2269,11 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
         sorter.setRowFilter(RowFilter.regexFilter(Login.usuari));
         vis.jTable_Tasques.setRowSorter(sorter);
         vis.jTable_Tasques.getRowSorter().toggleSortOrder(4);
+
+        Resaltador resaltado = new Resaltador(2);
+        // resaltado.setFila(2);
+        //jTable_Tasques.setDefaultRenderer(Object.class, resaltado);
+        //resaltado = new Resaltador(2);
 
     }
 

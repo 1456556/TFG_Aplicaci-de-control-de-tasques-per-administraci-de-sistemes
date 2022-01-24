@@ -212,6 +212,46 @@ public class Home extends javax.swing.JFrame {
 
         }
 
+        String usuaris = "";
+        try {
+
+            Connection cn = d.getConexio();
+            PreparedStatement pst = cn.prepareStatement("SELECT usuari FROM Tasques WHERE id_tasca='" + idTasca + "'");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                usuaris = rs.getString(1);
+                System.out.println("usuaris" + usuaris);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("ERROR" + e);
+        }
+
+        String usuariReplace = usuaris.replace(Login.usuari, "");
+        System.out.println("usuarisReplace" + usuariReplace);
+        //String str = "geekss@for@geekss";
+        String[] arrOfStr = usuariReplace.split("\n", 5);
+
+        for (String a : arrOfStr) {
+            System.out.println("usuari " + a);
+
+            try {
+
+                Connection cn = d.getConexio();
+
+                PreparedStatement s = cn.prepareStatement("Update Usuaris SET xat=? WHERE usuari='" + a + "'");
+
+                s.setInt(1, idTasca);
+
+                s.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e);
+
+            }
+        }
+
         jList1.updateUI();
 
         load_caht();
