@@ -114,11 +114,13 @@ public class ConsultesPerfil extends Conexio {
 
             if (rs.next()) {
 
-                ImageIcon MyImage = new ImageIcon(rs.getBytes(2));
-                Image img = MyImage.getImage();
-                Image newImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-                ImageIcon image = new ImageIcon(newImg);
-                vis.txt_fotoUsuari.setIcon(image);
+                if (rs.getString(1) != null) {
+                    ImageIcon MyImage = new ImageIcon(rs.getBytes(2));
+                    Image img = MyImage.getImage();
+                    Image newImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                    ImageIcon image = new ImageIcon(newImg);
+                    vis.txt_fotoUsuari.setIcon(image);
+                }
 
             }
 
