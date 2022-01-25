@@ -45,6 +45,7 @@ public class ScheduledTask extends TimerTask {
 
         try {
             cn.Notificacio(now);
+            cn.controlarNotificacioXat();
             //principal.inicialitzarNotificacio(now);
 
             // principal.recordatori(now);

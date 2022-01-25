@@ -31,9 +31,27 @@ public class Home extends javax.swing.JFrame {
 
     }
 
-    public void load_caht() {
+    public void load_caht(int idXat) {
 
         Conexio d = new Conexio();
+
+        if (idXat == idTasca) {
+
+            try {
+
+                Connection cn = d.getConexio();
+
+                PreparedStatement s = cn.prepareStatement("Update Usuaris SET xat=? WHERE usuari='" + Login.usuari + "'");
+
+                s.setInt(1, 1);
+
+                s.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e);
+
+            }
+
+        }
 
         try {
 
@@ -236,14 +254,39 @@ public class Home extends javax.swing.JFrame {
 
         for (String a : arrOfStr) {
             System.out.println("usuari " + a);
+            String usu = "";
+            try {
+
+                Connection cn = d.getConexio();
+                PreparedStatement pst = cn.prepareStatement("SELECT xat FROM Usuaris WHERE usuari='" + a + "'");
+                ResultSet rs = pst.executeQuery();
+
+                while (rs.next()) {
+
+                    usu = rs.getString(1);
+                    System.out.println("usu" + usu);
+                }
+
+            } catch (SQLException e) {
+                System.out.println("ERROR" + e);
+            }
 
             try {
 
                 Connection cn = d.getConexio();
 
                 PreparedStatement s = cn.prepareStatement("Update Usuaris SET xat=? WHERE usuari='" + a + "'");
+                String idtas = String.valueOf(idTasca);
 
-                s.setInt(1, idTasca);
+                if (!usu.contains(idtas)) {
+
+                    if (usu.isEmpty()) {
+                        s.setString(1, idtas);
+                    } else {
+                        s.setString(1, usu + "\n" + idTasca);
+                    }
+
+                }
 
                 s.executeUpdate();
             } catch (SQLException e) {
@@ -254,7 +297,7 @@ public class Home extends javax.swing.JFrame {
 
         jList1.updateUI();
 
-        load_caht();
+        load_caht(1000000);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

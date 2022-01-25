@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista;
+package Controlador;
 
 import java.awt.Color;
 import java.awt.Component;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 
-public class Resaltador implements TableCellRenderer {
+public class Resaltador extends JLabel implements TableCellRenderer {
 
     private Integer fila;
     public static final DefaultTableCellRenderer DEFAULT_RENDERER = new DefaultTableCellRenderer();
@@ -23,6 +24,7 @@ public class Resaltador implements TableCellRenderer {
      */
     public Resaltador(Integer row) {
         fila = row;
+        setOpaque(true);
     }
 
     /**
@@ -57,7 +59,7 @@ public class Resaltador implements TableCellRenderer {
         // En los demas casos se coloreara de este modo
         // } else {
         //   c.setBackground(Color.WHITE);
-        c.setForeground(Color.BLACK);
+        //c.setForeground(Color.BLACK);
         //  }
         // Regresamos la celda para que se agrege a la tabla
         return c;

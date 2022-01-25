@@ -14,7 +14,6 @@ import Model.Tasques;
 import Model.Usuaris;
 import Vista.Home;
 import Vista.JFPrincipal2;
-import Vista.Resaltador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -57,7 +56,6 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
     public Tasques mod;
     public ConsultesTasques modC;
     public JFPrincipal2 vis;
-
     public DefaultTableModel modelTasques;
 
     public ControladorTasques(Tasques mod, ConsultesTasques modC, JFPrincipal2 vis) {
@@ -160,11 +158,13 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
     }
 
     public void inicialitzar() {
+        //controlarNotificacioXat();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException ex) {
             Logger.getLogger(ControladorTasques.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         MostrarTaula(vis.jTable_Tasques);
         DefaultComboBoxModel mdl = new DefaultComboBoxModel();
         mdl.removeAllElements();
@@ -172,13 +172,6 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
         modC.UsuariAssignat3(vis, 2);
         mdl.setSelectedItem(Login.usuari);
 
-    }
-
-    public void controlarNotificacioXat() {
-
-        // int idTascaXat = modC.ControladorXat();
-        //if (idTascaXat != 0) {
-        // }
     }
 
     @Override
@@ -1194,7 +1187,8 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
 
             System.out.println("EO" + mod.getUsuariArrayList());
             Home home = new Home(mod.getId());
-            home.load_caht();
+
+            home.load_caht(ControladorNotificacio.idXat);
             home.setVisible(true);
 
         }
@@ -1203,7 +1197,7 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
 
             System.out.println("EO" + mod.getUsuariArrayList());
             Home home = new Home(mod.getId());
-            home.load_caht();
+            home.load_caht(ControladorNotificacio.idXat);
             home.setVisible(true);
 
         }
@@ -2244,6 +2238,7 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
             modC.GuardarId(mod);
 
         }
+
         for (int i = 0; i < numRegistres; i++) {
 
             model_tasques.setValueAt(false, i, 0);
@@ -2270,11 +2265,23 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
         vis.jTable_Tasques.setRowSorter(sorter);
         vis.jTable_Tasques.getRowSorter().toggleSortOrder(4);
 
-        Resaltador resaltado = new Resaltador(2);
-        // resaltado.setFila(2);
-        //jTable_Tasques.setDefaultRenderer(Object.class, resaltado);
-        //resaltado = new Resaltador(2);
+        for (int i = 0; i < numRegistres; i++) {
 
+            if (modC.MostrarTasques().get(i).getId() == ControladorNotificacio.idXat) {
+                System.out.println("ID Xat" + ControladorNotificacio.idXat);
+                TableColumn columna4 = vis.jTable_Tasques.getColumnModel().getColumn(1);// selecciono la columna que me interesa de la tabla
+                EditorCeldas TableCellRenderer = new EditorCeldas();
+                TableCellRenderer.setColumns(1); //se le da por parametro la columna que se quiere modificar
+                TableCellRenderer.setRow(i);//se le da por parametro la fila que se quiere modificar
+                columna4.setCellRenderer(TableCellRenderer); // le aplico la edicion*/
+
+            }
+
+        }
+
+        //centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        //vis.jTable_Tasques.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
+        //vis.resaltador();
     }
 
     @Override

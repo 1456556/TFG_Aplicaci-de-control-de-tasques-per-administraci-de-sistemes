@@ -44,6 +44,8 @@ public class ControladorNotificacio {
     public ConsultesNotificacio modC;
     public JFPrincipal2 vis;
     public DefaultTableModel modelTasques;
+    public static int idXat;
+    static int[] resultados;
 
     public ControladorNotificacio(Notificacio mod, ConsultesNotificacio modC, JFPrincipal2 vis) {
 
@@ -51,6 +53,17 @@ public class ControladorNotificacio {
         this.modC = modC;
         this.vis = vis;
 
+    }
+
+    public void controlarNotificacioXat() {
+
+        int idTascaXat = modC.ControladorXat();
+        if (idTascaXat != 0) {
+
+            idXat = idTascaXat;
+            System.out.println("ID XAAAAAAT :" + idXat);
+
+        }
     }
 
     public void Notificacio(Date date) throws MessagingException {

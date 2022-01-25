@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.ControladorMenu;
+import Controlador.Resaltador;
 import MVC.Conexio;
 import Model.Login;
 import java.awt.Color;
@@ -127,6 +128,16 @@ public class JFPrincipal2 extends javax.swing.JFrame {
         this.setIconImage(icono);
 
         execute();
+
+        resaltado = new Resaltador(0);
+        jTable_Tasques.setDefaultRenderer(Object.class, resaltado);
+
+    }
+
+    public void resaltador() {
+
+        resaltado.setFila(2);
+
     }
 
     private void execute() {
@@ -3601,6 +3612,11 @@ public class JFPrincipal2 extends javax.swing.JFrame {
         jCheckBoxDimarts1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxDimarts1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         jCheckBoxDimarts1.setForeground(new java.awt.Color(0, 0, 0));
+        jCheckBoxDimarts1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxDimarts1ActionPerformed(evt);
+            }
+        });
         DashInfoTascaRepeticio.add(jCheckBoxDimarts1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
 
         jCheckBoxDiumenge1.setText("Diumenge");
@@ -6164,6 +6180,10 @@ public class JFPrincipal2 extends javax.swing.JFrame {
     private void jButtonCanviarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCanviarFotoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonCanviarFotoActionPerformed
+
+    private void jCheckBoxDimarts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxDimarts1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxDimarts1ActionPerformed
 
     /**
      * @param args the command line arguments

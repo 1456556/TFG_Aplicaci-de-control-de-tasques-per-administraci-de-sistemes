@@ -16,6 +16,33 @@ import java.sql.SQLException;
  */
 public class ConsultesNotificacio extends Conexio {
 
+    public int ControladorXat() {
+
+        int controlador = 0;
+
+        try {
+
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select xat from Usuaris where usuari = '" + Login.usuari + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                controlador = rs.getInt(1);
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println(e + "Error al buscar el id del grup per mostrar la taula a infotasques");
+
+        }
+
+        return controlador;
+    }
+
     public int Notificacio(Notificacio not) {
 
         int notificacio = 0;
