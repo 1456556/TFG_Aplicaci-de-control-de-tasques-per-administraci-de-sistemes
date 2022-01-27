@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JPanel;
 
@@ -31,27 +32,10 @@ public class Home extends javax.swing.JFrame {
 
     }
 
-    public void load_caht(int idXat) {
+    public void load_caht(ArrayList resultados) {
 
         Conexio d = new Conexio();
-
-        if (idXat == idTasca) {
-
-            try {
-
-                Connection cn = d.getConexio();
-
-                PreparedStatement s = cn.prepareStatement("Update Usuaris SET xat=? WHERE usuari='" + Login.usuari + "'");
-
-                s.setInt(1, 1);
-
-                s.executeUpdate();
-            } catch (SQLException e) {
-                System.out.println(e);
-
-            }
-
-        }
+        String idxat = "";
 
         try {
 
@@ -61,7 +45,6 @@ public class Home extends javax.swing.JFrame {
             String missatge = "";
             while (rs.next()) {
                 DefaultListModel cm = new DefaultListModel();
-
                 java.sql.Blob ablob = rs.getBlob(1);
                 missatge = new String(ablob.getBytes(1l, (int) ablob.length()));
 
@@ -249,7 +232,6 @@ public class Home extends javax.swing.JFrame {
 
         String usuariReplace = usuaris.replace(Login.usuari, "");
         System.out.println("usuarisReplace" + usuariReplace);
-        //String str = "geekss@for@geekss";
         String[] arrOfStr = usuariReplace.split("\n", 5);
 
         for (String a : arrOfStr) {
@@ -297,8 +279,7 @@ public class Home extends javax.swing.JFrame {
 
         jList1.updateUI();
 
-        load_caht(1000000);
-
+        // load_caht();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void changecolor(JPanel hover, Color rand) {

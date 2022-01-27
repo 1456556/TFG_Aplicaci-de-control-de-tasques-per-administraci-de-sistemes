@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 import javax.mail.Message;
@@ -45,7 +46,7 @@ public class ControladorNotificacio {
     public JFPrincipal2 vis;
     public DefaultTableModel modelTasques;
     public static int idXat;
-    static int[] resultados;
+    public static ArrayList<String> resultados;
 
     public ControladorNotificacio(Notificacio mod, ConsultesNotificacio modC, JFPrincipal2 vis) {
 
@@ -55,15 +56,47 @@ public class ControladorNotificacio {
 
     }
 
-    public void controlarNotificacioXat() {
+    public void controlarNotificacioXat() throws InterruptedException {
 
-        int idTascaXat = modC.ControladorXat();
-        if (idTascaXat != 0) {
+        resultados = new ArrayList<>();
 
-            idXat = idTascaXat;
-            System.out.println("ID XAAAAAAT :" + idXat);
+        modC.ControladorXat();
+
+        if (resultados.size() >= 2) {
+            Thread.sleep(5000);
+            for (int i = 0; i < resultados.size(); i++) {
+
+                System.out.print("Resultados" + resultados.get(i));
+                int id = Integer.valueOf(resultados.get(i));
+                String titol = "";
+                String missatge = "";
+                titol = modC.TitolTasca(id);
+                missatge = modC.MSGTasca(id);
+
+                if (i == 1) {
+                    vis.NotificacioXat(0, titol, missatge);
+                }
+                if (i == 2) {
+                    vis.NotificacioXat(80, titol, missatge);
+                }
+                if (i == 3) {
+                    vis.NotificacioXat(160, titol, missatge);
+                }
+                if (i == 4) {
+                    vis.NotificacioXat(240, titol, missatge);
+                }
+                if (i == 5) {
+                    vis.NotificacioXat(320, titol, missatge);
+                }
+
+            }
+
+            modC.DeleteControladorXat(resultados);
 
         }
+
+        // idXat = idTascaXat;
+        // System.out.println("ID XAAAAAAT :" + idXat);
     }
 
     public void Notificacio(Date date) throws MessagingException {

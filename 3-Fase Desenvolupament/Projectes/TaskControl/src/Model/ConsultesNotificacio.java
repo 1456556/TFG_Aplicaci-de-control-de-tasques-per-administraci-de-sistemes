@@ -5,10 +5,13 @@
  */
 package Model;
 
+import Controlador.ControladorNotificacio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -16,9 +19,10 @@ import java.sql.SQLException;
  */
 public class ConsultesNotificacio extends Conexio {
 
-    public int ControladorXat() {
+    public void ControladorXat() {
 
-        int controlador = 0;
+        // int controlador = 0;
+        String controlador = "";
 
         try {
 
@@ -28,7 +32,15 @@ public class ConsultesNotificacio extends Conexio {
 
             if (rs.next()) {
 
-                controlador = rs.getInt(1);
+                controlador = rs.getString(1);
+
+                String[] aux = controlador.split("\n");
+
+                for (int i = 0; i < aux.length; i++) {
+
+                    ControladorNotificacio.resultados.add(i, aux[i]);
+                    System.out.println("Notificacio XAT " + ControladorNotificacio.resultados.get(i));
+                }
 
             }
 
@@ -40,7 +52,115 @@ public class ConsultesNotificacio extends Conexio {
 
         }
 
-        return controlador;
+    }
+
+    public String TitolTasca(int id) {
+
+        String titol = "";
+
+        try {
+
+            Connection cn = getConexio();
+            PreparedStatement pst = cn.prepareStatement("select titol from Tasques where id_tasca = '" + id + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                titol = rs.getString(1);
+
+            }
+
+            cn.close();
+
+        } catch (SQLException e) {
+
+            System.err.println(e + "Error al buscar el id del grup per mostrar la taula a infotasques");
+
+        }
+
+        return titol;
+
+    }
+
+    public String MSGTasca(int id) {
+        Conexio d = new Conexio();
+
+        String miss = "";
+
+        try {
+
+            Connection cn = d.getConexio();
+            PreparedStatement pst = cn.prepareStatement("SELECT msg FROM Tasques WHERE id_tasca='" + id + "'");
+            ResultSet rs = pst.executeQuery();
+            String missatge = "";
+            while (rs.next()) {
+                DefaultListModel cm = new DefaultListModel();
+                java.sql.Blob ablob = rs.getBlob(1);
+                missatge = new String(ablob.getBytes(1l, (int) ablob.length()));
+
+                System.out.println("missatge" + missatge);
+                String[] parts = missatge.split(";");
+                System.out.println(parts.toString());
+                for (int i = 0; i < parts.length; i++) {
+
+                    cm.addElement(parts[i].toString());
+
+                }
+
+                miss = parts[parts.length - 1].toString();
+            }
+
+        } catch (SQLException e) {
+            System.out.println("ERROR" + e);
+        }
+        return miss;
+    }
+
+    public void DeleteControladorXat(ArrayList<String> resultados) {
+
+        for (int i = 0; i < resultados.size(); i++) {
+
+            ControladorNotificacio.resultados.remove(i);
+
+        }
+        Conexio d = new Conexio();
+        /* for (int i = 0; i < resultados.size(); i++) {
+
+            if (Integer.valueOf((String) resultados.get(i)) == idTasca) {
+
+                String su = String.valueOf(idTasca);
+                resultados.remove(i);
+
+                for (int j = 0; j < resultados.size(); j++) {
+
+                    String aux = (String) resultados.get(j);
+
+                    //if (j == resultados.size() - 1) {
+                    if (j == 0) {
+
+                        idxat = idxat + aux;
+                    } else {
+                        idxat = idxat + aux + "\n";
+                    }
+
+                    //}else{
+                    // idxat = aux
+                }*/
+
+        try {
+
+            Connection cn = d.getConexio();
+
+            PreparedStatement s = cn.prepareStatement("Update Usuaris SET xat=? WHERE usuari='" + Login.usuari + "'");
+
+            s.setString(1, "0");
+
+            s.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+
+        }
+
     }
 
     public int Notificacio(Notificacio not) {

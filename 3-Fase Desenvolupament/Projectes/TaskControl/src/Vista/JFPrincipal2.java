@@ -140,6 +140,13 @@ public class JFPrincipal2 extends javax.swing.JFrame {
 
     }
 
+    public void NotificacioXat(int aux, String titol, String missatge) {
+
+        Notification panel = new Notification(this, Notification.Type.INFO, Notification.Location.BOTTOM_RIGHT, "Message info notification type", aux, titol, missatge);
+        panel.showNotification();
+
+    }
+
     private void execute() {
 
         ControladorMenu menu = new ControladorMenu(this);

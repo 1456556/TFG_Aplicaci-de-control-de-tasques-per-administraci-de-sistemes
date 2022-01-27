@@ -52,6 +52,8 @@ public class ScheduledTask extends TimerTask {
             //principal.Notificacio(now);
         } catch (MessagingException ex) {
             Logger.getLogger(ScheduledTask.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ScheduledTask.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

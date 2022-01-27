@@ -189,6 +189,49 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
                 sorter.setRowFilter(RowFilter.regexFilter(query));
 
             }
+            String us = (String) vis.jComboBoxDashTasquesUsuari.getModel().getSelectedItem();
+            System.out.println("Queryyy" + query);
+            if (query == Login.usuari) {
+
+                if (!ControladorNotificacio.resultados.equals(0)) {
+                    EditorCeldas TableCellRenderer = new EditorCeldas();
+                    TableColumn columna4 = vis.jTable_Tasques.getColumnModel().getColumn(1);
+
+                    for (int j = 0; j < ControladorNotificacio.resultados.size(); j++) {
+                        int idXat = Integer.valueOf(ControladorNotificacio.resultados.get(j));
+
+                        // selecciono la columna que me interesa de la tabla
+                        for (int i = 0; i < vis.jTable_Tasques.getRowCount(); i++) {
+
+                            if (modC.MostrarTasques().get(i).getId() == idXat) {
+                                System.out.println("ID Xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat" + idXat);
+
+                                TableCellRenderer.setColumns(1);
+                                TableCellRenderer.setRow(j);
+                                columna4.setCellRenderer(TableCellRenderer);
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            } else {
+                //    vis.jTable_Tasques.setBackground(Color.red);
+                EditorCeldas TableCellRenderer2 = new EditorCeldas();
+                TableColumn columna5 = vis.jTable_Tasques.getColumnModel().getColumn(1);
+
+                TableCellRenderer2.setColumns(1);
+                TableCellRenderer2.setRow(1);
+                // TableCellRenderer.setColumns(1); //se le da por parametro la columna que se quiere modificar
+                //  TableCellRenderer.setRow(0);//se le da por parametro la fila que se quiere modificar
+                // le aplico la edicion
+                columna5.setCellRenderer(TableCellRenderer2);
+
+            }
+
             //DefaultTableModel mo = new DefaultTableModel();
             sorter.setModel(modelTasques);
             System.out.println("VIW COUNT" + sorter.getViewRowCount());
@@ -209,6 +252,8 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
                 }
 
             }
+
+            //String us = (String) mdl.getSelectedItem();
         }
 
     }
@@ -1187,8 +1232,7 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
 
             System.out.println("EO" + mod.getUsuariArrayList());
             Home home = new Home(mod.getId());
-
-            home.load_caht(ControladorNotificacio.idXat);
+            home.load_caht(ControladorNotificacio.resultados);
             home.setVisible(true);
 
         }
@@ -1197,7 +1241,7 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
 
             System.out.println("EO" + mod.getUsuariArrayList());
             Home home = new Home(mod.getId());
-            home.load_caht(ControladorNotificacio.idXat);
+            home.load_caht(ControladorNotificacio.resultados);
             home.setVisible(true);
 
         }
@@ -2265,20 +2309,8 @@ public class ControladorTasques extends JFPrincipal2 implements ActionListener, 
         vis.jTable_Tasques.setRowSorter(sorter);
         vis.jTable_Tasques.getRowSorter().toggleSortOrder(4);
 
-        for (int i = 0; i < numRegistres; i++) {
-
-            if (modC.MostrarTasques().get(i).getId() == ControladorNotificacio.idXat) {
-                System.out.println("ID Xat" + ControladorNotificacio.idXat);
-                TableColumn columna4 = vis.jTable_Tasques.getColumnModel().getColumn(1);// selecciono la columna que me interesa de la tabla
-                EditorCeldas TableCellRenderer = new EditorCeldas();
-                TableCellRenderer.setColumns(1); //se le da por parametro la columna que se quiere modificar
-                TableCellRenderer.setRow(i);//se le da por parametro la fila que se quiere modificar
-                columna4.setCellRenderer(TableCellRenderer); // le aplico la edicion*/
-
-            }
-
-        }
-
+        // DefaultComboBoxModel mdl = new DefaultComboBoxModel();
+        // columna5.setCellRenderer(TableCellRenderer);
         //centerRenderer.setHorizontalAlignment(JLabel.CENTER);
         //vis.jTable_Tasques.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
         //vis.resaltador();

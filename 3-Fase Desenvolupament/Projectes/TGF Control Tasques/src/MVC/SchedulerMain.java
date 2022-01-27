@@ -31,21 +31,15 @@ public class SchedulerMain {
         Login mod = new Login();
         ConsultesLogin modC = new ConsultesLogin();
         //  JFLogin vist = new JFLogin();
-        
-        
+
         // ControladorLogin con = new ControladorLogin(mod, modC, vist, principal, contrasenya, jf);
         // con.inicialitzar();
         // vist.setVisible(true);
-        
-        
-       
-        
-
         JFVista vist = new JFVista();
         JFVista v = new JFVista(vist);
         vist.setVisible(true);
-        
-         ControladorMenu men = new ControladorMenu(vist);
+
+        ControladorMenu men = new ControladorMenu(vist);
 
         //Principal principal = new Principal();
         //principal.setVisible(true);
